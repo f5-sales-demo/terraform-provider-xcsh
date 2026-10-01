@@ -1,0 +1,2848 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:dns_proxy:fundamentals",
+    "id": "xcsh-docs:data-sources:dns_proxy:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:reference",
+        "schema_path": ["annotations"]
+      },
+      "cache_profile": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:cache_profile",
+        "schema_path": ["cache_profile"]
+      },
+      "cache_profile.cache_size": {
+        "anchor": "schema-cache_profile--cache_size",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:cache_profile",
+        "schema_path": ["cache_profile", "cache_size"]
+      },
+      "cache_profile.disable_cache_profile": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:cache_profile:disable_cache_profile",
+        "schema_path": ["cache_profile", "disable_cache_profile"]
+      },
+      "ddos_profile": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile",
+        "schema_path": ["ddos_profile"]
+      },
+      "ddos_profile.disable_ddos_mitigation": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile:disable_ddos_mitigation",
+        "schema_path": ["ddos_profile", "disable_ddos_mitigation"]
+      },
+      "ddos_profile.enable_ddos_mitigation": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile:enable_ddos_mitigation",
+        "schema_path": ["ddos_profile", "enable_ddos_mitigation"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:reference",
+        "schema_path": ["id"]
+      },
+      "irules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:irules",
+        "schema_path": ["irules"]
+      },
+      "irules.name": {
+        "anchor": "schema-irules--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:irules",
+        "schema_path": ["irules", "name"]
+      },
+      "irules.namespace": {
+        "anchor": "schema-irules--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:irules",
+        "schema_path": ["irules", "namespace"]
+      },
+      "irules.tenant": {
+        "anchor": "schema-irules--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:irules",
+        "schema_path": ["irules", "tenant"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:reference",
+        "schema_path": ["labels"]
+      },
+      "lb_algorithm": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:lb_algorithm",
+        "schema_path": ["lb_algorithm"]
+      },
+      "lb_algorithm.round_robin": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:lb_algorithm:round_robin",
+        "schema_path": ["lb_algorithm", "round_robin"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:reference",
+        "schema_path": ["namespace"]
+      },
+      "origin_servers": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers",
+        "schema_path": ["origin_servers"]
+      },
+      "origin_servers.health_checks": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks",
+        "schema_path": ["origin_servers", "health_checks"]
+      },
+      "origin_servers.health_checks.health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check"]
+      },
+      "origin_servers.health_checks.health_check.dns_health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:dns_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "dns_health_check"]
+      },
+      "origin_servers.health_checks.health_check.dns_health_check.expected_rcode": {
+        "anchor": "schema-origin_servers--health_checks--health_check--dns_health_check--expected_rcode",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:dns_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "dns_health_check", "expected_rcode"]
+      },
+      "origin_servers.health_checks.health_check.dns_health_check.expected_record_type": {
+        "anchor": "schema-origin_servers--health_checks--health_check--dns_health_check--expected_record_type",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:dns_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "dns_health_check", "expected_record_type"]
+      },
+      "origin_servers.health_checks.health_check.dns_health_check.expected_response": {
+        "anchor": "schema-origin_servers--health_checks--health_check--dns_health_check--expected_response",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:dns_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "dns_health_check", "expected_response"]
+      },
+      "origin_servers.health_checks.health_check.dns_health_check.query_name": {
+        "anchor": "schema-origin_servers--health_checks--health_check--dns_health_check--query_name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:dns_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "dns_health_check", "query_name"]
+      },
+      "origin_servers.health_checks.health_check.dns_health_check.query_type": {
+        "anchor": "schema-origin_servers--health_checks--health_check--dns_health_check--query_type",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:dns_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "dns_health_check", "query_type"]
+      },
+      "origin_servers.health_checks.health_check.dns_health_check.reverse": {
+        "anchor": "schema-origin_servers--health_checks--health_check--dns_health_check--reverse",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:dns_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "dns_health_check", "reverse"]
+      },
+      "origin_servers.health_checks.health_check.icmp_health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:icmp_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "icmp_health_check"]
+      },
+      "origin_servers.health_checks.health_check.tcp_health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:tcp_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "tcp_health_check"]
+      },
+      "origin_servers.health_checks.health_check.tcp_health_check.expected_response": {
+        "anchor": "schema-origin_servers--health_checks--health_check--tcp_health_check--expected_response",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:tcp_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "tcp_health_check", "expected_response"]
+      },
+      "origin_servers.health_checks.health_check.tcp_health_check.send_payload": {
+        "anchor": "schema-origin_servers--health_checks--health_check--tcp_health_check--send_payload",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:tcp_health_check",
+        "schema_path": ["origin_servers", "health_checks", "health_check", "tcp_health_check", "send_payload"]
+      },
+      "origin_servers.health_checks.healthy_threshold": {
+        "anchor": "schema-origin_servers--health_checks--healthy_threshold",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks",
+        "schema_path": ["origin_servers", "health_checks", "healthy_threshold"]
+      },
+      "origin_servers.health_checks.interval": {
+        "anchor": "schema-origin_servers--health_checks--interval",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks",
+        "schema_path": ["origin_servers", "health_checks", "interval"]
+      },
+      "origin_servers.health_checks.timeout": {
+        "anchor": "schema-origin_servers--health_checks--timeout",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks",
+        "schema_path": ["origin_servers", "health_checks", "timeout"]
+      },
+      "origin_servers.health_checks.unhealthy_threshold": {
+        "anchor": "schema-origin_servers--health_checks--unhealthy_threshold",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks",
+        "schema_path": ["origin_servers", "health_checks", "unhealthy_threshold"]
+      },
+      "origin_servers.origin_servers": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers",
+        "schema_path": ["origin_servers", "origin_servers"]
+      },
+      "origin_servers.origin_servers.k8s_service": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service"]
+      },
+      "origin_servers.origin_servers.k8s_service.inside_network": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:inside_network",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "inside_network"]
+      },
+      "origin_servers.origin_servers.k8s_service.outside_network": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:outside_network",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "outside_network"]
+      },
+      "origin_servers.origin_servers.k8s_service.protocol": {
+        "anchor": "schema-origin_servers--origin_servers--k8s_service--protocol",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "protocol"]
+      },
+      "origin_servers.origin_servers.k8s_service.service_name": {
+        "anchor": "schema-origin_servers--origin_servers--k8s_service--service_name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "service_name"]
+      },
+      "origin_servers.origin_servers.k8s_service.site_locator": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator"]
+      },
+      "origin_servers.origin_servers.k8s_service.site_locator.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:site",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "site"]
+      },
+      "origin_servers.origin_servers.k8s_service.site_locator.site.name": {
+        "anchor": "schema-origin_servers--origin_servers--k8s_service--site_locator--site--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:site",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "site", "name"]
+      },
+      "origin_servers.origin_servers.k8s_service.site_locator.site.namespace": {
+        "anchor": "schema-origin_servers--origin_servers--k8s_service--site_locator--site--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:site",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "site", "namespace"]
+      },
+      "origin_servers.origin_servers.k8s_service.site_locator.site.tenant": {
+        "anchor": "schema-origin_servers--origin_servers--k8s_service--site_locator--site--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:site",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "site", "tenant"]
+      },
+      "origin_servers.origin_servers.k8s_service.site_locator.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:virtual_site",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "virtual_site"]
+      },
+      "origin_servers.origin_servers.k8s_service.site_locator.virtual_site.name": {
+        "anchor": "schema-origin_servers--origin_servers--k8s_service--site_locator--virtual_site--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:virtual_site",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "virtual_site", "name"]
+      },
+      "origin_servers.origin_servers.k8s_service.site_locator.virtual_site.namespace": {
+        "anchor": "schema-origin_servers--origin_servers--k8s_service--site_locator--virtual_site--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:virtual_site",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "virtual_site", "namespace"]
+      },
+      "origin_servers.origin_servers.k8s_service.site_locator.virtual_site.tenant": {
+        "anchor": "schema-origin_servers--origin_servers--k8s_service--site_locator--virtual_site--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:virtual_site",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "virtual_site", "tenant"]
+      },
+      "origin_servers.origin_servers.k8s_service.snat_pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "snat_pool"]
+      },
+      "origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool:no_snat_pool",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "snat_pool", "no_snat_pool"]
+      },
+      "origin_servers.origin_servers.k8s_service.snat_pool.snat_pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool:snat_pool",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "snat_pool", "snat_pool"]
+      },
+      "origin_servers.origin_servers.k8s_service.snat_pool.snat_pool.prefixes": {
+        "anchor": "schema-origin_servers--origin_servers--k8s_service--snat_pool--snat_pool--prefixes",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool:snat_pool",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "snat_pool", "snat_pool", "prefixes"]
+      },
+      "origin_servers.origin_servers.k8s_service.vk8s_networks": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:vk8s_networks",
+        "schema_path": ["origin_servers", "origin_servers", "k8s_service", "vk8s_networks"]
+      },
+      "origin_servers.origin_servers.no_preference": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:no_preference",
+        "schema_path": ["origin_servers", "origin_servers", "no_preference"]
+      },
+      "origin_servers.origin_servers.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_ip",
+        "schema_path": ["origin_servers", "origin_servers", "public_ip"]
+      },
+      "origin_servers.origin_servers.public_ip.ip": {
+        "anchor": "schema-origin_servers--origin_servers--public_ip--ip",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_ip",
+        "schema_path": ["origin_servers", "origin_servers", "public_ip", "ip"]
+      },
+      "origin_servers.origin_servers.public_name": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_name",
+        "schema_path": ["origin_servers", "origin_servers", "public_name"]
+      },
+      "origin_servers.origin_servers.public_name.dns_name": {
+        "anchor": "schema-origin_servers--origin_servers--public_name--dns_name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_name",
+        "schema_path": ["origin_servers", "origin_servers", "public_name", "dns_name"]
+      },
+      "origin_servers.origin_servers.public_name.refresh_interval": {
+        "anchor": "schema-origin_servers--origin_servers--public_name--refresh_interval",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_name",
+        "schema_path": ["origin_servers", "origin_servers", "public_name", "refresh_interval"]
+      },
+      "origin_servers.origin_servers.site_preferences": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences",
+        "schema_path": ["origin_servers", "origin_servers", "site_preferences"]
+      },
+      "origin_servers.origin_servers.site_preferences.refs": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences:refs",
+        "schema_path": ["origin_servers", "origin_servers", "site_preferences", "refs"]
+      },
+      "origin_servers.origin_servers.site_preferences.refs.name": {
+        "anchor": "schema-origin_servers--origin_servers--site_preferences--refs--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences:refs",
+        "schema_path": ["origin_servers", "origin_servers", "site_preferences", "refs", "name"]
+      },
+      "origin_servers.origin_servers.site_preferences.refs.namespace": {
+        "anchor": "schema-origin_servers--origin_servers--site_preferences--refs--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences:refs",
+        "schema_path": ["origin_servers", "origin_servers", "site_preferences", "refs", "namespace"]
+      },
+      "origin_servers.origin_servers.site_preferences.refs.tenant": {
+        "anchor": "schema-origin_servers--origin_servers--site_preferences--refs--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences:refs",
+        "schema_path": ["origin_servers", "origin_servers", "site_preferences", "refs", "tenant"]
+      },
+      "protocol_inspection": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:protocol_inspection",
+        "schema_path": ["protocol_inspection"]
+      },
+      "protocol_inspection.name": {
+        "anchor": "schema-protocol_inspection--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:protocol_inspection",
+        "schema_path": ["protocol_inspection", "name"]
+      },
+      "protocol_inspection.namespace": {
+        "anchor": "schema-protocol_inspection--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:protocol_inspection",
+        "schema_path": ["protocol_inspection", "namespace"]
+      },
+      "protocol_inspection.tenant": {
+        "anchor": "schema-protocol_inspection--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:protocol_inspection",
+        "schema_path": ["protocol_inspection", "tenant"]
+      },
+      "proxy_advertisement": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+        "schema_path": ["proxy_advertisement"]
+      },
+      "proxy_advertisement.advertise_custom": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom",
+        "schema_path": ["proxy_advertisement", "advertise_custom"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "advertise_dualstack_on_public"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_dualstack_on_public",
+          "public_ip"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.name": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_dualstack_on_public",
+          "public_ip",
+          "name"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_dualstack_on_public",
+          "public_ip",
+          "namespace"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_dualstack_on_public",
+          "public_ip",
+          "tenant"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "advertise_on_public"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_on_public",
+          "public_ip"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip.name": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--advertise_on_public--public_ip--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_on_public",
+          "public_ip",
+          "name"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--advertise_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_on_public",
+          "public_ip",
+          "namespace"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--advertise_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_on_public",
+          "public_ip",
+          "tenant"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "advertise_v6_on_public"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_v6_on_public",
+          "public_ip"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip.name": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--advertise_v6_on_public--public_ip--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_v6_on_public",
+          "public_ip",
+          "name"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--advertise_v6_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_v6_on_public",
+          "public_ip",
+          "namespace"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--advertise_v6_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "advertise_v6_on_public",
+          "public_ip",
+          "tenant"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.port": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--port",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "port"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.port_ranges": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--port_ranges",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "port_ranges"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "site"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.site.ip": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--site--ip",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "site", "ip"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.site.network": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--site--network",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "site", "network"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.site.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "site", "site"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.site.site.name": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--site--site--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "site", "site", "name"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.site.site.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--site--site--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "site", "site", "namespace"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.site.site.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--site--site--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "site", "site", "tenant"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.use_default_port": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:use_default_port",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "use_default_port"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_network": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_network"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:default_v6_vip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_network",
+          "default_v6_vip"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:default_vip",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_network", "default_vip"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_v6_vip": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_network--specific_v6_vip",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_network",
+          "specific_v6_vip"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_vip": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_network--specific_vip",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_network", "specific_vip"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:virtual_network",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_network",
+          "virtual_network"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.name": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_network--virtual_network--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:virtual_network",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_network",
+          "virtual_network",
+          "name"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_network--virtual_network--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:virtual_network",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_network",
+          "virtual_network",
+          "namespace"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_network--virtual_network--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:virtual_network",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_network",
+          "virtual_network",
+          "tenant"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_site"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site.network": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_site--network",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_site", "network"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site:virtual_site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_site", "virtual_site"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.name": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_site--virtual_site--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_site",
+          "virtual_site",
+          "name"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_site--virtual_site--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_site",
+          "virtual_site",
+          "namespace"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_site--virtual_site--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_site",
+          "virtual_site",
+          "tenant"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_site_with_vip"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.ip": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_site_with_vip--ip",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_site_with_vip", "ip"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.network": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_site_with_vip--network",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_site_with_vip",
+          "network"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_site_with_vip",
+          "virtual_site"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_site_with_vip",
+          "virtual_site",
+          "name"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_site_with_vip",
+          "virtual_site",
+          "namespace"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "virtual_site_with_vip",
+          "virtual_site",
+          "tenant"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.vk8s_service": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "vk8s_service"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "vk8s_service", "site"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site.name": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--vk8s_service--site--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "vk8s_service", "site", "name"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--vk8s_service--site--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "vk8s_service",
+          "site",
+          "namespace"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--vk8s_service--site--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "vk8s_service", "site", "tenant"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:virtual_site",
+        "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "vk8s_service", "virtual_site"]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site.name": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--vk8s_service--virtual_site--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "vk8s_service",
+          "virtual_site",
+          "name"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--vk8s_service--virtual_site--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "vk8s_service",
+          "virtual_site",
+          "namespace"
+        ]
+      },
+      "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_custom--advertise_where--vk8s_service--virtual_site--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:virtual_site",
+        "schema_path": [
+          "proxy_advertisement",
+          "advertise_custom",
+          "advertise_where",
+          "vk8s_service",
+          "virtual_site",
+          "tenant"
+        ]
+      },
+      "proxy_advertisement.advertise_dualstack_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public",
+        "schema_path": ["proxy_advertisement", "advertise_dualstack_on_public"]
+      },
+      "proxy_advertisement.advertise_dualstack_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_dualstack_on_public", "public_ip"]
+      },
+      "proxy_advertisement.advertise_dualstack_on_public.public_ip.name": {
+        "anchor": "schema-proxy_advertisement--advertise_dualstack_on_public--public_ip--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_dualstack_on_public", "public_ip", "name"]
+      },
+      "proxy_advertisement.advertise_dualstack_on_public.public_ip.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_dualstack_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_dualstack_on_public", "public_ip", "namespace"]
+      },
+      "proxy_advertisement.advertise_dualstack_on_public.public_ip.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_dualstack_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_dualstack_on_public", "public_ip", "tenant"]
+      },
+      "proxy_advertisement.advertise_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public",
+        "schema_path": ["proxy_advertisement", "advertise_on_public"]
+      },
+      "proxy_advertisement.advertise_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_on_public", "public_ip"]
+      },
+      "proxy_advertisement.advertise_on_public.public_ip.name": {
+        "anchor": "schema-proxy_advertisement--advertise_on_public--public_ip--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_on_public", "public_ip", "name"]
+      },
+      "proxy_advertisement.advertise_on_public.public_ip.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_on_public", "public_ip", "namespace"]
+      },
+      "proxy_advertisement.advertise_on_public.public_ip.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_on_public", "public_ip", "tenant"]
+      },
+      "proxy_advertisement.advertise_on_public_default_dualstack_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public_default_dualstack_vip",
+        "schema_path": ["proxy_advertisement", "advertise_on_public_default_dualstack_vip"]
+      },
+      "proxy_advertisement.advertise_on_public_default_ipv6_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public_default_ipv6_vip",
+        "schema_path": ["proxy_advertisement", "advertise_on_public_default_ipv6_vip"]
+      },
+      "proxy_advertisement.advertise_on_public_default_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public_default_vip",
+        "schema_path": ["proxy_advertisement", "advertise_on_public_default_vip"]
+      },
+      "proxy_advertisement.advertise_v6_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public",
+        "schema_path": ["proxy_advertisement", "advertise_v6_on_public"]
+      },
+      "proxy_advertisement.advertise_v6_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_v6_on_public", "public_ip"]
+      },
+      "proxy_advertisement.advertise_v6_on_public.public_ip.name": {
+        "anchor": "schema-proxy_advertisement--advertise_v6_on_public--public_ip--name",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_v6_on_public", "public_ip", "name"]
+      },
+      "proxy_advertisement.advertise_v6_on_public.public_ip.namespace": {
+        "anchor": "schema-proxy_advertisement--advertise_v6_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_v6_on_public", "public_ip", "namespace"]
+      },
+      "proxy_advertisement.advertise_v6_on_public.public_ip.tenant": {
+        "anchor": "schema-proxy_advertisement--advertise_v6_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public:public_ip",
+        "schema_path": ["proxy_advertisement", "advertise_v6_on_public", "public_ip", "tenant"]
+      },
+      "proxy_advertisement.do_not_advertise": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:do_not_advertise",
+        "schema_path": ["proxy_advertisement", "do_not_advertise"]
+      },
+      "transport_type": {
+        "anchor": "schema-transport_type",
+        "document_id": "xcsh-docs:data-sources:dns_proxy:reference",
+        "schema_path": ["transport_type"]
+      }
+    },
+    "provider_name": "dns_proxy",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:dns_proxy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1311,
+      "body_sha256": "sha256:0cc3522abcb3ef580264dfaed04e5fb7e104977e95be50da7ff32c5c74fc0bbe",
+      "child_ids": ["xcsh-docs:data-sources:dns_proxy:reference", "xcsh-docs:data-sources:dns_proxy:examples"],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/dns_proxy/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/dns_proxy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_dns_proxy for xcsh_dns_proxy.",
+      "title": "xcsh_dns_proxy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 56917,
+      "body_sha256": "sha256:f855c44b2705cc836c1859760b41148e134b6f5b0ef6a05292a0c8e1fda20df3",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:cache_profile",
+        "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile",
+        "xcsh-docs:data-sources:dns_proxy:properties:irules",
+        "xcsh-docs:data-sources:dns_proxy:properties:lb_algorithm",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers",
+        "xcsh-docs:data-sources:dns_proxy:properties:protocol_inspection",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:fundamentals",
+      "path": "documentation/data-sources/dns_proxy/properties/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_dns_proxy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2270,
+      "body_sha256": "sha256:ca5126e28393882759de6e75dc2f4dce5838426c7a6a534dc16e1d584f227841",
+      "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:cache_profile:disable_cache_profile"],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:cache_profile",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "path": "documentation/data-sources/dns_proxy/properties/cache_profile/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--cache_profile.md",
+      "role": "properties",
+      "schema_path": ["cache_profile"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/cache_profile/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_profile for xcsh_dns_proxy.",
+      "title": "cache_profile",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1229,
+      "body_sha256": "sha256:cf6317dcb85c55c020f9288fc7bf53b7869d9ed0b2aa99e9930cb661734d75b5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:cache_profile:disable_cache_profile",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:cache_profile",
+      "path": "documentation/data-sources/dns_proxy/properties/cache_profile/disable_cache_profile/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--cache_profile--disable_cache_profile.md",
+      "role": "properties",
+      "schema_path": ["cache_profile", "disable_cache_profile"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/cache_profile/disable_cache_profile/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_profile.disable_cache_profile for xcsh_dns_proxy.",
+      "title": "cache_profile.disable_cache_profile",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1757,
+      "body_sha256": "sha256:5c811dc0856f5e688e50811b1cd104495a927d6aa348f662994aee59580777d9",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile:disable_ddos_mitigation",
+        "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile:enable_ddos_mitigation"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "path": "documentation/data-sources/dns_proxy/properties/ddos_profile/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--ddos_profile.md",
+      "role": "properties",
+      "schema_path": ["ddos_profile"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/ddos_profile/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ddos_profile for xcsh_dns_proxy.",
+      "title": "ddos_profile",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1195,
+      "body_sha256": "sha256:8cbac9ffeb0805beefc71e72a59a75a8d2b68861d40ef21b65e9bb4ce84d9c29",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile:disable_ddos_mitigation",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile",
+      "path": "documentation/data-sources/dns_proxy/properties/ddos_profile/disable_ddos_mitigation/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--ddos_profile--disable_ddos_mitigation.md",
+      "role": "properties",
+      "schema_path": ["ddos_profile", "disable_ddos_mitigation"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/ddos_profile/disable_ddos_mitigation/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ddos_profile.disable_ddos_mitigation for xcsh_dns_proxy.",
+      "title": "ddos_profile.disable_ddos_mitigation",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1193,
+      "body_sha256": "sha256:680a1789194f327ead21e48222a441f9fedce045c45fd143882f65db92ecfed3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile:enable_ddos_mitigation",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile",
+      "path": "documentation/data-sources/dns_proxy/properties/ddos_profile/enable_ddos_mitigation/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--ddos_profile--enable_ddos_mitigation.md",
+      "role": "properties",
+      "schema_path": ["ddos_profile", "enable_ddos_mitigation"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/ddos_profile/enable_ddos_mitigation/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ddos_profile.enable_ddos_mitigation for xcsh_dns_proxy.",
+      "title": "ddos_profile.enable_ddos_mitigation",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5398,
+      "body_sha256": "sha256:301a02b043b7191bbf67f8da98eec6990fdf5863654f4db8de448a773f0079b7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:irules",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "path": "documentation/data-sources/dns_proxy/properties/irules/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--irules.md",
+      "role": "properties",
+      "schema_path": ["irules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/irules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "irules for xcsh_dns_proxy.",
+      "title": "irules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1312,
+      "body_sha256": "sha256:02c0a6f3f261ee0476487f2ded2c65dbbf1b934de6c2cd70de4a8f30b329f13c",
+      "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:lb_algorithm:round_robin"],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:lb_algorithm",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "path": "documentation/data-sources/dns_proxy/properties/lb_algorithm/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--lb_algorithm.md",
+      "role": "properties",
+      "schema_path": ["lb_algorithm"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/lb_algorithm/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "lb_algorithm for xcsh_dns_proxy.",
+      "title": "lb_algorithm",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1187,
+      "body_sha256": "sha256:ddc6bf27f3939b3cd5730e903702738d0f50c1939811f98334de1d624f105d7e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:lb_algorithm:round_robin",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:lb_algorithm",
+      "path": "documentation/data-sources/dns_proxy/properties/lb_algorithm/round_robin/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--lb_algorithm--round_robin.md",
+      "role": "properties",
+      "schema_path": ["lb_algorithm", "round_robin"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/lb_algorithm/round_robin/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "lb_algorithm.round_robin for xcsh_dns_proxy.",
+      "title": "lb_algorithm.round_robin",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1541,
+      "body_sha256": "sha256:a24e3803cd8201a1e3928d0db541b08b4fd96d3c9e3293bfedde577140d307de",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers.md",
+      "role": "properties",
+      "schema_path": ["origin_servers"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers for xcsh_dns_proxy.",
+      "title": "origin_servers",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6861,
+      "body_sha256": "sha256:7d53af4c9de053a3b61c9ea9399e73cb19b3a9c1912c9c60c809113c2b4b2a78",
+      "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check"],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/health_checks/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--health_checks.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "health_checks"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.health_checks for xcsh_dns_proxy.",
+      "title": "origin_servers.health_checks",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3366,
+      "body_sha256": "sha256:bcabe1bb6c5a43613875154db1ea63f0f68ec8c4f67e51cab260995e456cbbb3",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:dns_health_check",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:icmp_health_check",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:tcp_health_check"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--health_checks--health_check.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "health_checks", "health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.health_checks.health_check for xcsh_dns_proxy.",
+      "title": "origin_servers.health_checks.health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6849,
+      "body_sha256": "sha256:3e0343218ec7154022a5d553bba138b76e583f7f434a9e9dce701095d2f17ab4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:dns_health_check",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/dns_health_check/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--health_checks--health_check--dns_health_check.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "health_checks", "health_check", "dns_health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/dns_health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.health_checks.health_check.dns_health_check for xcsh_dns_proxy.",
+      "title": "origin_servers.health_checks.health_check.dns_health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1665,
+      "body_sha256": "sha256:58608445fdafcdeca6dd1eb28dffe3adb4f02a5f15eb46ff16645dec7f10726f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:icmp_health_check",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/icmp_health_check/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--health_checks--health_check--icmp_health_check.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "health_checks", "health_check", "icmp_health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/icmp_health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.health_checks.health_check.icmp_health_check for xcsh_dns_proxy.",
+      "title": "origin_servers.health_checks.health_check.icmp_health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3547,
+      "body_sha256": "sha256:1f482aecd0a1a21b49aa8c5f1ac4b4fa07f3238fdf7afd6ea947b056adeabf1f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:tcp_health_check",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/tcp_health_check/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--health_checks--health_check--tcp_health_check.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "health_checks", "health_check", "tcp_health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/tcp_health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.health_checks.health_check.tcp_health_check for xcsh_dns_proxy.",
+      "title": "origin_servers.health_checks.health_check.tcp_health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3774,
+      "body_sha256": "sha256:4c9bd001353bccfa08808f92e3ec505b9f0537b8bc7ef6eb64592285bcde7b38",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:no_preference",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_ip",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_name",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5592,
+      "body_sha256": "sha256:ae7cef5bb788823e9fac352304905e4d5feb5ec82d1de8659f2cb01dc707fc81",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:inside_network",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:outside_network",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:vk8s_networks"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1658,
+      "body_sha256": "sha256:d256aa04b548fd0c9f4e36b65752e9bc49c88b8085b70fa78a9b7943475f5e98",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:inside_network",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/inside_network/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service--inside_network.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service", "inside_network"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/inside_network/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service.inside_network for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service.inside_network",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1661,
+      "body_sha256": "sha256:b4f691560137f02a49ae98aecf815f85bb905ce1578e3f946bcc7e2209fd4fb5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:outside_network",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/outside_network/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service--outside_network.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service", "outside_network"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/outside_network/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service.outside_network for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service.outside_network",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2516,
+      "body_sha256": "sha256:6b9fd15e94ecbf3e7f62c38f117fa85f3fe0d378262cf813902e29bb7d2102b4",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:site",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:virtual_site"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/site_locator/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service--site_locator.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/site_locator/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service.site_locator for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service.site_locator",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6135,
+      "body_sha256": "sha256:b0804995d5075a899c36cdd72be1b5fd7d85025b97ea8938d96f7dff35e5c749",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:site",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/site_locator/site/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service--site_locator--site.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/site_locator/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service.site_locator.site for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service.site_locator.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6175,
+      "body_sha256": "sha256:b7f562daab9d013bc075a3eee6716eda1c3f1d8673502f49e1cbb81ca1b21482",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:virtual_site",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/site_locator/virtual_site/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service--site_locator--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service", "site_locator", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/site_locator/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service.site_locator.virtual_site for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service.site_locator.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2459,
+      "body_sha256": "sha256:9f999aa022e07f5eba6cba04d6e54e433dddc4e5f0eb23f120de2b870892b2c1",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool:no_snat_pool",
+        "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool:snat_pool"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/snat_pool/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service--snat_pool.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service", "snat_pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/snat_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service.snat_pool for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service.snat_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1892,
+      "body_sha256": "sha256:2b55b0560cbf515baadd049f993b39c95ecb56ae6e648dde8d3ee52e832eedd4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool:no_snat_pool",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/snat_pool/no_snat_pool/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service--snat_pool--no_snat_pool.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service", "snat_pool", "no_snat_pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/snat_pool/no_snat_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2840,
+      "body_sha256": "sha256:73f65dc1738a7ffab84b8fe32c6713684916fc299cadefbdefaf61e3abe62446",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool:snat_pool",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/snat_pool/snat_pool/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service--snat_pool--snat_pool.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service", "snat_pool", "snat_pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/snat_pool/snat_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service.snat_pool.snat_pool for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service.snat_pool.snat_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1655,
+      "body_sha256": "sha256:25812d937cb40db488d8650bc6f0068732f0a2c01aae18c7f5bca02d796e28f6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:vk8s_networks",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/vk8s_networks/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--k8s_service--vk8s_networks.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "k8s_service", "vk8s_networks"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/vk8s_networks/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.k8s_service.vk8s_networks for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.k8s_service.vk8s_networks",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1427,
+      "body_sha256": "sha256:e1959f449b06bb4852668b6cee548486cb99e1b56049c4ba7633598aa3719518",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:no_preference",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/no_preference/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--no_preference.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "no_preference"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/no_preference/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.no_preference for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.no_preference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2172,
+      "body_sha256": "sha256:285bc118206a465f60ba7e201e56f8f9ead41c95490c883ec67ee841ba366860",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_ip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/public_ip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--public_ip.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "public_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.public_ip for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3802,
+      "body_sha256": "sha256:d1ba5a11d31a542645e8bfea419bfb11a03ff5134bb78ca62dfc9cf7921b19f6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_name",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/public_name/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--public_name.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "public_name"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/public_name/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.public_name for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.public_name",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1661,
+      "body_sha256": "sha256:02920d0e77ef146f2cdbc6f0b7e77bc7d92d633ac16457e3a836906d34d3fead",
+      "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences:refs"],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/site_preferences/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--site_preferences.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "site_preferences"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/site_preferences/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.site_preferences for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.site_preferences",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6114,
+      "body_sha256": "sha256:ddab208acb8133369fddf039f23da74a9a73f037605f2150d43266af9ff2dc10",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences:refs",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences",
+      "path": "documentation/data-sources/dns_proxy/properties/origin_servers/origin_servers/site_preferences/refs/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--origin_servers--origin_servers--site_preferences--refs.md",
+      "role": "properties",
+      "schema_path": ["origin_servers", "origin_servers", "site_preferences", "refs"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/site_preferences/refs/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_servers.origin_servers.site_preferences.refs for xcsh_dns_proxy.",
+      "title": "origin_servers.origin_servers.site_preferences.refs",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5164,
+      "body_sha256": "sha256:8a6e76e0617234ea7b08113dc4785d3269794bb2e0e5175a8123443a9a65cd64",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:protocol_inspection",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "path": "documentation/data-sources/dns_proxy/properties/protocol_inspection/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--protocol_inspection.md",
+      "role": "properties",
+      "schema_path": ["protocol_inspection"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/protocol_inspection/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "protocol_inspection for xcsh_dns_proxy.",
+      "title": "protocol_inspection",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4399,
+      "body_sha256": "sha256:258d58aa2d6fade25584226e1da0be5c647176932780e58f3b5255906a093f82",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public_default_dualstack_vip",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public_default_ipv6_vip",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public_default_vip",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:do_not_advertise"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement for xcsh_dns_proxy.",
+      "title": "proxy_advertisement",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1577,
+      "body_sha256": "sha256:71ce8649a04d69d6c962f0249b5cd50e24618dde8e939de6646f40a6887de9c0",
+      "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where"],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 8759,
+      "body_sha256": "sha256:5c1a605def4d9bc0f1e8584b2ec5fd303f6daf5059233252e0dd90e6221c25b7",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:use_default_port",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2447,
+      "body_sha256": "sha256:e43a0a7f78203755c7074822b15edc0f6c03ec4acf057f073ba416afb49d533d",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_dualstack_on_public/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--advertise_dualstack_on_public.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "advertise_dualstack_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_dualstack_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6458,
+      "body_sha256": "sha256:dc8f99b8496a4a176ca7af1f494b2829052aeccec6fac2073c891c451c516a07",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": [
+        "proxy_advertisement",
+        "advertise_custom",
+        "advertise_where",
+        "advertise_dualstack_on_public",
+        "public_ip"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2397,
+      "body_sha256": "sha256:9bab9a692fbafb7af89db021be9fc29ae56d2d60a43830d8056ecbaeea068595",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public:public_ip"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_on_public/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--advertise_on_public.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "advertise_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6368,
+      "body_sha256": "sha256:febed9737267ac33a51a8ac0904a7f2987190423f96beb41b0941d9d44f334f5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public:public_ip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_on_public/public_ip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--advertise_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "advertise_on_public", "public_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2412,
+      "body_sha256": "sha256:eee43837879d73c11d532e6671464bc0d8ab48bcb49926fe369a01eac5addd5a",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public:public_ip"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_v6_on_public/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--advertise_v6_on_public.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "advertise_v6_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_v6_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6395,
+      "body_sha256": "sha256:eb0e33d6aca2aaab5c5b2ab3f115edc0e642069a6c7ca998195144d2abb164a2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--advertise_v6_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": [
+        "proxy_advertisement",
+        "advertise_custom",
+        "advertise_where",
+        "advertise_v6_on_public",
+        "public_ip"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4879,
+      "body_sha256": "sha256:714649d583f0c69111a9188e22d574e0ed1277c722e1efc35dae271f74a0ebd3",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site:site"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/site/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--site.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.site for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6208,
+      "body_sha256": "sha256:80527b17c69e6fcf413b016d5d8a7ee3f354ba0998145cd12f766ef839c2ea95",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site:site",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/site/site/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--site--site.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "site", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/site/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.site.site for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.site.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1727,
+      "body_sha256": "sha256:317745c2acbeac1dd8c7f242295adf7553e5dddd89f4cec662c05701364a0fc8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:use_default_port",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/use_default_port/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--use_default_port.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "use_default_port"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/use_default_port/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.use_default_port for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.use_default_port",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5187,
+      "body_sha256": "sha256:d24e2fdae7e59aa7ff2100dbecd7f85916995d557333a97af109dde9a0f0d626",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:default_v6_vip",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:default_vip",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:virtual_network"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--virtual_network.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_network"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.virtual_network for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2021,
+      "body_sha256": "sha256:f3e739a424e9973175e2f6c08395e39d02642f97d473b393da31e6a2a14edd4f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:default_v6_vip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--virtual_network--default_v6_vip.md",
+      "role": "properties",
+      "schema_path": [
+        "proxy_advertisement",
+        "advertise_custom",
+        "advertise_where",
+        "virtual_network",
+        "default_v6_vip"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2015,
+      "body_sha256": "sha256:564d177f089896400cec3989efc9ba14d0b51d41fe6cf6a5f871d5ad80ab1d21",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:default_vip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/default_vip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--virtual_network--default_vip.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_network", "default_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/default_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6362,
+      "body_sha256": "sha256:8aec2da73e820dce335a773f4865594dc9de458087826a2414e9dd4b3fc4c188",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:virtual_network",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/virtual_network/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--virtual_network--virtual_network.md",
+      "role": "properties",
+      "schema_path": [
+        "proxy_advertisement",
+        "advertise_custom",
+        "advertise_where",
+        "virtual_network",
+        "virtual_network"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/virtual_network/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4144,
+      "body_sha256": "sha256:9fd81a3b5ed45ec9650e43a329ed9383e081ae05cf9921a73518bc6ef7af9f8c",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site:virtual_site"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.virtual_site for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6320,
+      "body_sha256": "sha256:9bc70a2dc7dea3a752f23419822d6075ee5c1840d0ba4e8f2668e695967b5a7c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site:virtual_site",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site/virtual_site/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--virtual_site--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_site", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4144,
+      "body_sha256": "sha256:025a49b05612a411a38d5bf8a944df421201882b9f9314c21c6cc7e1397ffcf7",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site_with_vip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--virtual_site_with_vip.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_site_with_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site_with_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6401,
+      "body_sha256": "sha256:47d659af74c2d64e10a165e55752aff9d9018f3769ae8b0940aadc86eca61137",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--virtual_site_with_vip--virtual_site.md",
+      "role": "properties",
+      "schema_path": [
+        "proxy_advertisement",
+        "advertise_custom",
+        "advertise_where",
+        "virtual_site_with_vip",
+        "virtual_site"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2788,
+      "body_sha256": "sha256:03b4ab9d3071bb0fa8968841181d9d39d71fa6a66cc03d8285f159e3968382f1",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:site",
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:virtual_site"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--vk8s_service.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "vk8s_service"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6280,
+      "body_sha256": "sha256:5165eadd7841757463d1a731bdbe549d3213b4ad99ddccc664f9a033e2ab88f2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:site",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/site/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--vk8s_service--site.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "vk8s_service", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6320,
+      "body_sha256": "sha256:e84e16c43bb379ba4c6d7dc2fc07a960b591c5b1c546c6f68f359fe3f1671246",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:virtual_site",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/virtual_site/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_custom--advertise_where--vk8s_service--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "vk8s_service", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1844,
+      "body_sha256": "sha256:afa93ef236a77cf9c9e0150c4b38c0cbea4ac576cac065620d1d2dbfdc05c766",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public:public_ip"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_dualstack_on_public/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_dualstack_on_public.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_dualstack_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_dualstack_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_dualstack_on_public for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_dualstack_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5783,
+      "body_sha256": "sha256:dafa969bed349cd90a8dc842833d276e8505c11a47d45f9ea3a021073f218109",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public:public_ip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_dualstack_on_public/public_ip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_dualstack_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_dualstack_on_public", "public_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_dualstack_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_dualstack_on_public.public_ip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_dualstack_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1794,
+      "body_sha256": "sha256:3e2e6ef648c23e2b0fe259f88f9a75be9c5d8764c828f05e7debc3084b827a10",
+      "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public:public_ip"],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_on_public.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_on_public for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5693,
+      "body_sha256": "sha256:24f3d9a52e5eb32d63ccf447808cc1e0e34aa393848dbc1d584db75c9a0d277b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public:public_ip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public/public_ip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_on_public", "public_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_on_public.public_ip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1273,
+      "body_sha256": "sha256:3e3f0b736a8e1402a1e1308475a36f183026c54de8288979b9f271f6482f9a53",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public_default_dualstack_vip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public_default_dualstack_vip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_on_public_default_dualstack_vip.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_on_public_default_dualstack_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public_default_dualstack_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_on_public_default_dualstack_vip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_on_public_default_dualstack_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1263,
+      "body_sha256": "sha256:9270a977f1602cc609973ac3aa1c844cb6e0ed08b9c1b93faf2a55a2b941e99d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public_default_ipv6_vip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public_default_ipv6_vip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_on_public_default_ipv6_vip.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_on_public_default_ipv6_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public_default_ipv6_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_on_public_default_ipv6_vip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_on_public_default_ipv6_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1253,
+      "body_sha256": "sha256:86bf2a5e6b09d47aeb41716fb91548e4206585c27f2956bd55a7395193b37db3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public_default_vip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public_default_vip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_on_public_default_vip.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_on_public_default_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public_default_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_on_public_default_vip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_on_public_default_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1809,
+      "body_sha256": "sha256:1c94a540eccb8f50da699b1fba301673cae4edb699a529a078305016439d314a",
+      "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public:public_ip"],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_v6_on_public/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_v6_on_public.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_v6_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_v6_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_v6_on_public for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_v6_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5720,
+      "body_sha256": "sha256:6aae2e107cb4f06ca8f9ca804c2cd4a54ed2e104a9929228647c5fc1999e2f37",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public:public_ip",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/advertise_v6_on_public/public_ip/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--advertise_v6_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "advertise_v6_on_public", "public_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_v6_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.advertise_v6_on_public.public_ip for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.advertise_v6_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1250,
+      "body_sha256": "sha256:bcbb6b41291be785fbc4fc5a7c8d7342ae24148add252fda072f29f80d89ffc3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:do_not_advertise",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement",
+      "path": "documentation/data-sources/dns_proxy/properties/proxy_advertisement/do_not_advertise/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--properties--proxy_advertisement--do_not_advertise.md",
+      "role": "properties",
+      "schema_path": ["proxy_advertisement", "do_not_advertise"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/do_not_advertise/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_advertisement.do_not_advertise for xcsh_dns_proxy.",
+      "title": "proxy_advertisement.do_not_advertise",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 639,
+      "body_sha256": "sha256:31774823189afd531c4a707b7f6dfa987fa52a69711fc391363f9a73ba7306b4",
+      "child_ids": ["xcsh-docs:data-sources:dns_proxy:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_proxy:examples",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:fundamentals",
+      "path": "documentation/data-sources/dns_proxy/examples/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_dns_proxy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1239,
+      "body_sha256": "sha256:c0727c86c77ec55eee1f24d2c1c1adade1c606f09976a84d21e4a2d4956e6703",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_proxy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:8864854e827d63992024dc1c04e3c3a45871e2f9bca0bf3baae302eae31eb760",
+        "source_path": "examples/data-sources/xcsh_dns_proxy/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:dns_proxy:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:dns_proxy:examples",
+      "path": "documentation/data-sources/dns_proxy/examples/data-source/index.md",
+      "provider_name": "dns_proxy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_proxy--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_dns_proxy.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_proxyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

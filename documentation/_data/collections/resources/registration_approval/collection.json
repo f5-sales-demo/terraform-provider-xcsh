@@ -1,0 +1,196 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:registration_approval:fundamentals",
+    "id": "xcsh-docs:resources:registration_approval:collection",
+    "properties": {
+      "backup_connected_region": {
+        "anchor": "schema-backup_connected_region",
+        "document_id": "xcsh-docs:resources:registration_approval:reference",
+        "schema_path": ["backup_connected_region"]
+      },
+      "cluster_size": {
+        "anchor": "schema-cluster_size",
+        "document_id": "xcsh-docs:resources:registration_approval:reference",
+        "schema_path": ["cluster_size"]
+      },
+      "connected_region": {
+        "anchor": "schema-connected_region",
+        "document_id": "xcsh-docs:resources:registration_approval:reference",
+        "schema_path": ["connected_region"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:registration_approval:reference",
+        "schema_path": ["id"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:registration_approval:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:registration_approval:reference",
+        "schema_path": ["namespace"]
+      },
+      "preferred_active_re": {
+        "anchor": "schema-preferred_active_re",
+        "document_id": "xcsh-docs:resources:registration_approval:reference",
+        "schema_path": ["preferred_active_re"]
+      },
+      "state": {
+        "anchor": "schema-state",
+        "document_id": "xcsh-docs:resources:registration_approval:reference",
+        "schema_path": ["state"]
+      }
+    },
+    "provider_name": "registration_approval",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:registration_approval:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1604,
+      "body_sha256": "sha256:e9e4d3025cb857be8bfcc9e854b6e01baec6124f972bc5792980a170d33160d6",
+      "child_ids": [
+        "xcsh-docs:resources:registration_approval:reference",
+        "xcsh-docs:resources:registration_approval:examples",
+        "xcsh-docs:resources:registration_approval:import"
+      ],
+      "collection_id": "xcsh-docs:resources:registration_approval:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:registration_approval:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/registration_approval/index.md",
+      "provider_name": "registration_approval",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/registration_approval.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration_approval/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_registration_approval for xcsh_registration_approval.",
+      "title": "xcsh_registration_approval",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3286,
+      "body_sha256": "sha256:d48efb8fd45fe2608aa3ac13d3d41e504d8737882728f46dc409a5fa871a6aeb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:registration_approval:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:registration_approval:reference",
+      "parent_id": "xcsh-docs:resources:registration_approval:fundamentals",
+      "path": "documentation/resources/registration_approval/properties/index.md",
+      "provider_name": "registration_approval",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--registration_approval--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration_approval/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_registration_approval.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 687,
+      "body_sha256": "sha256:6101c95e9277952cb597d062070291e5bc5858ee7634063797b4f64c60df83ef",
+      "child_ids": ["xcsh-docs:resources:registration_approval:example:resource"],
+      "collection_id": "xcsh-docs:resources:registration_approval:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:registration_approval:examples",
+      "parent_id": "xcsh-docs:resources:registration_approval:fundamentals",
+      "path": "documentation/resources/registration_approval/examples/index.md",
+      "provider_name": "registration_approval",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--registration_approval--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration_approval/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_registration_approval.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1396,
+      "body_sha256": "sha256:87f0daac83784060e9bb662aac376d107f15395a9482a6bf742fa649c8af5514",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:registration_approval:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:5a69b599688eff851094350bc6a6e7fffd81e09b55087a523abb0c8c970908cd",
+        "source_path": "examples/resources/xcsh_registration_approval/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:registration_approval:example:resource",
+      "parent_id": "xcsh-docs:resources:registration_approval:examples",
+      "path": "documentation/resources/registration_approval/examples/resource/index.md",
+      "provider_name": "registration_approval",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--registration_approval--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration_approval/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_registration_approval.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 553,
+      "body_sha256": "sha256:cd27d101f03ba35b97118a5c79641fc48ba0cc97e22effa6b961a5fb0e9df033",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:registration_approval:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:registration_approval:import",
+      "parent_id": "xcsh-docs:resources:registration_approval:fundamentals",
+      "path": "documentation/resources/registration_approval/lifecycle/import/index.md",
+      "provider_name": "registration_approval",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--registration_approval--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration_approval/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_registration_approval.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,1021 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:k8s_pod_security_policy:fundamentals",
+    "id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "psp_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec"]
+      },
+      "psp_spec.allow_privilege_escalation": {
+        "anchor": "schema-psp_spec--allow_privilege_escalation",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "allow_privilege_escalation"]
+      },
+      "psp_spec.allowed_capabilities": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:allowed_capabilities",
+        "schema_path": ["psp_spec", "allowed_capabilities"]
+      },
+      "psp_spec.allowed_capabilities.capabilities": {
+        "anchor": "schema-psp_spec--allowed_capabilities--capabilities",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:allowed_capabilities",
+        "schema_path": ["psp_spec", "allowed_capabilities", "capabilities"]
+      },
+      "psp_spec.allowed_csi_drivers": {
+        "anchor": "schema-psp_spec--allowed_csi_drivers",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "allowed_csi_drivers"]
+      },
+      "psp_spec.allowed_flex_volumes": {
+        "anchor": "schema-psp_spec--allowed_flex_volumes",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "allowed_flex_volumes"]
+      },
+      "psp_spec.allowed_host_paths": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
+        "schema_path": ["psp_spec", "allowed_host_paths"]
+      },
+      "psp_spec.allowed_host_paths.path_prefix": {
+        "anchor": "schema-psp_spec--allowed_host_paths--path_prefix",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
+        "schema_path": ["psp_spec", "allowed_host_paths", "path_prefix"]
+      },
+      "psp_spec.allowed_host_paths.read_only": {
+        "anchor": "schema-psp_spec--allowed_host_paths--read_only",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
+        "schema_path": ["psp_spec", "allowed_host_paths", "read_only"]
+      },
+      "psp_spec.allowed_proc_mounts": {
+        "anchor": "schema-psp_spec--allowed_proc_mounts",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "allowed_proc_mounts"]
+      },
+      "psp_spec.allowed_unsafe_sysctls": {
+        "anchor": "schema-psp_spec--allowed_unsafe_sysctls",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "allowed_unsafe_sysctls"]
+      },
+      "psp_spec.default_allow_privilege_escalation": {
+        "anchor": "schema-psp_spec--default_allow_privilege_escalation",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "default_allow_privilege_escalation"]
+      },
+      "psp_spec.default_capabilities": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:default_capabilities",
+        "schema_path": ["psp_spec", "default_capabilities"]
+      },
+      "psp_spec.default_capabilities.capabilities": {
+        "anchor": "schema-psp_spec--default_capabilities--capabilities",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:default_capabilities",
+        "schema_path": ["psp_spec", "default_capabilities", "capabilities"]
+      },
+      "psp_spec.drop_capabilities": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:drop_capabilities",
+        "schema_path": ["psp_spec", "drop_capabilities"]
+      },
+      "psp_spec.drop_capabilities.capabilities": {
+        "anchor": "schema-psp_spec--drop_capabilities--capabilities",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:drop_capabilities",
+        "schema_path": ["psp_spec", "drop_capabilities", "capabilities"]
+      },
+      "psp_spec.forbidden_sysctls": {
+        "anchor": "schema-psp_spec--forbidden_sysctls",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "forbidden_sysctls"]
+      },
+      "psp_spec.fs_group_strategy_options": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options",
+        "schema_path": ["psp_spec", "fs_group_strategy_options"]
+      },
+      "psp_spec.fs_group_strategy_options.id_ranges": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
+        "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges"]
+      },
+      "psp_spec.fs_group_strategy_options.id_ranges.max_id": {
+        "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--max_id",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
+        "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges", "max_id"]
+      },
+      "psp_spec.fs_group_strategy_options.id_ranges.min_id": {
+        "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--min_id",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
+        "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges", "min_id"]
+      },
+      "psp_spec.fs_group_strategy_options.rule": {
+        "anchor": "schema-psp_spec--fs_group_strategy_options--rule",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options",
+        "schema_path": ["psp_spec", "fs_group_strategy_options", "rule"]
+      },
+      "psp_spec.host_ipc": {
+        "anchor": "schema-psp_spec--host_ipc",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "host_ipc"]
+      },
+      "psp_spec.host_network": {
+        "anchor": "schema-psp_spec--host_network",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "host_network"]
+      },
+      "psp_spec.host_pid": {
+        "anchor": "schema-psp_spec--host_pid",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "host_pid"]
+      },
+      "psp_spec.host_port_ranges": {
+        "anchor": "schema-psp_spec--host_port_ranges",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "host_port_ranges"]
+      },
+      "psp_spec.no_allowed_capabilities": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_allowed_capabilities",
+        "schema_path": ["psp_spec", "no_allowed_capabilities"]
+      },
+      "psp_spec.no_default_capabilities": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_default_capabilities",
+        "schema_path": ["psp_spec", "no_default_capabilities"]
+      },
+      "psp_spec.no_drop_capabilities": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_drop_capabilities",
+        "schema_path": ["psp_spec", "no_drop_capabilities"]
+      },
+      "psp_spec.no_fs_groups": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_fs_groups",
+        "schema_path": ["psp_spec", "no_fs_groups"]
+      },
+      "psp_spec.no_run_as_group": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_run_as_group",
+        "schema_path": ["psp_spec", "no_run_as_group"]
+      },
+      "psp_spec.no_run_as_user": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_run_as_user",
+        "schema_path": ["psp_spec", "no_run_as_user"]
+      },
+      "psp_spec.no_runtime_class": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_runtime_class",
+        "schema_path": ["psp_spec", "no_runtime_class"]
+      },
+      "psp_spec.no_se_linux_options": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_se_linux_options",
+        "schema_path": ["psp_spec", "no_se_linux_options"]
+      },
+      "psp_spec.no_supplemental_groups": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_supplemental_groups",
+        "schema_path": ["psp_spec", "no_supplemental_groups"]
+      },
+      "psp_spec.privileged": {
+        "anchor": "schema-psp_spec--privileged",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "privileged"]
+      },
+      "psp_spec.read_only_root_filesystem": {
+        "anchor": "schema-psp_spec--read_only_root_filesystem",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "read_only_root_filesystem"]
+      },
+      "psp_spec.run_as_group": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group",
+        "schema_path": ["psp_spec", "run_as_group"]
+      },
+      "psp_spec.run_as_group.id_ranges": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
+        "schema_path": ["psp_spec", "run_as_group", "id_ranges"]
+      },
+      "psp_spec.run_as_group.id_ranges.max_id": {
+        "anchor": "schema-psp_spec--run_as_group--id_ranges--max_id",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
+        "schema_path": ["psp_spec", "run_as_group", "id_ranges", "max_id"]
+      },
+      "psp_spec.run_as_group.id_ranges.min_id": {
+        "anchor": "schema-psp_spec--run_as_group--id_ranges--min_id",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
+        "schema_path": ["psp_spec", "run_as_group", "id_ranges", "min_id"]
+      },
+      "psp_spec.run_as_group.rule": {
+        "anchor": "schema-psp_spec--run_as_group--rule",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group",
+        "schema_path": ["psp_spec", "run_as_group", "rule"]
+      },
+      "psp_spec.run_as_user": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user",
+        "schema_path": ["psp_spec", "run_as_user"]
+      },
+      "psp_spec.run_as_user.id_ranges": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
+        "schema_path": ["psp_spec", "run_as_user", "id_ranges"]
+      },
+      "psp_spec.run_as_user.id_ranges.max_id": {
+        "anchor": "schema-psp_spec--run_as_user--id_ranges--max_id",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
+        "schema_path": ["psp_spec", "run_as_user", "id_ranges", "max_id"]
+      },
+      "psp_spec.run_as_user.id_ranges.min_id": {
+        "anchor": "schema-psp_spec--run_as_user--id_ranges--min_id",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
+        "schema_path": ["psp_spec", "run_as_user", "id_ranges", "min_id"]
+      },
+      "psp_spec.run_as_user.rule": {
+        "anchor": "schema-psp_spec--run_as_user--rule",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user",
+        "schema_path": ["psp_spec", "run_as_user", "rule"]
+      },
+      "psp_spec.supplemental_groups": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups",
+        "schema_path": ["psp_spec", "supplemental_groups"]
+      },
+      "psp_spec.supplemental_groups.id_ranges": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
+        "schema_path": ["psp_spec", "supplemental_groups", "id_ranges"]
+      },
+      "psp_spec.supplemental_groups.id_ranges.max_id": {
+        "anchor": "schema-psp_spec--supplemental_groups--id_ranges--max_id",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
+        "schema_path": ["psp_spec", "supplemental_groups", "id_ranges", "max_id"]
+      },
+      "psp_spec.supplemental_groups.id_ranges.min_id": {
+        "anchor": "schema-psp_spec--supplemental_groups--id_ranges--min_id",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
+        "schema_path": ["psp_spec", "supplemental_groups", "id_ranges", "min_id"]
+      },
+      "psp_spec.supplemental_groups.rule": {
+        "anchor": "schema-psp_spec--supplemental_groups--rule",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups",
+        "schema_path": ["psp_spec", "supplemental_groups", "rule"]
+      },
+      "psp_spec.volumes": {
+        "anchor": "schema-psp_spec--volumes",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+        "schema_path": ["psp_spec", "volumes"]
+      },
+      "yaml": {
+        "anchor": "schema-yaml",
+        "document_id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+        "schema_path": ["yaml"]
+      }
+    },
+    "provider_name": "k8s_pod_security_policy",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1491,
+      "body_sha256": "sha256:851b2feb76daca96eaa4af669a2d878f1996fbad21f88c4d761b4f734044ca50",
+      "child_ids": [
+        "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/k8s_pod_security_policy/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/k8s_pod_security_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_k8s_pod_security_policy for xcsh_k8s_pod_security_policy.",
+      "title": "xcsh_k8s_pod_security_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 20894,
+      "body_sha256": "sha256:fa17315557dae9f2a39cdbb0cd4d8935e96e91a5b958f47f1bca54beea26af16",
+      "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec"],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:fundamentals",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_k8s_pod_security_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 17981,
+      "body_sha256": "sha256:4c71cb3af5849b80af6374d005135591c358b19122dce149831ebbd882f1ee8d",
+      "child_ids": [
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:allowed_capabilities",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:default_capabilities",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:drop_capabilities",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_allowed_capabilities",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_default_capabilities",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_drop_capabilities",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_fs_groups",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_run_as_group",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_run_as_user",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_runtime_class",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_se_linux_options",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_supplemental_groups",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user",
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups"
+      ],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:reference",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec.md",
+      "role": "properties",
+      "schema_path": ["psp_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2307,
+      "body_sha256": "sha256:317ed8deb12b2f00ac83dfa75533247d7aaa3363cf5798a2ab05eda771f875d9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:allowed_capabilities",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/allowed_capabilities/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--allowed_capabilities.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "allowed_capabilities"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/allowed_capabilities/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.allowed_capabilities for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.allowed_capabilities",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3193,
+      "body_sha256": "sha256:f558a741650228139a09bc7530061db1552331b770e87341dc6514419baeb9fb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/allowed_host_paths/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--allowed_host_paths.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "allowed_host_paths"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/allowed_host_paths/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.allowed_host_paths for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.allowed_host_paths",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2307,
+      "body_sha256": "sha256:e247c764149edc4c77c81c77ebf3af3c851f664806cabfffe1788cc5c9b7a579",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:default_capabilities",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/default_capabilities/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--default_capabilities.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "default_capabilities"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/default_capabilities/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.default_capabilities for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.default_capabilities",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2298,
+      "body_sha256": "sha256:b3e5448d4cca1104f446dbef321a3c7e1cbbe69367f3f2a49fd5bafd1903dd8c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:drop_capabilities",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/drop_capabilities/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--drop_capabilities.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "drop_capabilities"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/drop_capabilities/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.drop_capabilities for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.drop_capabilities",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2578,
+      "body_sha256": "sha256:913deca13844dce2a7af1e1ad177484975c4776b37a9c5cbcb60c3a97f585693",
+      "child_ids": [
+        "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges"
+      ],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--fs_group_strategy_options.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "fs_group_strategy_options"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.fs_group_strategy_options for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.fs_group_strategy_options",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3973,
+      "body_sha256": "sha256:c721758d958ba8466f22189d5995d1bbbaaca6e5c315395825e5667cbb301053",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/id_ranges/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--fs_group_strategy_options--id_ranges.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/id_ranges/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.fs_group_strategy_options.id_ranges for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.fs_group_strategy_options.id_ranges",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1303,
+      "body_sha256": "sha256:47188ef9c1b95c4beb316305902ba36f0d752fbd0d1470188050833e4da50f92",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_allowed_capabilities",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_allowed_capabilities/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--no_allowed_capabilities.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "no_allowed_capabilities"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_allowed_capabilities/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.no_allowed_capabilities for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.no_allowed_capabilities",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1303,
+      "body_sha256": "sha256:ffc11f8f4d67c0436e230a26d6f34e2c8c0295d06b5b48c4ed9b1f3ed4b07e57",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_default_capabilities",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_default_capabilities/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--no_default_capabilities.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "no_default_capabilities"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_default_capabilities/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.no_default_capabilities for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.no_default_capabilities",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1294,
+      "body_sha256": "sha256:9c6327a91a4f8018419827ccd1889aff19881c085643f82fe649ee83475df631",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_drop_capabilities",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_drop_capabilities/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--no_drop_capabilities.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "no_drop_capabilities"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_drop_capabilities/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.no_drop_capabilities for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.no_drop_capabilities",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1247,
+      "body_sha256": "sha256:113befc423c76932ef48c55fe1dfa8ac6b63053dd84f6e52694d219af61b239a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_fs_groups",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_fs_groups/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--no_fs_groups.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "no_fs_groups"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_fs_groups/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.no_fs_groups for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.no_fs_groups",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1279,
+      "body_sha256": "sha256:2f95b6da35f12e2a196a460b81b56b4d2eb51e967e5a71635d0ce3e5f5cd8ac8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_run_as_group",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_run_as_group/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--no_run_as_group.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "no_run_as_group"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_run_as_group/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.no_run_as_group for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.no_run_as_group",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1276,
+      "body_sha256": "sha256:651ded044cbf4d7af1a921019416f212be6307683d58c6b0aed8708239d5fc33",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_run_as_user",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_run_as_user/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--no_run_as_user.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "no_run_as_user"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_run_as_user/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.no_run_as_user for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.no_run_as_user",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1276,
+      "body_sha256": "sha256:e978e44168a208dfe9788f67a10df8253b5cb4d1559e38d6faec934ef63e6a8d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_runtime_class",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_runtime_class/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--no_runtime_class.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "no_runtime_class"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_runtime_class/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.no_runtime_class for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.no_runtime_class",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1285,
+      "body_sha256": "sha256:340b751826d31331c0601df1752a112a1b81307cf71c10bc2914ec8157b7615f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_se_linux_options",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_se_linux_options/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--no_se_linux_options.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "no_se_linux_options"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_se_linux_options/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.no_se_linux_options for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.no_se_linux_options",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1267,
+      "body_sha256": "sha256:0deca5d389eb74047c66180e943fadff745dac78cb77de3790ec7529e27df39d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:no_supplemental_groups",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_supplemental_groups/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--no_supplemental_groups.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "no_supplemental_groups"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_supplemental_groups/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.no_supplemental_groups for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.no_supplemental_groups",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2487,
+      "body_sha256": "sha256:de9b78ee3e2bc66a68fdb53536c89dcdc09bf2aac904848fa1dd0a37666fac8f",
+      "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges"],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_group/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--run_as_group.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "run_as_group"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_group/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.run_as_group for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.run_as_group",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3869,
+      "body_sha256": "sha256:e0055260f93e00c2a03b921001ef7d5c63a88de3a295aa198ef18750483aae00",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_group/id_ranges/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--run_as_group--id_ranges.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "run_as_group", "id_ranges"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_group/id_ranges/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.run_as_group.id_ranges for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.run_as_group.id_ranges",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2480,
+      "body_sha256": "sha256:245301923fc71d4d58066217b36f9f950d3f42d1affede4b9d2abc6a4db85935",
+      "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges"],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_user/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--run_as_user.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "run_as_user"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_user/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.run_as_user for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.run_as_user",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3861,
+      "body_sha256": "sha256:195e719d432021cdb6046f82c474ce9175111f17f7171653b7ebf5aabeb02fc3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_user/id_ranges/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--run_as_user--id_ranges.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "run_as_user", "id_ranges"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_user/id_ranges/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.run_as_user.id_ranges for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.run_as_user.id_ranges",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2541,
+      "body_sha256": "sha256:46bb3cec7ce2ff849f5d9e570ecfe63cda9cf33c812e7bf97f3474e8f9146bb1",
+      "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges"],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--supplemental_groups.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "supplemental_groups"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.supplemental_groups for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.supplemental_groups",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3925,
+      "body_sha256": "sha256:77cdf234177144f43ee4285b40b4b15d3c3f7299e1f0021ddc3ac56c4c9e10a4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups",
+      "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/id_ranges/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--properties--psp_spec--supplemental_groups--id_ranges.md",
+      "role": "properties",
+      "schema_path": ["psp_spec", "supplemental_groups", "id_ranges"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/id_ranges/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "psp_spec.supplemental_groups.id_ranges for xcsh_k8s_pod_security_policy.",
+      "title": "psp_spec.supplemental_groups.id_ranges",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 723,
+      "body_sha256": "sha256:462065356e211eb2080a6e8755c2c1fe0647ffeda88818c0e3fa73a2b9bfd738",
+      "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_policy:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:examples",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:fundamentals",
+      "path": "documentation/data-sources/k8s_pod_security_policy/examples/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_k8s_pod_security_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1418,
+      "body_sha256": "sha256:b8a61208e2d11c23c2544f60f5cfb43e5b243c60140be317085cfd60090c2bd3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_pod_security_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:466f0cfc6eb4d12538a2c33e13b91f9270feaa389452e6596f117ab99a547c9b",
+        "source_path": "examples/data-sources/xcsh_k8s_pod_security_policy/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:k8s_pod_security_policy:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:k8s_pod_security_policy:examples",
+      "path": "documentation/data-sources/k8s_pod_security_policy/examples/data-source/index.md",
+      "provider_name": "k8s_pod_security_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_k8s_pod_security_policy.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,215 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:service_policy_set:fundamentals",
+    "id": "xcsh-docs:data-sources:service_policy_set:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:reference",
+        "schema_path": ["namespace"]
+      },
+      "policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:properties:policies",
+        "schema_path": ["policies"]
+      },
+      "policies.kind": {
+        "anchor": "schema-policies--kind",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:properties:policies",
+        "schema_path": ["policies", "kind"]
+      },
+      "policies.name": {
+        "anchor": "schema-policies--name",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:properties:policies",
+        "schema_path": ["policies", "name"]
+      },
+      "policies.namespace": {
+        "anchor": "schema-policies--namespace",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:properties:policies",
+        "schema_path": ["policies", "namespace"]
+      },
+      "policies.tenant": {
+        "anchor": "schema-policies--tenant",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:properties:policies",
+        "schema_path": ["policies", "tenant"]
+      },
+      "policies.uid": {
+        "anchor": "schema-policies--uid",
+        "document_id": "xcsh-docs:data-sources:service_policy_set:properties:policies",
+        "schema_path": ["policies", "uid"]
+      }
+    },
+    "provider_name": "service_policy_set",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:service_policy_set:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1500,
+      "body_sha256": "sha256:90ab1019ad04019c283433ae523053aa55e2229f8c58af9a0819075e3cd88113",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_set:reference",
+        "xcsh-docs:data-sources:service_policy_set:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_set:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_set:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/service_policy_set/index.md",
+      "provider_name": "service_policy_set",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/service_policy_set.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_service_policy_set for xcsh_service_policy_set.",
+      "title": "xcsh_service_policy_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3432,
+      "body_sha256": "sha256:342b913889bd7cb17fe53997e843cdf6347bde6f484e1a0385ae6d688bf2fba1",
+      "child_ids": ["xcsh-docs:data-sources:service_policy_set:properties:policies"],
+      "collection_id": "xcsh-docs:data-sources:service_policy_set:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_set:reference",
+      "parent_id": "xcsh-docs:data-sources:service_policy_set:fundamentals",
+      "path": "documentation/data-sources/service_policy_set/properties/index.md",
+      "provider_name": "service_policy_set",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_set--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_set/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_service_policy_set.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1908,
+      "body_sha256": "sha256:388f3c4cb726e1d72d3c9509e1103c82016d571bd9a41c0e919bc99bb0a804d8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_set:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_set:properties:policies",
+      "parent_id": "xcsh-docs:data-sources:service_policy_set:reference",
+      "path": "documentation/data-sources/service_policy_set/properties/policies/index.md",
+      "provider_name": "service_policy_set",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_set--properties--policies.md",
+      "role": "properties",
+      "schema_path": ["policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_set/properties/policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "policies for xcsh_service_policy_set.",
+      "title": "policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 693,
+      "body_sha256": "sha256:bceac045c486e99f592623348ab3322e4179a9b35acc0fd08833a8648303ea29",
+      "child_ids": ["xcsh-docs:data-sources:service_policy_set:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:service_policy_set:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_set:examples",
+      "parent_id": "xcsh-docs:data-sources:service_policy_set:fundamentals",
+      "path": "documentation/data-sources/service_policy_set/examples/index.md",
+      "provider_name": "service_policy_set",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_set--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_set/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_service_policy_set.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1355,
+      "body_sha256": "sha256:1b71640fb84473862ba406ec1ef5496ec0d3c0fa15146e525f8526dbec6701f4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_set:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:3bd6ef68376941c1abe8ba51cff222b7a95e9a7e72218b34827623539153d92a",
+        "source_path": "examples/data-sources/xcsh_service_policy_set/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:service_policy_set:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:service_policy_set:examples",
+      "path": "documentation/data-sources/service_policy_set/examples/data-source/index.md",
+      "provider_name": "service_policy_set",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_set--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_set/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_service_policy_set.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

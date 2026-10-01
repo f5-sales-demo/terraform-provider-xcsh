@@ -1,59 +1,46 @@
 ---
-page_title: "xcsh_site_registration Data Source - xcsh"
-subcategory: "Uncategorized"
-description: |-
-  Resolves the runtime registration of a site's Customer Edge (CE) node in F5 Distributed Cloud.
-  A registration is named r-<uuid>, not after the site it belongs to, so it cannot be
-  read by site name. This data source lists the registrations belonging to a site and returns the
-  one that matches, giving you the name that xcsh_registration_approval requires.
-  The registration only exists once the CE has booted and registered with its token. Until then
-  this data source reports found = false without raising an error, so an approval can
-  safely be gated on it:
-
-  data "xcsh_site_registration" "ce" {
-    site_name = xcsh_securemesh_site_v2.ce.name
-  }
-
-  resource "xcsh_registration_approval" "ce" {
-    count        = data.xcsh_site_registration.ce.found ? 1 : 0
-    name         = data.xcsh_site_registration.ce.name
-    namespace    = "system"
-    cluster_size = 1
-  }
-
-  Possible state values: NOTSET, NEW, APPROVED, ADMITTED, RETIRED, FAILED, DONE, PENDING, ONLINE, UPGRADING, MAINTENANCE, FAILED_INACTIVE.
+page_title: "xcsh_site_registration"
+subcategory: ""
+description: "xcsh_site_registration for xcsh_site_registration."
+xcsh_docs: {"aliases": [], "body_bytes": 3559, "body_sha256": "sha256:1f906b1ae133709f0d882baf301905136fbe894a2e19668e697af6c221d952e5", "canonical_id": "xcsh-docs:data-sources:site_registration:fundamentals", "child_ids": ["xcsh-docs:data-sources:site_registration:reference", "xcsh-docs:data-sources:site_registration:examples"], "collection_id": "xcsh-docs:data-sources:site_registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:site_registration:fundamentals", "parent_id": null, "path": "docs/data-sources/site_registration.md", "provider_name": "site_registration", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_registration/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site_registration for xcsh_site_registration.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
 ---
 
-# xcsh_site_registration (Data Source)
+<!-- Exact provider and upstream contract identifiers. -->
 
-Resolves the runtime registration of a site's Customer Edge (CE) node in F5 Distributed Cloud. This is a read-only data source.
+<!-- textlint-disable terminology -->
 
-A registration is named `r-<uuid>`, **not** after the site it belongs to, so it cannot be
-read by site name. This data source lists the registrations belonging to a site and returns the
-one that matches, giving you the name that `xcsh_registration_approval` requires.
+# xcsh_site_registration
 
-The registration only exists once the CE has booted and registered with its token. Until then
-this data source reports `found = false` **without raising an error**, so an approval can
-safely be gated on it:
+Breadcrumbs:
 
-```terraform
-data "xcsh_site_registration" "ce" {
-  site_name = xcsh_securemesh_site_v2.ce.name
-}
+- xcsh_site_registration
 
-resource "xcsh_registration_approval" "ce" {
-  count        = data.xcsh_site_registration.ce.found ? 1 : 0
-  name         = data.xcsh_site_registration.ce.name
-  namespace    = "system"
-  cluster_size = 1
-}
-```
+Resolves the runtime registration of a site's Customer Edge (CE) node in F5 Distributed Cloud.
 
-**Possible `state` values:** `NOTSET`, `NEW`, `APPROVED`, `ADMITTED`, `RETIRED`, `FAILED`, `DONE`, `PENDING`, `ONLINE`, `UPGRADING`, `MAINTENANCE`, `FAILED_INACTIVE`.
+A registration is named \`r-&lt;uuid&gt;\`, \*\*not\*\* after the site it belongs to, so it cannot
+be read by site name. This data source lists the registrations belonging to a site and returns the
+one that matches, giving you the name that \`xcsh\_registration\_approval\` requires.
 
-~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
+The registration only exists once the CE has booted and registered with its token. Until then this
+data source reports \`found = false\` \*\*without raising an error\*\*, so an approval can safely be
+gated on it:
 
-## Example Usage
+\`\`\`terraform data "xcsh\_site\_registration" "ce" \{ site\_name =
+xcsh\_securemesh\_site\_v2.ce.name \}
+
+resource "xcsh\_registration\_approval" "ce" \{ count = data.xcsh\_site\_registration.ce.found ? 1 :
+0 name = data.xcsh\_site\_registration.ce.name namespace = "system" cluster\_size = 1 \} \`\`\`
+
+\*\*Possible \`state\` values:\*\* \`NOTSET\`, \`NEW\`, \`APPROVED\`, \`ADMITTED\`, \`RETIRED\`,
+\`FAILED\`, \`DONE\`, \`PENDING\`, \`ONLINE\`, \`UPGRADING\`, \`MAINTENANCE\`, \`FAILED\_INACTIVE\`.
+
+## Prerequisites
+
+Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
+
+## Minimal configuration
+
+Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
 ```terraform
 # Example: Resolve a Customer Edge registration so it can be approved
@@ -112,123 +99,11 @@ resource "xcsh_registration_approval" "ce" {
 }
 ```
 
-<!-- schema generated by tfplugindocs -->
+## Root configuration
 
-## Argument Reference
+Required root properties: `site_name`. Full root flags and choices appear in the property reference.
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+## Next pages
 
-### Metadata Argument Reference
-
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String  Defaults to ``system`, where site registrations live`<br>Namespace holding the registrations
-
-### Spec Argument Reference
-
-<a id="hostname"></a>&#x2022; [`hostname`](#hostname) - Optional String<br>Node hostname used to pick one registration when a multi-node site has several. Optional for a single-node site; when omitted, the resolved node's hostname is returned here. Hostnames are only unique within a site
-
-<a id="site-name"></a>&#x2022; [`site_name`](#site-name) - Required String<br>Name of the F5 XC site whose CE registration should be resolved. Matched against each registration's `get_spec.passport.cluster_name`
-
-### Attributes Reference
-
-In addition to all arguments above, the following attributes are exported:
-
-<a id="cluster-name"></a>&#x2022; [`cluster_name`](#cluster-name) - Optional String<br>Cluster name the CE registered with, as reported in its passport. Equals `site_name` for a correctly configured site
-
-<a id="cluster-size"></a>&#x2022; [`cluster_size`](#cluster-size) - Optional Number<br>Number of nodes the CE reported for its cluster (1 for a single-node site, 3 for a three-node site)
-
-<a id="found"></a>&#x2022; [`found`](#found) - Optional Bool<br>Whether a registration was resolved. `false` (with no error) while the CE has not registered yet — gate an approval's `count` on this
-
-<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Identifier of this lookup: the registration name when one is found, otherwise null
-
-<a id="instance-id"></a>&#x2022; [`instance_id`](#instance-id) - Optional String<br>Infrastructure instance identifier reported by the CE registration (`get_spec.infra.instance_id`). This distinguishes rebuilt nodes that reuse the same site and hostname
-
-<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Registration name (`r-`<uuid>``) to pass to `xcsh_registration_approval`. Null when `found` is `false`
-
-<a id="provider-type"></a>&#x2022; [`provider_type`](#provider-type) - Optional String<br>Infrastructure provider the CE reported, e.g. `AZURE`, `AWS`, `GCP`, `VMWARE`
-
-<a id="state"></a>&#x2022; [`state`](#state) - Optional String<br>Current registration state, e.g. `PENDING` (awaiting approval) or `ONLINE` (node admitted and healthy)
-
-<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Unique identifier of the registration (the `<uuid>` part of the name)
-
----
-
-## Common Types
-
-The following type definitions are used throughout this resource. See the full definition here rather than repeated inline.
-
-### Object Reference {#common-object-reference}
-
-Object references establish a direct reference from one configuration object to another in F5 Distributed Cloud. References use the format `tenant/namespace/name`.
-
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `name` | String | Name of the referenced object |
-| `namespace` | String | Namespace containing the referenced object |
-| `tenant` | String | Tenant of the referenced object (system-managed) |
-
-### Transformers {#common-transformers}
-
-Transformers apply transformations to input values before matching. Multiple transformers can be applied in order.
-
-| Value | Description |
-| ----- | ----------- |
-| `LOWER_CASE` | Convert to lowercase |
-| `UPPER_CASE` | Convert to uppercase |
-| `BASE64_DECODE` | Decodebase64 content |
-| `NORMALIZE_PATH` | Normalize URL path |
-| `REMOVE_WHITESPACE` | Remove whitespace characters |
-| `URL_DECODE` | Decode URL-encoded characters |
-| `TRIM_LEFT` | Trim leading whitespace |
-| `TRIM_RIGHT` | Trim trailing whitespace |
-| `TRIM` | Trim both leading and trailing whitespace |
-
-### HTTP Methods {#common-http-methods}
-
-HTTP methods used for request matching.
-
-| Value | Description |
-| ----- | ----------- |
-| `ANY` | Match any HTTP method |
-| `GET` | HTTP GET request |
-| `HEAD` | HTTP HEAD request |
-| `POST` | HTTP POST request |
-| `PUT` | HTTP PUT request |
-| `DELETE` | HTTP DELETE request |
-| `CONNECT` | HTTP CONNECT request |
-| `OPTIONS` | HTTP OPTIONS request |
-| `TRACE` | HTTP TRACE request |
-| `PATCH` | HTTP PATCH request |
-| `COPY` | HTTP COPY request (WebDAV) |
-
-### TLS Fingerprints {#common-tls-fingerprints}
-
-TLS fingerprint categories for malicious client detection.
-
-| Value | Description |
-| ----- | ----------- |
-| `TLS_FINGERPRINT_NONE` | No fingerprint matching |
-| `ANY_MALICIOUS_FINGERPRINT` | Match any known malicious fingerprint |
-| `ADWARE` | Adware-associated fingerprints |
-| `DRIDEX` | Dridex malware fingerprints |
-| `GOOTKIT` | Gootkit malware fingerprints |
-| `RANSOMWARE` | Ransomware-associated fingerprints |
-| `TRICKBOT` | Trickbot malware fingerprints |
-
-### IP Threat Categories {#common-ip-threat-categories}
-
-IP address threat categories for security filtering.
-
-| Value | Description |
-| ----- | ----------- |
-| `SPAM_SOURCES` | Known spam sources |
-| `WINDOWS_EXPLOITS` | Windows exploit sources |
-| `WEB_ATTACKS` | Web attack sources |
-| `BOTNETS` | Known botnet IPs |
-| `SCANNERS` | Network scanner IPs |
-| `REPUTATION` | Poor reputation IPs |
-| `PHISHING` | Phishing-related IPs |
-| `PROXY` | Anonymous proxy IPs |
-| `MOBILE_THREATS` | Mobile threat sources |
-| `TOR_PROXY` | Tor exit nodes |
-| `DENIAL_OF_SERVICE` | DoS attack sources |
-| `NETWORK` | Known bad network ranges |
+- [Property reference](../guides/data-sources--site_registration--reference.md)
+- [Examples](../guides/data-sources--site_registration--examples.md)

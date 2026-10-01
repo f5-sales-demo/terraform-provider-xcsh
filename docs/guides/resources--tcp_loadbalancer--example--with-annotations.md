@@ -1,0 +1,88 @@
+---
+page_title: "With annotations"
+subcategory: "Load Balancing"
+description: "With annotations for xcsh_tcp_loadbalancer."
+xcsh_docs: {"aliases": [], "body_bytes": 1713, "body_sha256": "sha256:fb65b2a4e5f8ce1c6c18a7ec296e4041230495c51975731c62388258ce4803a1", "canonical_id": "xcsh-docs:resources:tcp_loadbalancer:example:with-annotations", "child_ids": [], "collection_id": "xcsh-docs:resources:tcp_loadbalancer:collection", "completeness": "complete", "evidence": {"attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.", "outcome": "valid configuration", "sha256": "sha256:0dfe6d84947deb60106a2de398c8405b9f312819b62b01977611555b205f5beb", "source_path": "examples/resources/xcsh_tcp_loadbalancer/with-annotations.tf", "validation": "terraform validate"}, "id": "xcsh-docs:resources:tcp_loadbalancer:example:with-annotations", "parent_id": "xcsh-docs:resources:tcp_loadbalancer:examples", "path": "docs/guides/resources--tcp_loadbalancer--example--with-annotations.md", "provider_name": "tcp_loadbalancer", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "publishing_destination": "registry", "role": "example", "schema_path": ["with-annotations"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/examples/with-annotations/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "With annotations for xcsh_tcp_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tcp_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# With annotations
+
+Breadcrumbs:
+
+- [xcsh_tcp_loadbalancer](../resources/tcp_loadbalancer.md)
+- [Examples](resources--tcp_loadbalancer--examples.md)
+- With annotations
+
+Acceptance-test-derived fixture; no new live API execution is claimed.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/resources/xcsh_tcp_loadbalancer/with-annotations.tf`; digest `sha256:0dfe6d84947deb60106a2de398c8405b9f312819b62b01977611555b205f5beb`.
+
+```terraform
+# WithAnnotations — Acceptance-test-derived Configuration
+# Extracted from an acceptance test helper.
+# No new live API validation is claimed.
+
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+resource "xcsh_origin_pool" "test" {
+  name      = "example-pool"
+  namespace = "system"
+  port      = 443
+
+  origin_servers {
+    public_name {
+      dns_name = "example.com"
+    }
+  }
+
+  no_tls                = {}
+  same_as_endpoint_port = {}
+}
+
+resource "xcsh_tcp_loadbalancer" "test" {
+  name      = "example"
+  namespace = "system"
+
+  labels = {
+    environment = "test"
+    managed_by  = "terraform-acceptance-test"
+  }
+
+  annotations = {
+    test_key = "example-value"
+  }
+
+  domains     = ["example.example.com"]
+  listen_port = 443
+  tcp         = {}
+  sni         = {}
+
+  origin_pools_weights {
+    pool {
+      name      = xcsh_origin_pool.test.name
+      namespace = "system"
+    }
+    weight = 1
+  }
+
+  advertise_on_public_default_vip = {}
+}
+```
+
+## Next pages
+
+- [Examples](resources--tcp_loadbalancer--examples.md)
+- [xcsh_tcp_loadbalancer](../resources/tcp_loadbalancer.md)

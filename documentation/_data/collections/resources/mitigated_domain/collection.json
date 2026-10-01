@@ -1,0 +1,274 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:mitigated_domain:fundamentals",
+    "id": "xcsh-docs:resources:mitigated_domain:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:mitigated_domain:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:mitigated_domain:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:mitigated_domain:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:mitigated_domain:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:mitigated_domain:reference",
+        "schema_path": ["labels"]
+      },
+      "mitigated_domain": {
+        "anchor": "schema-mitigated_domain",
+        "document_id": "xcsh-docs:resources:mitigated_domain:reference",
+        "schema_path": ["mitigated_domain"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:mitigated_domain:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:mitigated_domain:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:mitigated_domain:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:mitigated_domain:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:mitigated_domain:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:mitigated_domain:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:mitigated_domain:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "mitigated_domain",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:mitigated_domain:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1581,
+      "body_sha256": "sha256:b39f8a89f19272b5a254692e985061d488fa9a20627a75b26f36ab6cc3d00a14",
+      "child_ids": [
+        "xcsh-docs:resources:mitigated_domain:reference",
+        "xcsh-docs:resources:mitigated_domain:examples",
+        "xcsh-docs:resources:mitigated_domain:import",
+        "xcsh-docs:resources:mitigated_domain:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:mitigated_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:mitigated_domain:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/mitigated_domain/index.md",
+      "provider_name": "mitigated_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/mitigated_domain.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/mitigated_domain/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_mitigated_domain for xcsh_mitigated_domain.",
+      "title": "xcsh_mitigated_domain",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["mitigated_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10836,
+      "body_sha256": "sha256:12240169b2c9eae9f68e78757d70867798cef417f7b1b43fb985842b5c6eb122",
+      "child_ids": ["xcsh-docs:resources:mitigated_domain:properties:timeouts"],
+      "collection_id": "xcsh-docs:resources:mitigated_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:mitigated_domain:reference",
+      "parent_id": "xcsh-docs:resources:mitigated_domain:fundamentals",
+      "path": "documentation/resources/mitigated_domain/properties/index.md",
+      "provider_name": "mitigated_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--mitigated_domain--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/mitigated_domain/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_mitigated_domain.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["mitigated_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2255,
+      "body_sha256": "sha256:314bae7b6b65283dba1dd9289af8042f2b8b98a6fe641d3b95ff1a0b8f3a749d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:mitigated_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:mitigated_domain:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:mitigated_domain:reference",
+      "path": "documentation/resources/mitigated_domain/properties/timeouts/index.md",
+      "provider_name": "mitigated_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--mitigated_domain--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/mitigated_domain/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_mitigated_domain.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["mitigated_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 657,
+      "body_sha256": "sha256:fe9ba4a7162252ad951e1c766791f35e23349ca8a36d22e0f8d54686680a0ba2",
+      "child_ids": ["xcsh-docs:resources:mitigated_domain:example:resource"],
+      "collection_id": "xcsh-docs:resources:mitigated_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:mitigated_domain:examples",
+      "parent_id": "xcsh-docs:resources:mitigated_domain:fundamentals",
+      "path": "documentation/resources/mitigated_domain/examples/index.md",
+      "provider_name": "mitigated_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--mitigated_domain--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/mitigated_domain/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_mitigated_domain.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["mitigated_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1308,
+      "body_sha256": "sha256:e41d3632d551f07c21197a86096427a4b64a8e765b323c29521070a07f12002e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:mitigated_domain:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:d859b6b9d3a8006d5c27b6cad66087687ae1b57c2b118afe91822b84dab15960",
+        "source_path": "examples/resources/xcsh_mitigated_domain/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:mitigated_domain:example:resource",
+      "parent_id": "xcsh-docs:resources:mitigated_domain:examples",
+      "path": "documentation/resources/mitigated_domain/examples/resource/index.md",
+      "provider_name": "mitigated_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--mitigated_domain--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/mitigated_domain/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_mitigated_domain.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["mitigated_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 536,
+      "body_sha256": "sha256:743cad74a96a9378bb171359e79de08dc4d88f976fa7e90e14e867c3552765c7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:mitigated_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:mitigated_domain:import",
+      "parent_id": "xcsh-docs:resources:mitigated_domain:fundamentals",
+      "path": "documentation/resources/mitigated_domain/lifecycle/import/index.md",
+      "provider_name": "mitigated_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--mitigated_domain--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/mitigated_domain/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_mitigated_domain.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["mitigated_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 588,
+      "body_sha256": "sha256:7907a452ecb1ffcd1da777b66de534c6e69af856caca0f3a5cf8d650480fc413",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:mitigated_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:mitigated_domain:timeouts",
+      "parent_id": "xcsh-docs:resources:mitigated_domain:fundamentals",
+      "path": "documentation/resources/mitigated_domain/lifecycle/timeouts/index.md",
+      "provider_name": "mitigated_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--mitigated_domain--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/mitigated_domain/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_mitigated_domain.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["mitigated_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

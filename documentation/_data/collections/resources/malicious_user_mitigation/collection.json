@@ -1,0 +1,867 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:malicious_user_mitigation:fundamentals",
+    "id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+        "schema_path": ["labels"]
+      },
+      "mitigation_type": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type",
+        "schema_path": ["mitigation_type"]
+      },
+      "mitigation_type.rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules",
+        "schema_path": ["mitigation_type", "rules"]
+      },
+      "mitigation_type.rules.mitigation_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+        "schema_path": ["mitigation_type", "rules", "mitigation_action"]
+      },
+      "mitigation_type.rules.mitigation_action.block_temporarily": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily",
+        "schema_path": ["mitigation_type", "rules", "mitigation_action", "block_temporarily"]
+      },
+      "mitigation_type.rules.mitigation_action.captcha_challenge": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge",
+        "schema_path": ["mitigation_type", "rules", "mitigation_action", "captcha_challenge"]
+      },
+      "mitigation_type.rules.mitigation_action.javascript_challenge": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge",
+        "schema_path": ["mitigation_type", "rules", "mitigation_action", "javascript_challenge"]
+      },
+      "mitigation_type.rules.threat_level": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level",
+        "schema_path": ["mitigation_type", "rules", "threat_level"]
+      },
+      "mitigation_type.rules.threat_level.high": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:high",
+        "schema_path": ["mitigation_type", "rules", "threat_level", "high"]
+      },
+      "mitigation_type.rules.threat_level.low": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:low",
+        "schema_path": ["mitigation_type", "rules", "threat_level", "low"]
+      },
+      "mitigation_type.rules.threat_level.medium": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:medium",
+        "schema_path": ["mitigation_type", "rules", "threat_level", "medium"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "malicious_user_mitigation",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:malicious_user_mitigation:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1765,
+      "body_sha256": "sha256:cfab3fbada45bec8b44737f54ef3fc456a6e585b2ed11c166f804a8ea779e1a3",
+      "child_ids": [
+        "xcsh-docs:resources:malicious_user_mitigation:reference",
+        "xcsh-docs:resources:malicious_user_mitigation:examples",
+        "xcsh-docs:resources:malicious_user_mitigation:import",
+        "xcsh-docs:resources:malicious_user_mitigation:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/malicious_user_mitigation/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/malicious_user_mitigation.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_malicious_user_mitigation for xcsh_malicious_user_mitigation.",
+      "title": "xcsh_malicious_user_mitigation",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 11891,
+      "body_sha256": "sha256:4d37f96ca48a99bba6d99ccc1da86b4feed4a5bcc666e9d67b28a736e30524db",
+      "child_ids": [
+        "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type",
+        "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:fundamentals",
+      "path": "documentation/resources/malicious_user_mitigation/properties/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_malicious_user_mitigation.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2237,
+      "body_sha256": "sha256:b601d1897b0c9eb4848d957c9a163e89ef9a4a544092045ce705eed53d8902d8",
+      "child_ids": ["xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules"],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2868,
+      "body_sha256": "sha256:6a9163d9a751827db65ccec093f74feb98fb54e85f13699820d0158550e9c524",
+      "child_ids": [
+        "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+        "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level"
+      ],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/rules/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type--rules.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type", "rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type.rules for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type.rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3324,
+      "body_sha256": "sha256:b63de013bec0fa08271aff7e8c4653f20d7812bb21e9ef52f70ed9c7fc9159f6",
+      "child_ids": [
+        "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily",
+        "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge",
+        "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge"
+      ],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type--rules--mitigation_action.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type", "rules", "mitigation_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type.rules.mitigation_action for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type.rules.mitigation_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1796,
+      "body_sha256": "sha256:17fdff0217d22dc92ec7072bff734bed67eb3f8c56e4dfc66a3a84ec65218022",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/block_temporarily/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type--rules--mitigation_action--block_temporarily.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type", "rules", "mitigation_action", "block_temporarily"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/block_temporarily/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type.rules.mitigation_action.block_temporarily for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type.rules.mitigation_action.block_temporarily",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1824,
+      "body_sha256": "sha256:c91cb422e8315ac2a35ee2b39d68860635f284fc89810f1889508ab42328b44a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/captcha_challenge/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type--rules--mitigation_action--captcha_challenge.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type", "rules", "mitigation_action", "captcha_challenge"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/captcha_challenge/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type.rules.mitigation_action.captcha_challenge for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type.rules.mitigation_action.captcha_challenge",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1805,
+      "body_sha256": "sha256:e327fb16aa92e11ed2d5588bd08083314956af4e3dd7c2f2d6c149463c18f0fb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/javascript_challenge/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type--rules--mitigation_action--javascript_challenge.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type", "rules", "mitigation_action", "javascript_challenge"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/javascript_challenge/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type.rules.mitigation_action.javascript_challenge for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type.rules.mitigation_action.javascript_challenge",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2974,
+      "body_sha256": "sha256:a70da855e1fdf902454fd2f620f10670fc238109b99b7689a438b8d3d44fe995",
+      "child_ids": [
+        "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:high",
+        "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:low",
+        "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:medium"
+      ],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type--rules--threat_level.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type", "rules", "threat_level"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type.rules.threat_level for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type.rules.threat_level",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1727,
+      "body_sha256": "sha256:2ef6829d4190c630b3ddd6f8d17388f0964dba7796540314bba9d7b3f4a32c82",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:high",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/high/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type--rules--threat_level--high.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type", "rules", "threat_level", "high"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/high/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type.rules.threat_level.high for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type.rules.threat_level.high",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1724,
+      "body_sha256": "sha256:9bca9bf8e0d47f459c04a920adf64dfa0678afa8e55f9ead007a2262a877a899",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:low",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/low/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type--rules--threat_level--low.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type", "rules", "threat_level", "low"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/low/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type.rules.threat_level.low for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type.rules.threat_level.low",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1733,
+      "body_sha256": "sha256:0e710692e5e53077646b6c52661fb27ce8fa74651a6f1fbb78e9ddca2a96c939",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:medium",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level",
+      "path": "documentation/resources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/medium/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--mitigation_type--rules--threat_level--medium.md",
+      "role": "properties",
+      "schema_path": ["mitigation_type", "rules", "threat_level", "medium"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/medium/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mitigation_type.rules.threat_level.medium for xcsh_malicious_user_mitigation.",
+      "title": "mitigation_type.rules.threat_level.medium",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2309,
+      "body_sha256": "sha256:80b3413f62189861790e427d27df5c0f3d38d5cdef149d37f82433524ffd9200",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:reference",
+      "path": "documentation/resources/malicious_user_mitigation/properties/timeouts/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_malicious_user_mitigation.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3043,
+      "body_sha256": "sha256:5d3e30d72eea7ce9dda1f808c3ef26fe6627b82418c0dbc1b64b62b694893e26",
+      "child_ids": [
+        "xcsh-docs:resources:malicious_user_mitigation:example:all-attributes",
+        "xcsh-docs:resources:malicious_user_mitigation:example:block",
+        "xcsh-docs:resources:malicious_user_mitigation:example:captcha",
+        "xcsh-docs:resources:malicious_user_mitigation:example:js-challenge",
+        "xcsh-docs:resources:malicious_user_mitigation:example:resource",
+        "xcsh-docs:resources:malicious_user_mitigation:example:with-annotations",
+        "xcsh-docs:resources:malicious_user_mitigation:example:with-description",
+        "xcsh-docs:resources:malicious_user_mitigation:example:with-labels",
+        "xcsh-docs:resources:malicious_user_mitigation:example:with-mitigation-type"
+      ],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:fundamentals",
+      "path": "documentation/resources/malicious_user_mitigation/examples/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_malicious_user_mitigation.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1854,
+      "body_sha256": "sha256:805f59a4d828de05f1cca9b561a4541d7dc2873147d6d913a68c6d2a9dd26aab",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:e1a870d0ac8f57cd049b19713024efa0b33bb0d6f7d3e2cc75464e43a5026739",
+        "source_path": "examples/resources/xcsh_malicious_user_mitigation/all-attributes.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:malicious_user_mitigation:example:all-attributes",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "path": "documentation/resources/malicious_user_mitigation/examples/all-attributes/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--example--all-attributes.md",
+      "role": "example",
+      "schema_path": ["all-attributes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/all-attributes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "All attributes for xcsh_malicious_user_mitigation.",
+      "title": "All attributes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1439,
+      "body_sha256": "sha256:bf8d5fc8f584b139251b78423a7715ab11cd3ea3f1f3d3007fca11a93a225d03",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:43058f9bf900f0f24a9521e75d8a2c8d32a8799733304a23a757ce55a8c8ffef",
+        "source_path": "examples/resources/xcsh_malicious_user_mitigation/block.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:malicious_user_mitigation:example:block",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "path": "documentation/resources/malicious_user_mitigation/examples/block/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--example--block.md",
+      "role": "example",
+      "schema_path": ["block"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/block/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Block for xcsh_malicious_user_mitigation.",
+      "title": "Block",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1447,
+      "body_sha256": "sha256:0c40bce75efba69d51da1e293c53fba2266a36676ff0539684ab1f5ab93aa898",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:900a9ff0aef2add7bba28c6bef38ed846bf7b633de41900982a3c7d386dce1a1",
+        "source_path": "examples/resources/xcsh_malicious_user_mitigation/captcha.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:malicious_user_mitigation:example:captcha",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "path": "documentation/resources/malicious_user_mitigation/examples/captcha/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--example--captcha.md",
+      "role": "example",
+      "schema_path": ["captcha"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/captcha/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Captcha for xcsh_malicious_user_mitigation.",
+      "title": "Captcha",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1471,
+      "body_sha256": "sha256:919438865fb74546f3c751c9ea724bbc64c4ffe7ff5879e07d009e4409896079",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:31cce82837db63f5b4c06f4195de3f808d4789b7437b6ae8148fa42b9b7c4194",
+        "source_path": "examples/resources/xcsh_malicious_user_mitigation/js-challenge.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:malicious_user_mitigation:example:js-challenge",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "path": "documentation/resources/malicious_user_mitigation/examples/js-challenge/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--example--js-challenge.md",
+      "role": "example",
+      "schema_path": ["js-challenge"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/js-challenge/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Js challenge for xcsh_malicious_user_mitigation.",
+      "title": "Js challenge",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1443,
+      "body_sha256": "sha256:24b43c435a80ac69855a01672997f7be074c81dc017545bb83d0bf6a85a01f58",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:cb208f65f7f8d9724e94da5a2c35bd650a88bc8059b0aeced4b7db40e67c44ff",
+        "source_path": "examples/resources/xcsh_malicious_user_mitigation/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:malicious_user_mitigation:example:resource",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "path": "documentation/resources/malicious_user_mitigation/examples/resource/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_malicious_user_mitigation.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1706,
+      "body_sha256": "sha256:4a67c50c4d5c3c2b6ebce54db34c526148e2058a9a40d9801c08359ae8545982",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:10af11e1fcedf0c1a38131c01416f578defc093012b6a6669770dd539168e15b",
+        "source_path": "examples/resources/xcsh_malicious_user_mitigation/with-annotations.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:malicious_user_mitigation:example:with-annotations",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "path": "documentation/resources/malicious_user_mitigation/examples/with-annotations/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--example--with-annotations.md",
+      "role": "example",
+      "schema_path": ["with-annotations"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/with-annotations/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "With annotations for xcsh_malicious_user_mitigation.",
+      "title": "With annotations",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1690,
+      "body_sha256": "sha256:20151719ff26be4f26ae8872941ed23b5dea9b549fc499b7ba06636f83a87d62",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:a0561f064cef4a0bf4898a53eed03d3f77741d1f6b9b0474fd171ea08dcd9202",
+        "source_path": "examples/resources/xcsh_malicious_user_mitigation/with-description.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:malicious_user_mitigation:example:with-description",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "path": "documentation/resources/malicious_user_mitigation/examples/with-description/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--example--with-description.md",
+      "role": "example",
+      "schema_path": ["with-description"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/with-description/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "With description for xcsh_malicious_user_mitigation.",
+      "title": "With description",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1681,
+      "body_sha256": "sha256:f8e1d668ade065486187fba5a8a6ce1eaddf6983a49acebbcd5422e04f77bf9d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:05d2d99ea2c9b4398348e89d32380bd3c6c3cf7e2154f51c8b74dcc85481aec2",
+        "source_path": "examples/resources/xcsh_malicious_user_mitigation/with-labels.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:malicious_user_mitigation:example:with-labels",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "path": "documentation/resources/malicious_user_mitigation/examples/with-labels/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--example--with-labels.md",
+      "role": "example",
+      "schema_path": ["with-labels"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/with-labels/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "With labels for xcsh_malicious_user_mitigation.",
+      "title": "With labels",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1901,
+      "body_sha256": "sha256:1631b473aaccc2e67e94b2e1327e20383541f0286fa18df62451215c877312cb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:14ca67cc624bf1e714701869d9bfc825ab0fb5591e24e35f489dcb0a69680563",
+        "source_path": "examples/resources/xcsh_malicious_user_mitigation/with-mitigation-type.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:malicious_user_mitigation:example:with-mitigation-type",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:examples",
+      "path": "documentation/resources/malicious_user_mitigation/examples/with-mitigation-type/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--example--with-mitigation-type.md",
+      "role": "example",
+      "schema_path": ["with-mitigation-type"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/examples/with-mitigation-type/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "With mitigation type for xcsh_malicious_user_mitigation.",
+      "title": "With mitigation type",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 573,
+      "body_sha256": "sha256:17b2c3196c6a570592cd1934372230d81a17db41ca7d880ad12992fd7bdd6f0d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:import",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:fundamentals",
+      "path": "documentation/resources/malicious_user_mitigation/lifecycle/import/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_malicious_user_mitigation.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 633,
+      "body_sha256": "sha256:ca4712b856da185ffbe97abf5ab2fa8826c41010eb54bd97df0883d0e615dc06",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:malicious_user_mitigation:timeouts",
+      "parent_id": "xcsh-docs:resources:malicious_user_mitigation:fundamentals",
+      "path": "documentation/resources/malicious_user_mitigation/lifecycle/timeouts/index.md",
+      "provider_name": "malicious_user_mitigation",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--malicious_user_mitigation--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_malicious_user_mitigation.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["malicious_user_mitigationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

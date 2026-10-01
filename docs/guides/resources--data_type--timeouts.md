@@ -1,0 +1,23 @@
+---
+page_title: "Timeouts"
+subcategory: ""
+description: "Timeouts for xcsh_data_type."
+xcsh_docs: {"aliases": [], "body_bytes": 400, "body_sha256": "sha256:3e82b1f1d6da870cddea0c97ed141d20041ec584d645a242a8680f33fcbc8144", "canonical_id": "xcsh-docs:resources:data_type:timeouts", "child_ids": [], "collection_id": "xcsh-docs:resources:data_type:collection", "completeness": "complete", "id": "xcsh-docs:resources:data_type:timeouts", "parent_id": "xcsh-docs:resources:data_type:fundamentals", "path": "docs/guides/resources--data_type--timeouts.md", "provider_name": "data_type", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "publishing_destination": "registry", "role": "timeouts", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/lifecycle/timeouts/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Timeouts for xcsh_data_type.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["data_typeCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# Timeouts
+
+Breadcrumbs:
+
+- [xcsh_data_type](../resources/data_type.md)
+- Timeouts
+
+Configure the supported operation timeouts in the [timeouts](resources--data_type--properties--timeouts.md). Use Terraform duration strings such as `30m`.
+
+## Next pages
+
+- [xcsh_data_type](../resources/data_type.md)

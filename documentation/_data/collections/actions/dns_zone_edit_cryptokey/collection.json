@@ -1,0 +1,176 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:fundamentals",
+    "id": "xcsh-docs:actions:dns_zone_edit_cryptokey:collection",
+    "properties": {
+      "active": {
+        "anchor": "schema-active",
+        "document_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:reference",
+        "schema_path": ["active"]
+      },
+      "key_id": {
+        "anchor": "schema-key_id",
+        "document_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:reference",
+        "schema_path": ["key_id"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:reference",
+        "schema_path": ["namespace"]
+      },
+      "zone_name": {
+        "anchor": "schema-zone_name",
+        "document_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:reference",
+        "schema_path": ["zone_name"]
+      }
+    },
+    "provider_name": "dns_zone_edit_cryptokey",
+    "provider_type": "actions",
+    "reference_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1264,
+      "body_sha256": "sha256:b93c049749d35f62f2efa5eda7991fb61e4e534b9105bd813f50fbc42ab5769f",
+      "child_ids": [
+        "xcsh-docs:actions:dns_zone_edit_cryptokey:reference",
+        "xcsh-docs:actions:dns_zone_edit_cryptokey:examples",
+        "xcsh-docs:actions:dns_zone_edit_cryptokey:lifecycle"
+      ],
+      "collection_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:dns_zone_edit_cryptokey:fundamentals",
+      "parent_id": null,
+      "path": "documentation/actions/dns_zone_edit_cryptokey/index.md",
+      "provider_name": "dns_zone_edit_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/actions/dns_zone_edit_cryptokey.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_edit_cryptokey/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_dns_zone_edit_cryptokey for xcsh_dns_zone_edit_cryptokey.",
+      "title": "xcsh_dns_zone_edit_cryptokey",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1970,
+      "body_sha256": "sha256:a429005e868b7f07b5ef5495fad135d2c58bf25bbf51fff949574b963bb4a777",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:dns_zone_edit_cryptokey:reference",
+      "parent_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:fundamentals",
+      "path": "documentation/actions/dns_zone_edit_cryptokey/properties/index.md",
+      "provider_name": "dns_zone_edit_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--dns_zone_edit_cryptokey--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_edit_cryptokey/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_dns_zone_edit_cryptokey.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 683,
+      "body_sha256": "sha256:cb01ea97d5fc96ba792264b9efe4cc755746559b59d411e3e219d125595e07ac",
+      "child_ids": ["xcsh-docs:actions:dns_zone_edit_cryptokey:example:action"],
+      "collection_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:dns_zone_edit_cryptokey:examples",
+      "parent_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:fundamentals",
+      "path": "documentation/actions/dns_zone_edit_cryptokey/examples/index.md",
+      "provider_name": "dns_zone_edit_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--dns_zone_edit_cryptokey--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_edit_cryptokey/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_dns_zone_edit_cryptokey.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1172,
+      "body_sha256": "sha256:448b7c918f7616322bf1bea2f84e39b6dbdb433901a79c14d936935e2e539c80",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:377745c7c273966a8712f1843e6db7821e8429814e456ec61ea024bb03bd4506",
+        "source_path": "examples/actions/xcsh_dns_zone_edit_cryptokey/action.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:actions:dns_zone_edit_cryptokey:example:action",
+      "parent_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:examples",
+      "path": "documentation/actions/dns_zone_edit_cryptokey/examples/action/index.md",
+      "provider_name": "dns_zone_edit_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--dns_zone_edit_cryptokey--example--action.md",
+      "role": "example",
+      "schema_path": ["action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_edit_cryptokey/examples/action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Action for xcsh_dns_zone_edit_cryptokey.",
+      "title": "Action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 642,
+      "body_sha256": "sha256:e0ef2f55af195f5b11248a7b8da35747be72297c8e23655a52c405f91337d93e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:dns_zone_edit_cryptokey:lifecycle",
+      "parent_id": "xcsh-docs:actions:dns_zone_edit_cryptokey:fundamentals",
+      "path": "documentation/actions/dns_zone_edit_cryptokey/lifecycle/index.md",
+      "provider_name": "dns_zone_edit_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--dns_zone_edit_cryptokey--lifecycle.md",
+      "role": "lifecycle",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_edit_cryptokey/lifecycle/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Lifecycle for xcsh_dns_zone_edit_cryptokey.",
+      "title": "Lifecycle",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

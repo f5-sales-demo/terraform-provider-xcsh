@@ -1,0 +1,475 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:ike1:fundamentals",
+    "id": "xcsh-docs:resources:ike1:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:ike1:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:ike1:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:ike1:reference",
+        "schema_path": ["disable"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:resources:ike1:reference", "schema_path": ["id"] },
+      "ike_keylifetime_hours": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:ike1:properties:ike_keylifetime_hours",
+        "schema_path": ["ike_keylifetime_hours"]
+      },
+      "ike_keylifetime_hours.duration": {
+        "anchor": "schema-ike_keylifetime_hours--duration",
+        "document_id": "xcsh-docs:resources:ike1:properties:ike_keylifetime_hours",
+        "schema_path": ["ike_keylifetime_hours", "duration"]
+      },
+      "ike_keylifetime_minutes": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:ike1:properties:ike_keylifetime_minutes",
+        "schema_path": ["ike_keylifetime_minutes"]
+      },
+      "ike_keylifetime_minutes.duration": {
+        "anchor": "schema-ike_keylifetime_minutes--duration",
+        "document_id": "xcsh-docs:resources:ike1:properties:ike_keylifetime_minutes",
+        "schema_path": ["ike_keylifetime_minutes", "duration"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:ike1:reference",
+        "schema_path": ["labels"]
+      },
+      "name": { "anchor": "schema-name", "document_id": "xcsh-docs:resources:ike1:reference", "schema_path": ["name"] },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:ike1:reference",
+        "schema_path": ["namespace"]
+      },
+      "reauth_disabled": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:ike1:properties:reauth_disabled",
+        "schema_path": ["reauth_disabled"]
+      },
+      "reauth_timeout_days": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:ike1:properties:reauth_timeout_days",
+        "schema_path": ["reauth_timeout_days"]
+      },
+      "reauth_timeout_days.duration": {
+        "anchor": "schema-reauth_timeout_days--duration",
+        "document_id": "xcsh-docs:resources:ike1:properties:reauth_timeout_days",
+        "schema_path": ["reauth_timeout_days", "duration"]
+      },
+      "reauth_timeout_hours": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:ike1:properties:reauth_timeout_hours",
+        "schema_path": ["reauth_timeout_hours"]
+      },
+      "reauth_timeout_hours.duration": {
+        "anchor": "schema-reauth_timeout_hours--duration",
+        "document_id": "xcsh-docs:resources:ike1:properties:reauth_timeout_hours",
+        "schema_path": ["reauth_timeout_hours", "duration"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:ike1:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:ike1:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:ike1:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:ike1:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:ike1:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      },
+      "use_default_keylifetime": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:ike1:properties:use_default_keylifetime",
+        "schema_path": ["use_default_keylifetime"]
+      }
+    },
+    "provider_name": "ike1",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:ike1:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1492,
+      "body_sha256": "sha256:52edb3b0acf3474f913dfe9ee2d570ab2999854ab0eac6d277d1a2c57fc53c1c",
+      "child_ids": [
+        "xcsh-docs:resources:ike1:reference",
+        "xcsh-docs:resources:ike1:examples",
+        "xcsh-docs:resources:ike1:import",
+        "xcsh-docs:resources:ike1:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/ike1/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/ike1.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_ike1 for xcsh_ike1.",
+      "title": "xcsh_ike1",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 12312,
+      "body_sha256": "sha256:a05982ddfbd2b7bdea55b73f40dad8cc105faf9979dcdc189d166bd7de16608b",
+      "child_ids": [
+        "xcsh-docs:resources:ike1:properties:ike_keylifetime_hours",
+        "xcsh-docs:resources:ike1:properties:ike_keylifetime_minutes",
+        "xcsh-docs:resources:ike1:properties:reauth_disabled",
+        "xcsh-docs:resources:ike1:properties:reauth_timeout_days",
+        "xcsh-docs:resources:ike1:properties:reauth_timeout_hours",
+        "xcsh-docs:resources:ike1:properties:timeouts",
+        "xcsh-docs:resources:ike1:properties:use_default_keylifetime"
+      ],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:reference",
+      "parent_id": "xcsh-docs:resources:ike1:fundamentals",
+      "path": "documentation/resources/ike1/properties/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_ike1.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2878,
+      "body_sha256": "sha256:0b7a2e8859ac973c5340df7705f13b6e039cc0e1c419dc1c4c8bd140fba80899",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:properties:ike_keylifetime_hours",
+      "parent_id": "xcsh-docs:resources:ike1:reference",
+      "path": "documentation/resources/ike1/properties/ike_keylifetime_hours/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--properties--ike_keylifetime_hours.md",
+      "role": "properties",
+      "schema_path": ["ike_keylifetime_hours"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/properties/ike_keylifetime_hours/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ike_keylifetime_hours for xcsh_ike1.",
+      "title": "ike_keylifetime_hours",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2261,
+      "body_sha256": "sha256:0b2dd1672bc04b536a35c20b500f4a2fcf1dc598aec6ed08b4cb83908e52c6ea",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:properties:ike_keylifetime_minutes",
+      "parent_id": "xcsh-docs:resources:ike1:reference",
+      "path": "documentation/resources/ike1/properties/ike_keylifetime_minutes/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--properties--ike_keylifetime_minutes.md",
+      "role": "properties",
+      "schema_path": ["ike_keylifetime_minutes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/properties/ike_keylifetime_minutes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ike_keylifetime_minutes for xcsh_ike1.",
+      "title": "ike_keylifetime_minutes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1623,
+      "body_sha256": "sha256:b941fc30f04325f71c22556c33ce7da357d091c5eb9f6370331b1ea0df23bbca",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:properties:reauth_disabled",
+      "parent_id": "xcsh-docs:resources:ike1:reference",
+      "path": "documentation/resources/ike1/properties/reauth_disabled/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--properties--reauth_disabled.md",
+      "role": "properties",
+      "schema_path": ["reauth_disabled"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/properties/reauth_disabled/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "reauth_disabled for xcsh_ike1.",
+      "title": "reauth_disabled",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2222,
+      "body_sha256": "sha256:b219e25b8c3314e9ba3813e0d92c6ef9a8d355c367aaffd48d2d9b69118603c5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:properties:reauth_timeout_days",
+      "parent_id": "xcsh-docs:resources:ike1:reference",
+      "path": "documentation/resources/ike1/properties/reauth_timeout_days/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--properties--reauth_timeout_days.md",
+      "role": "properties",
+      "schema_path": ["reauth_timeout_days"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/properties/reauth_timeout_days/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "reauth_timeout_days for xcsh_ike1.",
+      "title": "reauth_timeout_days",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2214,
+      "body_sha256": "sha256:1a1eb2b10a624023f758ec0cf468881341964bcc839dd3b6f8e6341f81273eac",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:properties:reauth_timeout_hours",
+      "parent_id": "xcsh-docs:resources:ike1:reference",
+      "path": "documentation/resources/ike1/properties/reauth_timeout_hours/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--properties--reauth_timeout_hours.md",
+      "role": "properties",
+      "schema_path": ["reauth_timeout_hours"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/properties/reauth_timeout_hours/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "reauth_timeout_hours for xcsh_ike1.",
+      "title": "reauth_timeout_hours",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2183,
+      "body_sha256": "sha256:eb65bf9f66103ec6971721f8f308354beef83bfa7335027d2e103c5b6f8de4cb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:ike1:reference",
+      "path": "documentation/resources/ike1/properties/timeouts/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_ike1.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1098,
+      "body_sha256": "sha256:48f8c6f095b453aeeacc5743a7fa13e7bd47e89da760e7192adb55f942f7e893",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:properties:use_default_keylifetime",
+      "parent_id": "xcsh-docs:resources:ike1:reference",
+      "path": "documentation/resources/ike1/properties/use_default_keylifetime/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--properties--use_default_keylifetime.md",
+      "role": "properties",
+      "schema_path": ["use_default_keylifetime"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/properties/use_default_keylifetime/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "use_default_keylifetime for xcsh_ike1.",
+      "title": "use_default_keylifetime",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 585,
+      "body_sha256": "sha256:2177e8b9f10623215d9f17bf96bfc9ce9c1a432359f899fc774712f5c79f99c2",
+      "child_ids": ["xcsh-docs:resources:ike1:example:resource"],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:examples",
+      "parent_id": "xcsh-docs:resources:ike1:fundamentals",
+      "path": "documentation/resources/ike1/examples/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_ike1.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1176,
+      "body_sha256": "sha256:5c746ddec6f64fc94512f9517dedd40caa4ce903f933e6cfccea898a13caba91",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:3f9c75e223b14e98fb8be4f0bccd9b3e08736eec2e962a472124a5092f03950e",
+        "source_path": "examples/resources/xcsh_ike1/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:ike1:example:resource",
+      "parent_id": "xcsh-docs:resources:ike1:examples",
+      "path": "documentation/resources/ike1/examples/resource/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_ike1.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 468,
+      "body_sha256": "sha256:4684da97a13db6ae23ac7685d63574137e99e6347470f2da5f5128417e5954d6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:import",
+      "parent_id": "xcsh-docs:resources:ike1:fundamentals",
+      "path": "documentation/resources/ike1/lifecycle/import/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_ike1.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 528,
+      "body_sha256": "sha256:e9005736745921627b6ff333790f8446206b493239a6a54499fa8e1377a13565",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:ike1:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:ike1:timeouts",
+      "parent_id": "xcsh-docs:resources:ike1:fundamentals",
+      "path": "documentation/resources/ike1/lifecycle/timeouts/index.md",
+      "provider_name": "ike1",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--ike1--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike1/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_ike1.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike1CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}
