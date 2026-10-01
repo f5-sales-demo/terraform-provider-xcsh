@@ -181,6 +181,7 @@ jobs:
             docs_changed=true
           fi
           git add -A
+          python3 scripts/stage-documentation-manifest.py
           git diff --cached --binary --full-index --no-ext-diff >"$patch"
           combined_changed=false
           if [ -s "$patch" ]; then
