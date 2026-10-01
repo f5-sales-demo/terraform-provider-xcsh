@@ -28,7 +28,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Publish snapshot without rebuilding schemas
+      - name: Publish canonical snapshot without rebuilding schemas
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROVIDER_TAG: ${{ inputs.provider_tag }}
