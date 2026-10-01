@@ -29,31 +29,45 @@ class SnapshotTests(unittest.TestCase):
             expected = {
                 p
                 for p in SNAPSHOT.run(
-                    "git", "ls-tree", "-r", "--name-only", "v12.0.4", "docs"
+                    "git", "ls-tree", "-r", "--name-only", "v12.0.4", "documentation"
                 )
                 .decode()
                 .splitlines()
                 if p.endswith(".md")
             }
             assert {d["path"] for d in manifest["documents"]} == expected
-            assert manifest["document_count"] == 18965
+            assert manifest["document_count"] == len(expected)
+            assert manifest["source_root"] == "documentation"
+            assert all(
+                d["path"].startswith("documentation/") for d in manifest["documents"]
+            )
+            assert all(
+                d["metadata"].get("canonical_id") == d["metadata"]["id"]
+                for d in manifest["documents"]
+            )
             for file in (root / "first").iterdir():
                 assert file.read_bytes() == (root / "second" / file.name).read_bytes()
 
     def test_plain_markdown_and_invalid_metadata(self) -> None:
         """Plain Markdown gets fallback metadata; enriched hashes fail closed."""
-        body, meta = SNAPSHOT.metadata("docs/guides/plain.md", b"# Plain\n")
+        body, meta = SNAPSHOT.metadata(
+            "documentation/guides/plain/index.md", b"# Plain\n"
+        )
         assert body == "# Plain\n"
         assert meta["role"] == "overview"
         bad = {
-            "path": "docs/bad.md",
+            "path": "documentation/bad/index.md",
             "body_sha256": "sha256:" + "0" * 64,
             "body_bytes": 3,
         }
         data = ("---\nxcsh_docs: " + json.dumps(bad) + "\n---\n\nBad").encode()
-        with self.assertRaisesRegex(ValueError, "metadata body mismatch"):  # noqa: PT027 - standard-library CI runner
-            SNAPSHOT.metadata("docs/bad.md", data)
-        with self.assertRaisesRegex(ValueError, "only stable"):  # noqa: PT027 - standard-library CI runner
+        with self.assertRaisesRegex(  # noqa: PT027 - standard-library CI runner
+            ValueError, "metadata body mismatch"
+        ):
+            SNAPSHOT.metadata("documentation/bad/index.md", data)
+        with self.assertRaisesRegex(  # noqa: PT027 - standard-library CI runner
+            ValueError, "only stable"
+        ):
             SNAPSHOT.snapshot("docs-v12.0.4", Path("unused"))
 
 
