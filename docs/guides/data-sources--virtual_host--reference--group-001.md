@@ -235,10 +235,10 @@ Upstream description:
 Map of integer error codes as keys and string values that can be used to provide custom HTTP pages
 for each error code. Key of the map can be either response code class or HTTP Error code. Response
 code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx response
-code class 5 -- for 5xx response code class Value is the uri\_ref. Currently supported URL schemes
-is string:///. For string:/// scheme, message needs to be encoded in Base64 format. You can specify
+code class 5 -- for 5xx response code class Value is the URI\_ref. Currently supported URL schemes
+is string:///. For string:/// scheme, message needs to be encoded in base64 format. You can specify
 this message as base64 encoded plain text message e.g. "Access Denied" or it can be HTML paragraph
-or a body string encoded as base64 string E.g. "&lt;p&gt; Access Denied &lt;/p&gt;". Base64 encoded
+or a body string encoded as base64 string E.g. "&lt;p&gt; Access Denied &lt;/p&gt;". base64 encoded
 string for this HTML is "PHA+IEFjY2VzcyBEZW5pZWQgPC9wPg==" Specific response code takes preference
 when both response code and response code class matches for a request.
 
@@ -2208,13 +2208,13 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Computed.
 
 Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the
-session cookie. This will act as an expiry duration on the client side after which client will not
+session cookie. This will act as an expiry duration on the client-side after which client will not
 be setting the cookie as part of the request.
 
 Upstream description:
 
 Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the
-session cookie. This will act as an expiry duration on the client side after which client will not
+session cookie. This will act as an expiry duration on the client-side after which client will not
 be setting the cookie as part of the request. Default cookie expiry is 3600 seconds.
 
 Receipt-pinned upstream constraints:
@@ -2643,12 +2643,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -2797,14 +2797,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -3000,12 +3000,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -3154,14 +3154,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 

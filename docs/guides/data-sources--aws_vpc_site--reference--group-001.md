@@ -1242,12 +1242,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -1393,14 +1393,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -1958,7 +1958,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ssh](data-sources--aws_vpc_site--reference--group-001.md#canonical-2322231121211021-2303121013122311-3122211232312110-0201211031121300-3332121111321110-1213110033323103-2212013232231210-1001303022213122): complete subsection reference.
+- [SSH](data-sources--aws_vpc_site--reference--group-001.md#canonical-2322231121211021-2303121013122311-3122211232312110-0201211031121300-3332121111321110-1213110033323103-2212013232231210-1001303022213122): complete subsection reference.
 
 - [web_user_interface](data-sources--aws_vpc_site--reference--group-001.md#canonical-0212212313003220-1001121113301312-1221222222120110-2031313213323310-3101111113312303-0303131033133333-3021221212301103-3332133230232203): complete subsection reference.
 
@@ -2034,7 +2034,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <a id="canonical-2223322232131323-1023012222110133-0303332320301301-3113323223200021-3200010030001331-0233123212121013-2131123032322302-3233330332113100"></a>
 
-## blocked_services.blocked_service.ssh — ssh / 002100210311 / 2
+## blocked_services.blocked_service.SSH — SSH / 002100210311 / 2
 
 Breadcrumbs:
 
@@ -2042,7 +2042,7 @@ Breadcrumbs:
 - [Property reference](data-sources--aws_vpc_site--reference--group-001.md#canonical-0022321211312211-1012321202211222-1323321322032023-2000003030132313-1113203310310201-1022202211011200-0030121203121003-0320332332121230)
 - [blocked_services](data-sources--aws_vpc_site--reference--group-001.md#canonical-3100030222021212-2102031222223121-0110213010203222-3023232123211000-1230132322331222-0300220230232211-3000230113130333-1230031121313300)
 - [blocked_services.blocked_service](data-sources--aws_vpc_site--reference--group-001.md#canonical-3100020001012032-2213132300121230-1330011003111130-1012302221130320-0201100032013112-0333010001201121-0211012020011102-1020322201230321)
-- blocked_services.blocked_service.ssh
+- blocked_services.blocked_service.SSH
 
 <a id="canonical-3201022000300022-1212110110320301-1123000322133032-2110001131000221-0301322112333000-0220223200121122-3013332133010211-1232031101300210"></a>
 
@@ -2069,13 +2069,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0303213233100013-0001333103221311-3312321102102323-3030311132013332-1121231132023221-1232210110120132-0313101002031102-1121232313001123"></a>
 
-## Direct properties — ssh / 002100210311 / 3
+## Direct properties — SSH / 002100210311 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
 <a id="canonical-3122110210331330-3201311213113232-2313323233322201-1010011000001022-0213030231111021-3310022210312112-3133330121311201-2332131220101110"></a>
 
-## Next pages — ssh / 002100210311 / 4
+## Next pages — SSH / 002100210311 / 4
 
 - [blocked_services.blocked_service](data-sources--aws_vpc_site--reference--group-001.md#canonical-3100020001012032-2213132300121230-1330011003111130-1012302221130320-0201100032013112-0333010001201121-0211012020011102-1020322201230321)
 - [xcsh_aws_vpc_site](../data-sources/aws_vpc_site.md#canonical-3200101001132121-0113301212212322-3331232003212322-0100300122200131-2133100121120110-1212232321223202-3330130133031301-1231331023012223)

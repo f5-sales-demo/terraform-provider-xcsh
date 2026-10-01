@@ -6,6 +6,60 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-0010231330100213-2001300030301333-2023331130021121-0102133211031302-3303313132312110-2121321032310002-0301120003003312-1212322023220033"></a>
+
+## default_pool.use_tls.no_mtls — no_mtls / 132131123331 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [default_pool](data-sources--http_loadbalancer--reference--group-015.md#canonical-1333210303310103-2202102333202012-2110112132031220-3101331311300122-0321301032320110-1231002300030202-0203120323320030-2333120320300331)
+- [default_pool.use_tls](data-sources--http_loadbalancer--reference--group-016.md#canonical-2312231121231002-2101200012100230-0123121210200133-0131212013023322-1001201113221120-1333333333201002-0001302121122331-1203321212112031)
+- default_pool.use_tls.no_mtls
+
+<a id="canonical-1031101222332223-3331333322322103-0323320302321312-2311232201121021-2131123212121001-2222321331332100-3213120232323202-2103323022323133"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option. Defaults to \`map\[\]\`. Server applies default when omitted.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2200112321123230-0001320233133312-1202013302230333-0121130102300210-0132113302303110-1032032122223133-1101002023101032-0120131031003032"></a>
+
+## Direct properties — no_mtls / 132131123331 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3032302301001233-2013223200003130-3300030021100301-0302322132011221-0013101132213023-3211113300122330-1203301033330023-3102131202200101"></a>
+
+## Next pages — no_mtls / 132131123331 / 4
+
+- [default_pool.use_tls](data-sources--http_loadbalancer--reference--group-016.md#canonical-2312231121231002-2101200012100230-0123121210200133-0131212013023322-1001201113221120-1333333333201002-0001302121122331-1203321212112031)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-2033203010112122-0220112232021000-1103032100113222-2011021132211023-3302123312203021-1223202213023030-2123020013323232-0103030110001003"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-0202013002103023-3003030023321323-2211100023220012-2013013202130123-1223112323113310-0302011321110221-2020233302220023-0131021011003211"></a>
 
 ## default_pool.use_tls.skip_server_verification — skip_server_verification / 220303120233 / 2
@@ -1041,12 +1095,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -1196,14 +1250,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -4972,12 +5026,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -5128,14 +5182,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -5265,7 +5319,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Select Code Base and Repositories.
+Select codebase and Repositories.
 
 Receipt-pinned upstream constraints:
 
@@ -5316,11 +5370,11 @@ Breadcrumbs:
 
 Type: `"list"`. Computed.
 
-Configuration parameter for code base integrations.
+Configuration parameter for codebase integrations.
 
 Upstream description:
 
-Configuration parameter for code base integrations
+Configuration parameter for codebase integrations
 
 Receipt-pinned upstream constraints:
 
@@ -5438,104 +5492,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-1202330300321331-1303133131102321-1220321333113020-1230200103322100-1122203001223201-0133312101003321-0212222101000111-3002222321223130"></a>
-
-## enable_api_discovery.api_discovery_from_code_scan.code_base_integrations.code_base_integration — code_base_integration / 030311331232 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
-- [enable_api_discovery](data-sources--http_loadbalancer--reference--group-017.md#canonical-3102231103303332-0011102023001333-1001101113313230-0310003203030002-0230021033330011-0020301130222310-2002330010130011-0220313000312223)
-- [enable_api_discovery.api_discovery_from_code_scan](data-sources--http_loadbalancer--reference--group-017.md#canonical-2203231110333303-0020330220102233-1212031302200323-2010132310300200-2323303123313032-3023312023010120-1132113021000231-1003103022033213)
-- [enable_api_discovery.api_discovery_from_code_scan.code_base_integrations](data-sources--http_loadbalancer--reference--group-017.md#canonical-1030211010301012-1013000322300110-2302132223232131-1222201210323202-0102230030303233-2031113111010121-1002332233020312-1302102010200200)
-- enable_api_discovery.api_discovery_from_code_scan.code_base_integrations.code_base_integration
-
-<a id="canonical-1103212003223111-1313001021110013-3212012030203113-0331303210110231-1313233310310112-3232002000232131-2231111323001331-3001131332120201"></a>
-
-Type: `"single"`. Computed.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0123113130131010-3033020112311213-2311201211331103-2011001001312132-2020111021111230-1233000200022130-2323113331220332-3030130032203222"></a>
-
-## Direct properties — code_base_integration / 030311331232 / 3
-
-<a id="canonical-0030113110200003-1310203211002221-3230122323133001-3013212111322300-2101313211322121-3211222111010312-3023333102202121-2303123030212310"></a>
-
-<a id="canonical-1012033023023230-3031232300323331-2122100302121033-3232013132021222-2331133023001030-3322203121010330-2021323030213000-2213033011203200"></a>
-
-## name property — code_base_integration / 030311331232 / 4
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-1230212220302331-3211102033021302-2111103132223121-0012023030230030-1213110330120310-3032020121310001-2020103112120002-1312303312111322"></a>

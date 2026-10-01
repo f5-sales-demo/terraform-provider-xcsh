@@ -775,7 +775,7 @@ Class. The class of this device.
 
 Type: `"string"`. Computed.
 
-The protocol (within the sub-class) of this device.
+The protocol (within the subclass) of this device.
 
 <a id="canonical-1323311000223121-3320120303030233-3021332111200113-1202011233303000-2011231320213121-3030011021000313-3311112121100310-1303331101222322"></a>
 
@@ -785,7 +785,7 @@ The protocol (within the sub-class) of this device.
 
 Type: `"string"`. Computed.
 
-The sub-class (within the class) of this device.
+The subclass (within the class) of this device.
 
 <a id="canonical-1031002322303102-3023200231013230-2111000201213122-0330002023033013-1023033223002012-1121330211301012-2230301322010121-1200031002211300"></a>
 

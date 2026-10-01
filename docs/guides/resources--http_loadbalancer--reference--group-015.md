@@ -166,11 +166,11 @@ domain {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Provider validators and defaults (from schema source):
 
@@ -285,12 +285,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Provider validators and defaults (from schema source):
@@ -580,11 +580,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -637,11 +637,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -688,7 +688,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1101233323333102-2321110002110332-2230201030232331-3032311200233112-3320202322231331-1030201312230302-1130332320130033-1131023320222030"></a>
 
-## regex property — path / 321231331301 / 6
+## regular expression property — path / 321231331301 / 6
 
 Type: `"string"`. Optional.
 
@@ -991,7 +991,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0133133201333223-3222321131130201-1111322232323310-2220023120032000-0200010032231110-3223120113121202-1222330221031123-1032332331321131"></a>
 
-## ttl property — cookie_stickiness / 202233021010 / 6
+## TTL property — cookie_stickiness / 202233021010 / 6
 
 Type: `"number"`. Optional.
 
@@ -1525,7 +1525,7 @@ Type: `"object"`. single nested block, Optional.
 
 Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route
 level configuration takes precedence. An example of an Cross origin HTTP request GET
-/resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS
+/resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS
 X 10.5..
 
 Upstream description:
@@ -1534,11 +1534,11 @@ Cross-Origin Resource Sharing requests configuration specified at Virtual-host o
 level configuration takes precedence.
 
 An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other
-User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130
 Minefield/3.1b3pre Accept: text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8
 Accept-Language: en-us,en;q=0.5 Accept-Encoding: gzip,deflate Accept-Charset:
 ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive Referrer:
-http&#58;//foo.example/examples/access-control/simplexsinvocation.html Origin:
+http&#58;//foo.example/examples/access-control/simplexsinvocation.HTML Origin:
 http&#58;//foo.example
 
 HTTP/1.1 200 OK Date: Mon, 01 Dec 2008 00:23:53 GMT Server: Apache/2.0.61
@@ -1548,7 +1548,7 @@ Transfer-Encoding: chunked Content-Type: application/XML
 An example for cross origin HTTP OPTIONS request with Access-Control-Request-\* header
 
 OPTIONS /resources/POST-here/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel
-MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept:
+macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept:
 text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8 Accept-Language: en-us,en;q=0.5
 Accept-Encoding: gzip,deflate Accept-Charset: ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive
 Origin: http&#58;//foo.example Access-Control-Request-Method: POST Access-Control-Request-Headers:
@@ -1749,12 +1749,12 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Optional.
 
-Specifies regex patterns that match allowed origins. An origin is allowed if either allow\_origin or
+Specifies regular expression patterns that match allowed origins. An origin is allowed if either allow\_origin or
 allow\_origin\_regex match.
 
 Upstream description:
 
-Specifies regex patterns that match allowed origins. An origin is allowed if either allow\_origin or
+Specifies regular expression patterns that match allowed origins. An origin is allowed if either allow\_origin or
 allow\_origin\_regex match.
 
 Provider validators and defaults (from schema source):
@@ -2853,11 +2853,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -2910,11 +2910,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -2961,7 +2961,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0102111311002311-2321213122131103-2021213123002111-0303303231223322-2232201011121010-1032201100023001-3002002320330200-1203213200303200"></a>
 
-## regex property — path / 022013231213 / 6
+## regular expression property — path / 022013231213 / 6
 
 Type: `"string"`. Optional.
 

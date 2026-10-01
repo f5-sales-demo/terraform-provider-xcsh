@@ -1320,7 +1320,7 @@ cache_headers {
 
 Type: `"string"`. Optional.
 
-\[Enum: PROXY\_HOST|REFERER|SCHEME|USER\_AGENT\] - PROXY\_HOST: Proxy Host Name of the proxied
+\[Enum: PROXY\_HOST|REFERER|SCHEME|USER\_AGENT\] - PROXY\_HOST: Proxy hostname of the proxied
 server - REFERER: Referer This is the address of the previous web page from which a link to the
 currently requested page was followed - SCHEME: Scheme The HTTP scheme used: HTTP or HTTPS -
 USER\_AGENT: User Agent The user agent string of the user agent. Possible values are

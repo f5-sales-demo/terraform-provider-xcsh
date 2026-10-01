@@ -6,6 +6,56 @@ description: "Complete grouped canonical reference for xcsh_cdn_loadbalancer ref
 
 # xcsh_cdn_loadbalancer reference
 
+<a id="canonical-3131233022302113-1313202332230032-1132211110012131-0011212333011021-2000120333102130-2310202010021313-2020123102030310-3213001303312030"></a>
+
+## ip_prefixes property — ip_prefix_list / 003202112023 / 5
+
+Type: `["list", "string"]`. Computed.
+
+IPv4 Prefix List. List of IPv4 prefix strings.
+
+Upstream description:
+
+List of IPv4 prefix strings.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
 <a id="canonical-2223011102010022-1013101220330021-1332002310302303-2311020110122130-3200000133132303-0122032113213212-3102123133202221-3310333233032031"></a>
 
 ## Next pages — ip_prefix_list / 003202112023 / 6
@@ -1392,12 +1442,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -1548,14 +1598,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -1685,7 +1735,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Select Code Base and Repositories.
+Select codebase and Repositories.
 
 Receipt-pinned upstream constraints:
 
@@ -1736,11 +1786,11 @@ Breadcrumbs:
 
 Type: `"list"`. Computed.
 
-Configuration parameter for code base integrations.
+Configuration parameter for codebase integrations.
 
 Upstream description:
 
-Configuration parameter for code base integrations
+Configuration parameter for codebase integrations
 
 Receipt-pinned upstream constraints:
 
@@ -2877,15 +2927,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -3213,15 +3263,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -3825,7 +3875,7 @@ Specifies the exact path to GraphQL endpoint. Defaults to \`/graphql\`.
 
 Upstream description:
 
-Specifies the exact path to GraphQL endpoint. Default value is /graphql.
+Specifies the exact path to GraphQL endpoint. Default value is /GraphQL.
 
 Receipt-pinned upstream constraints:
 
@@ -4062,7 +4112,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Configuration parameter for graphql settings.
+Configuration parameter for GraphQL settings.
 
 Upstream description:
 
@@ -5537,40 +5587,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-2023201010101002-0122032011302202-1131030221313321-0203300322211121-1210300312212012-2021223123002222-0300212112201023-1001302110130212"></a>
-
-## https.tls_cert_options.tls_cert_params.tls_config.default_security — default_security / 130100312011 / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
-- [Property reference](data-sources--cdn_loadbalancer--reference--group-001.md#canonical-1131232031102311-1311132230333002-2103010130221322-3211022033121010-2010132101303220-1213122123033021-1002230232002302-2212020120301223)
-- [https](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-3230312322320110-2123202322212223-0312012332030102-0320301210203212-1331020322112130-2221022302312033-0120321223220102-3121132202012233)
-- [https.tls_cert_options](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-3320031111223313-3223233303310013-3311313213013221-0331200101023022-3313123310020112-3232133301022211-2330003012130111-1012330031221211)
-- [https.tls_cert_options.tls_cert_params](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-2102213030323200-0011230110200231-0212313130013000-0223212220103300-2133100002311113-2123312123122300-2130112200001323-1022310011132032)
-- [https.tls_cert_options.tls_cert_params.tls_config](data-sources--cdn_loadbalancer--reference--group-010.md#canonical-2320332103223010-3111133032133213-0032102303222331-3333110021133013-0000222330030301-0013103023201012-1210101021002101-3021320112213300)
-- https.tls_cert_options.tls_cert_params.tls_config.default_security
-
-<a id="canonical-3330232013120332-1210130011013323-1101300311100312-2222030123213333-0311012022223100-2130110133221112-1000022233123012-3100100000220200"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```

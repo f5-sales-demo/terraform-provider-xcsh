@@ -466,11 +466,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -515,11 +515,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -558,7 +558,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1231002300013132-2220200003102301-3103212031301331-3330103120022320-3320121102023321-3331201302012223-0220032313000130-3220310230112221"></a>
 
-## regex property — path / 312013221002 / 6
+## regular expression property — path / 312013221002 / 6
 
 Type: `"string"`. Computed.
 

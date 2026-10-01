@@ -856,7 +856,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:protected_cookies:ignore_httponly",
@@ -868,7 +868,7 @@
       "anchor": "canonical-1311030013123221-2103123030322210-0231211202202323-2333230102303030-3220332310203332-0230101013001120-2021020330230133-3013223012200213",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:protected_cookies:ignore_httponly",
@@ -880,7 +880,7 @@
       "anchor": "canonical-1332230100213223-2210311330033213-3320231311312100-1131123310031123-3301110031220030-2323322003212222-0230210030131031-2231203330001201",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:protected_cookies:ignore_max_age",
@@ -892,7 +892,7 @@
       "anchor": "canonical-3022011330020213-3203323031123113-2023123000131131-2202020303330303-2110333033302003-1223222312311102-0032101313211133-2233130113031233",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:protected_cookies:ignore_max_age",
@@ -909,7 +909,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:protected_cookies:ignore_max_age",
@@ -921,7 +921,7 @@
       "anchor": "canonical-0312333320223311-3002011303003000-1202113213120330-0211213101132233-1301301212310220-0322002003000201-3110220330301010-3131111032012032",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:protected_cookies:ignore_max_age",
@@ -933,7 +933,7 @@
       "anchor": "canonical-3111330133311010-3011301131123000-3010232321302332-2131002131223133-1100123001331323-1221313212210120-2201233210013302-3212113003023113",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:protected_cookies:ignore_samesite",
@@ -945,7 +945,7 @@
       "anchor": "canonical-1112303213003220-2233321130311001-1131213330200111-0123102102203121-0333223133122321-0022130233013103-2013120201121200-3000221310120323",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:protected_cookies:ignore_samesite",
@@ -4812,7 +4812,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-024.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:simple_route",
@@ -4824,7 +4824,7 @@
       "anchor": "canonical-2103102013121030-3222013233021113-1203030301000312-3313231221313230-3113002012031031-2321223200222031-1131302111133220-3000300131122003",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-023.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-024.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:simple_route",

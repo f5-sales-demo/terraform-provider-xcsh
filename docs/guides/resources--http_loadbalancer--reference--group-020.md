@@ -3226,15 +3226,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Provider validators and defaults (from schema source):
@@ -5413,15 +5413,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Provider validators and defaults (from schema source):

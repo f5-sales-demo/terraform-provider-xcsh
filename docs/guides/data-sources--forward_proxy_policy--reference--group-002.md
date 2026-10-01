@@ -63,12 +63,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:

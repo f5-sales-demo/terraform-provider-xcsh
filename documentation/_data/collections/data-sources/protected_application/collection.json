@@ -4962,7 +4962,7 @@
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0220130330201122-1021330210031120-0100201113100201-1333330120233113-3230132322322132-3312313210123032-3000212121232232-2321031232102202",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-003.md",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md",
       "role": "properties",
       "schema_path": ["cloudfront", "protected_endpoints", "mobile_client", "continue", "no_header"],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_application/properties/cloudfront/protected_endpoints/mobile_client/continue/no_header/index.txt",

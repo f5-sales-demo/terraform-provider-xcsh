@@ -425,11 +425,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Receipt-pinned upstream constraints:
 
@@ -528,12 +528,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:
@@ -766,11 +766,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -815,11 +815,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -858,7 +858,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2223132122031302-1032313201001333-3033300013020202-3010020032102121-0103331110120200-0310300000000303-1003311203023321-1100121002111021"></a>
 
-## regex property — path / 213320113200 / 6
+## regular expression property — path / 213320113200 / 6
 
 Type: `"string"`. Computed.
 
@@ -1170,11 +1170,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Receipt-pinned upstream constraints:
 
@@ -1273,12 +1273,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:
@@ -1511,11 +1511,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -1560,11 +1560,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -1603,7 +1603,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3033030121221313-3032021023003120-1100030322323121-2232003013332310-0331302330000103-3110031100201030-2200003200111021-1023121122303301"></a>
 
-## regex property — path / 021020033320 / 6
+## regular expression property — path / 021020033320 / 6
 
 Type: `"string"`. Computed.
 
@@ -1902,11 +1902,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Receipt-pinned upstream constraints:
 
@@ -2005,12 +2005,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:
@@ -2243,11 +2243,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -2292,11 +2292,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -2335,7 +2335,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3120113103000133-2303212323300102-2001311132113330-2100232021210311-3103231312321121-3201202032130302-0130332201302022-3130012312120013"></a>
 
-## regex property — path / 122033303020 / 6
+## regular expression property — path / 122033303020 / 6
 
 Type: `"string"`. Computed.
 
@@ -4205,11 +4205,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Receipt-pinned upstream constraints:
 
@@ -4308,12 +4308,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:
@@ -4546,11 +4546,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -4595,11 +4595,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -4638,7 +4638,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0210133112131232-2012130310223133-2220223312031200-3221003111212213-3000103100002120-2131221233212121-3101000131231023-2102003333032301"></a>
 
-## regex property — path / 201312100311 / 6
+## regular expression property — path / 201312100311 / 6
 
 Type: `"string"`. Computed.
 
@@ -4950,11 +4950,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Receipt-pinned upstream constraints:
 
@@ -5053,12 +5053,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:
@@ -5291,11 +5291,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -5340,11 +5340,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -5383,7 +5383,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1022033302330023-2203003210113010-2023223031121020-0123033233012130-1020330112210221-0211333301112103-2200203022230210-3011132121020130"></a>
 
-## regex property — path / 323000322000 / 6
+## regular expression property — path / 323000322000 / 6
 
 Type: `"string"`. Computed.
 
@@ -5517,44 +5517,3 @@ Receipt-pinned upstream constraints:
 - [domain](data-sources--http_loadbalancer--reference--group-014.md#canonical-3023010200311010-3031013331313003-2323332321222311-2201211322323312-0132231331122331-2102200011313320-0113212312201020-2212023103332320): complete subsection reference.
 
 <a id="canonical-2020210120201210-2303331033220303-1022022310311300-2033032112213332-2010210023213323-2210010232031011-2001223002130203-2013331012322122"></a>
-
-<a id="canonical-3011132123111003-1333313211120203-1330100211113102-0100001212101010-1212122013001331-1322321003103123-0101303102013012-0223222302010303"></a>
-
-## javascript_location property — rules / 011032002201 / 4
-
-Type: `"string"`. Computed.
-
-\[Enum: AFTER\_HEAD|AFTER\_TITLE\_END|BEFORE\_SCRIPT\] All inside networks. Insert JavaScript after
-&lt;HEAD&gt; tag Insert JavaScript after &lt;/title&gt; tag. Insert JavaScript before first tag.
-Possible values are \`AFTER\_HEAD\`, \`AFTER\_TITLE\_END\`, \`BEFORE\_SCRIPT\`. Defaults to
-\`AFTER\_HEAD\`.
-
-Upstream description:
-
-All inside networks.
-
-Insert JavaScript after &lt;HEAD&gt; tag Insert JavaScript after &lt;/title&gt; tag. Insert
-JavaScript before first tag.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "AFTER_HEAD",
-  "enum": [
-    "AFTER_HEAD",
-    "AFTER_TITLE_END",
-    "BEFORE_SCRIPT"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [metadata](data-sources--http_loadbalancer--reference--group-014.md#canonical-0132101110002123-3233011323311002-0300231320331303-2021103320212302-2013333010100131-3202330020111230-3020203320321012-0330213003310133): complete subsection reference.
-
-- [path](data-sources--http_loadbalancer--reference--group-014.md#canonical-3103032210221202-3203103300111103-0012201121133122-2332132223012333-2010212303210121-3101333110221032-3213300132021332-0213101030102210): complete subsection reference.

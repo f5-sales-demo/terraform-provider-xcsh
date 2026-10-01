@@ -6,6 +6,13 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 # xcsh_workload reference
 
+<a id="canonical-1123301221322111-2000321113100030-1100221301323110-0121033000210112-2000312002313032-3321010223211222-3032123022002311-3031322013331310"></a>
+
+## Next pages — port / 101320012132 / 6
+
+- [service.containers.readiness_check.http_health_check](data-sources--workload--reference--group-015.md#canonical-1223323322103201-2103302313231120-0103310320002203-2333222312011203-1020003312022100-0001111000211211-1111312111112030-3130210210222130)
+- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)
+
 <a id="canonical-1212111010322100-1002213020102212-2130303313110301-0233301101332221-2321303033123301-3012032310002132-2003232123020003-0300221002312130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -2849,12 +2856,12 @@ Breadcrumbs:
 Type: `"single"`. Computed.
 
 SimpleService is a service having one container and one replica that is deployed on all Regional
-Edges and advertised on Internet via HTTP loadbalancer on default VIP.
+Edges and advertised on internet via HTTP loadbalancer on default VIP.
 
 Upstream description:
 
 SimpleService is a service having one container and one replica that is deployed on all Regional
-Edges and advertised on Internet via HTTP loadbalancer on default VIP.
+Edges and advertised on internet via HTTP loadbalancer on default VIP.
 
 Receipt-pinned upstream constraints:
 
@@ -4216,13 +4223,13 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Name is a container image which are usually given a name such as alpine, ubuntu, or
+Name is a container image which are usually given a name such as alpine, Ubuntu, or
 quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is
 not specified, the Docker public registry is assumed.
 
 Upstream description:
 
-Name is a container image which are usually given a name such as alpine, ubuntu, or
+Name is a container image which are usually given a name such as alpine, Ubuntu, or
 quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is
 not specified, the Docker public registry is assumed. If tag is not specified, latest is assumed.
 

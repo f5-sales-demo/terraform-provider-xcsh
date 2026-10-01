@@ -93,7 +93,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-011.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:jwt_validation:token_location:bearer_token",
@@ -105,7 +105,7 @@
       "anchor": "canonical-0100033220013130-2310223122311211-3333330112001330-3030000330200000-0113323000030231-3220321132032212-3321201303030301-2033001132201100",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-011.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:jwt_validation:token_location:bearer_token",
@@ -117,7 +117,7 @@
       "anchor": "canonical-3200211310020100-3101311231200130-3012333110021012-3132101223100202-3011313132311310-2122123023131013-0303303032201111-0201131112202111",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-011.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:l7_ddos_action_block",
@@ -129,7 +129,7 @@
       "anchor": "canonical-1333333200120332-2013203303220313-1010312331020333-1200321100302113-0213120311020001-2122222320111122-1131233320112210-3120230011331311",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-011.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:l7_ddos_action_block",
@@ -3750,7 +3750,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:always_enable_js_challenge",
@@ -3762,7 +3762,7 @@
       "anchor": "canonical-2333031001211311-1332211220202001-2303220203021102-1232000202122210-1302231211313221-1333131000312123-1311121020223201-0000021302223312",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:always_enable_js_challenge",
@@ -3774,7 +3774,7 @@
       "anchor": "canonical-1113202122330330-0312303013213201-3223103223133211-0010211000310022-3232132133012302-0301022112132300-0210011110232010-1103020313201122",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:captcha_challenge_parameters",
@@ -3786,7 +3786,7 @@
       "anchor": "canonical-1233022200332332-0330313332021131-2013210330331111-1131122023213203-2012210033333002-3020133112022330-3100110012233002-2333210233002322",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:captcha_challenge_parameters",

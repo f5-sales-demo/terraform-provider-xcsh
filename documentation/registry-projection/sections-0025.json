@@ -216,7 +216,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--discovery--reference--group-001.md"
+      "registry_path": "docs/guides/resources--discovery--reference--group-002.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:discovery:properties:where:site:enable_internet_vip",

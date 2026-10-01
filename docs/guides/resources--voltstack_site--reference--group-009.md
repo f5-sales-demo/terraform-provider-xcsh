@@ -640,7 +640,7 @@ Breadcrumbs:
 Type: `["object", {}]`. Optional.
 
 \[OneOf: disable\_gpu, enable\_gpu, enable\_vgpu; Default: disable\_gpu\] Configuration parameter
-for disable gpu.
+for disable GPU.
 
 Upstream description:
 

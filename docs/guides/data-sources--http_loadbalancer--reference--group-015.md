@@ -6,17 +6,103 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-2002113022131110-2321231021211020-2332032331320331-3002032212123200-1222131233033331-3302101222200303-1011312200031331-1322203111233132"></a>
+
+## data_guard_rules.path — path / 020222321021 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [data_guard_rules](data-sources--http_loadbalancer--reference--group-014.md#canonical-3102323311020130-1122103001002133-3000002211222110-3333021323121303-3331301010012011-3020222021303103-3231322003001201-3132013303031003)
+- data_guard_rules.path
+
+<a id="canonical-3000203000322121-0000031031101010-2112013002033303-0130232030133322-1202110011311010-2231231313013111-2012232233232210-3030113101210230"></a>
+
+Type: `"single"`. Computed.
+
+Path match of the URI can be either be, Prefix match or exact match or regular expression match.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-path_match": "[\"path\",\"prefix\",\"regex\"]"
+}
+```
+
+<a id="canonical-2300303212331332-1321303033321233-1103221133113031-0023210100122032-0132003333012331-1222033122003101-3302310123220223-3021110101221210"></a>
+
+## Direct properties — path / 020222321021 / 3
+
+<a id="canonical-3231333121123031-3232131010320022-0230103210323122-2103100332201310-2102321221001021-0121100023330123-2013300012330332-2300131230121201"></a>
+
+<a id="canonical-2131302322222000-3021001210301211-0221212202203203-2211310030130301-2031201032132311-3300030023011221-0331311131310332-3323110121313131"></a>
+
+## path property — path / 020222321021 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[prefix regular expression\] Exact path value to match.
+
+Upstream description:
+
+Exclusive with \[prefix regular expression\] Exact path value to match.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[/a-zA-Z0-9._-]+$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.http_path": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-2223020313313013-3031212302132220-0201101031002333-3010012232332113-0112302102302232-2320330021030122-0202330320010201-0301001320023002"></a>
+
 <a id="canonical-1301020031010013-0013022033311010-0313213120121331-3122331102123030-0323223012130110-2310113022332121-2123112103332210-3130032312132112"></a>
 
 ## prefix property — path / 020222321021 / 5
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -55,7 +141,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0312233002012232-2230021123023231-2310321302133012-3012310000120100-0311013320310011-1001330301022133-1001133212110203-0323203023330023"></a>
 
-## regex property — path / 020222321021 / 6
+## regular expression property — path / 020222321021 / 6
 
 Type: `"string"`. Computed.
 
@@ -5153,48 +5239,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-3300220023323122-2030221131323121-3210310313120022-1332301111220223-3110200113013232-2022113233211003-3121130121123132-2221120113201102"></a>
-
-## default_pool.origin_servers.consul_service.snat_pool — snat_pool / 210011202102 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
-- [default_pool](data-sources--http_loadbalancer--reference--group-015.md#canonical-1333210303310103-2202102333202012-2110112132031220-3101331311300122-0321301032320110-1231002300030202-0203120323320030-2333120320300331)
-- [default_pool.origin_servers](data-sources--http_loadbalancer--reference--group-015.md#canonical-0012023132220102-0022302223220122-2213110010110133-1121000333032021-3031332302320102-1320111030302223-0112023003033302-3321303330233000)
-- [default_pool.origin_servers.consul_service](data-sources--http_loadbalancer--reference--group-015.md#canonical-1112103230131002-1200210223233200-0200101321102012-1223021132110233-3111100121021212-2220131300023032-1220002021113223-0223302333001012)
-- default_pool.origin_servers.consul_service.snat_pool
-
-<a id="canonical-0023021120003331-3212301010031133-2222311001200003-2022203111230023-1220030322212133-3202132213302111-2102020020332013-3301133013122330"></a>
-
-Type: `"single"`. Computed.
-
-SNAT Pool. SNAT Pool configuration.
-
-Upstream description:
-
-SNAT Pool configuration.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-snat_pool_choice": "[\"no_snat_pool\",\"snat_pool\"]"
-}
-```
-
-<a id="canonical-0113200313112010-1330012300233323-1112200203210110-0321000300111223-3011121101102302-1230302232312300-0013220100333130-2313320323233023"></a>
-
-## Direct properties — snat_pool / 210011202102 / 3
-
-- [no_snat_pool](data-sources--http_loadbalancer--reference--group-016.md#canonical-0323211101000312-2323202102110332-1032311331312130-0120203121233322-0130233213310201-3203220321211013-2332301302321013-3332000333312300): complete subsection reference.
-
-- [snat_pool](data-sources--http_loadbalancer--reference--group-016.md#canonical-1021332232010022-1231313332103001-0132110111321031-3200001013102112-2120001113120313-2110212112201313-2013232301203333-3010111102022313): complete subsection reference.

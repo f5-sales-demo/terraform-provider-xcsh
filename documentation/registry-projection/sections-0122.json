@@ -93,7 +93,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:query_params:item",
@@ -110,7 +110,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:policy_based_challenge:rule_list:rules:spec:query_params:item",
@@ -3977,7 +3977,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-014.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:waf_exclusion:waf_exclusion_inline_rules:rules:app_firewall_detection_control:exclude_violation_contexts",
@@ -3994,7 +3994,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-014.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:waf_exclusion:waf_exclusion_inline_rules:rules:app_firewall_detection_control:exclude_violation_contexts",
@@ -4011,7 +4011,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-014.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:waf_exclusion:waf_exclusion_inline_rules:rules:app_firewall_detection_control:exclude_violation_contexts",

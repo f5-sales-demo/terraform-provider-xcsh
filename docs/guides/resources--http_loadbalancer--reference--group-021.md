@@ -69,15 +69,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Provider validators and defaults (from schema source):
@@ -277,15 +277,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Provider validators and defaults (from schema source):
@@ -1027,15 +1027,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Provider validators and defaults (from schema source):
@@ -1235,15 +1235,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Provider validators and defaults (from schema source):
@@ -2009,11 +2009,11 @@ domain {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Provider validators and defaults (from schema source):
 
@@ -2128,12 +2128,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Provider validators and defaults (from schema source):
@@ -2419,11 +2419,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -2476,11 +2476,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -2527,7 +2527,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1012312231113312-3120311233001212-1131103232133232-3003321200131220-3003010211122130-1101330333221210-3321313031313311-1213331010333323"></a>
 
-## regex property — path / 130132032001 / 6
+## regular expression property — path / 130132032001 / 6
 
 Type: `"string"`. Optional.
 
@@ -4167,12 +4167,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -4342,14 +4342,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -4824,12 +4824,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -4999,14 +4999,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -6680,12 +6680,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):

@@ -1041,7 +1041,7 @@ Breadcrumbs:
 
 Type: `"object"`. list nested block, Optional.
 
-List of API group elements with methods and path regex for matching requests.
+List of API group elements with methods and path regular expression for matching requests.
 
 Provider validators and defaults (from schema source):
 
@@ -1172,12 +1172,12 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Regular expression to match the input request API path against. The match is considered to succeed
-if the input request API path matches the specified path regex.
+if the input request API path matches the specified path regular expression.
 
 Upstream description:
 
 Regular expression to match the input request API path against. The match is considered to succeed
-if the input request API path matches the specified path regex.
+if the input request API path matches the specified path regular expression.
 
 Provider validators and defaults (from schema source):
 

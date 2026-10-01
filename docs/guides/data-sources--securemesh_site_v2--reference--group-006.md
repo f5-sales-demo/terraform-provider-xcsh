@@ -3188,7 +3188,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ssh](data-sources--securemesh_site_v2--reference--group-006.md#canonical-2330311121333131-1333211233013220-3000202023323212-2023301331210202-1030001300332330-2001122321101133-0100323130320022-2300303310111302): complete subsection reference.
+- [SSH](data-sources--securemesh_site_v2--reference--group-006.md#canonical-2330311121333131-1333211233013220-3000202023323212-2023301331210202-1030001300332330-2001122321101133-0100323130320022-2300303310111302): complete subsection reference.
 
 - [web_user_interface](data-sources--securemesh_site_v2--reference--group-006.md#canonical-1222020300302323-1230111023302131-0212312323102330-0101313130122210-3023101030212022-0231031033200220-0231020012010032-0220132122210230): complete subsection reference.
 
@@ -3264,7 +3264,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <a id="canonical-1210231011321310-1323231000311021-1332310220133133-2320230102333113-2002010010002332-0203222322112221-2030320020213103-1111202323111310"></a>
 
-## blocked_services.blocked_service.ssh — ssh / 020130201231 / 2
+## blocked_services.blocked_service.SSH — SSH / 020130201231 / 2
 
 Breadcrumbs:
 
@@ -3272,7 +3272,7 @@ Breadcrumbs:
 - [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
 - [blocked_services](data-sources--securemesh_site_v2--reference--group-006.md#canonical-2331300013301233-3123202011131231-0002223230222322-0323132000330211-1330032112212213-0012313001102332-3200223201231313-0010032013213000)
 - [blocked_services.blocked_service](data-sources--securemesh_site_v2--reference--group-006.md#canonical-2003311300313211-0212211012121231-3003312310020210-1002323211032322-0101201300022131-2321020010310201-0202202021122220-2212303302112203)
-- blocked_services.blocked_service.ssh
+- blocked_services.blocked_service.SSH
 
 <a id="canonical-3222130331223012-0001133202013330-3113200223330213-1231302030211011-2301202320313133-1131121202222023-3312311211013121-2212022021212201"></a>
 
@@ -3299,13 +3299,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0232303021111223-0230322130011332-1202202202120221-0020223223331031-3032030033022303-2102112103003330-2222001132133130-0011202222220221"></a>
 
-## Direct properties — ssh / 020130201231 / 3
+## Direct properties — SSH / 020130201231 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
 <a id="canonical-1012100322031221-0112121111021211-1002302130233133-0320100031012201-2122112132110003-3020101303103023-0321313030013230-2130000203233112"></a>
 
-## Next pages — ssh / 020130201231 / 4
+## Next pages — SSH / 020130201231 / 4
 
 - [blocked_services.blocked_service](data-sources--securemesh_site_v2--reference--group-006.md#canonical-2003311300313211-0212211012121231-3003312310020210-1002323211032322-0101201300022131-2321020010310201-0202202021122220-2212303302112203)
 - [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
@@ -3803,12 +3803,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -3955,14 +3955,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 

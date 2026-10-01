@@ -361,7 +361,7 @@ Management service.
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 <a id="canonical-0203123221331312-1033310323103200-2202011130132223-2112133120030011-2210130002003023-1333311031021321-3333310202223320-1020201112022320"></a>
@@ -431,8 +431,8 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 <a id="canonical-2310330313130213-0031232133220012-1313020010112100-2021123332332210-3133210221300330-1312311231120313-3211300001203023-0003003033120231"></a>
 
@@ -461,7 +461,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Configuration parameter for clickhouse params.
+Configuration parameter for ClickHouse params.
 
 <a id="canonical-0322010310310323-1331311302030230-1112202013113322-3203001110321222-2003123100012013-1110213320121010-3133303100230230-0112201120210101"></a>
 
@@ -475,7 +475,7 @@ Configuration parameter for clickhouse params.
 
 Type: `"string"`. Computed.
 
-Clickhouse Host. Clickhouse Host.
+ClickHouse Host. ClickHouse Host.
 
 - [password](data-sources--lma_region--reference--group-001.md#canonical-2001211213223022-0121320233312311-2223220010102012-3223001333301232-2132322021323001-0013202031111022-1330311302113220-2022303333231132): complete subsection reference.
 
@@ -487,7 +487,7 @@ Clickhouse Host. Clickhouse Host.
 
 Type: `"number"`. Computed.
 
-Clickhouse Port. Clickhouse Port.
+ClickHouse Port. ClickHouse Port.
 
 <a id="canonical-3330112200023330-2203022320003220-3033230222121121-0100223130002333-3102200300131113-1002312223333332-2232110330303201-2130321320211011"></a>
 
@@ -497,7 +497,7 @@ Clickhouse Port. Clickhouse Port.
 
 Type: `"string"`. Computed.
 
-Clickhouse User. Clickhouse User.
+ClickHouse User. ClickHouse User.
 
 <a id="canonical-1211222212300201-1030312301013302-2302321010022032-3013101120221102-0121220001211330-3010320032023133-2132132233200033-1110332333332110"></a>
 
@@ -594,7 +594,7 @@ Management service.
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 <a id="canonical-1232003333032022-2321010322131231-2213120033001010-3020022010233123-2123131032302233-3003003301220222-0333103112021300-3130332003310333"></a>
@@ -663,8 +663,8 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 <a id="canonical-2103210102020003-2103231332023012-3321123232313213-1202120102320120-3120002321323200-3332321000211103-0030012310132111-1313023012133333"></a>
 
@@ -703,7 +703,7 @@ Configuration parameter for elastic params.
 
 <a id="canonical-0210001002002122-0212231223232023-0300123222211230-0201300102232013-0320103123332103-1021113302110032-2202203031311112-3012200031132113"></a>
 
-## urls property — elastic_params / 021300013023 / 4
+## URLs property — elastic_params / 021300013023 / 4
 
 Type: `["list", "string"]`. Computed.
 

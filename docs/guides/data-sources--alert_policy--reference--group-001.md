@@ -1553,11 +1553,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_match\] Equality match value for the label.
+Exclusive with \[regular expression\_match\] Equality match value for the label.
 
 Upstream description:
 
-Exclusive with \[regex\_match\] Equality match value for the label.
+Exclusive with \[regular expression\_match\] Equality match value for the label.
 
 Receipt-pinned upstream constraints:
 
@@ -1676,11 +1676,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_match\] Equality match value for the label.
+Exclusive with \[regular expression\_match\] Equality match value for the label.
 
 Upstream description:
 
-Exclusive with \[regex\_match\] Equality match value for the label.
+Exclusive with \[regular expression\_match\] Equality match value for the label.
 
 Receipt-pinned upstream constraints:
 
@@ -1799,11 +1799,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_match\] Equality match value for the label.
+Exclusive with \[regular expression\_match\] Equality match value for the label.
 
 Upstream description:
 
-Exclusive with \[regex\_match\] Equality match value for the label.
+Exclusive with \[regular expression\_match\] Equality match value for the label.
 
 Receipt-pinned upstream constraints:
 

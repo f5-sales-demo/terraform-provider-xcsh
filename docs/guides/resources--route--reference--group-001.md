@@ -1755,11 +1755,11 @@ headers {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Provider validators and defaults (from schema source):
 
@@ -1914,11 +1914,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Optional.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -1937,15 +1937,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2211122333130331-0311022203312202-0020313000123230-2331033030332303-2333012000333011-2033110330022222-3003113211311021-3112231213130330"></a>
 
-## regex property — headers / 232330002113 / 8
+## regular expression property — headers / 232330002113 / 8
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Provider validators and defaults (from schema source):
 
@@ -2313,11 +2313,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -2370,11 +2370,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -2421,7 +2421,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3103210012003133-0023232020330200-2133131121110223-1200312033120003-0321303100120222-1321103102101012-3032102033303323-1312101230013101"></a>
 
-## regex property — path / 203013201302 / 6
+## regular expression property — path / 203013201302 / 6
 
 Type: `"string"`. Optional.
 
@@ -2579,11 +2579,11 @@ query_params {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\] Exact match value for the query parameter key.
+Exclusive with \[regular expression\] Exact match value for the query parameter key.
 
 Upstream description:
 
-Exclusive with \[regex\] Exact match value for the query parameter key.
+Exclusive with \[regular expression\] Exact match value for the query parameter key.
 
 Receipt-pinned upstream constraints:
 
@@ -2675,15 +2675,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1020111000013311-2222012230002103-3222102003120112-1131223212011210-2322122312101002-1312012302002013-2203020330102312-3133232111213110"></a>
 
-## regex property — query_params / 131203300010 / 6
+## regular expression property — query_params / 131203300010 / 6
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\] Regex match value for the query parameter key.
+Exclusive with \[exact\] regular expression match value for the query parameter key.
 
 Upstream description:
 
-Exclusive with \[exact\] Regex match value for the query parameter key.
+Exclusive with \[exact\] regular expression match value for the query parameter key.
 
 Provider validators and defaults (from schema source):
 
@@ -3149,12 +3149,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -3324,14 +3324,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -3803,12 +3803,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -3978,14 +3978,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -4756,10 +4756,3 @@ add_secure = {}
 ## Direct properties — add_secure / 103332131223 / 3
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2033030123112110-0130211113323202-1222210201013210-3312123002302112-1300112033131230-2230003320112202-3202310031112203-2022023123322102"></a>
-
-## Next pages — add_secure / 103332131223 / 4
-
-- [routes.response_cookies_to_add](resources--route--reference--group-001.md#canonical-1012103221102121-0311302110220133-3312032210222233-2321211003121320-3110000121321323-2231112320331231-3120130302021121-2113210223220100)
-- [xcsh_route](../resources/route.md#canonical-2032020033333212-1122013011031221-2111330322212302-0032132111212121-3023032322101232-1231332022020023-2021133001000111-2130020232210312)

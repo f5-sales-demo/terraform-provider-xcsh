@@ -990,7 +990,7 @@ Receipt-pinned upstream constraints:
 
 Type: `"number"`. Computed.
 
-Service port to advertise on Internet via HTTP loadbalancer using port 80.
+Service port to advertise on internet via HTTP loadbalancer using port 80.
 
 Receipt-pinned upstream constraints:
 
@@ -1056,13 +1056,13 @@ Type: `"single"`. Computed.
 
 StatefulService maintains per replica state and each replica has its own persistent storage. Each
 replica has a unique network identity and stable storage. Stateful service are used for distributed
-stateful applications like cassandra, mongodb, redis, etc.
+stateful applications like Cassandra, MongoDB, redis, etc.
 
 Upstream description:
 
 StatefulService maintains per replica state and each replica has its own persistent storage. Each
 replica has a unique network identity and stable storage. Stateful service are used for distributed
-stateful applications like cassandra, mongodb, redis, etc.
+stateful applications like Cassandra, MongoDB, redis, etc.
 
 Receipt-pinned upstream constraints:
 

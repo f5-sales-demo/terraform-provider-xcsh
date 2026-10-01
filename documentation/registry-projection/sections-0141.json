@@ -3100,7 +3100,7 @@
       "anchor": "canonical-3011132123111003-1333313211120203-1330100211113102-0100001212101010-1212122013001331-1322321003103123-0101303102013012-0223222302010303",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-013.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:bot_defense_advanced_protection:web_only:js_insertion_rules:rules",

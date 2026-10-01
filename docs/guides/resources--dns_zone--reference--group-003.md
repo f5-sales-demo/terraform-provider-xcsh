@@ -4244,7 +4244,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3321232322231220-3123032230323321-0311020312302312-0132321333001102-0210332313023133-3121302110333332-3221020121032133-2233300120001123"></a>
 
-## regexp property — values / 232023012322 / 7
+## regular expression property — values / 232023012322 / 7
 
 Type: `"string"`. Optional.
 
@@ -6620,7 +6620,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2213030132102121-2022303112130100-3120121302203101-2322203101211012-1013002202222222-0013002113323301-0012330131113333-2120231130001112"></a>
 
-## ttl property — soa_parameters / 311233131001 / 8
+## TTL property — soa_parameters / 311233131001 / 8
 
 Type: `"number"`. Optional.
 
@@ -7090,12 +7090,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -7264,14 +7264,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 

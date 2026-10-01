@@ -4944,7 +4944,7 @@
       "anchor": "canonical-2033030123112110-0130211113323202-1222210201013210-3312123002302112-1300112033131230-2230003320112202-3202310031112203-2022023123322102",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--route--reference--group-001.md"
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_domain",

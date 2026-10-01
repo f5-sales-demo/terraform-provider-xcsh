@@ -1209,7 +1209,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-027.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:waf_exclusion:waf_exclusion_inline_rules:rules:app_firewall_detection_control:exclude_attack_type_contexts",
@@ -1226,7 +1226,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-027.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:waf_exclusion:waf_exclusion_inline_rules:rules:app_firewall_detection_control:exclude_attack_type_contexts",
@@ -1243,7 +1243,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-027.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:waf_exclusion:waf_exclusion_inline_rules:rules:app_firewall_detection_control:exclude_attack_type_contexts",
@@ -1260,7 +1260,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-027.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:waf_exclusion:waf_exclusion_inline_rules:rules:app_firewall_detection_control:exclude_attack_type_contexts",

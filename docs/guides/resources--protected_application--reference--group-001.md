@@ -73,7 +73,7 @@ Receipt-pinned upstream constraints:
 
 - [Cloudflare](resources--protected_application--reference--group-001.md#canonical-1300213123131122-1030311223302010-1123221002212300-1123122213010200-1110331233223310-3211033220031200-3333302300120030-0020033300031111): complete subsection reference.
 
-- [cloudfront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320): complete subsection reference.
+- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320): complete subsection reference.
 
 - [custom_connector](resources--protected_application--reference--group-004.md#canonical-0001110101211002-1320031003201022-1000020112012123-0310131001312003-2012011132333013-2320221010020212-3001121100313033-3301333013201232): complete subsection reference.
 
@@ -497,7 +497,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `cloudflare.trusted_clients.metadata` | [cloudflare.trusted_clients.metadata](resources--protected_application--reference--group-002.md#canonical-2201322213223112-0221310303320031-0310103213131102-3310301311330211-3030033213020102-3313111313313131-1033300012313331-2023323332223203) |
 | `cloudflare.trusted_clients.metadata.description_spec` | [cloudflare.trusted_clients.metadata.description_spec](resources--protected_application--reference--group-002.md#canonical-0111211300022002-3211121013120131-2301311331223031-2012223102013002-1301321232223013-0030102321103232-3100220330330301-2123320202310321) |
 | `cloudflare.trusted_clients.metadata.name` | [cloudflare.trusted_clients.metadata.name](resources--protected_application--reference--group-002.md#canonical-1323133113332330-1010301320001032-3201230023321303-3132322322330310-3332130233322011-1203321023322012-2203311333222201-0010112022030203) |
-| `cloudfront` | [cloudfront](resources--protected_application--reference--group-002.md#canonical-0323011203311321-0002123031021111-2112223320220213-1231321321221222-3112000200110112-2331021213200101-2130200001232020-2310023233330330) |
+| `cloudfront` | [CloudFront](resources--protected_application--reference--group-002.md#canonical-0323011203311321-0002123031021111-2112223320220213-1231321321221222-3112000200110112-2331021213200101-2130200001232020-2310023233330330) |
 | `cloudfront.aws_configuration_id_selector` | [cloudfront.aws_configuration_id_selector](resources--protected_application--reference--group-002.md#canonical-3203022033232033-3300020132202320-1102030032203330-2003000231210111-3312100132300310-3123020102121330-3011301311010131-0202031002313021) |
 | `cloudfront.aws_configuration_id_selector.ids` | [cloudfront.aws_configuration_id_selector.ids](resources--protected_application--reference--group-002.md#canonical-3303221233233132-0320333202103230-3223102230210232-1233010332032202-2100132030001101-1333323132221330-2013021033103023-1332331330212200) |
 | `cloudfront.aws_configuration_tag_selector` | [cloudfront.aws_configuration_tag_selector](resources--protected_application--reference--group-002.md#canonical-3111200223233223-1200320210211330-0230003313032323-1021100122121321-3103023312000001-3333002130312022-1220101211330211-3303323330333200) |
@@ -677,7 +677,7 @@ Each exact path has one authoritative reference destination. Collection element 
 - [adobe_commerce_connector](resources--protected_application--reference--group-001.md#canonical-3332022203110112-1213232021331323-0313203313032202-0011122310122123-2101032101331003-1001330230023123-1032122322110301-1202320102202323)
 - [big_ip_iapp](resources--protected_application--reference--group-001.md#canonical-0303110002303222-0203110110101122-1011300032311021-0233330201031112-2323013212132131-0031102331100032-2101323231221123-3110022201001020)
 - [Cloudflare](resources--protected_application--reference--group-001.md#canonical-1300213123131122-1030311223302010-1123221002212300-1123122213010200-1110331233223310-3211033220031200-3333302300120030-0020033300031111)
-- [cloudfront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
+- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
 - [custom_connector](resources--protected_application--reference--group-004.md#canonical-0001110101211002-1320031003201022-1000020112012123-0310131001312003-2012011132333013-2320221010020212-3001121100313033-3301333013201232)
 - [f5_big_ip](resources--protected_application--reference--group-004.md#canonical-0021222233012000-1203110331110030-2201103112320103-0232023023031221-1032102302131331-1113203023033213-3301223331110310-1100003322003121)
 - [salesforce_commerce_connector](resources--protected_application--reference--group-004.md#canonical-2332033220132333-1032222222002332-0311220332202110-2323303102320312-2200130201223220-1133120130131231-2221031302220301-1011010202321210)
@@ -704,8 +704,8 @@ Breadcrumbs:
 
 Type: `["object", {}]`. Optional.
 
-\[OneOf: adobe\_commerce\_connector, big\_ip\_iapp, Cloudflare, cloudfront, custom\_connector,
-f5\_big\_ip, salesforce\_commerce\_connector\] Configuration parameter for adobe commerce connector.
+\[OneOf: adobe\_commerce\_connector, big\_ip\_iapp, Cloudflare, CloudFront, custom\_connector,
+f5\_big\_ip, Salesforce\_commerce\_connector\] Configuration parameter for adobe commerce connector.
 
 Upstream description:
 
@@ -729,7 +729,7 @@ OneOf alternatives in this subsection:
 - [adobe_commerce_connector](resources--protected_application--reference--group-001.md#canonical-1010323121332303-2221100033303323-2230301120101230-1322010201212203-1313233311112130-2203323221131212-3223230222001003-1022221333123312)
 - [big_ip_iapp](resources--protected_application--reference--group-001.md#canonical-1333211210302130-2202023111203221-3121230010312031-2133011210203103-1000301000230212-1303023121132113-3210201231031331-0031110003302003)
 - [Cloudflare](resources--protected_application--reference--group-001.md#canonical-0033200130032012-3112302102100200-3202331202111311-1301221120333011-1320010020113111-0022021003211313-0112320013122321-1213230012002011)
-- [cloudfront](resources--protected_application--reference--group-002.md#canonical-0323011203311321-0002123031021111-2112223320220213-1231321321221222-3112000200110112-2331021213200101-2130200001232020-2310023233330330)
+- [CloudFront](resources--protected_application--reference--group-002.md#canonical-0323011203311321-0002123031021111-2112223320220213-1231321321221222-3112000200110112-2331021213200101-2130200001232020-2310023233330330)
 - [custom_connector](resources--protected_application--reference--group-004.md#canonical-1322220100112011-2321330313120110-3203101312002210-3201222022111003-1323332200302303-3320302021303002-2031221011330201-1121131222200210)
 - [f5_big_ip](resources--protected_application--reference--group-004.md#canonical-0020303311210203-3221033103331300-1030200133232210-3211233223033312-3120312133222121-2232232132200220-1303033323233313-1132101023330132)
 - [salesforce_commerce_connector](resources--protected_application--reference--group-004.md#canonical-0331201013122122-1222200333203031-2310102103232332-1302033332101133-1302101323312323-1302312011313211-0223222120021332-2303323100232311)
@@ -1320,14 +1320,14 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
-other website/application paths. If not specified, default to ‘/common.js’.
+other website/application paths. If not specified, default to ‘/CommonJS’.
 
 Upstream description:
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
 other website/application paths.
 
-If not specified, default to ‘/common.js’.
+If not specified, default to ‘/CommonJS’.
 
 Receipt-pinned upstream constraints:
 
@@ -1600,11 +1600,11 @@ domain {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Provider validators and defaults (from schema source):
 
@@ -1719,12 +1719,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Provider validators and defaults (from schema source):
@@ -2012,11 +2012,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -2069,11 +2069,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -2120,7 +2120,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0232110110010212-3003123120323233-1302003032132311-1310331100202002-2303203022232030-3332303110031123-3003010322310122-3131101223021022"></a>
 
-## regex property — path / 112323023023 / 6
+## regular expression property — path / 112323023023 / 6
 
 Type: `"string"`. Optional.
 
@@ -2605,11 +2605,11 @@ domain {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Provider validators and defaults (from schema source):
 
@@ -2724,12 +2724,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Provider validators and defaults (from schema source):
@@ -3008,14 +3008,14 @@ manual_js_insert {
 Type: `"string"`. Optional.
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
-other website/application paths. If not specified, default to ‘/common.js’.
+other website/application paths. If not specified, default to ‘/CommonJS’.
 
 Upstream description:
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
 other website/application paths.
 
-If not specified, default to ‘/common.js’.
+If not specified, default to ‘/CommonJS’.
 
 Receipt-pinned upstream constraints:
 
@@ -3268,11 +3268,11 @@ headers {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\] Header value to match exactly.
+Exclusive with \[regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[regex\] Header value to match exactly.
+Exclusive with \[regular expression\] Header value to match exactly.
 
 Provider validators and defaults (from schema source):
 
@@ -3400,15 +3400,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1022221313102220-3310222230131023-0113333223023123-1131333222321013-1302222323031031-1302103010031231-0100033301010103-2102230220202301"></a>
 
-## regex property — headers / 201021221110 / 6
+## regular expression property — headers / 201021221110 / 6
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\] Regex match of the header value in re2 format.
+Exclusive with \[exact\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact\] Regex match of the header value in re2 format.
+Exclusive with \[exact\] regular expression match of the header value in re2 format.
 
 Provider validators and defaults (from schema source):
 

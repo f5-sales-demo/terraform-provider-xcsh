@@ -1783,7 +1783,7 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-UDP response to be matched. It can be a regex.
+UDP response to be matched. It can be a regular expression.
 
 Receipt-pinned upstream constraints:
 

@@ -449,7 +449,7 @@ Breadcrumbs:
 
 Type: `"list"`. Computed.
 
-Configure key/value or regex match rules to enable the platform to detect this custom data type in
+Configure key-value or regular expression match rules to enable the platform to detect this custom data type in
 the API request or response.
 
 Receipt-pinned upstream constraints:
@@ -619,11 +619,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_values regex\_value\] Search for values that include this substring.
+Exclusive with \[exact\_values regular expression\_value\] Search for values that include this substring.
 
 Upstream description:
 
-Exclusive with \[exact\_values regex\_value\] Search for values that include this substring.
+Exclusive with \[exact\_values regular expression\_value\] Search for values that include this substring.
 
 Receipt-pinned upstream constraints:
 
@@ -928,11 +928,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_values regex\_value\] Search for values that include this substring.
+Exclusive with \[exact\_values regular expression\_value\] Search for values that include this substring.
 
 Upstream description:
 
-Exclusive with \[exact\_values regex\_value\] Search for values that include this substring.
+Exclusive with \[exact\_values regular expression\_value\] Search for values that include this substring.
 
 Receipt-pinned upstream constraints:
 
@@ -1185,11 +1185,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_values regex\_value\] Search for values that include this substring.
+Exclusive with \[exact\_values regular expression\_value\] Search for values that include this substring.
 
 Upstream description:
 
-Exclusive with \[exact\_values regex\_value\] Search for values that include this substring.
+Exclusive with \[exact\_values regular expression\_value\] Search for values that include this substring.
 
 Receipt-pinned upstream constraints:
 
@@ -1441,11 +1441,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_values regex\_value\] Search for values that include this substring.
+Exclusive with \[exact\_values regular expression\_value\] Search for values that include this substring.
 
 Upstream description:
 
-Exclusive with \[exact\_values regex\_value\] Search for values that include this substring.
+Exclusive with \[exact\_values regular expression\_value\] Search for values that include this substring.
 
 Receipt-pinned upstream constraints:
 

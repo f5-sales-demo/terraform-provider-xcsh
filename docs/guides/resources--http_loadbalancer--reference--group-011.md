@@ -291,11 +291,11 @@ headers {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Provider validators and defaults (from schema source):
 
@@ -450,11 +450,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Optional.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -473,15 +473,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0110011122002330-2230300310100211-2323101031201123-2102133013210330-3321221230232022-2330232211331003-0311003313032321-2131102100322233"></a>
 
-## regex property — headers / 331220210132 / 8
+## regular expression property — headers / 331220210132 / 8
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Provider validators and defaults (from schema source):
 
@@ -1891,11 +1891,11 @@ domain {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Provider validators and defaults (from schema source):
 
@@ -2010,12 +2010,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Provider validators and defaults (from schema source):
@@ -2305,11 +2305,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -2362,11 +2362,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -2413,7 +2413,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0013300230030133-1320000330122032-1203331012300301-1000121220333120-1113301023013030-2212033321120332-2202032330231330-2001012323230302"></a>
 
-## regex property — path / 003202131233 / 6
+## regular expression property — path / 003202131233 / 6
 
 Type: `"string"`. Optional.
 
@@ -2787,11 +2787,11 @@ domain {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Provider validators and defaults (from schema source):
 
@@ -2906,12 +2906,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Provider validators and defaults (from schema source):
@@ -3201,11 +3201,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -3258,11 +3258,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -3309,7 +3309,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2202022220220122-3332003101303322-2200013233033012-1322121122022000-1102201030300033-0001112220101211-1301113132230121-2102000122310003"></a>
 
-## regex property — path / 222000321121 / 6
+## regular expression property — path / 222000321121 / 6
 
 Type: `"string"`. Optional.
 
@@ -3666,11 +3666,11 @@ domain {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Provider validators and defaults (from schema source):
 
@@ -3785,12 +3785,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Provider validators and defaults (from schema source):
@@ -4080,11 +4080,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -4137,11 +4137,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -4188,7 +4188,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0201303010102231-0230233330311230-3001331223102000-1010012233310201-3320103133030130-1323110320123132-0021233333202230-3202133311022101"></a>
 
-## regex property — path / 032213133032 / 6
+## regular expression property — path / 032213133032 / 6
 
 Type: `"string"`. Optional.
 
@@ -5396,11 +5396,11 @@ domain {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Provider validators and defaults (from schema source):
 
@@ -5515,12 +5515,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Provider validators and defaults (from schema source):

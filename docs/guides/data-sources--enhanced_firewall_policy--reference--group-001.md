@@ -1761,7 +1761,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Configuration parameter for destination aws vpc ids.
+Configuration parameter for destination aws vpc IDs.
 
 Upstream description:
 
@@ -3284,7 +3284,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Configuration parameter for source aws vpc ids.
+Configuration parameter for source aws vpc IDs.
 
 Upstream description:
 

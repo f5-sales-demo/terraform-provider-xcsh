@@ -489,11 +489,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Receipt-pinned upstream constraints:
 
@@ -632,11 +632,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Computed.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -655,15 +655,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2202311012020223-0210102021222301-0333113223223302-3303312032120212-0211221111301032-0231230102120312-3231031303333030-3031303023203121"></a>
 
-## regex property — headers / 110201301233 / 8
+## regular expression property — headers / 110201301233 / 8
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Receipt-pinned upstream constraints:
 
@@ -981,11 +981,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -1030,11 +1030,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -1073,7 +1073,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3003221201110000-0031330001133032-0220313302011302-1110111133302131-1021023201301130-0320223331213012-3213332012301213-1311130322132313"></a>
 
-## regex property — path / 300213011211 / 6
+## regular expression property — path / 300213011211 / 6
 
 Type: `"string"`. Computed.
 
@@ -1189,13 +1189,13 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML.
+encoded in base64 format. The message can be either plain text or HTML.
 
 Upstream description:
 
 Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
-Denied &lt;/p&gt;". Base64 encoded string URL for this is
+encoded in base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
+Denied &lt;/p&gt;". base64 encoded string URL for this is
 string:///PHA+IEFjY2VzcyBEZW5pZWQgPC9wPg==.
 
 Receipt-pinned upstream constraints:
@@ -1487,11 +1487,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Receipt-pinned upstream constraints:
 
@@ -1630,11 +1630,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Computed.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -1653,15 +1653,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0300231010133122-0021003313311131-0323203131002021-3102102330100320-1022310332311313-2333231312120030-2002231220111130-0101112302233033"></a>
 
-## regex property — headers / 013301310313 / 8
+## regular expression property — headers / 013301310313 / 8
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Receipt-pinned upstream constraints:
 
@@ -1979,11 +1979,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -2028,11 +2028,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -2071,7 +2071,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1100123011011003-2102222323133231-3013012020223301-0313331200112213-3003221132200330-2200022321212011-2322332003332323-1303111321113300"></a>
 
-## regex property — path / 132212121200 / 6
+## regular expression property — path / 132212121200 / 6
 
 Type: `"string"`. Computed.
 
@@ -2924,11 +2924,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -2973,11 +2973,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -3016,7 +3016,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1320131123221113-3113003123132113-3022333121323303-3132123210331103-1033312313312310-2030101323020231-3013311020000303-1032322333111032"></a>
 
-## regex property — path / 310122013220 / 6
+## regular expression property — path / 310122013220 / 6
 
 Type: `"string"`. Computed.
 
@@ -4445,7 +4445,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Advertise this workload via loadbalancer on Internet with default VIP.
+Advertise this workload via loadbalancer on internet with default VIP.
 
 Receipt-pinned upstream constraints:
 

@@ -970,12 +970,12 @@ match {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[community ip\_prefixes\] AS path can also be a regex, which will be matched against
+Exclusive with \[community ip\_prefixes\] AS path can also be a regular expression, which will be matched against
 route information.
 
 Upstream description:
 
-Exclusive with \[community ip\_prefixes\] AS path can also be a regex, which will be matched against
+Exclusive with \[community ip\_prefixes\] AS path can also be a regular expression, which will be matched against
 route information.
 
 Receipt-pinned upstream constraints:

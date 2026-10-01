@@ -781,7 +781,7 @@ Comment. Human-readable description text
 
 <a id="canonical-3012333303312321-3220301113221011-0130321210100113-0321223201002302-2331002303101030-3233111230332231-0323213212321113-3122023333100111"></a>
 
-## ttl property — default_rr_set_group / 131131132311 / 5
+## TTL property — default_rr_set_group / 131131132311 / 5
 
 Type: `"number"`. Computed.
 

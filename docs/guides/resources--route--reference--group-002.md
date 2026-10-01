@@ -6,6 +6,13 @@ description: "Complete grouped canonical reference for xcsh_route reference."
 
 # xcsh_route reference
 
+<a id="canonical-2033030123112110-0130211113323202-1222210201013210-3312123002302112-1300112033131230-2230003320112202-3202310031112203-2022023123322102"></a>
+
+## Next pages — add_secure / 103332131223 / 4
+
+- [routes.response_cookies_to_add](resources--route--reference--group-001.md#canonical-1012103221102121-0311302110220133-3312032210222233-2321211003121320-3110000121321323-2231112320331231-3120130302021121-2113210223220100)
+- [xcsh_route](../resources/route.md#canonical-2032020033333212-1122013011031221-2111330322212302-0032132111212121-3023032322101232-1231332022020023-2021133001000111-2130020232210312)
+
 <a id="canonical-2221323220301102-2322102303133302-2112332210121321-1201020132132122-0101221001000313-2211211002102201-1101020333230313-3003012012232300"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -894,12 +901,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -1069,14 +1076,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -1548,12 +1555,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -1723,14 +1730,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -1968,15 +1975,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[regex\_rewrite\] prefix\_rewrite indicates that during forwarding, the matched
-prefix (or path) should be swapped with its value. When using regex path matching, the entire path
+Exclusive with \[regular expression\_rewrite\] prefix\_rewrite indicates that during forwarding, the matched
+prefix (or path) should be swapped with its value. When using regular expression path matching, the entire path
 (not including the query string) will be swapped with this value. This option allows application
 URLs to..
 
 Upstream description:
 
-Exclusive with \[regex\_rewrite\] prefix\_rewrite indicates that during forwarding, the matched
-prefix (or path) should be swapped with its value. When using regex path matching, the entire path
+Exclusive with \[regular expression\_rewrite\] prefix\_rewrite indicates that during forwarding, the matched
+prefix (or path) should be swapped with its value. When using regular expression path matching, the entire path
 (not including the query string) will be swapped with this value. This option allows application
 URLs to be rooted at a different path from those exposed at the reverse proxy layer.
 
@@ -2342,7 +2349,7 @@ Type: `"object"`. single nested block, Optional.
 
 Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route
 level configuration takes precedence. An example of an Cross origin HTTP request GET
-/resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS
+/resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS
 X 10.5..
 
 Upstream description:
@@ -2351,11 +2358,11 @@ Cross-Origin Resource Sharing requests configuration specified at Virtual-host o
 level configuration takes precedence.
 
 An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other
-User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130
 Minefield/3.1b3pre Accept: text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8
 Accept-Language: en-us,en;q=0.5 Accept-Encoding: gzip,deflate Accept-Charset:
 ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive Referrer:
-http&#58;//foo.example/examples/access-control/simplexsinvocation.html Origin:
+http&#58;//foo.example/examples/access-control/simplexsinvocation.HTML Origin:
 http&#58;//foo.example
 
 HTTP/1.1 200 OK Date: Mon, 01 Dec 2008 00:23:53 GMT Server: Apache/2.0.61
@@ -2365,7 +2372,7 @@ Transfer-Encoding: chunked Content-Type: application/XML
 An example for cross origin HTTP OPTIONS request with Access-Control-Request-\* header
 
 OPTIONS /resources/POST-here/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel
-MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept:
+macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept:
 text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8 Accept-Language: en-us,en;q=0.5
 Accept-Encoding: gzip,deflate Accept-Charset: ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive
 Origin: http&#58;//foo.example Access-Control-Request-Method: POST Access-Control-Request-Headers:
@@ -2566,12 +2573,12 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Optional.
 
-Specifies regex patterns that match allowed origins. An origin is allowed if either allow\_origin or
+Specifies regular expression patterns that match allowed origins. An origin is allowed if either allow\_origin or
 allow\_origin\_regex match.
 
 Upstream description:
 
-Specifies regex patterns that match allowed origins. An origin is allowed if either allow\_origin or
+Specifies regular expression patterns that match allowed origins. An origin is allowed if either allow\_origin or
 allow\_origin\_regex match.
 
 Provider validators and defaults (from schema source):
@@ -4287,7 +4294,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2102311100310232-1310330311221300-1121220013101320-1131301313000303-1032311201113223-0032023303021002-0202123210133303-3202231223300310"></a>
 
-## ttl property — cookie / 032010222220 / 6
+## TTL property — cookie / 032010222220 / 6
 
 Type: `"number"`. Optional.
 

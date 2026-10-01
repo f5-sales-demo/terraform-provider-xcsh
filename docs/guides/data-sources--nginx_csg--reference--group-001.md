@@ -302,7 +302,7 @@ Configuration for waf\_spec.
 
 Type: `"string"`. Computed.
 
-WAF Policy File Name. Policy file name for WAF.
+WAF Policy filename. Policy filename for WAF.
 
 <a id="canonical-1021220010010221-0303120100330132-0121310123122211-3212011000003101-3030330202021132-3202232231123131-1333032012130020-0003213331303313"></a>
 

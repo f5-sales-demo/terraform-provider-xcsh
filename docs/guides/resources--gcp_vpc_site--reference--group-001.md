@@ -1197,12 +1197,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -1370,14 +1370,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -1774,7 +1774,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ssh](resources--gcp_vpc_site--reference--group-001.md#canonical-0023321322011323-3100133130131010-2130132310133012-0320103021203132-3302111230110322-3233011130100101-0303133131312311-3033112213223210): complete subsection reference.
+- [SSH](resources--gcp_vpc_site--reference--group-001.md#canonical-0023321322011323-3100133130131010-2130132310133012-0320103021203132-3302111230110322-3233011130100101-0303133131312311-3033112213223210): complete subsection reference.
 
 - [web_user_interface](resources--gcp_vpc_site--reference--group-001.md#canonical-3010321200301213-1221323211101322-2333032333112021-3301003333002322-1213032203210021-3210301202210213-3122033232331203-2020312120222230): complete subsection reference.
 
@@ -1856,7 +1856,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <a id="canonical-2131302210013231-0333123123111322-1232033001102102-1120312111033103-2021330130133320-2300213101021200-0022122031330111-0013013221001013"></a>
 
-## blocked_services.blocked_service.ssh — ssh / 300310100301 / 2
+## blocked_services.blocked_service.SSH — SSH / 300310100301 / 2
 
 Breadcrumbs:
 
@@ -1864,7 +1864,7 @@ Breadcrumbs:
 - [Property reference](resources--gcp_vpc_site--reference--group-001.md#canonical-2101111213103332-1031003102012122-3033333002321300-0212010323021100-0301331300303302-3321221003203222-1230133302203013-3232231332123212)
 - [blocked_services](resources--gcp_vpc_site--reference--group-001.md#canonical-2100213002102121-1020021110332332-3003003312033012-1320000102302111-0320002202323122-3121231313002122-2201111020312212-0032223101001032)
 - [blocked_services.blocked_service](resources--gcp_vpc_site--reference--group-001.md#canonical-3022211222321313-1013032202102103-0232033020011203-0212303300100101-1103100210113233-0211330112110210-0211212200023130-1220033300212200)
-- blocked_services.blocked_service.ssh
+- blocked_services.blocked_service.SSH
 
 <a id="canonical-3103133302320113-2131131231122123-0010102212113001-2032203222102010-2302030112321200-2012213113131011-2020330211132100-1213330332013002"></a>
 
@@ -1897,13 +1897,13 @@ ssh = {}
 
 <a id="canonical-0022100002011223-0312300002210110-2103232102010203-2223010122231312-2131233313120223-3222020111020320-0031331113023013-0131012322301021"></a>
 
-## Direct properties — ssh / 300310100301 / 3
+## Direct properties — SSH / 300310100301 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
 <a id="canonical-1223100121001301-1200023122230010-0212313101223222-0011133112011023-2122330122331231-3231033021301020-2112221021322121-3312232231100320"></a>
 
-## Next pages — ssh / 300310100301 / 4
+## Next pages — SSH / 300310100301 / 4
 
 - [blocked_services.blocked_service](resources--gcp_vpc_site--reference--group-001.md#canonical-3022211222321313-1013032202102103-0232033020011203-0212303300100101-1103100210113233-0211330112110210-0211212200023130-1220033300212200)
 - [xcsh_gcp_vpc_site](../resources/gcp_vpc_site.md#canonical-0131000100012312-2121310130001102-2202230331103203-2230222003223001-1113101010113111-2131313030021223-2030122333203101-2213001121001122)

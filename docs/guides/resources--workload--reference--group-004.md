@@ -1774,13 +1774,13 @@ image {
 
 Type: `"string"`. Optional.
 
-Name is a container image which are usually given a name such as alpine, ubuntu, or
+Name is a container image which are usually given a name such as alpine, Ubuntu, or
 quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is
 not specified, the Docker public registry is assumed.
 
 Upstream description:
 
-Name is a container image which are usually given a name such as alpine, ubuntu, or
+Name is a container image which are usually given a name such as alpine, Ubuntu, or
 quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is
 not specified, the Docker public registry is assumed. If tag is not specified, latest is assumed.
 

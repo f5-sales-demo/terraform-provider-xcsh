@@ -476,7 +476,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `where` | [where](resources--discovery--reference--group-001.md#canonical-1321103302233201-0332121301121100-3101133031230333-0133220331333201-0030002311302101-3220122332233201-0213131123032010-1102233222333213) |
 | `where.site` | [where.site](resources--discovery--reference--group-001.md#canonical-2012013100322022-1022120320103220-1213011202221212-0031301113211120-0121000101211123-3131302320112311-0011001103132122-2312321232311020) |
 | `where.site.disable_internet_vip` | [where.site.disable_internet_vip](resources--discovery--reference--group-001.md#canonical-2130130203303330-3032002112302222-3303311021103102-3220300023331330-2220110300021020-3130203123022331-2211123013020023-2212023112133033) |
-| `where.site.enable_internet_vip` | [where.site.enable_internet_vip](resources--discovery--reference--group-001.md#canonical-2013232001120033-0302203321031212-1133020011332302-1333012221313120-2000331022223130-1101021100312211-0222032331230000-0230320102112321) |
+| `where.site.enable_internet_vip` | [where.site.enable_internet_vip](resources--discovery--reference--group-002.md#canonical-2013232001120033-0302203321031212-1133020011332302-1333012221313120-2000331022223130-1101021100312211-0222032331230000-0230320102112321) |
 | `where.site.network_type` | [where.site.network_type](resources--discovery--reference--group-001.md#canonical-1223122302203100-3200331030230313-3033220330302303-2130131323322120-1023013321001130-2221000311303032-1010022102102223-2111232233001112) |
 | `where.site.ref` | [where.site.ref](resources--discovery--reference--group-002.md#canonical-2033133220303202-3013313000222302-2301200020221123-1122313121332100-3130122201311311-0000112123213332-1303231310133313-1202031022130122) |
 | `where.site.ref.kind` | [where.site.ref.kind](resources--discovery--reference--group-002.md#canonical-1113130301320303-0102201023122131-3030032223203001-1230013232303200-0011222101202102-0123132303213222-3202320010210311-3121021213212102) |
@@ -1176,12 +1176,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -1353,14 +1353,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -1482,7 +1482,7 @@ http_basic_auth_info {
 
 Type: `"string"`. Optional.
 
-User Name. Username in consul.
+username. Username in consul.
 
 Upstream description:
 
@@ -1705,12 +1705,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -1881,14 +1881,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -2817,12 +2817,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -2994,14 +2994,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -3292,12 +3292,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -3467,14 +3467,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -3744,7 +3744,7 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Map K8s namespace(s) to App Namespaces. In Shared Configuration, Discovered Services can only be
-mapped to a single App Namespace, which is determined by the first matched regex.
+mapped to a single App Namespace, which is determined by the first matched regular expression.
 
 Receipt-pinned upstream constraints:
 
@@ -3868,7 +3868,7 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-The regex here will be used to match K8s namespace(s).
+The regular expression here will be used to match K8s namespace(s).
 
 Provider validators and defaults (from schema source):
 
@@ -4899,44 +4899,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-3130131030233030-2300332133130303-1311003313120133-1100303031322023-0023201010022321-3003020130300102-2101032002323232-0212210012120013"></a>
-
-## where.site.enable_internet_vip — enable_internet_vip / 020211003020 / 2
-
-Breadcrumbs:
-
-- [xcsh_discovery](../resources/discovery.md#canonical-3201131300321232-1303201100223230-3111121223110010-2301312203313103-1133001130100300-0132321013103013-3122130213231330-3003233233303202)
-- [Property reference](resources--discovery--reference--group-001.md#canonical-1000122023131121-1311020012032030-2231333201001000-3132033312130132-3123110232132122-0111031230023103-1231303130211110-1311211000221222)
-- [where](resources--discovery--reference--group-001.md#canonical-1023323010232302-1333131303112022-3300103023013000-3132230030212330-3332300120230032-3102010223021221-1000322012101233-3100000121300010)
-- [where.site](resources--discovery--reference--group-001.md#canonical-2111032303022223-2300132122211213-0100203302230222-1011230233321231-1103310111023200-0013013033313032-1103302322310010-1210312011210200)
-- where.site.enable_internet_vip
-
-<a id="canonical-2013232001120033-0302203321031212-1133020011332302-1333012221313120-2000331022223130-1101021100312211-0222032331230000-0230320102112321"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-enable_internet_vip = {}
-```

@@ -4239,15 +4239,15 @@ block {
 
 Type: `"string"`. Optional.
 
-Custom body message is of type uri\_ref. Currently supported URL schemes is string:///. For
-string:/// scheme, message needs to be encoded in Base64 format.
+Custom body message is of type URI\_ref. Currently supported URL schemes is string:///. For
+string:/// scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom body message is of type uri\_ref. Currently supported URL schemes is string:///. For
-string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as
+Custom body message is of type URI\_ref. Currently supported URL schemes is string:///. For
+string:/// scheme, message needs to be encoded in base64 format. You can specify this message as
 base64 encoded plain text message e.g. "Your request was blocked" or it can be HTML paragraph or a
-body string encoded as base64 string E.g. "&lt;p&gt; Your request was blocked &lt;/p&gt;". Base64
+body string encoded as base64 string E.g. "&lt;p&gt; Your request was blocked &lt;/p&gt;". base64
 encoded string for this HTML is "LzxwPiBZb3VyIHJlcXVlc3Qgd2FzIGJsb2NrZWQgPC9wPg=="
 
 Provider validators and defaults (from schema source):

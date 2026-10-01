@@ -3609,7 +3609,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-011.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:https:tls_cert_options:tls_cert_params:tls_config:default_security",

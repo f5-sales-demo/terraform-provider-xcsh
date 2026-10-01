@@ -414,7 +414,7 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-The protocol (within the sub-class) of this device.
+The protocol (within the subclass) of this device.
 
 Receipt-pinned upstream constraints:
 
@@ -447,7 +447,7 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-The sub-class (within the class) of this device.
+The subclass (within the class) of this device.
 
 Receipt-pinned upstream constraints:
 

@@ -6,6 +6,54 @@ description: "Complete grouped canonical reference for xcsh_cdn_loadbalancer ref
 
 # xcsh_cdn_loadbalancer reference
 
+<a id="canonical-1312310332202210-2101223031132203-0011300310111322-1122011323301131-0121031333233212-0310233132323103-0301113303301233-0321202010310132"></a>
+
+## policy_based_challenge.rule_list.rules.spec.query_params.item — item / 111100013031 / 2
+
+Breadcrumbs:
+
+- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
+- [Property reference](data-sources--cdn_loadbalancer--reference--group-001.md#canonical-1131232031102311-1311132230333002-2103010130221322-3211022033121010-2010132101303220-1213122123033021-1002230232002302-2212020120301223)
+- [policy_based_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1003021032130300-2322021331122233-2322332013300023-2032000221100232-0311111113021131-1303100011013231-0211010200312023-3120133233232032)
+- [policy_based_challenge.rule_list](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-0210302300122322-3311000103111301-0000210222112330-3200131110220012-0220300113301323-2132222023303312-0130120203310230-0310103123301032)
+- [policy_based_challenge.rule_list.rules](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-2122332200010113-2012230320001223-0302332030031011-2331201000111013-3213033011323222-2332001103111111-1211131122212231-2000003002130302)
+- [policy_based_challenge.rule_list.rules.spec](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-0210130300232123-3302100223103010-2112120312100031-3110232333220300-0200013000120103-0301102120002322-3222002311001313-1330100300023230)
+- [policy_based_challenge.rule_list.rules.spec.query_params](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-0322033212130133-1113133131322212-0103013001021121-2103031200101123-3011211013203013-2000223231222111-3221121300020221-2012013210300023)
+- policy_based_challenge.rule_list.rules.spec.query_params.item
+
+<a id="canonical-3323211122002200-0130311300033011-3010001010030320-1202101130032232-2220123133102322-2013233033131112-0030131122232003-0000201112313122"></a>
+
+Type: `"single"`. Computed.
+
+Matcher specifies multiple criteria for matching an input string. The match is considered successful
+if any of the criteria are satisfied. The set of supported match criteria includes a list of exact
+values and a list of regular expressions.
+
+Upstream description:
+
+A matcher specifies multiple criteria for matching an input string. The match is considered
+successful if any of the criteria are satisfied. The set of supported match criteria includes a list
+of exact values and a list of regular expressions.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0313122230011110-0133012133103311-3231133212221030-0332023302102313-3213112210220030-2130200210010211-0301100001031230-2100232012213011"></a>
+
+## Direct properties — item / 111100013031 / 3
+
+<a id="canonical-3331121323203231-0222111120323321-1213233131322011-3020111100011113-1123103213112010-2021212302201311-0303203010313013-1210012333031010"></a>
+
 <a id="canonical-1201120213230200-1101033013012021-2001320303111213-0211233201323112-3021101010112333-0333302322213103-1100332031220001-3211020203322231"></a>
 
 ## exact_values property — item / 111100013031 / 4
@@ -447,16 +495,16 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Custom message is of type . Currently supported URL schemes is . For scheme, message needs to be
-encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g.
+encoded in base64 format. You can specify this message as base64 encoded plain text message e.g.
 'Blocked.' or it can be HTML paragraph or a body string encoded as base64 string E.g. '&lt;p&gt;
 Blocked..
 
 Upstream description:
 
 Custom message is of type \`uri\_ref\`. Currently supported URL schemes is \`string:///\`. For
-\`string:///\` scheme, message needs to be encoded in Base64 format. You can specify this message as
+\`string:///\` scheme, message needs to be encoded in base64 format. You can specify this message as
 base64 encoded plain text message e.g. "Blocked.." or it can be HTML paragraph or a body string
-encoded as base64 string E.g. "&lt;p&gt; Blocked &lt;/p&gt;". Base64 encoded string for this HTML is
+encoded as base64 string E.g. "&lt;p&gt; Blocked &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -4063,11 +4111,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Receipt-pinned upstream constraints:
 
@@ -4206,11 +4254,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Computed.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -4229,15 +4277,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1113121230302203-1101103330232013-3002332230000130-0333311323301011-1111332200310301-0310002222131320-1210231003331311-2223130320013000"></a>
 
-## regex property — headers / 203322020011 / 8
+## regular expression property — headers / 203322020011 / 8
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Receipt-pinned upstream constraints:
 
@@ -5186,12 +5234,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[any\_path path\_prefix\] Define the regex for the path. For example, the regex
+Exclusive with \[any\_path path\_prefix\] Define the regular expression for the path. For example, the regular expression
 ^/.\*$ will match on all paths.
 
 Upstream description:
 
-Exclusive with \[any\_path path\_prefix\] Define the regex for the path. For example, the regex
+Exclusive with \[any\_path path\_prefix\] Define the regular expression for the path. For example, the regular expression
 ^/.\*$ will match on all paths.
 
 Receipt-pinned upstream constraints:
@@ -6063,133 +6111,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-1032232231101030-2213012221300011-2110000333123033-0021001033013023-1021033200012222-0233222301010000-0120202110221123-0211222331302000"></a>
-
-## waf_exclusion.waf_exclusion_inline_rules.rules.app_firewall_detection_control.exclude_violation_contexts — exclude_violation_contexts / 113332321030 / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
-- [Property reference](data-sources--cdn_loadbalancer--reference--group-001.md#canonical-1131232031102311-1311132230333002-2103010130221322-3211022033121010-2010132101303220-1213122123033021-1002230232002302-2212020120301223)
-- [waf_exclusion](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-0003231021200200-0111123130110021-3222203002002223-0130001133010311-2001112003301020-2221002010123132-0022333031103000-3212320223300313)
-- [waf_exclusion.waf_exclusion_inline_rules](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-3121012110330020-0020001232122133-1322111211322231-0130222233012232-1331331230031313-2202201020101221-1002110001321110-0121223013222022)
-- [waf_exclusion.waf_exclusion_inline_rules.rules](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-1130121322212301-0233202331310122-0223000222302322-3000313230122221-0311201233220303-2322123203200100-2311131032230100-2131233213010301)
-- [waf_exclusion.waf_exclusion_inline_rules.rules.app_firewall_detection_control](data-sources--cdn_loadbalancer--reference--group-014.md#canonical-0213303020130303-0230331320122323-0211120020113320-0022010303223201-0130203102101122-1331301121101010-1231310013111130-0321202303330200)
-- waf_exclusion.waf_exclusion_inline_rules.rules.app_firewall_detection_control.exclude_violation_contexts
-
-<a id="canonical-0033311111112212-2021000202001303-3321132031201001-3123031313000122-2111333130013100-2201301321311313-2022021231020132-3031122113221323"></a>
-
-Type: `"list"`. Computed.
-
-Violations to be excluded for the defined match criteria.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "64",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "64",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-3020323120101330-0120232222111102-1003323031212103-3220312001030302-1323310120101000-0013320121322303-1003102000122333-1202033012111222"></a>
-
-## Direct properties — exclude_violation_contexts / 113332321030 / 3
-
-<a id="canonical-1331130131310233-1021320033110113-0100223012032303-2330232233230230-1100013002233220-0112332120033311-0000313103202302-2320031301131032"></a>
-
-<a id="canonical-3121102312300201-0032313133133030-3232302111120121-2301301130101310-3103123032112322-1100302222233321-0112022320022321-1101311213313101"></a>
-
-## context property — exclude_violation_contexts / 113332321030 / 4
-
-Type: `"string"`. Computed.
-
-\[Enum:
-CONTEXT\_ANY|CONTEXT\_BODY|CONTEXT\_REQUEST|CONTEXT\_RESPONSE|CONTEXT\_PARAMETER|CONTEXT\_HEADER|CONTEXT\_COOKIE|CONTEXT\_URL|CONTEXT\_URI\]
-The available contexts for Exclusion rules. - CONTEXT\_ANY: CONTEXT\_ANY Detection will be excluded
-for all contexts. - CONTEXT\_BODY: CONTEXT\_BODY Detection will be excluded for the request body. -
-CONTEXT\_REQUEST: CONTEXT\_REQUEST Detection will be excluded for the request. - CONTEXT\_RESPONSE..
-Possible values are \`CONTEXT\_ANY\`, \`CONTEXT\_BODY\`, \`CONTEXT\_REQUEST\`,
-\`CONTEXT\_RESPONSE\`, \`CONTEXT\_PARAMETER\`, \`CONTEXT\_HEADER\`, \`CONTEXT\_COOKIE\`,
-\`CONTEXT\_URL\`, \`CONTEXT\_URI\`. Defaults to \`CONTEXT\_ANY\`.
-
-Upstream description:
-
-The available contexts for Exclusion rules.
-
-&#8203;- CONTEXT\_ANY: CONTEXT\_ANY
-
-Detection will be excluded for all contexts. &#8203;- CONTEXT\_BODY: CONTEXT\_BODY
-
-Detection will be excluded for the request body. &#8203;- CONTEXT\_REQUEST: CONTEXT\_REQUEST
-
-Detection will be excluded for the request. &#8203;- CONTEXT\_RESPONSE: CONTEXT\_RESPONSE
-
-&#8203;- CONTEXT\_PARAMETER: CONTEXT\_PARAMETER
-
-Detection will be excluded for the parameters. The parameter name is required in the Context name
-field. If the field is left empty, the detection will be excluded for all parameters. &#8203;-
-CONTEXT\_HEADER: CONTEXT\_HEADER
-
-Detection will be excluded for the headers. The header name is required in the Context name field.
-If the field is left empty, the detection will be excluded for all headers. &#8203;-
-CONTEXT\_COOKIE: CONTEXT\_COOKIE
-
-Detection will be excluded for the cookies. The cookie name is required in the Context name field.
-If the field is left empty, the detection will be excluded for all cookies. &#8203;- CONTEXT\_URL:
-CONTEXT\_URL
-
-Detection will be excluded for the request URL. &#8203;- CONTEXT\_URI: CONTEXT\_URI.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "CONTEXT_ANY",
-  "enum": [
-    "CONTEXT_ANY",
-    "CONTEXT_BODY",
-    "CONTEXT_REQUEST",
-    "CONTEXT_RESPONSE",
-    "CONTEXT_PARAMETER",
-    "CONTEXT_HEADER",
-    "CONTEXT_COOKIE",
-    "CONTEXT_URL",
-    "CONTEXT_URI"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2001031100201002-2121021123232012-2222031331030120-0103102202010233-1001103230313020-0220213100332201-2332030100013323-2311110021212203"></a>

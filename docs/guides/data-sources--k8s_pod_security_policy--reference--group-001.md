@@ -275,7 +275,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0023113323131131-3120021002101313-0003102003130212-3221011210001003-0011012302201001-3213310313110033-0220310312200201-1031031221102130"></a>
 
-## yaml property — Property reference / 212122103232 / 10
+## YAML property — Property reference / 212122103232 / 10
 
 Type: `"string"`. Computed.
 
@@ -391,7 +391,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `psp_spec.supplemental_groups.id_ranges.min_id` | [psp_spec.supplemental_groups.id_ranges.min_id](data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-0012232323310302-0200332332331311-0322313303112321-3001313233133033-2231030223212330-1301131032023232-1330330002110302-0300233100333322) |
 | `psp_spec.supplemental_groups.rule` | [psp_spec.supplemental_groups.rule](data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-1130032303323213-2133320113301132-2320230213012121-1332100310100233-2103131101313010-2212003321011020-1020123320001010-0321233010133310) |
 | `psp_spec.volumes` | [psp_spec.volumes](data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-0203231212211020-2031100201100302-3001031132133201-0020121010100112-2321010222203320-1001200330230202-1033022023110333-0122222113323320) |
-| `yaml` | [yaml](data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-1130200223201022-2021310133101112-0023211131211011-1121322232122031-1003320001332320-3332123123011103-3132212123330103-3120021320322333) |
+| `yaml` | [YAML](data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-1130200223201022-2021310133101112-0023211131211011-1121322232122031-1003320001332320-3332123123011103-3132212123330103-3120021320322333) |
 
 <a id="canonical-3203132122033312-3131323302102322-2321131000111123-3102002003013301-3002010322313302-3010121320220333-0133211100122311-0022311022323002"></a>
 
@@ -420,7 +420,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-\[OneOf: psp\_spec, yaml\] Pod Security Policy Specification. Form based pod security specification.
+\[OneOf: psp\_spec, YAML\] Pod Security Policy Specification. Form based pod security specification.
 
 Upstream description:
 
@@ -451,7 +451,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [psp_spec](data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-0310321221222330-0323013203323212-2221232321023210-3033312222221030-1001230130002223-1103123322032322-0221000013201120-0133303222223110)
-- [yaml](data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-1130200223201022-2021310133101112-0023211131211011-1121322232122031-1003320001332320-3332123123011103-3132212123330103-3120021320322333)
+- [YAML](data-sources--k8s_pod_security_policy--reference--group-001.md#canonical-1130200223201022-2021310133101112-0023211131211011-1121322232122031-1003320001332320-3332123123011103-3132212123330103-3120021320322333)
 
 Select alternatives according to the provider validators above.
 
@@ -2089,7 +2089,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Configuration parameter for no se linux options.
+Configuration parameter for no se Linux options.
 
 Upstream description:
 

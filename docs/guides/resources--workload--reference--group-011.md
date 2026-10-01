@@ -3058,11 +3058,11 @@ headers {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Provider validators and defaults (from schema source):
 
@@ -3217,11 +3217,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Optional.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -3240,15 +3240,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3101211002030022-3220203203233200-3303010333221002-0121001011230101-1102212311012002-3010101233000122-2113022320230131-2312033123130133"></a>
 
-## regex property — headers / 230201320032 / 8
+## regular expression property — headers / 230201320032 / 8
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Provider validators and defaults (from schema source):
 
@@ -3637,11 +3637,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -3694,11 +3694,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -3745,7 +3745,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1223031033000213-1300012311332100-0313200322203111-0013011131313023-3120112223103221-1320203302200021-2000130203133312-2133332322323111"></a>
 
-## regex property — path / 223012213030 / 6
+## regular expression property — path / 223012213030 / 6
 
 Type: `"string"`. Optional.
 
@@ -3884,13 +3884,13 @@ route_direct_response {
 Type: `"string"`. Optional.
 
 Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML.
+encoded in base64 format. The message can be either plain text or HTML.
 
 Upstream description:
 
 Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
-Denied &lt;/p&gt;". Base64 encoded string URL for this is
+encoded in base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
+Denied &lt;/p&gt;". base64 encoded string URL for this is
 string:///PHA+IEFjY2VzcyBEZW5pZWQgPC9wPg==.
 
 Provider validators and defaults (from schema source):

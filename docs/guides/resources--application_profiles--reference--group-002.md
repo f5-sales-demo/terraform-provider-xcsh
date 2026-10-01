@@ -4959,11 +4959,11 @@ Breadcrumbs:
 
 Type: `"object"`. list nested block, Optional.
 
-Configuration parameter for server ssl profile.
+Configuration parameter for server SSL profile.
 
 Upstream description:
 
-Configuration parameter for server ssl profile
+Configuration parameter for server SSL profile
 
 Receipt-pinned upstream constraints:
 
@@ -8352,11 +8352,11 @@ Breadcrumbs:
 
 Type: `"object"`. list nested block, Optional.
 
-Configuration parameter for server ssl profile.
+Configuration parameter for server SSL profile.
 
 Upstream description:
 
-Configuration parameter for server ssl profile
+Configuration parameter for server SSL profile
 
 Receipt-pinned upstream constraints:
 

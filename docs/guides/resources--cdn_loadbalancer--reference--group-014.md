@@ -3036,16 +3036,16 @@ temporary_user_blocking {
 Type: `"string"`. Optional.
 
 Custom message is of type . Currently supported URL schemes is . For scheme, message needs to be
-encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g.
+encoded in base64 format. You can specify this message as base64 encoded plain text message e.g.
 'Blocked.' or it can be HTML paragraph or a body string encoded as base64 string E.g. '&lt;p&gt;
 Blocked..
 
 Upstream description:
 
 Custom message is of type \`uri\_ref\`. Currently supported URL schemes is \`string:///\`. For
-\`string:///\` scheme, message needs to be encoded in Base64 format. You can specify this message as
+\`string:///\` scheme, message needs to be encoded in base64 format. You can specify this message as
 base64 encoded plain text message e.g. "Blocked.." or it can be HTML paragraph or a body string
-encoded as base64 string E.g. "&lt;p&gt; Blocked &lt;/p&gt;". Base64 encoded string for this HTML is
+encoded as base64 string E.g. "&lt;p&gt; Blocked &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Provider validators and defaults (from schema source):

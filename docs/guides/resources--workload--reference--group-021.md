@@ -548,11 +548,11 @@ path {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Provider validators and defaults (from schema source):
 
@@ -605,11 +605,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Provider validators and defaults (from schema source):
 
@@ -656,7 +656,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3300300103011331-2213031121221111-2010202012120323-0113012132330321-3322131330332100-0221002212110023-1301130221303302-0323201331200003"></a>
 
-## regex property — path / 032001112223 / 6
+## regular expression property — path / 032001112223 / 6
 
 Type: `"string"`. Optional.
 
@@ -2344,7 +2344,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Advertise this workload via loadbalancer on Internet with default VIP.
+Advertise this workload via loadbalancer on internet with default VIP.
 
 Provider validators and defaults (from schema source):
 

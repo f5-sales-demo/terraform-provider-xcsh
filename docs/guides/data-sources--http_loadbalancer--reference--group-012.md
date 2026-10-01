@@ -2287,15 +2287,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom body message is of type uri\_ref. Currently supported URL schemes is string:///. For
-string:/// scheme, message needs to be encoded in Base64 format.
+Custom body message is of type URI\_ref. Currently supported URL schemes is string:///. For
+string:/// scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom body message is of type uri\_ref. Currently supported URL schemes is string:///. For
-string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as
+Custom body message is of type URI\_ref. Currently supported URL schemes is string:///. For
+string:/// scheme, message needs to be encoded in base64 format. You can specify this message as
 base64 encoded plain text message e.g. "Your request was blocked" or it can be HTML paragraph or a
-body string encoded as base64 string E.g. "&lt;p&gt; Your request was blocked &lt;/p&gt;". Base64
+body string encoded as base64 string E.g. "&lt;p&gt; Your request was blocked &lt;/p&gt;". base64
 encoded string for this HTML is "LzxwPiBZb3VyIHJlcXVlc3Qgd2FzIGJsb2NrZWQgPC9wPg=="
 
 Receipt-pinned upstream constraints:
@@ -2786,7 +2786,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1013131011322320-0213320112001022-0332310002112022-3210312012122012-2321003120123223-2313231302101121-1122133021231103-1333031100223213"></a>
 
-## uri property — redirect / 203020003000 / 4
+## URI property — redirect / 203020003000 / 4
 
 Type: `"string"`. Computed.
 
@@ -2936,11 +2936,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -2985,11 +2985,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -3028,7 +3028,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2230330202320032-1103010022221123-1322103023033031-2300232302130222-0031113302221213-0022330100011110-3123313012033010-3232122113310223"></a>
 
-## regex property — path / 303020132030 / 6
+## regular expression property — path / 303020132030 / 6
 
 Type: `"string"`. Computed.
 

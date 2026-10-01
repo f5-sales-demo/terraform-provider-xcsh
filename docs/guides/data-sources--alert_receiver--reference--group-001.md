@@ -275,7 +275,7 @@ Receipt-pinned upstream constraints:
 
 - [pagerduty](data-sources--alert_receiver--reference--group-001.md#canonical-2310320030111211-3032330222323111-2003331131121231-2021223211110101-3221203112203233-3022010211323123-2003032312303302-0111312030013211): complete subsection reference.
 
-- [slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323): complete subsection reference.
+- [Slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323): complete subsection reference.
 
 - [sms](data-sources--alert_receiver--reference--group-001.md#canonical-1102020323302231-3330031312223101-2332200311130100-0221003321130033-0310033330311110-2222220310130220-0311300330010121-3122100310111130): complete subsection reference.
 
@@ -317,7 +317,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `pagerduty.routing_key.clear_secret_info.provider_ref` | [pagerduty.routing_key.clear_secret_info.provider_ref](data-sources--alert_receiver--reference--group-001.md#canonical-1210331333211320-3013302023022103-0231032332002013-0310321232222311-2222220303330232-2313221032133230-3020012011001032-1112211322213232) |
 | `pagerduty.routing_key.clear_secret_info.url` | [pagerduty.routing_key.clear_secret_info.url](data-sources--alert_receiver--reference--group-001.md#canonical-3201020320013223-1330232011300031-2332021032321020-0212303030320213-2021132310313023-0302212232200002-2110013020210001-3102010200301301) |
 | `pagerduty.url` | [pagerduty.url](data-sources--alert_receiver--reference--group-001.md#canonical-2203330312013112-3310211323103220-3323113031213313-1201123330202133-0013221330310130-0123310333011230-1032222302122111-1213103200013203) |
-| `slack` | [slack](data-sources--alert_receiver--reference--group-001.md#canonical-3102222130123210-3312210300201322-1010302131033232-0301233120313102-3213211130200330-2303213000202201-2213301023213202-1332122033032312) |
+| `slack` | [Slack](data-sources--alert_receiver--reference--group-001.md#canonical-3102222130123210-3312210300201322-1010302131033232-0301233120313102-3213211130200330-2303213000202201-2213301023213202-1332122033032312) |
 | `slack.channel` | [slack.channel](data-sources--alert_receiver--reference--group-001.md#canonical-2233013223212231-3230301102032222-1100123200013030-1111132013010101-2213100020331310-2032230330032102-3310331003311022-2320322122211032) |
 | `slack.url` | [slack.url](data-sources--alert_receiver--reference--group-001.md#canonical-2102301112232111-2323123321232310-2321203110010021-3323333130320021-3010200020102320-0311220021303210-2123033020202012-0212022200012102) |
 | `slack.url.blindfold_secret_info` | [slack.url.blindfold_secret_info](data-sources--alert_receiver--reference--group-001.md#canonical-1123321313130201-2101203110331012-1011103013331323-3232232331311123-3033103233123200-2103331122022303-3300213210110332-2033121332131011) |
@@ -391,7 +391,7 @@ Each exact path has one authoritative reference destination. Collection element 
 - [email](data-sources--alert_receiver--reference--group-001.md#canonical-0201220120220213-2102011031101202-1102230231331111-2220122101301312-3030220000230030-2233120122013213-3232011302301001-2102231023110000)
 - [opsgenie](data-sources--alert_receiver--reference--group-001.md#canonical-1211322113200310-1213220213023020-2232330133023322-0012212203103221-1123201022032210-1310021300010023-0123031121310201-0132303120000123)
 - [pagerduty](data-sources--alert_receiver--reference--group-001.md#canonical-2310320030111211-3032330222323111-2003331131121231-2021223211110101-3221203112203233-3022010211323123-2003032312303302-0111312030013211)
-- [slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
+- [Slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
 - [sms](data-sources--alert_receiver--reference--group-001.md#canonical-1102020323302231-3330031312223101-2332200311130100-0221003321130033-0310033330311110-2222220310130220-0311300330010121-3122100310111130)
 - [webhook](data-sources--alert_receiver--reference--group-001.md#canonical-0300223223302111-0101231033213323-0110013230113210-2010301321102001-2123131011023312-3331032020333110-1222231013311122-3133302001000303)
 - [xcsh_alert_receiver](../data-sources/alert_receiver.md#canonical-3012133032112200-3010101132010313-3312231133323113-0303010111120112-3233032202012130-0203311232212023-1011202020122232-2231030013203102)
@@ -416,7 +416,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-\[OneOf: email, opsgenie, pagerduty, slack, sms, webhook\] Email Configuration.
+\[OneOf: email, opsgenie, pagerduty, Slack, sms, webhook\] Email Configuration.
 
 Receipt-pinned upstream constraints:
 
@@ -436,7 +436,7 @@ OneOf alternatives in this subsection:
 - [email](data-sources--alert_receiver--reference--group-001.md#canonical-0310220320302133-0001131301031010-1023022303031230-2330231011323101-2122102210132322-2101013330202312-2221201110320200-1131121332022223)
 - [opsgenie](data-sources--alert_receiver--reference--group-001.md#canonical-2101202022133322-1011003311212231-2331103013233003-3233221112202013-3011111111133130-0201312203221011-0301320113212001-1100011211202213)
 - [pagerduty](data-sources--alert_receiver--reference--group-001.md#canonical-2112113212110212-0001231112012103-1132210002201220-2122211111010302-3201022020221000-0231220220120221-3210331010011021-1020023102002231)
-- [slack](data-sources--alert_receiver--reference--group-001.md#canonical-3102222130123210-3312210300201322-1010302131033232-0301233120313102-3213211130200330-2303213000202201-2213301023213202-1332122033032312)
+- [Slack](data-sources--alert_receiver--reference--group-001.md#canonical-3102222130123210-3312210300201322-1010302131033232-0301233120313102-3213211130200330-2303213000202201-2213301023213202-1332122033032312)
 - [sms](data-sources--alert_receiver--reference--group-001.md#canonical-0202013131321302-2300223130301112-1302213220133131-3003322033201200-1103303102233312-2113230103122220-0233021112120030-2223320323002103)
 - [webhook](data-sources--alert_receiver--reference--group-001.md#canonical-0022101022221202-2100222333201221-2130213303213223-1022012233102212-2200210201130012-1012110220331022-0013311310233032-3112330303331123)
 
@@ -743,12 +743,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -895,14 +895,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -1196,12 +1196,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -1348,14 +1348,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -1418,13 +1418,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2010222020012202-2013010313211021-0133311333321122-0023111321300033-3232123030103000-2313110331333132-1231032220233223-2023131011311212"></a>
 
-## slack — slack / 212231111220 / 2
+## Slack — Slack / 212231111220 / 2
 
 Breadcrumbs:
 
 - [xcsh_alert_receiver](../data-sources/alert_receiver.md#canonical-3012133032112200-3010101132010313-3312231133323113-0303010111120112-3233032202012130-0203311232212023-1011202020122232-2231030013203102)
 - [Property reference](data-sources--alert_receiver--reference--group-001.md#canonical-2132131323221021-2020310203213232-1133303303131310-0202011031123003-3121133011213003-0120331333330031-0012311032301222-0021221020101101)
-- slack
+- Slack
 
 <a id="canonical-3102222130123210-3312210300201322-1010302131033232-0301233120313102-3213211130200330-2303213000202201-2213301023213202-1332122033032312"></a>
 
@@ -1447,13 +1447,13 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3333013223001203-3010200030222320-2210300230011111-1023213030301301-2331012220331323-0131013121300323-1010022102032010-2312230120131131"></a>
 
-## Direct properties — slack / 212231111220 / 3
+## Direct properties — Slack / 212231111220 / 3
 
 <a id="canonical-2233013223212231-3230301102032222-1100123200013030-1111132013010101-2213100020331310-2032230330032102-3310331003311022-2320322122211032"></a>
 
 <a id="canonical-3323223022200310-1032203333110100-1233333112102130-0333301010000010-3302121310233132-3220210301203300-0002232131300003-0223222331020111"></a>
 
-## channel property — slack / 212231111220 / 4
+## channel property — Slack / 212231111220 / 4
 
 Type: `"string"`. Computed.
 
@@ -1496,7 +1496,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2333101313132300-3002303020203032-0203201121321302-0033231213312211-2330010322323023-3012011021001031-2301131320123220-0001012320321323"></a>
 
-## Next pages — slack / 212231111220 / 5
+## Next pages — Slack / 212231111220 / 5
 
 - [slack.url](data-sources--alert_receiver--reference--group-001.md#canonical-1010221222222122-1232032003021211-0132111211200300-1230203023100021-3333313011300332-1123102031101110-1303333212103120-3133200331231032)
 - [Property reference](data-sources--alert_receiver--reference--group-001.md#canonical-2132131323221021-2020310203213232-1133303303131310-0202011031123003-3121133011213003-0120331333330031-0012311032301222-0021221020101101)
@@ -1510,14 +1510,14 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1321120212231103-0001220002033112-0322132300202232-2322321222020212-2121020311000230-0233121311133320-0310221010223131-2300003331232312"></a>
 
-## slack.URL — URL / 331301210020 / 2
+## Slack.URL — URL / 331301210020 / 2
 
 Breadcrumbs:
 
 - [xcsh_alert_receiver](../data-sources/alert_receiver.md#canonical-3012133032112200-3010101132010313-3312231133323113-0303010111120112-3233032202012130-0203311232212023-1011202020122232-2231030013203102)
 - [Property reference](data-sources--alert_receiver--reference--group-001.md#canonical-2132131323221021-2020310203213232-1133303303131310-0202011031123003-3121133011213003-0120331333330031-0012311032301222-0021221020101101)
-- [slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
-- slack.URL
+- [Slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
+- Slack.URL
 
 <a id="canonical-2102301112232111-2323123321232310-2321203110010021-3323333130320021-3010200020102320-0311220021303210-2123033020202012-0212022200012102"></a>
 
@@ -1553,7 +1553,7 @@ Receipt-pinned upstream constraints:
 
 - [slack.url.blindfold_secret_info](data-sources--alert_receiver--reference--group-001.md#canonical-3303111233202201-0311012222123131-2012031103033213-0230130010101100-0103002112132210-2312123023001102-3103130220030320-1333222232212232)
 - [slack.url.clear_secret_info](data-sources--alert_receiver--reference--group-001.md#canonical-3132222201223311-0121122210333121-1232333233310101-3321103003323113-0210321133201130-1223101002333000-2320032111010300-3310202323321020)
-- [slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
+- [Slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
 - [xcsh_alert_receiver](../data-sources/alert_receiver.md#canonical-3012133032112200-3010101132010313-3312231133323113-0303010111120112-3233032202012130-0203311232212023-1011202020122232-2231030013203102)
 
 <a id="canonical-3303111233202201-0311012222123131-2012031103033213-0230130010101100-0103002112132210-2312123023001102-3103130220030320-1333222232212232"></a>
@@ -1564,15 +1564,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1331023133130233-3330010030031321-2123113231123302-3012213030033033-1210001301013013-2303130301112210-2220021203013130-0232012303203103"></a>
 
-## slack.URL.blindfold_secret_info — blindfold_secret_info / 102213100230 / 2
+## Slack.URL.blindfold_secret_info — blindfold_secret_info / 102213100230 / 2
 
 Breadcrumbs:
 
 - [xcsh_alert_receiver](../data-sources/alert_receiver.md#canonical-3012133032112200-3010101132010313-3312231133323113-0303010111120112-3233032202012130-0203311232212023-1011202020122232-2231030013203102)
 - [Property reference](data-sources--alert_receiver--reference--group-001.md#canonical-2132131323221021-2020310203213232-1133303303131310-0202011031123003-3121133011213003-0120331333330031-0012311032301222-0021221020101101)
-- [slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
+- [Slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
 - [slack.url](data-sources--alert_receiver--reference--group-001.md#canonical-1010221222222122-1232032003021211-0132111211200300-1230203023100021-3333313011300332-1123102031101110-1303333212103120-3133200331231032)
-- slack.URL.blindfold_secret_info
+- Slack.URL.blindfold_secret_info
 
 <a id="canonical-1123321313130201-2101203110331012-1011103013331323-3232232331311123-3033103233123200-2103331122022303-3300213210110332-2033121332131011"></a>
 
@@ -1639,12 +1639,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -1738,15 +1738,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2321322011103013-2100223012101311-0310301332113102-0030001012211013-1232222021332100-0010133101222201-2032002221312110-1320021031333121"></a>
 
-## slack.URL.clear_secret_info — clear_secret_info / 112102220102 / 2
+## Slack.URL.clear_secret_info — clear_secret_info / 112102220102 / 2
 
 Breadcrumbs:
 
 - [xcsh_alert_receiver](../data-sources/alert_receiver.md#canonical-3012133032112200-3010101132010313-3312231133323113-0303010111120112-3233032202012130-0203311232212023-1011202020122232-2231030013203102)
 - [Property reference](data-sources--alert_receiver--reference--group-001.md#canonical-2132131323221021-2020310203213232-1133303303131310-0202011031123003-3121133011213003-0120331333330031-0012311032301222-0021221020101101)
-- [slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
+- [Slack](data-sources--alert_receiver--reference--group-001.md#canonical-3033332003330212-1233103210333032-2131030123311030-0111310322012030-2122223002333001-2323111011321322-0321321013232130-1230032003100323)
 - [slack.url](data-sources--alert_receiver--reference--group-001.md#canonical-1010221222222122-1232032003021211-0132111211200300-1230203023100021-3333313011300332-1123102031101110-1303333212103120-3133200331231032)
-- slack.URL.clear_secret_info
+- Slack.URL.clear_secret_info
 
 <a id="canonical-1302032020021000-1310130220133030-3211301013020132-1100223223033101-1030220001110033-0120122113003102-1230203202003121-2301131200211000"></a>
 
@@ -1791,14 +1791,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -2313,12 +2313,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -2467,14 +2467,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -2580,11 +2580,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-User Name. HTTP Basic Auth User Name.
+username. HTTP Basic Auth username.
 
 Upstream description:
 
-HTTP Basic Auth User Name.
+HTTP Basic Auth username.
 
 Receipt-pinned upstream constraints:
 
@@ -2768,12 +2768,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -2922,14 +2922,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -4256,12 +4256,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -4408,14 +4408,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 

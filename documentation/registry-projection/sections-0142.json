@@ -16,7 +16,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-014.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:data_guard_rules:path",
@@ -33,7 +33,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-014.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:data_guard_rules:path",
@@ -50,7 +50,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-014.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:data_guard_rules:path",
@@ -3448,7 +3448,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-015.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-016.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:default_pool:origin_servers:consul_service:snat_pool",
@@ -3460,7 +3460,7 @@
       "anchor": "canonical-0113200313112010-1330012300233323-1112200203210110-0321000300111223-3011121101102302-1230302232312300-0013220100333130-2313320323233023",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-015.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-016.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:default_pool:origin_servers:consul_service:snat_pool",
@@ -6878,7 +6878,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-016.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-017.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:default_pool:use_tls:no_mtls",
@@ -6890,7 +6890,7 @@
       "anchor": "canonical-2200112321123230-0001320233133312-1202013302230333-0121130102300210-0132113302303110-1032032122223133-1101002023101032-0120131031003032",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-016.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-017.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:default_pool:use_tls:no_mtls",
@@ -6902,7 +6902,7 @@
       "anchor": "canonical-3032302301001233-2013223200003130-3300030021100301-0302322132011221-0013101132213023-3211113300122330-1203301033330023-3102131202200101",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-016.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-017.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:default_pool:use_tls:skip_server_verification",
@@ -6914,7 +6914,7 @@
       "anchor": "canonical-2033203010112122-0220112232021000-1103032100113222-2011021132211023-3302123312203021-1223202213023030-2123020013323232-0103030110001003",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-016.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-017.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:default_pool:use_tls:skip_server_verification",

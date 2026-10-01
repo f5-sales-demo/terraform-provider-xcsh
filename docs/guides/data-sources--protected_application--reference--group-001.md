@@ -72,7 +72,7 @@ Receipt-pinned upstream constraints:
 
 - [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331): complete subsection reference.
 
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310): complete subsection reference.
+- [CloudFront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310): complete subsection reference.
 
 - [custom_connector](data-sources--protected_application--reference--group-004.md#canonical-2131022120013230-3323322131002320-3112130302320203-0132230022331312-3202130201002000-0310132300310330-1103022101033312-1203333103123122): complete subsection reference.
 
@@ -443,7 +443,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `cloudflare.trusted_clients.metadata` | [cloudflare.trusted_clients.metadata](data-sources--protected_application--reference--group-002.md#canonical-0210013011001033-2103113201332303-1013210202313003-3213000112121213-3232331223112212-1312310233212232-0113002220312202-0020011031110311) |
 | `cloudflare.trusted_clients.metadata.description_spec` | [cloudflare.trusted_clients.metadata.description_spec](data-sources--protected_application--reference--group-002.md#canonical-3102200112001100-0302320111131300-3001023202330231-2101332330202102-2020011030303312-2031202020320100-3201023210031300-3303233103133210) |
 | `cloudflare.trusted_clients.metadata.name` | [cloudflare.trusted_clients.metadata.name](data-sources--protected_application--reference--group-002.md#canonical-3020101202300232-0103110132023222-0111132213330013-0132002333331313-2010031132201301-0032222003302211-1303130200300312-3002010032032001) |
-| `cloudfront` | [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1001230210132003-1312122030130213-3323113320202103-0212010010230110-2113003310332323-2200230323320021-0021000333232102-1313302122221002) |
+| `cloudfront` | [CloudFront](data-sources--protected_application--reference--group-002.md#canonical-1001230210132003-1312122030130213-3323113320202103-0212010010230110-2113003310332323-2200230323320021-0021000333232102-1313302122221002) |
 | `cloudfront.aws_configuration_id_selector` | [cloudfront.aws_configuration_id_selector](data-sources--protected_application--reference--group-002.md#canonical-0220011020023322-2010100312322220-1301222102301210-3122103330202030-2203100121303200-0102303311122322-1220201031201110-2132332121312113) |
 | `cloudfront.aws_configuration_id_selector.ids` | [cloudfront.aws_configuration_id_selector.ids](data-sources--protected_application--reference--group-002.md#canonical-0212130313002203-2330022232023102-2113332210113110-2120102010120031-2022110322333023-1021122301102322-1302013113313201-2320021211213200) |
 | `cloudfront.aws_configuration_tag_selector` | [cloudfront.aws_configuration_tag_selector](data-sources--protected_application--reference--group-002.md#canonical-3121212122301010-0021023210313022-2012123131120310-0133230001312122-1302310132011011-1010303032323323-1120020221213303-2031113212020230) |
@@ -492,7 +492,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `cloudfront.mobile_sdk_config.mobile_identifier.headers.exact` | [cloudfront.mobile_sdk_config.mobile_identifier.headers.exact](data-sources--protected_application--reference--group-002.md#canonical-2322223030021221-0033131321320231-0331223011022122-3102122102020112-2120010302122123-1021200210122323-3032003103331012-0113323213102132) |
 | `cloudfront.mobile_sdk_config.mobile_identifier.headers.name` | [cloudfront.mobile_sdk_config.mobile_identifier.headers.name](data-sources--protected_application--reference--group-002.md#canonical-0102231110012330-0103310313211102-2013233022022133-0120310111110032-2330013120001022-3132122312130133-1210211300111203-3121103301110112) |
 | `cloudfront.mobile_sdk_config.mobile_identifier.headers.regex` | [cloudfront.mobile_sdk_config.mobile_identifier.headers.regex](data-sources--protected_application--reference--group-002.md#canonical-0332331133103302-3012133233310233-0332121101132122-1201001030222030-0012031130123333-2030011232113130-3131232201021223-3220310003032102) |
-| `cloudfront.protected_endpoints` | [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-002.md#canonical-0232213020212323-1020030122103132-2231022031131020-2201113331300303-0111301321330201-2122020311332330-3303032103301223-2001300220202110) |
+| `cloudfront.protected_endpoints` | [cloudfront.protected_endpoints](data-sources--protected_application--reference--group-003.md#canonical-0232213020212323-1020030122103132-2231022031131020-2201113331300303-0111301321330201-2122020311332330-3303032103301223-2001300220202110) |
 | `cloudfront.protected_endpoints.any_domain` | [cloudfront.protected_endpoints.any_domain](data-sources--protected_application--reference--group-003.md#canonical-0302122110010130-2031103103101000-0302002022210020-0022230202103223-3313033133303101-1313013020203010-1202213023111123-1323003011003211) |
 | `cloudfront.protected_endpoints.domain` | [cloudfront.protected_endpoints.domain](data-sources--protected_application--reference--group-003.md#canonical-2302231201023310-2313302100000222-3123132201202211-0313113312232311-3333220322013203-0011200020212100-0210213201332220-0202230123332103) |
 | `cloudfront.protected_endpoints.domain.exact_value` | [cloudfront.protected_endpoints.domain.exact_value](data-sources--protected_application--reference--group-003.md#canonical-2232133333212102-1110113103100322-3223321213132000-2110230230210100-1113302133010222-1223303130133001-2132011213223011-3011122111003330) |
@@ -555,7 +555,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `cloudfront.protected_endpoints.mobile_client.block.content_type` | [cloudfront.protected_endpoints.mobile_client.block.content_type](data-sources--protected_application--reference--group-003.md#canonical-2101332323131011-3010000130112303-0022230311012213-0321233100300020-0222002120102112-0020333212330212-2303200312030102-3311133323223123) |
 | `cloudfront.protected_endpoints.mobile_client.block.status` | [cloudfront.protected_endpoints.mobile_client.block.status](data-sources--protected_application--reference--group-003.md#canonical-3023210001121311-0321023300121333-2233320232333332-3321220333213110-0121032030033012-0333112010123201-0312001211101011-0003111332201032) |
 | `cloudfront.protected_endpoints.mobile_client.continue` | [cloudfront.protected_endpoints.mobile_client.continue](data-sources--protected_application--reference--group-003.md#canonical-2220132120301131-3031010223230013-0010201221201202-1013111230331312-1021013100210102-1023332233133023-3013210133133110-2023133121233213) |
-| `cloudfront.protected_endpoints.mobile_client.continue.add_header` | [cloudfront.protected_endpoints.mobile_client.continue.add_header](data-sources--protected_application--reference--group-003.md#canonical-2310323321213111-1230121301201001-0323102301200112-3111003003013101-3121303212033003-0230212230332011-0100213230022330-3222032313003221) |
+| `cloudfront.protected_endpoints.mobile_client.continue.add_header` | [cloudfront.protected_endpoints.mobile_client.continue.add_header](data-sources--protected_application--reference--group-004.md#canonical-2310323321213111-1230121301201001-0323102301200112-3111003003013101-3121303212033003-0230212230332011-0100213230022330-3222032313003221) |
 | `cloudfront.protected_endpoints.mobile_client.continue.no_header` | [cloudfront.protected_endpoints.mobile_client.continue.no_header](data-sources--protected_application--reference--group-004.md#canonical-3203232102103023-3003022312320232-0321030031012131-3323302230013213-2000330311023320-2133123321300331-2311012200112310-2200103210201102) |
 | `cloudfront.protected_endpoints.path` | [cloudfront.protected_endpoints.path](data-sources--protected_application--reference--group-003.md#canonical-2122012101213113-2221201200303102-2122011020233202-0221332133220331-0210231203321001-2123103300221131-3123322013331210-0213111111132332) |
 | `cloudfront.protected_endpoints.query` | [cloudfront.protected_endpoints.query](data-sources--protected_application--reference--group-003.md#canonical-3032233123200112-1222002132032020-0331330222131300-1331113200212013-3133301233321120-0030323330310210-1112032002302112-0231003232201101) |
@@ -617,7 +617,7 @@ Each exact path has one authoritative reference destination. Collection element 
 - [adobe_commerce_connector](data-sources--protected_application--reference--group-001.md#canonical-2131122002322200-1211102013312210-0332313001322211-3203310002112222-1102230310021123-1302303130013203-0210310220203232-1201203310213203)
 - [big_ip_iapp](data-sources--protected_application--reference--group-001.md#canonical-3121210303101201-1231303202003123-1231320121022310-3001201012333211-2010131131103323-0230330313113000-3233023131132211-3332203002023000)
 - [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-2103030102303220-3032000233032113-1311312033011021-0203031102122023-0312101000122132-2100301000121311-2223211222233310-0201001111112331)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
+- [CloudFront](data-sources--protected_application--reference--group-002.md#canonical-1123020123100122-0120011030211112-1131223130120230-0022231222113022-1121113231021321-3323303132213221-0213122003003202-2311323222001310)
 - [custom_connector](data-sources--protected_application--reference--group-004.md#canonical-2131022120013230-3323322131002320-3112130302320203-0132230022331312-3202130201002000-0310132300310330-1103022101033312-1203333103123122)
 - [f5_big_ip](data-sources--protected_application--reference--group-004.md#canonical-2221321233201022-2312300032001020-0333110031033331-0133213100320220-0313313301321000-2131300212321000-1211302300200001-2300130230311301)
 - [salesforce_commerce_connector](data-sources--protected_application--reference--group-004.md#canonical-3300103021210020-1101231333023233-1202122312030020-1322030202123101-2122211031213030-0203233223330223-3331032100031322-3101033002131222)
@@ -643,8 +643,8 @@ Breadcrumbs:
 
 Type: `["object", {}]`. Computed.
 
-\[OneOf: adobe\_commerce\_connector, big\_ip\_iapp, Cloudflare, cloudfront, custom\_connector,
-f5\_big\_ip, salesforce\_commerce\_connector\] Configuration parameter for adobe commerce connector.
+\[OneOf: adobe\_commerce\_connector, big\_ip\_iapp, Cloudflare, CloudFront, custom\_connector,
+f5\_big\_ip, Salesforce\_commerce\_connector\] Configuration parameter for adobe commerce connector.
 
 Upstream description:
 
@@ -668,7 +668,7 @@ OneOf alternatives in this subsection:
 - [adobe_commerce_connector](data-sources--protected_application--reference--group-001.md#canonical-0011311010322211-0231123221220032-2221230102020200-1320103102222213-3102313202333231-2102220032210002-1112232123103010-3010331333301311)
 - [big_ip_iapp](data-sources--protected_application--reference--group-001.md#canonical-2310010302100121-2100201222033113-0121010133333222-3331301002332312-2003311113020202-2201231133202112-3300310301033320-0102232230321033)
 - [Cloudflare](data-sources--protected_application--reference--group-001.md#canonical-3023111033212211-1111122330202301-0012113103330120-3112300011213122-1111332310321102-2101102231002202-3320333023323111-0023110123110001)
-- [cloudfront](data-sources--protected_application--reference--group-002.md#canonical-1001230210132003-1312122030130213-3323113320202103-0212010010230110-2113003310332323-2200230323320021-0021000333232102-1313302122221002)
+- [CloudFront](data-sources--protected_application--reference--group-002.md#canonical-1001230210132003-1312122030130213-3323113320202103-0212010010230110-2113003310332323-2200230323320021-0021000333232102-1313302122221002)
 - [custom_connector](data-sources--protected_application--reference--group-004.md#canonical-2102330322032211-0103123332032130-2302031003011130-3102032101232210-2031020330020132-1000303002313201-0220212130010110-1223321031220121)
 - [f5_big_ip](data-sources--protected_application--reference--group-004.md#canonical-0332302203002303-1323230123130022-0213100021022021-2230320230121123-0321322312323030-3013332201212200-1223333231331113-1331213022012310)
 - [salesforce_commerce_connector](data-sources--protected_application--reference--group-004.md#canonical-2112311010211032-1110123211222023-1011322203103220-2110303202120102-0020230102200300-2312033213021200-0313232030302100-1031231203200131)
@@ -1160,14 +1160,14 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
-other website/application paths. If not specified, default to ‘/common.js’.
+other website/application paths. If not specified, default to ‘/CommonJS’.
 
 Upstream description:
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
 other website/application paths.
 
-If not specified, default to ‘/common.js’.
+If not specified, default to ‘/CommonJS’.
 
 Receipt-pinned upstream constraints:
 
@@ -1400,11 +1400,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Receipt-pinned upstream constraints:
 
@@ -1503,12 +1503,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:
@@ -1739,11 +1739,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -1788,11 +1788,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -1831,7 +1831,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0132111232131110-2231302131121333-3113302320222312-3330300301021313-2130212112200220-1001033322021112-2230330102022230-0101001031030323"></a>
 
-## regex property — path / 021230212123 / 6
+## regular expression property — path / 021230212123 / 6
 
 Type: `"string"`. Computed.
 
@@ -2238,11 +2238,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Receipt-pinned upstream constraints:
 
@@ -2341,12 +2341,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:
@@ -2579,14 +2579,14 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
-other website/application paths. If not specified, default to ‘/common.js’.
+other website/application paths. If not specified, default to ‘/CommonJS’.
 
 Upstream description:
 
 Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any
 other website/application paths.
 
-If not specified, default to ‘/common.js’.
+If not specified, default to ‘/CommonJS’.
 
 Receipt-pinned upstream constraints:
 
@@ -2807,11 +2807,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\] Header value to match exactly.
+Exclusive with \[regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[regex\] Header value to match exactly.
+Exclusive with \[regular expression\] Header value to match exactly.
 
 Receipt-pinned upstream constraints:
 
@@ -2923,15 +2923,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2310121301010103-3021100223003200-1101333321320210-3320201332000021-1130113111303033-1221022121001023-2211323000301303-2332113032022313"></a>
 
-## regex property — headers / 212111103330 / 6
+## regular expression property — headers / 212111103330 / 6
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\] Regex match of the header value in re2 format.
+Exclusive with \[exact\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact\] Regex match of the header value in re2 format.
+Exclusive with \[exact\] regular expression match of the header value in re2 format.
 
 Receipt-pinned upstream constraints:
 
@@ -3295,11 +3295,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Receipt-pinned upstream constraints:
 
@@ -3398,12 +3398,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:

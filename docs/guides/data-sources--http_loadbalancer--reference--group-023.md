@@ -6,6 +6,112 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-0033033322023001-2010222101102323-0113111100013121-2220002121320310-3203110330232132-2203332303211320-1301333020233323-0121103330222002"></a>
+
+## protected_cookies.ignore_httponly — ignore_httponly / 221302213111 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [protected_cookies](data-sources--http_loadbalancer--reference--group-022.md#canonical-2332103023230011-3100322302220110-1030000021023233-0230033122113003-3202333211321333-2313233021311312-1001320211331020-3331221301201111)
+- protected_cookies.ignore_httponly
+
+<a id="canonical-3002032230032132-2331021121200000-3032211301012330-0323211220233102-1110011001023332-1211232333232332-3132030110203030-3001320201203023"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for ignore httponly.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1311030013123221-2103123030322210-0231211202202323-2333230102303030-3220332310203332-0230101013001120-2021020330230133-3013223012200213"></a>
+
+## Direct properties — ignore_httponly / 221302213111 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1332230100213223-2210311330033213-3320231311312100-1131123310031123-3301110031220030-2323322003212222-0230210030131031-2231203330001201"></a>
+
+## Next pages — ignore_httponly / 221302213111 / 4
+
+- [protected_cookies](data-sources--http_loadbalancer--reference--group-022.md#canonical-2332103023230011-3100322302220110-1030000021023233-0230033122113003-3202333211321333-2313233021311312-1001320211331020-3331221301201111)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-3022011330020213-3203323031123113-2023123000131131-2202020303330303-2110333033302003-1223222312311102-0032101313211133-2233130113031233"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2212121331031320-2011202012333312-0110320102013022-2231121323200301-2321210103302120-0002333101213021-3323033131223112-3230131030033020"></a>
+
+## protected_cookies.ignore_max_age — ignore_max_age / 013313121033 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [protected_cookies](data-sources--http_loadbalancer--reference--group-022.md#canonical-2332103023230011-3100322302220110-1030000021023233-0230033122113003-3202333211321333-2313233021311312-1001320211331020-3331221301201111)
+- protected_cookies.ignore_max_age
+
+<a id="canonical-0200331221323110-2030232021000302-2212333112103101-2032302033130233-0133203012113223-2003101100111300-0120121323010331-3131233211330000"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for ignore max age.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0312333320223311-3002011303003000-1202113213120330-0211213101132233-1301301212310220-0322002003000201-3110220330301010-3131111032012032"></a>
+
+## Direct properties — ignore_max_age / 013313121033 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3111330133311010-3011301131123000-3010232321302332-2131002131223133-1100123001331323-1221313212210120-2201233210013302-3212113003023113"></a>
+
+## Next pages — ignore_max_age / 013313121033 / 4
+
+- [protected_cookies](data-sources--http_loadbalancer--reference--group-022.md#canonical-2332103023230011-3100322302220110-1030000021023233-0230033122113003-3202333211321333-2313233021311312-1001320211331020-3331221301201111)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-1112303213003220-2233321130311001-1131213330200111-0123102102203121-0333223133122321-0022130233013103-2013120201121200-3000221310120323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-1002001020010002-3211200230222220-0112321130300121-1333123030120232-0032321233120213-3231333200001312-0103122323301003-1122312300210131"></a>
 
 ## protected_cookies.ignore_samesite — ignore_samesite / 033313022110 / 2
@@ -2356,7 +2462,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3313212033322122-0322030203330333-0200012112320333-2223130113103022-1133212233113002-3131320032102303-3010101110022023-2320131211121022"></a>
 
-## ttl property — cookie / 203323101332 / 6
+## TTL property — cookie / 203323101332 / 6
 
 Type: `"number"`. Computed.
 
@@ -3562,11 +3668,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Receipt-pinned upstream constraints:
 
@@ -3705,11 +3811,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Computed.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -3728,15 +3834,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0002302302022330-1333010110233011-3203100121301331-0103120313332231-1321012021300212-1101300132220320-0303112321022220-1233223332102303"></a>
 
-## regex property — headers / 122030131131 / 8
+## regular expression property — headers / 122030131131 / 8
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Receipt-pinned upstream constraints:
 
@@ -4036,11 +4142,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -4085,11 +4191,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -4128,7 +4234,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0212330112331223-2012000001002032-1111030102103220-1010210213120000-0020233033330222-1000112333322133-1123100330331313-0123003003303313"></a>
 
-## regex property — path / 313011211021 / 6
+## regular expression property — path / 313011211021 / 6
 
 Type: `"string"`. Computed.
 
@@ -4238,13 +4344,13 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML.
+encoded in base64 format. The message can be either plain text or HTML.
 
 Upstream description:
 
 Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
-Denied &lt;/p&gt;". Base64 encoded string URL for this is
+encoded in base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
+Denied &lt;/p&gt;". base64 encoded string URL for this is
 string:///PHA+IEFjY2VzcyBEZW5pZWQgPC9wPg==.
 
 Receipt-pinned upstream constraints:
@@ -4524,11 +4630,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Receipt-pinned upstream constraints:
 
@@ -4667,11 +4773,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Computed.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -4690,15 +4796,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2212322331300020-3200013230030331-0303111313120020-0202323113103321-3211323011130321-2002000203333333-0020310211330012-3213313131302001"></a>
 
-## regex property — headers / 213110323201 / 8
+## regular expression property — headers / 213110323201 / 8
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Receipt-pinned upstream constraints:
 
@@ -4998,11 +5104,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -5047,11 +5153,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -5090,7 +5196,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2212111121200232-0111311330120000-1221010223123233-2331010112331211-0102321123331120-2210000130321222-1230230231003320-3223330313323212"></a>
 
-## regex property — path / 321131323003 / 6
+## regular expression property — path / 321131323003 / 6
 
 Type: `"string"`. Computed.
 
@@ -5754,102 +5860,3 @@ Receipt-pinned upstream constraints:
 - [headers](data-sources--http_loadbalancer--reference--group-025.md#canonical-3132021111231011-1213220233020212-2221133003002012-1223202120310012-3321200330113130-0123012133021312-2201300122111202-0121311211131010): complete subsection reference.
 
 <a id="canonical-1111231233123232-2120332231302232-1331211202101111-3230210320231233-2121320112020210-2031031113003203-3210102322130220-0123033221020321"></a>
-
-<a id="canonical-2212222211301032-1133112220022232-1003111223333010-0020311103200203-1203201033300202-0212312301202111-1121310312021201-2111311032121021"></a>
-
-## host_rewrite property — simple_route / 213103213132 / 4
-
-Type: `"string"`. Computed.
-
-Exclusive with \[auto\_host\_rewrite disable\_host\_rewrite\] Host header will be swapped with this
-value.
-
-Upstream description:
-
-Exclusive with \[auto\_host\_rewrite disable\_host\_rewrite\] Host header will be swapped with this
-value.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "hostname",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true"
-  }
-}
-```
-
-<a id="canonical-1311331231022312-3132321220200202-0102323333201013-3021203002130121-2212110321002311-0013122310131323-0000133003220011-0311011311132231"></a>
-
-<a id="canonical-2103102013121030-3222013233021113-1203030301000312-3313231221313230-3113002012031031-2321223200222031-1131302111133220-3000300131122003"></a>
-
-## http_method property — simple_route / 213103213132 / 5
-
-Type: `"string"`. Computed.
-
-\[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY\] Specifies the HTTP method
-used to access a resource. Any HTTP Method. Possible values are \`ANY\`, \`GET\`, \`HEAD\`,
-\`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`, \`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to
-\`ANY\`.
-
-Upstream description:
-
-Specifies the HTTP method used to access a resource.
-
-Any HTTP Method.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "ANY",
-  "enum": [
-    "ANY",
-    "GET",
-    "HEAD",
-    "POST",
-    "PUT",
-    "DELETE",
-    "CONNECT",
-    "OPTIONS",
-    "TRACE",
-    "PATCH",
-    "COPY"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [incoming_port](data-sources--http_loadbalancer--reference--group-025.md#canonical-0221302322012013-2300012121111101-1301101000322101-2020313032312332-1113101210233201-0102020310330001-1100100122322201-0311331230031133): complete subsection reference.
-
-- [origin_pools](data-sources--http_loadbalancer--reference--group-025.md#canonical-0003132220301321-1220330033212333-2222322002322300-0313013021302201-2130003013111320-1313000211100023-1031121223320111-2301123233231131): complete subsection reference.
-
-- [path](data-sources--http_loadbalancer--reference--group-025.md#canonical-1310003223002313-2031303232323101-0223020331212312-1121103021001223-1321123103101310-0210203301020320-1310203332100001-1302312231333002): complete subsection reference.
-
-- [query_params](data-sources--http_loadbalancer--reference--group-025.md#canonical-3013022233310333-3211123033103002-2011301011131203-1221021311100202-1220322312201131-1232212212011223-1330231331301232-3032220031230320): complete subsection reference.

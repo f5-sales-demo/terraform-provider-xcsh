@@ -191,7 +191,7 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Required.
 
-Name of the Code Base Integration. Must be unique within the namespace.
+Name of the codebase Integration. Must be unique within the namespace.
 
 Upstream description:
 
@@ -259,7 +259,7 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Required.
 
-Namespace where the Code Base Integration is created.
+Namespace where the codebase Integration is created.
 
 Upstream description:
 
@@ -436,7 +436,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Choose your code base (e.g. GitHub, GitLab, Bitbucket, Azure) and provide credentials and connection
+Choose your codebase (e.g. GitHub, GitLab, Bitbucket, Azure) and provide credentials and connection
 details.
 
 Provider validators and defaults (from schema source):
@@ -514,15 +514,15 @@ code_base_integration {
 
 - [azure_repos](resources--code_base_integration--reference--group-001.md#canonical-3201011132331200-1130220300313200-1031001232220211-3122301211033132-1132033001110210-1120032113203100-0101321313202112-1220222110032100): complete subsection reference.
 
-- [bitbucket](resources--code_base_integration--reference--group-001.md#canonical-3331021320323120-0021121133102300-3331011033013300-0131212023232003-3131102311220212-2030030132023320-0333230023300002-0133212120120111): complete subsection reference.
+- [Bitbucket](resources--code_base_integration--reference--group-001.md#canonical-3331021320323120-0021121133102300-3331011033013300-0131212023232003-3131102311220212-2030030132023320-0333230023300002-0133212120120111): complete subsection reference.
 
 - [bitbucket_server](resources--code_base_integration--reference--group-001.md#canonical-1120030323021110-3332221313312113-1230210301103113-2030303033132103-2032321200333101-0031322133320210-3300211013200001-0300233133212230): complete subsection reference.
 
-- [github](resources--code_base_integration--reference--group-001.md#canonical-0120221310020322-3030103310232300-0032130112020031-0033101303023130-0200232032210221-2113122232123220-3121000201013200-1022232122022023): complete subsection reference.
+- [GitHub](resources--code_base_integration--reference--group-001.md#canonical-0120221310020322-3030103310232300-0032130112020031-0033101303023130-0200232032210221-2113122232123220-3121000201013200-1022232122022023): complete subsection reference.
 
 - [github_enterprise](resources--code_base_integration--reference--group-001.md#canonical-1232323021020220-2213003210330030-2202310102321311-2102032013032021-2112021221021322-1202203303201020-1122202103122132-0312100133211130): complete subsection reference.
 
-- [gitlab](resources--code_base_integration--reference--group-001.md#canonical-2021200022200103-1003301322023302-2022313230222201-2101232003211313-1001233301102023-1203233330221213-2310133231313303-3121331302210300): complete subsection reference.
+- [GitLab](resources--code_base_integration--reference--group-001.md#canonical-2021200022200103-1003301322023302-2022313230222201-2101232003211313-1001233301102023-1203233330221213-2310133231313303-3121331302210300): complete subsection reference.
 
 - [gitlab_enterprise](resources--code_base_integration--reference--group-001.md#canonical-2300101201031033-0233121100211322-0323002120210212-3020213213320323-2323322312133130-2103132210131111-2130333232002130-1220301121211123): complete subsection reference.
 
@@ -766,12 +766,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -941,14 +941,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -1019,20 +1019,20 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3033232011223120-3313321212110122-3121102223311210-3200110230301222-0003022030203322-0221021010021021-2213301310022120-2022012103101002"></a>
 
-## code_base_integration.bitbucket — bitbucket / 231113222210 / 2
+## code_base_integration.Bitbucket — Bitbucket / 231113222210 / 2
 
 Breadcrumbs:
 
 - [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-3210121110030031-0102101131101010-3032112220130303-0002122112230220-1300100012102310-1322031221321203-3201301222000010-1330202211303002)
 - [Property reference](resources--code_base_integration--reference--group-001.md#canonical-3201211231020022-1303102222210030-3112011321321210-1331302320202012-1010230332303213-3001110101231222-2201322210333200-0201300000023201)
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
-- code_base_integration.bitbucket
+- code_base_integration.Bitbucket
 
 <a id="canonical-0022103102333130-3020121332202311-0101331220323212-2222110013111230-1010330003213101-2221002033202200-1201312130203212-0300312201032313"></a>
 
 Type: `"object"`. single nested block, Optional.
 
-BitBucket Cloud Integration.
+Bitbucket Cloud Integration.
 
 Provider validators and defaults (from schema source):
 
@@ -1063,7 +1063,7 @@ bitbucket {
 
 <a id="canonical-2033133303001231-2131213203101102-1220100212301212-0323300002133201-1231103012233021-3013133101033230-3200211211120003-0201213313122012"></a>
 
-## Direct properties — bitbucket / 231113222210 / 3
+## Direct properties — Bitbucket / 231113222210 / 3
 
 - [passwd](resources--code_base_integration--reference--group-001.md#canonical-3232102310003100-2120310013221103-2132231301203010-2123133130031211-1021101010231323-1101013323031311-2320111220003000-1233311102331303): complete subsection reference.
 
@@ -1071,11 +1071,11 @@ bitbucket {
 
 <a id="canonical-0020102030002322-0113100131232013-1110333122321012-2310010001233223-2232331223132212-3310323133333221-1120011111232001-0002000332032222"></a>
 
-## username property — bitbucket / 231113222210 / 4
+## username property — Bitbucket / 231113222210 / 4
 
 Type: `"string"`. Optional.
 
-BitBucket Username. Human-readable name for the resource
+Bitbucket Username. Human-readable name for the resource
 
 Upstream description:
 
@@ -1118,7 +1118,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0030333100202131-2031111200022011-0111033121310321-0232002232200301-3103022301103311-3021301331331123-2101301011103302-2232320232123302"></a>
 
-## Next pages — bitbucket / 231113222210 / 5
+## Next pages — Bitbucket / 231113222210 / 5
 
 - [code_base_integration.bitbucket.passwd](resources--code_base_integration--reference--group-001.md#canonical-3232102310003100-2120310013221103-2132231301203010-2123133130031211-1021101010231323-1101013323031311-2320111220003000-1233311102331303)
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
@@ -1132,7 +1132,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2232312210001332-3301201131101100-1211332031310130-3211132033303122-1120032020000101-3211102220220302-0132103122113212-1013101221312133"></a>
 
-## code_base_integration.bitbucket.passwd — passwd / 231203211021 / 2
+## code_base_integration.Bitbucket.passwd — passwd / 231203211021 / 2
 
 Breadcrumbs:
 
@@ -1140,7 +1140,7 @@ Breadcrumbs:
 - [Property reference](resources--code_base_integration--reference--group-001.md#canonical-3201211231020022-1303102222210030-3112011321321210-1331302320202012-1010230332303213-3001110101231222-2201322210333200-0201300000023201)
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
 - [code_base_integration.bitbucket](resources--code_base_integration--reference--group-001.md#canonical-3331021320323120-0021121133102300-3331011033013300-0131212023232003-3131102311220212-2030030132023320-0333230023300002-0133212120120111)
-- code_base_integration.bitbucket.passwd
+- code_base_integration.Bitbucket.passwd
 
 <a id="canonical-0011121130201002-0131112301202112-1022032322332001-1021103102211310-1120103123202123-3103130302002332-3303033321022001-0021100210102101"></a>
 
@@ -1202,7 +1202,7 @@ passwd {
 
 <a id="canonical-3033331222111203-0331221011000133-0100231101111012-2010022112120020-0200311033021133-0313202322122220-0021121313230121-3112023201321021"></a>
 
-## code_base_integration.bitbucket.passwd.blindfold_secret_info — blindfold_secret_info / 311211201322 / 2
+## code_base_integration.Bitbucket.passwd.blindfold_secret_info — blindfold_secret_info / 311211201322 / 2
 
 Breadcrumbs:
 
@@ -1211,7 +1211,7 @@ Breadcrumbs:
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
 - [code_base_integration.bitbucket](resources--code_base_integration--reference--group-001.md#canonical-3331021320323120-0021121133102300-3331011033013300-0131212023232003-3131102311220212-2030030132023320-0333230023300002-0133212120120111)
 - [code_base_integration.bitbucket.passwd](resources--code_base_integration--reference--group-001.md#canonical-3232102310003100-2120310013221103-2132231301203010-2123133130031211-1021101010231323-1101013323031311-2320111220003000-1233311102331303)
-- code_base_integration.bitbucket.passwd.blindfold_secret_info
+- code_base_integration.Bitbucket.passwd.blindfold_secret_info
 
 <a id="canonical-3200003222201123-2223313100321310-1130011013323112-0300132131113002-0111011002313203-1120320130210010-1032100311030203-1213002212122132"></a>
 
@@ -1292,12 +1292,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -1399,7 +1399,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3120131133303102-0123032232303001-0103103122021113-2333320212011212-3331013203123131-2131210001131322-2330221023323021-3031312330011200"></a>
 
-## code_base_integration.bitbucket.passwd.clear_secret_info — clear_secret_info / 213002321123 / 2
+## code_base_integration.Bitbucket.passwd.clear_secret_info — clear_secret_info / 213002321123 / 2
 
 Breadcrumbs:
 
@@ -1408,7 +1408,7 @@ Breadcrumbs:
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
 - [code_base_integration.bitbucket](resources--code_base_integration--reference--group-001.md#canonical-3331021320323120-0021121133102300-3331011033013300-0131212023232003-3131102311220212-2030030132023320-0333230023300002-0133212120120111)
 - [code_base_integration.bitbucket.passwd](resources--code_base_integration--reference--group-001.md#canonical-3232102310003100-2120310013221103-2132231301203010-2123133130031211-1021101010231323-1101013323031311-2320111220003000-1233311102331303)
-- code_base_integration.bitbucket.passwd.clear_secret_info
+- code_base_integration.Bitbucket.passwd.clear_secret_info
 
 <a id="canonical-3132312210310300-1320122101111023-3022021202131120-2122011133031231-0110221022202011-3102023213333010-1213113332001321-2233223002133130"></a>
 
@@ -1467,14 +1467,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -1558,7 +1558,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Configuration parameter for bitbucket server.
+Configuration parameter for Bitbucket server.
 
 Provider validators and defaults (from schema source):
 
@@ -1602,7 +1602,7 @@ bitbucket_server {
 
 Type: `"string"`. Optional.
 
-BitBucket Server URL. URL or URI reference
+Bitbucket Server URL. URL or URI reference
 
 Upstream description:
 
@@ -1663,7 +1663,7 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-BitBucket Server Username. Human-readable name for the resource
+Bitbucket Server Username. Human-readable name for the resource
 
 Upstream description:
 
@@ -1712,11 +1712,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Optional.
 
-Verify SSL. Configuration parameter for verify ssl
+Verify SSL. Configuration parameter for verify SSL
 
 Upstream description:
 
-Configuration parameter for verify ssl
+Configuration parameter for verify SSL
 
 Receipt-pinned upstream constraints:
 
@@ -1907,12 +1907,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -2082,14 +2082,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -2160,20 +2160,20 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0222220011032120-0223002002211000-1323331232112012-2112222301102322-3332002022213020-2310013211020031-2302323021100202-0121320130111010"></a>
 
-## code_base_integration.github — github / 033120021211 / 2
+## code_base_integration.GitHub — GitHub / 033120021211 / 2
 
 Breadcrumbs:
 
 - [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-3210121110030031-0102101131101010-3032112220130303-0002122112230220-1300100012102310-1322031221321203-3201301222000010-1330202211303002)
 - [Property reference](resources--code_base_integration--reference--group-001.md#canonical-3201211231020022-1303102222210030-3112011321321210-1331302320202012-1010230332303213-3001110101231222-2201322210333200-0201300000023201)
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
-- code_base_integration.github
+- code_base_integration.GitHub
 
 <a id="canonical-0321120102332130-2200011201202203-0303022113032130-3102020321120012-2032033023110132-3003103230322213-1013311120020132-3212012012310001"></a>
 
 Type: `"object"`. single nested block, Optional.
 
-Github Integration.
+GitHub Integration.
 
 Provider validators and defaults (from schema source):
 
@@ -2204,7 +2204,7 @@ github {
 
 <a id="canonical-0303112330111312-1121230112323203-0303100233330302-2110021223123332-0320220230211112-2002122103222323-0221321121331133-3231021222100002"></a>
 
-## Direct properties — github / 033120021211 / 3
+## Direct properties — GitHub / 033120021211 / 3
 
 - [access_token](resources--code_base_integration--reference--group-001.md#canonical-0113123002131103-3101203021030002-1221123322121031-3332233121211221-0031222322333230-1130221000013320-0333200010220010-3223023122332120): complete subsection reference.
 
@@ -2212,7 +2212,7 @@ github {
 
 <a id="canonical-3012011320302200-1023030100001133-1103222303220233-3202333002023111-1120011223002210-2002121330012310-2320220203132010-3032110120320231"></a>
 
-## username property — github / 033120021211 / 4
+## username property — GitHub / 033120021211 / 4
 
 Type: `"string"`. Optional.
 
@@ -2261,15 +2261,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1112223120223311-0021113321211002-0001303002200321-1011021122022100-3221122010020300-1132120320201320-0321110312310330-1101122320132022"></a>
 
-## verify_ssl property — github / 033120021211 / 5
+## verify_ssl property — GitHub / 033120021211 / 5
 
 Type: `"bool"`. Optional.
 
-GitHub Verify SSL. Configuration parameter for verify ssl
+GitHub Verify SSL. Configuration parameter for verify SSL
 
 Upstream description:
 
-Configuration parameter for verify ssl
+Configuration parameter for verify SSL
 
 Receipt-pinned upstream constraints:
 
@@ -2286,7 +2286,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3120211123322323-3222132233302323-2121000303122310-1000011132233322-0102101100102133-0202002100122001-2023131023122133-1120211213221310"></a>
 
-## Next pages — github / 033120021211 / 6
+## Next pages — GitHub / 033120021211 / 6
 
 - [code_base_integration.github.access_token](resources--code_base_integration--reference--group-001.md#canonical-0113123002131103-3101203021030002-1221123322121031-3332233121211221-0031222322333230-1130221000013320-0333200010220010-3223023122332120)
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
@@ -2300,7 +2300,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3013021033112211-2300331321112032-1332001113120232-1310003033112132-3101031031133111-0112322012300111-2031200230121012-2232222301231303"></a>
 
-## code_base_integration.github.access_token — access_token / 012313303323 / 2
+## code_base_integration.GitHub.access_token — access_token / 012313303323 / 2
 
 Breadcrumbs:
 
@@ -2308,7 +2308,7 @@ Breadcrumbs:
 - [Property reference](resources--code_base_integration--reference--group-001.md#canonical-3201211231020022-1303102222210030-3112011321321210-1331302320202012-1010230332303213-3001110101231222-2201322210333200-0201300000023201)
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
 - [code_base_integration.github](resources--code_base_integration--reference--group-001.md#canonical-0120221310020322-3030103310232300-0032130112020031-0033101303023130-0200232032210221-2113122232123220-3121000201013200-1022232122022023)
-- code_base_integration.github.access_token
+- code_base_integration.GitHub.access_token
 
 <a id="canonical-0122103013012303-0222032100110212-3102023121023200-2122023311210201-2332200013121121-0200030032113113-1022203212100121-0100203103221322"></a>
 
@@ -2370,7 +2370,7 @@ access_token {
 
 <a id="canonical-2303221303212122-2030222211203230-3013211231301123-0010003033131233-0302030003101033-3110023132300211-1111320031030120-2212033102103330"></a>
 
-## code_base_integration.github.access_token.blindfold_secret_info — blindfold_secret_info / 323002112033 / 2
+## code_base_integration.GitHub.access_token.blindfold_secret_info — blindfold_secret_info / 323002112033 / 2
 
 Breadcrumbs:
 
@@ -2379,7 +2379,7 @@ Breadcrumbs:
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
 - [code_base_integration.github](resources--code_base_integration--reference--group-001.md#canonical-0120221310020322-3030103310232300-0032130112020031-0033101303023130-0200232032210221-2113122232123220-3121000201013200-1022232122022023)
 - [code_base_integration.github.access_token](resources--code_base_integration--reference--group-001.md#canonical-0113123002131103-3101203021030002-1221123322121031-3332233121211221-0031222322333230-1130221000013320-0333200010220010-3223023122332120)
-- code_base_integration.github.access_token.blindfold_secret_info
+- code_base_integration.GitHub.access_token.blindfold_secret_info
 
 <a id="canonical-0230210110201110-0323132233122222-2131330202211133-1003302130120231-1331330301310033-3320331200101323-2311100311021332-1210201233031222"></a>
 
@@ -2460,12 +2460,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -2567,7 +2567,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3123223331301132-1102203022012100-2111300332031120-2013133310011233-1030333311021133-3011323232232120-3221112201212012-1013132100211312"></a>
 
-## code_base_integration.github.access_token.clear_secret_info — clear_secret_info / 122112303000 / 2
+## code_base_integration.GitHub.access_token.clear_secret_info — clear_secret_info / 122112303000 / 2
 
 Breadcrumbs:
 
@@ -2576,7 +2576,7 @@ Breadcrumbs:
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
 - [code_base_integration.github](resources--code_base_integration--reference--group-001.md#canonical-0120221310020322-3030103310232300-0032130112020031-0033101303023130-0200232032210221-2113122232123220-3121000201013200-1022232122022023)
 - [code_base_integration.github.access_token](resources--code_base_integration--reference--group-001.md#canonical-0113123002131103-3101203021030002-1221123322121031-3332233121211221-0031222322333230-1130221000013320-0333200010220010-3223023122332120)
-- code_base_integration.github.access_token.clear_secret_info
+- code_base_integration.GitHub.access_token.clear_secret_info
 
 <a id="canonical-0233031221111100-1210311312322311-3122300100120320-0032222301230333-0033130103312032-2202121223122213-3102130231020131-0221220030333211"></a>
 
@@ -2635,14 +2635,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -2726,7 +2726,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Configuration parameter for github enterprise.
+Configuration parameter for GitHub enterprise.
 
 Provider validators and defaults (from schema source):
 
@@ -3047,12 +3047,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -3222,14 +3222,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -3300,14 +3300,14 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2001310010231332-3030233002330231-1122102122031223-1231021132330233-1110311333322130-0233002100300231-2223002210013220-2133133013031302"></a>
 
-## code_base_integration.gitlab — gitlab / 232230210201 / 2
+## code_base_integration.GitLab — GitLab / 232230210201 / 2
 
 Breadcrumbs:
 
 - [xcsh_code_base_integration](../resources/code_base_integration.md#canonical-3210121110030031-0102101131101010-3032112220130303-0002122112230220-1300100012102310-1322031221321203-3201301222000010-1330202211303002)
 - [Property reference](resources--code_base_integration--reference--group-001.md#canonical-3201211231020022-1303102222210030-3112011321321210-1331302320202012-1010230332303213-3001110101231222-2201322210333200-0201300000023201)
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
-- code_base_integration.gitlab
+- code_base_integration.GitLab
 
 <a id="canonical-1100130301111201-2122131221233013-3221101222300121-0302020012122111-0220320013003100-1021013223112202-1120120001200131-2123123302132022"></a>
 
@@ -3338,13 +3338,13 @@ gitlab {
 
 <a id="canonical-3223312303322223-3002013033120022-3112123302301101-3333200010200230-1113222001100231-2201123002022110-2032131323012220-3122232110122332"></a>
 
-## Direct properties — gitlab / 232230210201 / 3
+## Direct properties — GitLab / 232230210201 / 3
 
 - [access_token](resources--code_base_integration--reference--group-001.md#canonical-0011110102122312-0110133233221113-0102333102211311-1301310303221123-1003313123003032-3012123110212312-1231113013331131-3233203333010233): complete subsection reference.
 
 <a id="canonical-3201233012012102-1001310232033131-0312130330023013-0223100210013330-0101212030012031-2102113100032023-2032220332332223-1232223031212003"></a>
 
-## Next pages — gitlab / 232230210201 / 4
+## Next pages — GitLab / 232230210201 / 4
 
 - [code_base_integration.gitlab.access_token](resources--code_base_integration--reference--group-001.md#canonical-0011110102122312-0110133233221113-0102333102211311-1301310303221123-1003313123003032-3012123110212312-1231113013331131-3233203333010233)
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
@@ -3358,7 +3358,7 @@ gitlab {
 
 <a id="canonical-2023331210113003-2202202011233112-3120020131111232-0202222331013020-3112111203200311-0010233131122121-3210223010112000-1001030100020223"></a>
 
-## code_base_integration.gitlab.access_token — access_token / 101120311101 / 2
+## code_base_integration.GitLab.access_token — access_token / 101120311101 / 2
 
 Breadcrumbs:
 
@@ -3366,7 +3366,7 @@ Breadcrumbs:
 - [Property reference](resources--code_base_integration--reference--group-001.md#canonical-3201211231020022-1303102222210030-3112011321321210-1331302320202012-1010230332303213-3001110101231222-2201322210333200-0201300000023201)
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
 - [code_base_integration.gitlab](resources--code_base_integration--reference--group-001.md#canonical-2021200022200103-1003301322023302-2022313230222201-2101232003211313-1001233301102023-1203233330221213-2310133231313303-3121331302210300)
-- code_base_integration.gitlab.access_token
+- code_base_integration.GitLab.access_token
 
 <a id="canonical-1231030203033030-2220321013321311-2211003020030103-1331213212201202-1332110323032320-3013203330321222-2203110321210223-2312211010120231"></a>
 
@@ -3428,7 +3428,7 @@ access_token {
 
 <a id="canonical-0112101322231302-3120033033233313-2102001100122323-3111113032012301-3222330320012003-1001103231301130-1321223320003301-3330233312233022"></a>
 
-## code_base_integration.gitlab.access_token.blindfold_secret_info — blindfold_secret_info / 122313310331 / 2
+## code_base_integration.GitLab.access_token.blindfold_secret_info — blindfold_secret_info / 122313310331 / 2
 
 Breadcrumbs:
 
@@ -3437,7 +3437,7 @@ Breadcrumbs:
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
 - [code_base_integration.gitlab](resources--code_base_integration--reference--group-001.md#canonical-2021200022200103-1003301322023302-2022313230222201-2101232003211313-1001233301102023-1203233330221213-2310133231313303-3121331302210300)
 - [code_base_integration.gitlab.access_token](resources--code_base_integration--reference--group-001.md#canonical-0011110102122312-0110133233221113-0102333102211311-1301310303221123-1003313123003032-3012123110212312-1231113013331131-3233203333010233)
-- code_base_integration.gitlab.access_token.blindfold_secret_info
+- code_base_integration.GitLab.access_token.blindfold_secret_info
 
 <a id="canonical-0303221123033031-0223021332213333-3120102322121021-3112313313331112-1103202232323003-2121203220332113-0233013301121100-3002223011303023"></a>
 
@@ -3518,12 +3518,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -3625,7 +3625,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1012223230231310-2020010220101201-0202221111330201-1300122322221122-0332233231001003-3023232233201003-3222321023001330-3210020213001022"></a>
 
-## code_base_integration.gitlab.access_token.clear_secret_info — clear_secret_info / 233103210121 / 2
+## code_base_integration.GitLab.access_token.clear_secret_info — clear_secret_info / 233103210121 / 2
 
 Breadcrumbs:
 
@@ -3634,7 +3634,7 @@ Breadcrumbs:
 - [code_base_integration](resources--code_base_integration--reference--group-001.md#canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001)
 - [code_base_integration.gitlab](resources--code_base_integration--reference--group-001.md#canonical-2021200022200103-1003301322023302-2022313230222201-2101232003211313-1001233301102023-1203233330221213-2310133231313303-3121331302210300)
 - [code_base_integration.gitlab.access_token](resources--code_base_integration--reference--group-001.md#canonical-0011110102122312-0110133233221113-0102333102211311-1301310303221123-1003313123003032-3012123110212312-1231113013331131-3233203333010233)
-- code_base_integration.gitlab.access_token.clear_secret_info
+- code_base_integration.GitLab.access_token.clear_secret_info
 
 <a id="canonical-0211002233302201-1321102011321030-2131120313120133-1113223303301102-0022112022310202-0103112013233203-1032111103010303-3110300223223012"></a>
 
@@ -3693,14 +3693,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -3784,7 +3784,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Configuration parameter for gitlab enterprise.
+Configuration parameter for GitLab enterprise.
 
 Provider validators and defaults (from schema source):
 
@@ -4056,12 +4056,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -4231,14 +4231,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 

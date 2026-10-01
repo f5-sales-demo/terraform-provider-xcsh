@@ -6,6 +6,105 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-2212222211301032-1133112220022232-1003111223333010-0020311103200203-1203201033300202-0212312301202111-1121310312021201-2111311032121021"></a>
+
+## host_rewrite property — simple_route / 213103213132 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[auto\_host\_rewrite disable\_host\_rewrite\] Host header will be swapped with this
+value.
+
+Upstream description:
+
+Exclusive with \[auto\_host\_rewrite disable\_host\_rewrite\] Host header will be swapped with this
+value.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true"
+  }
+}
+```
+
+<a id="canonical-1311331231022312-3132321220200202-0102323333201013-3021203002130121-2212110321002311-0013122310131323-0000133003220011-0311011311132231"></a>
+
+<a id="canonical-2103102013121030-3222013233021113-1203030301000312-3313231221313230-3113002012031031-2321223200222031-1131302111133220-3000300131122003"></a>
+
+## http_method property — simple_route / 213103213132 / 5
+
+Type: `"string"`. Computed.
+
+\[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY\] Specifies the HTTP method
+used to access a resource. Any HTTP Method. Possible values are \`ANY\`, \`GET\`, \`HEAD\`,
+\`POST\`, \`PUT\`, \`DELETE\`, \`CONNECT\`, \`OPTIONS\`, \`TRACE\`, \`PATCH\`, \`COPY\`. Defaults to
+\`ANY\`.
+
+Upstream description:
+
+Specifies the HTTP method used to access a resource.
+
+Any HTTP Method.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "ANY",
+  "enum": [
+    "ANY",
+    "GET",
+    "HEAD",
+    "POST",
+    "PUT",
+    "DELETE",
+    "CONNECT",
+    "OPTIONS",
+    "TRACE",
+    "PATCH",
+    "COPY"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [incoming_port](data-sources--http_loadbalancer--reference--group-025.md#canonical-0221302322012013-2300012121111101-1301101000322101-2020313032312332-1113101210233201-0102020310330001-1100100122322201-0311331230031133): complete subsection reference.
+
+- [origin_pools](data-sources--http_loadbalancer--reference--group-025.md#canonical-0003132220301321-1220330033212333-2222322002322300-0313013021302201-2130003013111320-1313000211100023-1031121223320111-2301123233231131): complete subsection reference.
+
+- [path](data-sources--http_loadbalancer--reference--group-025.md#canonical-1310003223002313-2031303232323101-0223020331212312-1121103021001223-1321123103101310-0210203301020320-1310203332100001-1302312231333002): complete subsection reference.
+
+- [query_params](data-sources--http_loadbalancer--reference--group-025.md#canonical-3013022233310333-3211123033103002-2011301011131203-1221021311100202-1220322312201131-1232212212011223-1330231331301232-3032220031230320): complete subsection reference.
+
 <a id="canonical-2302231231202013-0331011212203311-0210010231203202-0222013020310220-2103220003100201-0110131233121033-1103111111033100-0001012322201111"></a>
 
 ## Next pages — simple_route / 213103213132 / 6
@@ -154,14 +253,14 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[disable\_prefix\_rewrite regex\_rewrite\] prefix\_rewrite indicates that during
-forwarding, the matched prefix (or path) should be swapped with its value. When using regex path
+Exclusive with \[disable\_prefix\_rewrite regular expression\_rewrite\] prefix\_rewrite indicates that during
+forwarding, the matched prefix (or path) should be swapped with its value. When using regular expression path
 matching, the entire path (not including the query string) will be swapped with this value.
 
 Upstream description:
 
-Exclusive with \[disable\_prefix\_rewrite regex\_rewrite\] prefix\_rewrite indicates that during
-forwarding, the matched prefix (or path) should be swapped with its value. When using regex path
+Exclusive with \[disable\_prefix\_rewrite regular expression\_rewrite\] prefix\_rewrite indicates that during
+forwarding, the matched prefix (or path) should be swapped with its value. When using regular expression path
 matching, the entire path (not including the query string) will be swapped with this value.
 
 Receipt-pinned upstream constraints:
@@ -1416,7 +1515,7 @@ Type: `"single"`. Computed.
 
 Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route
 level configuration takes precedence. An example of an Cross origin HTTP request GET
-/resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS
+/resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS
 X 10.5..
 
 Upstream description:
@@ -1425,11 +1524,11 @@ Cross-Origin Resource Sharing requests configuration specified at Virtual-host o
 level configuration takes precedence.
 
 An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other
-User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130
 Minefield/3.1b3pre Accept: text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8
 Accept-Language: en-us,en;q=0.5 Accept-Encoding: gzip,deflate Accept-Charset:
 ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive Referrer:
-http&#58;//foo.example/examples/access-control/simplexsinvocation.html Origin:
+http&#58;//foo.example/examples/access-control/simplexsinvocation.HTML Origin:
 http&#58;//foo.example
 
 HTTP/1.1 200 OK Date: Mon, 01 Dec 2008 00:23:53 GMT Server: Apache/2.0.61
@@ -1439,7 +1538,7 @@ Transfer-Encoding: chunked Content-Type: application/XML
 An example for cross origin HTTP OPTIONS request with Access-Control-Request-\* header
 
 OPTIONS /resources/POST-here/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel
-MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept:
+macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept:
 text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8 Accept-Language: en-us,en;q=0.5
 Accept-Encoding: gzip,deflate Accept-Charset: ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive
 Origin: http&#58;//foo.example Access-Control-Request-Method: POST Access-Control-Request-Headers:
@@ -1624,12 +1723,12 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Computed.
 
-Specifies regex patterns that match allowed origins. An origin is allowed if either allow\_origin or
+Specifies regular expression patterns that match allowed origins. An origin is allowed if either allow\_origin or
 allow\_origin\_regex match.
 
 Upstream description:
 
-Specifies regex patterns that match allowed origins. An origin is allowed if either allow\_origin or
+Specifies regular expression patterns that match allowed origins. An origin is allowed if either allow\_origin or
 allow\_origin\_regex match.
 
 Receipt-pinned upstream constraints:
@@ -3742,12 +3841,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -3897,14 +3996,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -4310,12 +4409,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -4465,14 +4564,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -4697,7 +4796,7 @@ Receipt-pinned upstream constraints:
 
 - [add_httponly](data-sources--http_loadbalancer--reference--group-024.md#canonical-2132321211201302-2210332321211020-0323201032300020-1313132213031322-3111220332112303-3131120203102233-1211320111013202-1032023003112103): complete subsection reference.
 
-- [add_partitioned](data-sources--http_loadbalancer--reference--group-024.md#canonical-1223202013111303-3102133131320300-1233331231203021-3332222221332110-1130002231320301-0231033023302002-2212022300131000-1110003031032200): complete subsection reference.
+- [add_partitioned](data-sources--http_loadbalancer--reference--group-025.md#canonical-1223202013111303-3102133131320300-1233331231203021-3332222221332110-1130002231320301-0231033023302002-2212022300131000-1110003031032200): complete subsection reference.
 
 <a id="canonical-1321201303203120-2311103213231320-2311032133021022-2111230231031330-2031132133133312-0320322332322021-1131203100030003-1331101132230210"></a>
 
@@ -4960,7 +5059,7 @@ Receipt-pinned upstream constraints:
 ## Next pages — response_cookies_to_add / 203232302213 / 11
 
 - [routes.simple_route.advanced_options.response_cookies_to_add.add_httponly](data-sources--http_loadbalancer--reference--group-024.md#canonical-2132321211201302-2210332321211020-0323201032300020-1313132213031322-3111220332112303-3131120203102233-1211320111013202-1032023003112103)
-- [routes.simple_route.advanced_options.response_cookies_to_add.add_partitioned](data-sources--http_loadbalancer--reference--group-024.md#canonical-1223202013111303-3102133131320300-1233331231203021-3332222221332110-1130002231320301-0231033023302002-2212022300131000-1110003031032200)
+- [routes.simple_route.advanced_options.response_cookies_to_add.add_partitioned](data-sources--http_loadbalancer--reference--group-025.md#canonical-1223202013111303-3102133131320300-1233331231203021-3332222221332110-1130002231320301-0231033023302002-2212022300131000-1110003031032200)
 - [routes.simple_route.advanced_options.response_cookies_to_add.add_secure](data-sources--http_loadbalancer--reference--group-025.md#canonical-0310003100332311-3321023313213130-0100023033022133-2231022002300002-3113213202301201-3001030022032120-2132233132313230-2301303112030111)
 - [routes.simple_route.advanced_options.response_cookies_to_add.ignore_domain](data-sources--http_loadbalancer--reference--group-025.md#canonical-0112121103210101-0203010230111331-0111223130332003-0003203111033002-0211222320032202-2211023130131003-1110020312100021-3302313202033221)
 - [routes.simple_route.advanced_options.response_cookies_to_add.ignore_expiry](data-sources--http_loadbalancer--reference--group-025.md#canonical-2020222010110333-1302110120330233-1303332013202000-2030110112303330-1121200003223101-2233212310131131-0131312312113101-0021203232033212)
@@ -5033,46 +5132,3 @@ This is an empty object or choice marker. It has no direct properties.
 
 - [routes.simple_route.advanced_options.response_cookies_to_add](data-sources--http_loadbalancer--reference--group-024.md#canonical-3323330020100221-2100002121022031-2001112020103012-3021110101320010-3232102100323103-2303312221220203-0011331111033010-2113300010300203)
 - [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-
-<a id="canonical-1223202013111303-3102133131320300-1233331231203021-3332222221332110-1130002231320301-0231033023302002-2212022300131000-1110003031032200"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2220010232102122-0132033211213102-2203330103323031-2322030232232111-2323103312003210-2122122002012211-2233203301202223-0330332220102023"></a>
-
-## routes.simple_route.advanced_options.response_cookies_to_add.add_partitioned — add_partitioned / 203001320103 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
-- [routes](data-sources--http_loadbalancer--reference--group-023.md#canonical-3232213310021101-3001022200303021-3022000231122212-3301110112333122-3031302113101300-1300212103000230-3011232013130010-0033032303113000)
-- [routes.simple_route](data-sources--http_loadbalancer--reference--group-023.md#canonical-1013212301331233-0220132333230332-3120203333230311-0203012113113321-3321231220112311-1122003101103203-0102302112023322-1122000203023103)
-- [routes.simple_route.advanced_options](data-sources--http_loadbalancer--reference--group-024.md#canonical-2103300321231223-3313311003122203-3310320230321101-3210221022312202-1113110131120131-3210203313221100-2202300131232101-0111320332221033)
-- [routes.simple_route.advanced_options.response_cookies_to_add](data-sources--http_loadbalancer--reference--group-024.md#canonical-3323330020100221-2100002121022031-2001112020103012-3021110101320010-3232102100323103-2303312221220203-0011331111033010-2113300010300203)
-- routes.simple_route.advanced_options.response_cookies_to_add.add_partitioned
-
-<a id="canonical-1222302230322031-2102213033233122-0321020103022111-3210131221320221-1322130103103021-1102002322110031-0303121131220030-1330123111133100"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for add partitioned.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```

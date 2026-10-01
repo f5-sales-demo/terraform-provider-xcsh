@@ -1816,11 +1816,11 @@ Breadcrumbs:
 
 Type: `"list"`. Computed.
 
-Configuration parameter for server ssl profile.
+Configuration parameter for server SSL profile.
 
 Upstream description:
 
-Configuration parameter for server ssl profile
+Configuration parameter for server SSL profile
 
 Receipt-pinned upstream constraints:
 
@@ -5782,11 +5782,11 @@ Breadcrumbs:
 
 Type: `"list"`. Computed.
 
-Configuration parameter for server ssl profile.
+Configuration parameter for server SSL profile.
 
 Upstream description:
 
-Configuration parameter for server ssl profile
+Configuration parameter for server SSL profile
 
 Receipt-pinned upstream constraints:
 
@@ -6969,11 +6969,11 @@ Breadcrumbs:
 
 Type: `"list"`. Computed.
 
-Configuration parameter for server ssl profile.
+Configuration parameter for server SSL profile.
 
 Upstream description:
 
-Configuration parameter for server ssl profile
+Configuration parameter for server SSL profile
 
 Receipt-pinned upstream constraints:
 

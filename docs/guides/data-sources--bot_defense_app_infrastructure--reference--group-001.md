@@ -448,11 +448,11 @@ Select alternatives according to the provider validators above.
 
 Type: `"string"`. Computed.
 
-Infra Host Name. Infra Host Name.
+Infra hostname. Infra hostname.
 
 Upstream description:
 
-Infra Host Name.
+Infra hostname.
 
 Receipt-pinned upstream constraints:
 
@@ -838,11 +838,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[ip\_address\] Ingress Host Name.
+Exclusive with \[ip\_address\] Ingress hostname.
 
 Upstream description:
 
-Exclusive with \[ip\_address\] Ingress Host Name.
+Exclusive with \[ip\_address\] Ingress hostname.
 
 Receipt-pinned upstream constraints:
 
@@ -1077,11 +1077,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Infra Host Name. Infra Host Name.
+Infra hostname. Infra hostname.
 
 Upstream description:
 
-Infra Host Name.
+Infra hostname.
 
 Receipt-pinned upstream constraints:
 
@@ -1467,11 +1467,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[ip\_address\] Ingress Host Name.
+Exclusive with \[ip\_address\] Ingress hostname.
 
 Upstream description:
 
-Exclusive with \[ip\_address\] Ingress Host Name.
+Exclusive with \[ip\_address\] Ingress hostname.
 
 Receipt-pinned upstream constraints:
 

@@ -313,7 +313,7 @@ Type: `"string"`. Optional.
 IN|NOT\_IN|MATCHES\_REGEX|DOES\_NOT\_MATCH\_REGEX|INCLUDES|DOES\_NOT\_INCLUDE|STARTS\_WITH|ENDS\_WITH\]
 Operator for query filter - IN: Filter Operator Specifies that query result includes filter values -
 NOT\_IN: Filter Operator Specifies that query result excludes filter values - MATCHES\_REGEX: Filter
-Operator Specifies that query result matches filter regex - DOES\_NOT\_MATCH\_REGEX: Filter..
+Operator Specifies that query result matches filter regular expression - DOES\_NOT\_MATCH\_REGEX: Filter..
 Possible values are \`IN\`, \`NOT\_IN\`, \`MATCHES\_REGEX\`, \`DOES\_NOT\_MATCH\_REGEX\`,
 \`INCLUDES\`, \`DOES\_NOT\_INCLUDE\`, \`STARTS\_WITH\`, \`ENDS\_WITH\`. Defaults to \`IN\`.
 

@@ -597,12 +597,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[any\_path path\_prefix\] Define the regex for the path. For example, the regex
+Exclusive with \[any\_path path\_prefix\] Define the regular expression for the path. For example, the regular expression
 ^/.\*$ will match on all paths.
 
 Upstream description:
 
-Exclusive with \[any\_path path\_prefix\] Define the regex for the path. For example, the regex
+Exclusive with \[any\_path path\_prefix\] Define the regular expression for the path. For example, the regular expression
 ^/.\*$ will match on all paths.
 
 Receipt-pinned upstream constraints:

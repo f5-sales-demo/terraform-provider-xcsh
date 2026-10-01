@@ -2654,7 +2654,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2322300330031211-2021031130032233-1213012231002303-2210330132313322-1023313210111332-2123032221010332-1222023300221302-0321121220101001"></a>
 
-## regexp property — values / 200322301222 / 7
+## regular expression property — values / 200322301222 / 7
 
 Type: `"string"`. Computed.
 
@@ -4646,7 +4646,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0012320212020203-3101112311220300-1101330213330311-2212331332230003-2101120013111312-3030310230103012-1300111310011011-2112003120230023"></a>
 
-## ttl property — soa_parameters / 213111032122 / 8
+## TTL property — soa_parameters / 213111032122 / 8
 
 Type: `"number"`. Computed.
 
@@ -5035,12 +5035,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -5187,14 +5187,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 

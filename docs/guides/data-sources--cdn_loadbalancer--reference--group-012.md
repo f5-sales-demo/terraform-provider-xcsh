@@ -6,6 +6,60 @@ description: "Complete grouped canonical reference for xcsh_cdn_loadbalancer ref
 
 # xcsh_cdn_loadbalancer reference
 
+<a id="canonical-3123302132222131-2112102330331332-1120120133113022-3312321213131220-3302212230313010-0211223033332100-2021110213033230-2232230131303000"></a>
+
+## jwt_validation.token_location.bearer_token — bearer_token / 201321212223 / 2
+
+Breadcrumbs:
+
+- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
+- [Property reference](data-sources--cdn_loadbalancer--reference--group-001.md#canonical-1131232031102311-1311132230333002-2103010130221322-3211022033121010-2010132101303220-1213122123033021-1002230232002302-2212020120301223)
+- [jwt_validation](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-3221300002102023-2131303022302312-2013133022023320-2323211023010130-0213232211110303-2022001333033230-3112000221200233-0200013031112310)
+- [jwt_validation.token_location](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-1010220232131121-3133122220132302-2102331001310120-1103121302102313-0210031123201300-3211132222021113-1033033022012000-0210101200200032)
+- jwt_validation.token_location.bearer_token
+
+<a id="canonical-2212221303222213-1221101121223113-3111022300323232-0231302203231103-3223111000132230-0000123030020010-0131232303302130-2120212201203232"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for bearer token.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0100033220013130-2310223122311211-3333330112001330-3030000330200000-0113323000030231-3220321132032212-3321201303030301-2033001132201100"></a>
+
+## Direct properties — bearer_token / 201321212223 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3200211310020100-3101311231200130-3012333110021012-3132101223100202-3011313132311310-2122123023131013-0303303032201111-0201131112202111"></a>
+
+## Next pages — bearer_token / 201321212223 / 4
+
+- [jwt_validation.token_location](data-sources--cdn_loadbalancer--reference--group-011.md#canonical-1010220232131121-3133122220132302-2102331001310120-1103121302102313-0210031123201300-3211132222021113-1033033022012000-0210101200200032)
+- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
+
+<a id="canonical-1333333200120332-2013203303220313-1010312331020333-1200321100302113-0213120311020001-2122222320111122-1131233320112210-3120230011331311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3321120113201220-3002110123113122-2003220201231233-3120010113030011-2300113123313211-0233102301122210-1002201312122301-3003210303021223"></a>
 
 ## l7_ddos_action_block — l7_ddos_action_block / 131330310003 / 2
@@ -237,15 +291,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -2676,12 +2730,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -2831,14 +2885,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -4159,12 +4213,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -4313,14 +4367,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -4729,12 +4783,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -4883,14 +4937,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -5250,7 +5304,7 @@ Receipt-pinned upstream constraints:
 
 - [always_enable_js_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-0202231002132331-3211223301131113-3203232031001211-0123222132330301-3000202112102202-2000023102110011-2133210333203322-0130022301002031): complete subsection reference.
 
-- [captcha_challenge_parameters](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1233022200332332-0330313332021131-2013210330331111-1131122023213203-2012210033333002-3020133112022330-3100110012233002-2333210233002322): complete subsection reference.
+- [captcha_challenge_parameters](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-1233022200332332-0330313332021131-2013210330331111-1131122023213203-2012210033333002-3020133112022330-3100110012233002-2333210233002322): complete subsection reference.
 
 - [default_captcha_challenge_parameters](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-0331321120033113-3101221012002312-3022320202232320-2310011132202011-2111232120123322-3010030202321212-2302113320000000-1203031132231320): complete subsection reference.
 
@@ -5276,7 +5330,7 @@ Receipt-pinned upstream constraints:
 
 - [policy_based_challenge.always_enable_captcha_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-2030100001113330-2112130200112202-0300113310000313-0011033200330002-2001203120111112-0210111202310120-1012011312101001-1132200313323033)
 - [policy_based_challenge.always_enable_js_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-0202231002132331-3211223301131113-3203232031001211-0123222132330301-3000202112102202-2000023102110011-2133210333203322-0130022301002031)
-- [policy_based_challenge.captcha_challenge_parameters](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1233022200332332-0330313332021131-2013210330331111-1131122023213203-2012210033333002-3020133112022330-3100110012233002-2333210233002322)
+- [policy_based_challenge.captcha_challenge_parameters](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-1233022200332332-0330313332021131-2013210330331111-1131122023213203-2012210033333002-3020133112022330-3100110012233002-2333210233002322)
 - [policy_based_challenge.default_captcha_challenge_parameters](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-0331321120033113-3101221012002312-3022320202232320-2310011132202011-2111232120123322-3010030202321212-2302113320000000-1203031132231320)
 - [policy_based_challenge.default_js_challenge_parameters](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-3020030331320002-2323312103120222-0233230333010101-0021201002220312-1100120123133312-1223333330123232-0330210121202121-2301300222123300)
 - [policy_based_challenge.default_mitigation_settings](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-0013310103300131-0320102103313301-3110201221302003-0201101332013301-0110221332202122-0200223010132002-0110231220302001-0212121033102102)
@@ -5343,59 +5397,6 @@ This is an empty object or choice marker. It has no direct properties.
 - [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
 
 <a id="canonical-0202231002132331-3211223301131113-3203232031001211-0123222132330301-3000202112102202-2000023102110011-2133210333203322-0130022301002031"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2111331322113301-0323112202300220-3132310200331020-1032303010120210-1131110213232100-1001300223201303-0232000031223013-3222133133322031"></a>
-
-## policy_based_challenge.always_enable_js_challenge — always_enable_js_challenge / 200323202103 / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
-- [Property reference](data-sources--cdn_loadbalancer--reference--group-001.md#canonical-1131232031102311-1311132230333002-2103010130221322-3211022033121010-2010132101303220-1213122123033021-1002230232002302-2212020120301223)
-- [policy_based_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1003021032130300-2322021331122233-2322332013300023-2032000221100232-0311111113021131-1303100011013231-0211010200312023-3120133233232032)
-- policy_based_challenge.always_enable_js_challenge
-
-<a id="canonical-0303203022313111-3321010021001103-3121023030032011-0301021113202220-2012003313313031-0203112113123010-1311023312022132-3233012013031030"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for always enable js challenge.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2333031001211311-1332211220202001-2303220203021102-1232000202122210-1302231211313221-1333131000312123-1311121020223201-0000021302223312"></a>
-
-## Direct properties — always_enable_js_challenge / 200323202103 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1113202122330330-0312303013213201-3223103223133211-0010211000310022-3232132133012302-0301022112132300-0210011110232010-1103020313201122"></a>
-
-## Next pages — always_enable_js_challenge / 200323202103 / 4
-
-- [policy_based_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1003021032130300-2322021331122233-2322332013300023-2032000221100232-0311111113021131-1303100011013231-0211010200312023-3120133233232032)
-- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
-
-<a id="canonical-1233022200332332-0330313332021131-2013210330331111-1131122023213203-2012210033333002-3020133112022330-3100110012233002-2333210233002322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

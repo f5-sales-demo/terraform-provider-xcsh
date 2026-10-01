@@ -2133,7 +2133,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Configuration parameter for destination aws vpc ids.
+Configuration parameter for destination aws vpc IDs.
 
 Upstream description:
 
@@ -3885,7 +3885,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Configuration parameter for source aws vpc ids.
+Configuration parameter for source aws vpc IDs.
 
 Upstream description:
 

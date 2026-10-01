@@ -799,12 +799,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -978,14 +978,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -1131,7 +1131,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Select Code Base and Repositories.
+Select codebase and Repositories.
 
 Provider validators and defaults (from schema source):
 
@@ -1197,11 +1197,11 @@ Breadcrumbs:
 
 Type: `"object"`. list nested block, Optional.
 
-Configuration parameter for code base integrations.
+Configuration parameter for codebase integrations.
 
 Upstream description:
 
-Configuration parameter for code base integrations
+Configuration parameter for codebase integrations
 
 Provider validators and defaults (from schema source):
 
@@ -3493,11 +3493,11 @@ headers {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Provider validators and defaults (from schema source):
 
@@ -3652,11 +3652,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Optional.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -3675,15 +3675,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1112322001032103-3323031323230302-3210120020003000-2230020222111201-0033111132123122-1300000033020002-0032002303201210-3310322211331132"></a>
 
-## regex property — headers / 113012020201 / 8
+## regular expression property — headers / 113012020201 / 8
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Provider validators and defaults (from schema source):
 
@@ -4801,12 +4801,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[any\_path path\_prefix\] Define the regex for the path. For example, the regex
+Exclusive with \[any\_path path\_prefix\] Define the regular expression for the path. For example, the regular expression
 ^/.\*$ will match on all paths.
 
 Upstream description:
 
-Exclusive with \[any\_path path\_prefix\] Define the regex for the path. For example, the regex
+Exclusive with \[any\_path path\_prefix\] Define the regular expression for the path. For example, the regular expression
 ^/.\*$ will match on all paths.
 
 Provider validators and defaults (from schema source):

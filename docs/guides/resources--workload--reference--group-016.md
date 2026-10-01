@@ -392,13 +392,13 @@ image {
 
 Type: `"string"`. Optional.
 
-Name is a container image which are usually given a name such as alpine, ubuntu, or
+Name is a container image which are usually given a name such as alpine, Ubuntu, or
 quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is
 not specified, the Docker public registry is assumed.
 
 Upstream description:
 
-Name is a container image which are usually given a name such as alpine, ubuntu, or
+Name is a container image which are usually given a name such as alpine, Ubuntu, or
 quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is
 not specified, the Docker public registry is assumed. If tag is not specified, latest is assumed.
 
@@ -6333,12 +6333,12 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 SimpleService is a service having one container and one replica that is deployed on all Regional
-Edges and advertised on Internet via HTTP loadbalancer on default VIP.
+Edges and advertised on internet via HTTP loadbalancer on default VIP.
 
 Upstream description:
 
 SimpleService is a service having one container and one replica that is deployed on all Regional
-Edges and advertised on Internet via HTTP loadbalancer on default VIP.
+Edges and advertised on internet via HTTP loadbalancer on default VIP.
 
 Provider validators and defaults (from schema source):
 

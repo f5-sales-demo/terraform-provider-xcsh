@@ -625,12 +625,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -778,14 +778,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -1188,12 +1188,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -1341,14 +1341,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -1550,15 +1550,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_rewrite\] prefix\_rewrite indicates that during forwarding, the matched
-prefix (or path) should be swapped with its value. When using regex path matching, the entire path
+Exclusive with \[regular expression\_rewrite\] prefix\_rewrite indicates that during forwarding, the matched
+prefix (or path) should be swapped with its value. When using regular expression path matching, the entire path
 (not including the query string) will be swapped with this value. This option allows application
 URLs to..
 
 Upstream description:
 
-Exclusive with \[regex\_rewrite\] prefix\_rewrite indicates that during forwarding, the matched
-prefix (or path) should be swapped with its value. When using regex path matching, the entire path
+Exclusive with \[regular expression\_rewrite\] prefix\_rewrite indicates that during forwarding, the matched
+prefix (or path) should be swapped with its value. When using regular expression path matching, the entire path
 (not including the query string) will be swapped with this value. This option allows application
 URLs to be rooted at a different path from those exposed at the reverse proxy layer.
 
@@ -1883,7 +1883,7 @@ Type: `"single"`. Computed.
 
 Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route
 level configuration takes precedence. An example of an Cross origin HTTP request GET
-/resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS
+/resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS
 X 10.5..
 
 Upstream description:
@@ -1892,11 +1892,11 @@ Cross-Origin Resource Sharing requests configuration specified at Virtual-host o
 level configuration takes precedence.
 
 An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other
-User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130
 Minefield/3.1b3pre Accept: text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8
 Accept-Language: en-us,en;q=0.5 Accept-Encoding: gzip,deflate Accept-Charset:
 ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive Referrer:
-http&#58;//foo.example/examples/access-control/simplexsinvocation.html Origin:
+http&#58;//foo.example/examples/access-control/simplexsinvocation.HTML Origin:
 http&#58;//foo.example
 
 HTTP/1.1 200 OK Date: Mon, 01 Dec 2008 00:23:53 GMT Server: Apache/2.0.61
@@ -1906,7 +1906,7 @@ Transfer-Encoding: chunked Content-Type: application/XML
 An example for cross origin HTTP OPTIONS request with Access-Control-Request-\* header
 
 OPTIONS /resources/POST-here/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel
-MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept:
+macOS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept:
 text/HTML,application/xhtml+XML,application/XML;q=0.9,\*/\*;q=0.8 Accept-Language: en-us,en;q=0.5
 Accept-Encoding: gzip,deflate Accept-Charset: ISO-8859-1,utf-8;q=0.7,\*;q=0.7 Connection: keep-alive
 Origin: http&#58;//foo.example Access-Control-Request-Method: POST Access-Control-Request-Headers:
@@ -2091,12 +2091,12 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Computed.
 
-Specifies regex patterns that match allowed origins. An origin is allowed if either allow\_origin or
+Specifies regular expression patterns that match allowed origins. An origin is allowed if either allow\_origin or
 allow\_origin\_regex match.
 
 Upstream description:
 
-Specifies regex patterns that match allowed origins. An origin is allowed if either allow\_origin or
+Specifies regular expression patterns that match allowed origins. An origin is allowed if either allow\_origin or
 allow\_origin\_regex match.
 
 Receipt-pinned upstream constraints:
@@ -3612,7 +3612,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0223022223021110-3110201200030022-1002211012011000-2020320132103233-2222202033021210-3212133010223231-0123021322022111-1010003332013033"></a>
 
-## ttl property — cookie / 202212130130 / 6
+## TTL property — cookie / 202212130130 / 6
 
 Type: `"number"`. Computed.
 
@@ -5588,13 +5588,13 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML.
+encoded in base64 format. The message can be either plain text or HTML.
 
 Upstream description:
 
 Response body to send. Currently supported URL schemes is string:/// for which message should be
-encoded in Base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
-Denied &lt;/p&gt;". Base64 encoded string URL for this is
+encoded in base64 format. The message can be either plain text or HTML. E.g. "&lt;p&gt; Access
+Denied &lt;/p&gt;". base64 encoded string URL for this is
 string:///PHA+IEFjY2VzcyBEZW5pZWQgPC9wPg==.
 
 Receipt-pinned upstream constraints:

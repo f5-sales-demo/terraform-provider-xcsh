@@ -899,7 +899,7 @@ Breadcrumbs:
 
 Type: `"list"`. Computed.
 
-List of API group elements with methods and path regex for matching requests.
+List of API group elements with methods and path regular expression for matching requests.
 
 Receipt-pinned upstream constraints:
 
@@ -1007,12 +1007,12 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Regular expression to match the input request API path against. The match is considered to succeed
-if the input request API path matches the specified path regex.
+if the input request API path matches the specified path regular expression.
 
 Upstream description:
 
 Regular expression to match the input request API path against. The match is considered to succeed
-if the input request API path matches the specified path regex.
+if the input request API path matches the specified path regular expression.
 
 Receipt-pinned upstream constraints:
 

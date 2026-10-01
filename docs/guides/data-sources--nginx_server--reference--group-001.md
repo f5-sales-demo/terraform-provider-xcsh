@@ -370,7 +370,7 @@ Type: `["list", "string"]`. Computed.
 
 Server name list specified as $\{server\_name\} in NGINX config. If no value is specified
 corresponding to this variable, 'default' is used Reference:
-https&#58;//nginx.org/en/docs/HTTP/ngx\_http\_core\_module.html\#server.
+https&#58;//nginx.org/en/docs/HTTP/ngx\_http\_core\_module.HTML\#server.
 
 - [locations](data-sources--nginx_server--reference--group-001.md#canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203): complete subsection reference.
 
@@ -776,7 +776,7 @@ Configuration for waf\_spec.
 
 Type: `"string"`. Computed.
 
-WAF Policy File Name. Policy file name for WAF.
+WAF Policy filename. Policy filename for WAF.
 
 <a id="canonical-2232012300020120-3302120030031022-0012200032012112-0211301121200131-3033001012102303-3311100220210303-0211322222321110-0002113322131220"></a>
 
@@ -1055,7 +1055,7 @@ Configuration for waf\_spec.
 
 Type: `"string"`. Computed.
 
-WAF Policy File Name. Policy file name for WAF.
+WAF Policy filename. Policy filename for WAF.
 
 <a id="canonical-1003121012300122-2020310230323001-0233101303333030-3031100321032000-3033232131132303-2321022322213111-3312203033112322-1332211120230112"></a>
 

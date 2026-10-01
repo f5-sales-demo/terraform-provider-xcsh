@@ -1635,7 +1635,7 @@ Management service.
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 <a id="canonical-1123312031221330-0102322023113031-0322112310132031-0222022021030101-3033310220033332-3130020030333100-1023233033331231-2031010231321013"></a>
@@ -1708,8 +1708,8 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 <a id="canonical-2113203310122231-2332130020132321-1300232021031200-0112310223220000-3222102233010322-1010122023022303-3212012322122331-2220020013210002"></a>
 
@@ -1776,7 +1776,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Select Code Base and Repositories.
+Select codebase and Repositories.
 
 <a id="canonical-3120212100313011-0020331111230301-2210203231230131-3001120131120323-2121220231200023-1221321002011013-3130022032100213-1222322210111010"></a>
 
@@ -1814,7 +1814,7 @@ Breadcrumbs:
 
 Type: `"list"`. Computed.
 
-Configuration parameter for code base integrations.
+Configuration parameter for codebase integrations.
 
 <a id="canonical-2120233103200033-1330303331030022-2201111030212002-1013230120123011-2003033021333112-0303002012101013-1130233011120220-1322323102010101"></a>
 

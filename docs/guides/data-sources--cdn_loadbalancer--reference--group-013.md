@@ -6,6 +6,59 @@ description: "Complete grouped canonical reference for xcsh_cdn_loadbalancer ref
 
 # xcsh_cdn_loadbalancer reference
 
+<a id="canonical-2111331322113301-0323112202300220-3132310200331020-1032303010120210-1131110213232100-1001300223201303-0232000031223013-3222133133322031"></a>
+
+## policy_based_challenge.always_enable_js_challenge — always_enable_js_challenge / 200323202103 / 2
+
+Breadcrumbs:
+
+- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
+- [Property reference](data-sources--cdn_loadbalancer--reference--group-001.md#canonical-1131232031102311-1311132230333002-2103010130221322-3211022033121010-2010132101303220-1213122123033021-1002230232002302-2212020120301223)
+- [policy_based_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1003021032130300-2322021331122233-2322332013300023-2032000221100232-0311111113021131-1303100011013231-0211010200312023-3120133233232032)
+- policy_based_challenge.always_enable_js_challenge
+
+<a id="canonical-0303203022313111-3321010021001103-3121023030032011-0301021113202220-2012003313313031-0203112113123010-1311023312022132-3233012013031030"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for always enable js challenge.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2333031001211311-1332211220202001-2303220203021102-1232000202122210-1302231211313221-1333131000312123-1311121020223201-0000021302223312"></a>
+
+## Direct properties — always_enable_js_challenge / 200323202103 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1113202122330330-0312303013213201-3223103223133211-0010211000310022-3232132133012302-0301022112132300-0210011110232010-1103020313201122"></a>
+
+## Next pages — always_enable_js_challenge / 200323202103 / 4
+
+- [policy_based_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1003021032130300-2322021331122233-2322332013300023-2032000221100232-0311111113021131-1303100011013231-0211010200312023-3120133233232032)
+- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
+
+<a id="canonical-1233022200332332-0330313332021131-2013210330331111-1131122023213203-2012210033333002-3020133112022330-3100110012233002-2333210233002322"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-1200202211000112-2011330202212030-2030011012322022-0011001011122102-2031231211302132-0131120203303111-2110110200233200-2203102032302312"></a>
 
 ## policy_based_challenge.captcha_challenge_parameters — captcha_challenge_parameters / 021303230222 / 2
@@ -119,15 +172,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -508,15 +561,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -5422,51 +5475,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-1312310332202210-2101223031132203-0011300310111322-1122011323301131-0121031333233212-0310233132323103-0301113303301233-0321202010310132"></a>
-
-## policy_based_challenge.rule_list.rules.spec.query_params.item — item / 111100013031 / 2
-
-Breadcrumbs:
-
-- [xcsh_cdn_loadbalancer](../data-sources/cdn_loadbalancer.md#canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222)
-- [Property reference](data-sources--cdn_loadbalancer--reference--group-001.md#canonical-1131232031102311-1311132230333002-2103010130221322-3211022033121010-2010132101303220-1213122123033021-1002230232002302-2212020120301223)
-- [policy_based_challenge](data-sources--cdn_loadbalancer--reference--group-012.md#canonical-1003021032130300-2322021331122233-2322332013300023-2032000221100232-0311111113021131-1303100011013231-0211010200312023-3120133233232032)
-- [policy_based_challenge.rule_list](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-0210302300122322-3311000103111301-0000210222112330-3200131110220012-0220300113301323-2132222023303312-0130120203310230-0310103123301032)
-- [policy_based_challenge.rule_list.rules](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-2122332200010113-2012230320001223-0302332030031011-2331201000111013-3213033011323222-2332001103111111-1211131122212231-2000003002130302)
-- [policy_based_challenge.rule_list.rules.spec](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-0210130300232123-3302100223103010-2112120312100031-3110232333220300-0200013000120103-0301102120002322-3222002311001313-1330100300023230)
-- [policy_based_challenge.rule_list.rules.spec.query_params](data-sources--cdn_loadbalancer--reference--group-013.md#canonical-0322033212130133-1113133131322212-0103013001021121-2103031200101123-3011211013203013-2000223231222111-3221121300020221-2012013210300023)
-- policy_based_challenge.rule_list.rules.spec.query_params.item
-
-<a id="canonical-3323211122002200-0130311300033011-3010001010030320-1202101130032232-2220123133102322-2013233033131112-0030131122232003-0000201112313122"></a>
-
-Type: `"single"`. Computed.
-
-Matcher specifies multiple criteria for matching an input string. The match is considered successful
-if any of the criteria are satisfied. The set of supported match criteria includes a list of exact
-values and a list of regular expressions.
-
-Upstream description:
-
-A matcher specifies multiple criteria for matching an input string. The match is considered
-successful if any of the criteria are satisfied. The set of supported match criteria includes a list
-of exact values and a list of regular expressions.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0313122230011110-0133012133103311-3231133212221030-0332023302102313-3213112210220030-2130200210010211-0301100001031230-2100232012213011"></a>
-
-## Direct properties — item / 111100013031 / 3
-
-<a id="canonical-3331121323203231-0222111120323321-1213233131322011-3020111100011113-1123103213112010-2021212302201311-0303203010313013-1210012333031010"></a>

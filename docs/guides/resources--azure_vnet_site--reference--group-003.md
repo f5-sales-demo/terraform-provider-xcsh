@@ -201,12 +201,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Provider validators and defaults (from schema source):
@@ -374,14 +374,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Optional, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Provider validators and defaults (from schema source):
 
@@ -1040,7 +1040,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [ssh](resources--azure_vnet_site--reference--group-003.md#canonical-1112321002201122-0033313110032211-2320113332031310-0131012021303012-1031030310000313-1013120030230110-3013322211123120-2222023021320221): complete subsection reference.
+- [SSH](resources--azure_vnet_site--reference--group-003.md#canonical-1112321002201122-0033313110032211-2320113332031310-0131012021303012-1031030310000313-1013120030230110-3013322211123120-2222023021320221): complete subsection reference.
 
 - [web_user_interface](resources--azure_vnet_site--reference--group-003.md#canonical-1120101030311213-3002113113332202-2122211103022013-2333130032110222-3333001222230132-0311301010320031-1300033111003223-3020301332001201): complete subsection reference.
 
@@ -1122,7 +1122,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <a id="canonical-2111231320031322-3011031132323102-0022102202302210-1121220112231313-0300230003233010-2310103323322211-0021302103203321-3333000021333320"></a>
 
-## blocked_services.blocked_service.ssh — ssh / 310211320013 / 2
+## blocked_services.blocked_service.SSH — SSH / 310211320013 / 2
 
 Breadcrumbs:
 
@@ -1130,7 +1130,7 @@ Breadcrumbs:
 - [Property reference](resources--azure_vnet_site--reference--group-001.md#canonical-3012120331203201-1112000130332131-3202332120003001-0123013103333002-1112013103100001-2021323312110130-1112011111221321-2323233113231232)
 - [blocked_services](resources--azure_vnet_site--reference--group-003.md#canonical-3130101112012001-2331300030123213-3211202221212033-2103010203120020-0101230331303200-0000012023202001-3121321331212010-3211233030210112)
 - [blocked_services.blocked_service](resources--azure_vnet_site--reference--group-003.md#canonical-3001311312231020-3030222311011211-2331133322230110-0221321222320033-2330111011301210-3201020003000023-3121023230110102-0011223103221010)
-- blocked_services.blocked_service.ssh
+- blocked_services.blocked_service.SSH
 
 <a id="canonical-0322233212320313-2121312233131110-2331202331231033-0210332122200110-1201020200303312-3213323310233122-3331230301103031-3211211003123001"></a>
 
@@ -1163,13 +1163,13 @@ ssh = {}
 
 <a id="canonical-0101020311200200-0322322332022300-3301101300110011-0031002300103302-1222133313323313-1023232201320333-3323110210132030-3331000233231020"></a>
 
-## Direct properties — ssh / 310211320013 / 3
+## Direct properties — SSH / 310211320013 / 3
 
 This is an empty object or choice marker. It has no direct properties.
 
 <a id="canonical-1313223310322032-2311312012013120-3020300003332013-1310131302320101-2321313312301323-2221011013313101-1233312010323120-2113132121103031"></a>
 
-## Next pages — ssh / 310211320013 / 4
+## Next pages — SSH / 310211320013 / 4
 
 - [blocked_services.blocked_service](resources--azure_vnet_site--reference--group-003.md#canonical-3001311312231020-3030222311011211-2331133322230110-0221321222320033-2330111011301210-3201020003000023-3121023230110102-0011223103221010)
 - [xcsh_azure_vnet_site](../resources/azure_vnet_site.md#canonical-2300201333020020-2232222123331320-0121101102033133-3300123100312103-1100330100011331-1000302303112121-2130232232220122-1003132230103113)

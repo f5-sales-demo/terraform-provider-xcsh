@@ -816,11 +816,11 @@ headers {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Upstream description:
 
-Exclusive with \[presence regex\] Header value to match exactly.
+Exclusive with \[presence regular expression\] Header value to match exactly.
 
 Provider validators and defaults (from schema source):
 
@@ -975,11 +975,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Optional.
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Upstream description:
 
-Exclusive with \[exact regex\] If true, check for presence of header.
+Exclusive with \[exact regular expression\] If true, check for presence of header.
 
 Receipt-pinned upstream constraints:
 
@@ -998,15 +998,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0232100002200331-3211201000013121-0030210233312313-2313130333322102-1130310132112313-3210000211221001-3312200331301212-2212110213002323"></a>
 
-## regex property — headers / 123302000001 / 8
+## regular expression property — headers / 123302000001 / 8
 
 Type: `"string"`. Optional.
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Upstream description:
 
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
+Exclusive with \[exact presence\] regular expression match of the header value in re2 format.
 
 Provider validators and defaults (from schema source):
 
@@ -2123,12 +2123,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Optional.
 
-Exclusive with \[any\_path path\_prefix\] Define the regex for the path. For example, the regex
+Exclusive with \[any\_path path\_prefix\] Define the regular expression for the path. For example, the regular expression
 ^/.\*$ will match on all paths.
 
 Upstream description:
 
-Exclusive with \[any\_path path\_prefix\] Define the regex for the path. For example, the regex
+Exclusive with \[any\_path path\_prefix\] Define the regular expression for the path. For example, the regular expression
 ^/.\*$ will match on all paths.
 
 Provider validators and defaults (from schema source):

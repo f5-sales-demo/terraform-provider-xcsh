@@ -133,12 +133,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Optional, Computed.
 
-Connect all SRv6 Virtual Networks in this slice to the Internet by importing route targets specified
+Connect all SRv6 Virtual Networks in this slice to the internet by importing route targets specified
 in the virtual network.
 
 Upstream description:
 
-Connect all SRv6 Virtual Networks in this slice to the Internet by importing route targets specified
+Connect all SRv6 Virtual Networks in this slice to the internet by importing route targets specified
 in the virtual network.
 
 Receipt-pinned upstream constraints:

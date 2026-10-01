@@ -2276,7 +2276,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:protected_endpoints",
@@ -5109,7 +5109,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-003.md"
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:protected_endpoints:mobile_client:continue:add_header",
@@ -5121,7 +5121,7 @@
       "anchor": "canonical-3201201101321121-0312200232132323-2032313001231031-1113311321002110-3200223020112023-0203203031031022-0103230110021010-0333030020212320",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-003.md"
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:protected_endpoints:mobile_client:continue:add_header",
@@ -5133,7 +5133,7 @@
       "anchor": "canonical-1210022112100000-0330121300210131-3313300200322112-2323021221300031-1322000322132322-3130020011333300-0233321222131101-1100312222022020",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-003.md"
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:protected_endpoints:mobile_client:continue:no_header",
@@ -5145,7 +5145,7 @@
       "anchor": "canonical-0220130330201122-1021330210031120-0100201113100201-1333330120233113-3230132322322132-3312313210123032-3000212121232232-2321031232102202",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-003.md"
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:protected_endpoints:mobile_client:continue:no_header",

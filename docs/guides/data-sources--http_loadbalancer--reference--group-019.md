@@ -6,6 +6,61 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-3333203203132111-2202100331223302-0011123111031001-0131312330003122-3100210020112122-2222212030323020-2130113132013111-1120113100330301"></a>
+
+## Next pages — trusted_ca / 231212133303 / 7
+
+- [https.tls_cert_params.use_mtls](data-sources--http_loadbalancer--reference--group-018.md#canonical-0100211003133012-2022100102310023-1213133030310333-1112311330321323-1113030000201010-3012132103130231-3110303333323213-0302113200332100)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-0101113332133200-2011200000230031-0032201320100301-2333000103132121-0121221113003010-3220211212032320-1023031111012212-1113123323123003"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1101112102202113-2121230230301233-0211110213032203-1110223211201333-3020003011303030-2210332033330130-2110221123102032-0112202121030001"></a>
+
+## https.tls_cert_params.use_mtls.xfcc_disabled — xfcc_disabled / 130130330223 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [https](data-sources--http_loadbalancer--reference--group-018.md#canonical-0112223033331211-0131010222320312-0220012121111333-2323003223120200-1033012212133000-1022211023310312-1210322030333100-1313202312011301)
+- [https.tls_cert_params](data-sources--http_loadbalancer--reference--group-018.md#canonical-0011121033233220-3311202112112001-0220333111322122-2213202322313002-3213103232311233-2200102030312213-0032120231111113-3201230203322302)
+- [https.tls_cert_params.use_mtls](data-sources--http_loadbalancer--reference--group-018.md#canonical-0100211003133012-2022100102310023-1213133030310333-1112311330321323-1113030000201010-3012132103130231-3110303333323213-0302113200332100)
+- https.tls_cert_params.use_mtls.xfcc_disabled
+
+<a id="canonical-2322010031032131-3312013130331212-0102311232120110-2330300003210030-1020233133212212-0100102011213000-0032223113221113-0230012220113302"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0332200020330312-1330333303222300-2133331333333013-3000311222213222-2330212332202112-2113132031101203-0222033130121012-1103322311213323"></a>
+
+## Direct properties — xfcc_disabled / 130130330223 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-0320110121232021-2013212130222103-3022303001320113-0020323232010100-2001123002033321-0030220023321111-3023330310300221-0133232113111210"></a>
 
 ## Next pages — xfcc_disabled / 130130330223 / 4
@@ -678,12 +733,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -832,14 +887,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -4828,15 +4883,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -5000,60 +5055,6 @@ Receipt-pinned upstream constraints:
 - [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
 <a id="canonical-0330000101210233-3210012112023210-0100120200333133-1031102031030203-3332320022130222-1321213230203003-1303301123013331-1033300310312101"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1100113233210203-1201203213113120-1100011112031102-3023030302323323-0203123200033111-0210301310023103-1002031100323321-1020000310112202"></a>
-
-## jwt_validation.action — action / 332123313103 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
-- [jwt_validation](data-sources--http_loadbalancer--reference--group-019.md#canonical-0133002233023033-0213212130220323-1323123322310121-1331110232211203-2031102121220113-0003303230320233-3002110300000232-1203213002200130)
-- jwt_validation.action
-
-<a id="canonical-2322133200003120-0020322322031123-0112011202201012-2132213001020232-1002201123203303-2222321031110231-3003001213332310-0320110230013333"></a>
-
-Type: `"single"`. Computed.
-
-Action
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-action_choice": "[\"block\",\"report\"]"
-}
-```
-
-<a id="canonical-1000323131332302-3233320132002212-2002001123101323-1023103201023120-1213321323112013-0322201310331320-3032211002103130-3222021031121003"></a>
-
-## Direct properties — action / 332123313103 / 3
-
-- [block](data-sources--http_loadbalancer--reference--group-019.md#canonical-3310212213010012-1310313200231023-1002132133301020-2010130313022021-2211022313021303-3012312000013030-2123233331213130-0213302023010323): complete subsection reference.
-
-- [report](data-sources--http_loadbalancer--reference--group-020.md#canonical-1232021203130011-1200023112011311-2022031033310210-0111312331122321-2101232202012233-2322330321033131-2003100213012100-3022220031123311): complete subsection reference.
-
-<a id="canonical-1121123303331231-1000003131010320-0303301231320331-0213210010103031-1300322231030001-1113030131320131-2033011231013022-2300301022231331"></a>
-
-## Next pages — action / 332123313103 / 4
-
-- [jwt_validation.action.block](data-sources--http_loadbalancer--reference--group-019.md#canonical-3310212213010012-1310313200231023-1002132133301020-2010130313022021-2211022313021303-3012312000013030-2123233331213130-0213302023010323)
-- [jwt_validation.action.report](data-sources--http_loadbalancer--reference--group-020.md#canonical-1232021203130011-1200023112011311-2022031033310210-0111312331122321-2101232202012233-2322330321033131-2003100213012100-3022220031123311)
-- [jwt_validation](data-sources--http_loadbalancer--reference--group-019.md#canonical-0133002233023033-0213212130220323-1323123322310121-1331110232211203-2031102121220113-0003303230320233-3002110300000232-1203213002200130)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-
-<a id="canonical-3310212213010012-1310313200231023-1002132133301020-2010130313022021-2211022313021303-3012312000013030-2123233331213130-0213302023010323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

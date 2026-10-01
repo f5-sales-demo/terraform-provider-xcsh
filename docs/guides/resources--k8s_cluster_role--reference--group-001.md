@@ -323,7 +323,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3111203310333102-2212233130201030-3123010313131222-2201110221312023-2213322212033222-3211221313213301-1300211330330300-0121122311303323"></a>
 
-## yaml property — Property reference / 021021123132 / 11
+## YAML property — Property reference / 021021123132 / 11
 
 Type: `"string"`. Optional, Computed.
 
@@ -412,7 +412,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `timeouts.delete` | [timeouts.delete](resources--k8s_cluster_role--reference--group-001.md#canonical-0031303312322102-3200020002130123-3222300330122300-2003110201023120-1323121313201323-2313001333333201-2301033233103213-2320103123212103) |
 | `timeouts.read` | [timeouts.read](resources--k8s_cluster_role--reference--group-001.md#canonical-2032012312122120-2310002110013312-1303010002211100-2110131123120330-3203132112010332-2131320202111010-2322203212212102-2012223303321330) |
 | `timeouts.update` | [timeouts.update](resources--k8s_cluster_role--reference--group-001.md#canonical-0012210212313331-3331013331331220-1023023323233100-1223012323311333-1032333032231310-3002222120110210-1222121201120313-0023311003110110) |
-| `yaml` | [yaml](resources--k8s_cluster_role--reference--group-001.md#canonical-1220131223122200-0202032323323322-0110303000212022-1302001311121022-2222100030110222-0132322321000331-3030123030132012-0302103222112103) |
+| `yaml` | [YAML](resources--k8s_cluster_role--reference--group-001.md#canonical-1220131223122200-0202032323323322-0110303000212022-1302001311121022-2222100030110222-0132322321000331-3030123030132012-0302103222112103) |
 
 <a id="canonical-0033211300010332-2002232002110302-2013102312030133-1331113023310201-1301222001013221-1001203300220032-0032130312010202-2011020222320211"></a>
 
@@ -443,7 +443,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-\[OneOf: k8s\_cluster\_role\_selector, policy\_rule\_list, yaml\] Type can be used to establish a
+\[OneOf: k8s\_cluster\_role\_selector, policy\_rule\_list, YAML\] Type can be used to establish a
 'selector reference' from one object(called selector) to a set of other objects(called selectees)
 based on the value of expressions. A label selector is a label query over a set of resources. An
 empty label selector matches all objects.
@@ -486,7 +486,7 @@ OneOf alternatives in this subsection:
 
 - [k8s_cluster_role_selector](resources--k8s_cluster_role--reference--group-001.md#canonical-1123312210301210-2200033231122200-0030121001030213-0212033113202233-3021102333131222-3131203212331110-3323033203203021-0211003011022313)
 - [policy_rule_list](resources--k8s_cluster_role--reference--group-001.md#canonical-2230123002311302-2120320000111321-2111130313201313-3103220022310232-1113131333103022-1013201000100010-1233323332303000-3130212210212032)
-- [yaml](resources--k8s_cluster_role--reference--group-001.md#canonical-1220131223122200-0202032323323322-0110303000212022-1302001311121022-2222100030110222-0132322321000331-3030123030132012-0302103222112103)
+- [YAML](resources--k8s_cluster_role--reference--group-001.md#canonical-1220131223122200-0202032323323322-0110303000212022-1302001311121022-2222100030110222-0132322321000331-3030123030132012-0302103222112103)
 
 Select alternatives according to the provider validators above.
 
@@ -792,11 +792,11 @@ non_resource_url_list {
 
 <a id="canonical-3003232312003002-3331001123131202-2112020131030321-2013133000222320-3102021331032222-2232033201312320-1200311001111200-2133221321333320"></a>
 
-## urls property — non_resource_url_list / 230313010321 / 4
+## URLs property — non_resource_url_list / 230313010321 / 4
 
 Type: `["list", "string"]`. Optional.
 
-Allowed URL(s) that do not represent any K8s resource. URL can be suffix or regex.
+Allowed URL(s) that do not represent any K8s resource. URL can be suffix or regular expression.
 
 Provider validators and defaults (from schema source):
 

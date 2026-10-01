@@ -532,11 +532,11 @@ cloud_hosted {
 
 Type: `"string"`. Optional.
 
-Infra Host Name. Infra Host Name.
+Infra hostname. Infra hostname.
 
 Upstream description:
 
-Infra Host Name.
+Infra hostname.
 
 Provider validators and defaults (from schema source):
 
@@ -1022,11 +1022,11 @@ ingress {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[ip\_address\] Ingress Host Name.
+Exclusive with \[ip\_address\] Ingress hostname.
 
 Upstream description:
 
-Exclusive with \[ip\_address\] Ingress Host Name.
+Exclusive with \[ip\_address\] Ingress hostname.
 
 Provider validators and defaults (from schema source):
 
@@ -1338,11 +1338,11 @@ data_center_hosted {
 
 Type: `"string"`. Optional.
 
-Infra Host Name. Infra Host Name.
+Infra hostname. Infra hostname.
 
 Upstream description:
 
-Infra Host Name.
+Infra hostname.
 
 Provider validators and defaults (from schema source):
 
@@ -1828,11 +1828,11 @@ ingress {
 
 Type: `"string"`. Optional.
 
-Exclusive with \[ip\_address\] Ingress Host Name.
+Exclusive with \[ip\_address\] Ingress hostname.
 
 Upstream description:
 
-Exclusive with \[ip\_address\] Ingress Host Name.
+Exclusive with \[ip\_address\] Ingress hostname.
 
 Provider validators and defaults (from schema source):
 

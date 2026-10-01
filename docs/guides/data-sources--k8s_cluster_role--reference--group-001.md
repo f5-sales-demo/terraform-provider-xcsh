@@ -277,7 +277,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3103303000213033-0031313130111223-0220213220331021-3113000132232113-3002223320331221-1011011002321110-0120123203313121-1210020113001232"></a>
 
-## yaml property — Property reference / 222013200103 / 10
+## YAML property — Property reference / 222013200103 / 10
 
 Type: `"string"`. Computed.
 
@@ -352,7 +352,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `policy_rule_list.policy_rule.resource_list.resource_instances` | [policy_rule_list.policy_rule.resource_list.resource_instances](data-sources--k8s_cluster_role--reference--group-001.md#canonical-1300012111211111-0130233031211102-1003302301111222-3021021122021200-2333022112022120-2230322011011012-1031101122213120-3320322213330211) |
 | `policy_rule_list.policy_rule.resource_list.resource_types` | [policy_rule_list.policy_rule.resource_list.resource_types](data-sources--k8s_cluster_role--reference--group-001.md#canonical-2021033121121303-1121023233120311-3133321003322333-2302233202233213-0221213210022001-2021323022313302-3111231213220001-3221232123001300) |
 | `policy_rule_list.policy_rule.resource_list.verbs` | [policy_rule_list.policy_rule.resource_list.verbs](data-sources--k8s_cluster_role--reference--group-001.md#canonical-2200010030311330-2121212132010130-1213000323303332-2332122333010220-2112200122111103-1300020011102110-0332033231030003-3210333311003121) |
-| `yaml` | [yaml](data-sources--k8s_cluster_role--reference--group-001.md#canonical-2121220023022210-2101001033033322-1222221132322103-2310102331132301-0120100013013121-2331112133330110-3013210210020031-0311130223012001) |
+| `yaml` | [YAML](data-sources--k8s_cluster_role--reference--group-001.md#canonical-2121220023022210-2101001033033322-1222221132322103-2310102331132301-0120100013013121-2331112133330110-3013210210020031-0311130223012001) |
 
 <a id="canonical-0201311021102330-3333231021213220-2233211300132003-3321123123130102-3332023130100000-3023312331311122-1300031311031212-0213230211112012"></a>
 
@@ -382,7 +382,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-\[OneOf: k8s\_cluster\_role\_selector, policy\_rule\_list, yaml\] Type can be used to establish a
+\[OneOf: k8s\_cluster\_role\_selector, policy\_rule\_list, YAML\] Type can be used to establish a
 'selector reference' from one object(called selector) to a set of other objects(called selectees)
 based on the value of expressions. A label selector is a label query over a set of resources. An
 empty label selector matches all objects.
@@ -419,7 +419,7 @@ OneOf alternatives in this subsection:
 
 - [k8s_cluster_role_selector](data-sources--k8s_cluster_role--reference--group-001.md#canonical-1101010332132132-1303031211313123-0303022320231030-2101100033132122-1313222300202311-2313320131133110-3220312301133213-3212223201120122)
 - [policy_rule_list](data-sources--k8s_cluster_role--reference--group-001.md#canonical-2321032230220330-2022223303033312-2130022012203110-1121230012313202-3110333130002103-2221332103013323-1101223230003302-2202030132303211)
-- [yaml](data-sources--k8s_cluster_role--reference--group-001.md#canonical-2121220023022210-2101001033033322-1222221132322103-2310102331132301-0120100013013121-2331112133330110-3013210210020031-0311130223012001)
+- [YAML](data-sources--k8s_cluster_role--reference--group-001.md#canonical-2121220023022210-2101001033033322-1222221132322103-2310102331132301-0120100013013121-2331112133330110-3013210210020031-0311130223012001)
 
 Select alternatives according to the provider validators above.
 
@@ -665,11 +665,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0213022010030113-1120320303012022-2011131221301203-0030010120020000-0010012220202311-1331232002233303-1232002112031312-2003000020221122"></a>
 
-## urls property — non_resource_url_list / 212003113030 / 4
+## URLs property — non_resource_url_list / 212003113030 / 4
 
 Type: `["list", "string"]`. Computed.
 
-Allowed URL(s) that do not represent any K8s resource. URL can be suffix or regex.
+Allowed URL(s) that do not represent any K8s resource. URL can be suffix or regular expression.
 
 Receipt-pinned upstream constraints:
 

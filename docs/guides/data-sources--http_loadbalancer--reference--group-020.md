@@ -6,6 +6,60 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-1100113233210203-1201203213113120-1100011112031102-3023030302323323-0203123200033111-0210301310023103-1002031100323321-1020000310112202"></a>
+
+## jwt_validation.action — action / 332123313103 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [jwt_validation](data-sources--http_loadbalancer--reference--group-019.md#canonical-0133002233023033-0213212130220323-1323123322310121-1331110232211203-2031102121220113-0003303230320233-3002110300000232-1203213002200130)
+- jwt_validation.action
+
+<a id="canonical-2322133200003120-0020322322031123-0112011202201012-2132213001020232-1002201123203303-2222321031110231-3003001213332310-0320110230013333"></a>
+
+Type: `"single"`. Computed.
+
+Action
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-action_choice": "[\"block\",\"report\"]"
+}
+```
+
+<a id="canonical-1000323131332302-3233320132002212-2002001123101323-1023103201023120-1213321323112013-0322201310331320-3032211002103130-3222021031121003"></a>
+
+## Direct properties — action / 332123313103 / 3
+
+- [block](data-sources--http_loadbalancer--reference--group-020.md#canonical-3310212213010012-1310313200231023-1002132133301020-2010130313022021-2211022313021303-3012312000013030-2123233331213130-0213302023010323): complete subsection reference.
+
+- [report](data-sources--http_loadbalancer--reference--group-020.md#canonical-1232021203130011-1200023112011311-2022031033310210-0111312331122321-2101232202012233-2322330321033131-2003100213012100-3022220031123311): complete subsection reference.
+
+<a id="canonical-1121123303331231-1000003131010320-0303301231320331-0213210010103031-1300322231030001-1113030131320131-2033011231013022-2300301022231331"></a>
+
+## Next pages — action / 332123313103 / 4
+
+- [jwt_validation.action.block](data-sources--http_loadbalancer--reference--group-020.md#canonical-3310212213010012-1310313200231023-1002132133301020-2010130313022021-2211022313021303-3012312000013030-2123233331213130-0213302023010323)
+- [jwt_validation.action.report](data-sources--http_loadbalancer--reference--group-020.md#canonical-1232021203130011-1200023112011311-2022031033310210-0111312331122321-2101232202012233-2322330321033131-2003100213012100-3022220031123311)
+- [jwt_validation](data-sources--http_loadbalancer--reference--group-019.md#canonical-0133002233023033-0213212130220323-1323123322310121-1331110232211203-2031102121220113-0003303230320233-3002110300000232-1203213002200130)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+
+<a id="canonical-3310212213010012-1310313200231023-1002132133301020-2010130313022021-2211022313021303-3012312000013030-2123233331213130-0213302023010323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-0213100011133020-0131031320110002-1010133120000113-0302013122231232-3330111000323311-1313212012313320-3200003021103100-3323301021300320"></a>
 
 ## jwt_validation.action.block — block / 120002222030 / 2
@@ -1645,15 +1699,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -1992,15 +2046,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -2169,15 +2223,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -2819,15 +2873,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -2996,15 +3050,15 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format.
 
 Upstream description:
 
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
+Custom message is of type URI\_ref. Currently supported URL schemes is string:///. For string:///
+scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded
 plain text message e.g. "Please Wait.." or it can be HTML paragraph or a body string encoded as
-base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". Base64 encoded string for this HTML is
+base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for this HTML is
 "PHA+IFBsZWFzZSBXYWl0IDwvcD4="
 
 Receipt-pinned upstream constraints:
@@ -3659,11 +3713,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Upstream description:
 
-Exclusive with \[regex\_value suffix\_value\] Exact domain name.
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
 Receipt-pinned upstream constraints:
 
@@ -3762,12 +3816,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g 'xyz.com' will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g 'xyz.com' will match
 '\*.xyz.com' and 'xyz.com'.
 
 Upstream description:
 
-Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
+Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
 Receipt-pinned upstream constraints:
@@ -3996,11 +4050,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Upstream description:
 
-Exclusive with \[prefix regex\] Exact path value to match.
+Exclusive with \[prefix regular expression\] Exact path value to match.
 
 Receipt-pinned upstream constraints:
 
@@ -4045,11 +4099,11 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Upstream description:
 
-Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
+Exclusive with \[path regular expression\] Path prefix to match (e.g. The value / will match on all paths)
 
 Receipt-pinned upstream constraints:
 
@@ -4088,7 +4142,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1202331233032332-0000023021323020-2130031300321101-0310203201303313-3300310323001202-3222112020010221-0011120102223000-2101200020203321"></a>
 
-## regex property — path / 031202222321 / 6
+## regular expression property — path / 031202222321 / 6
 
 Type: `"string"`. Computed.
 
@@ -5522,12 +5576,12 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Upstream description:
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 Receipt-pinned upstream constraints:
@@ -5675,14 +5729,14 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Upstream description:
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 Receipt-pinned upstream constraints:
 
@@ -5993,193 +6047,18 @@ Receipt-pinned upstream constraints:
 
 - [blindfold_secret_info](data-sources--http_loadbalancer--reference--group-020.md#canonical-2303110233123102-0223032021010001-3330233323001203-2010010032222233-1202312110113333-3312320030110333-3120023020231122-1322301300320002): complete subsection reference.
 
-- [clear_secret_info](data-sources--http_loadbalancer--reference--group-020.md#canonical-3333033032103310-0321020023231321-2331031212121033-0330213321121131-2123032230333122-1111202213202312-1211212221013132-3311312323321102): complete subsection reference.
+- [clear_secret_info](data-sources--http_loadbalancer--reference--group-021.md#canonical-3333033032103310-0321020023231321-2331031212121033-0330213321121131-2123032230333122-1111202213202312-1211212221013132-3311312323321102): complete subsection reference.
 
 <a id="canonical-1101123031132212-3312213113202002-0010012300002120-2320120330010213-0131031010010201-1331321322233300-2220213200123222-2131301313313230"></a>
 
 ## Next pages — secret_value / 330003321002 / 4
 
 - [more_option.request_headers_to_add.secret_value.blindfold_secret_info](data-sources--http_loadbalancer--reference--group-020.md#canonical-2303110233123102-0223032021010001-3330233323001203-2010010032222233-1202312110113333-3312320030110333-3120023020231122-1322301300320002)
-- [more_option.request_headers_to_add.secret_value.clear_secret_info](data-sources--http_loadbalancer--reference--group-020.md#canonical-3333033032103310-0321020023231321-2331031212121033-0330213321121131-2123032230333122-1111202213202312-1211212221013132-3311312323321102)
+- [more_option.request_headers_to_add.secret_value.clear_secret_info](data-sources--http_loadbalancer--reference--group-021.md#canonical-3333033032103310-0321020023231321-2331031212121033-0330213321121131-2123032230333122-1111202213202312-1211212221013132-3311312323321102)
 - [more_option.request_headers_to_add](data-sources--http_loadbalancer--reference--group-020.md#canonical-3131323333013211-1120301133201010-1211330033032130-3121231320313312-1312311200203221-3112223310131110-3201331320102000-1013203220202110)
 - [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
 
 <a id="canonical-2303110233123102-0223032021010001-3330233323001203-2010010032222233-1202312110113333-3312320030110333-3120023020231122-1322301300320002"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1010100131212232-2001221030033123-2332233010121110-2300022021021323-3113021031010131-0323330112321223-3332333011330101-1011033003323202"></a>
-
-## more_option.request_headers_to_add.secret_value.blindfold_secret_info — blindfold_secret_info / 012011312312 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
-- [more_option](data-sources--http_loadbalancer--reference--group-020.md#canonical-3020122111213230-3123110331301013-0212331102130112-1130121311213313-0102332203020303-2031330330302330-2131212323210012-3212203312120101)
-- [more_option.request_headers_to_add](data-sources--http_loadbalancer--reference--group-020.md#canonical-3131323333013211-1120301133201010-1211330033032130-3121231320313312-1312311200203221-3112223310131110-3201331320102000-1013203220202110)
-- [more_option.request_headers_to_add.secret_value](data-sources--http_loadbalancer--reference--group-020.md#canonical-1131121000130320-1202130021200221-1000000220302321-0200030221313113-3002002321113003-3013132122301312-3130102313111120-1023001113122030)
-- more_option.request_headers_to_add.secret_value.blindfold_secret_info
-
-<a id="canonical-3220321331223321-1122030132112030-2102001031332301-2311233120300003-0031331321020010-0212221212230003-0000331310103221-1322300233123021"></a>
-
-Type: `"single"`. Computed.
-
-BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2123303133031001-1231111131211012-2231021233331101-2120102133332023-1321022113330121-2012023321310212-3130313330102320-0322022110021111"></a>
-
-## Direct properties — blindfold_secret_info / 012011312312 / 3
-
-<a id="canonical-3113211213011303-2331331030030013-1230232131313330-0030230012031310-0021301333030302-2321022003121100-3212323031110320-0123211232301023"></a>
-
-<a id="canonical-0123011131230221-1232233010031030-2013232023302111-0312100312133311-2030022200021020-3123132301202330-3130300310002222-1200202200303121"></a>
-
-## decryption_provider property — blindfold_secret_info / 012011312312 / 4
-
-Type: `"string"`. Computed.
-
-Name of the Secret Management Access object that contains information about the backend Secret
-Management service.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1011220203112322-2122122110322021-2201230313231222-0200232110203210-1000020220301101-0002121223331002-1222311233021130-1301322023330213"></a>
-
-<a id="canonical-1002302132332111-2112133133313210-1011130110000311-3111101223020121-2113312130223022-1300230330022333-3001230013210322-3212103211013022"></a>
-
-## location property — blindfold_secret_info / 012011312312 / 5
-
-Type: `"string"`. Computed, Sensitive.
-
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Upstream description:
-
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "content",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "maxLength": 131072,
-    "metadata": {
-      "category": "content",
-      "confidence": 1.0,
-      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
-      "source": "manual-override",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minLength": 4
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-f5xc-sensitive": true,
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-1200201102111100-3210010001130102-2022020023000101-3232011310123011-2032033321031021-1003011221303223-1320101222322123-3132001130000302"></a>
-
-<a id="canonical-0222201202023331-0031010130210020-2000002012123323-2103230321002023-0002333012331032-0202213222113203-0120211031320103-2130120112213013"></a>
-
-## store_provider property — blindfold_secret_info / 012011312312 / 6
-
-Type: `"string"`. Computed.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Upstream description:
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2212322131120331-0013103101320100-3023301131122020-2303022311130221-2323331112130023-1213121103112123-1211010210230322-1302123012000113"></a>
-
-## Next pages — blindfold_secret_info / 012011312312 / 7
-
-- [more_option.request_headers_to_add.secret_value](data-sources--http_loadbalancer--reference--group-020.md#canonical-1131121000130320-1202130021200221-1000000220302321-0200030221313113-3002002321113003-3013132122301312-3130102313111120-1023001113122030)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-
-<a id="canonical-3333033032103310-0321020023231321-2331031212121033-0330213321121131-2123032230333122-1111202213202312-1211212221013132-3311312323321102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

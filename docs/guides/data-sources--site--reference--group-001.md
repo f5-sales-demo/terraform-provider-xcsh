@@ -688,7 +688,7 @@ Management service.
 
 Type: `"string"`. Computed, Sensitive.
 
-Location is the uri\_ref. It could be in URL format for string:/// Or it could be a path if the
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
 <a id="canonical-0331233011312200-1031330220132103-2320233212232311-3120002301110111-1323320012011121-3020233022231001-1302313322322001-1322102121023210"></a>
@@ -757,8 +757,8 @@ encrypted bytes This field needs to be provided only if the URL scheme is not st
 Type: `"string"`. Computed, Sensitive.
 
 URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after
-Base64 decoding.
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
 
 <a id="canonical-2111322023023222-2020121102013310-0120133200031113-2131332322333121-2333202222220331-0311011301010000-3122121223002331-1131023231313321"></a>
 

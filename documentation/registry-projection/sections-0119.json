@@ -6517,7 +6517,7 @@
       "anchor": "canonical-3131233022302113-1313202332230032-1132211110012131-0011212333011021-2000120333102130-2310202010021313-2020123102030310-3213001303312030",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-009.md"
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-010.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:ddos_mitigation_rules:ip_prefix_list",
