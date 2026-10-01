@@ -131,7 +131,11 @@ def main() -> int:
     monitor = DiskMonitor(paths)
     started = time.monotonic()
     exit_code = run_profile(command, monitor)
+    used_before_sync = disk_sample(Path.cwd())
+    os.sync()
+    used_after_sync = disk_sample(Path.cwd())
     runtime = {
+        "diagnostic_flush": {"before":used_before_sync,"after":used_after_sync},
         "schema_version": 1,
         "source_sha": source,
         "observed_image_digest": image,
