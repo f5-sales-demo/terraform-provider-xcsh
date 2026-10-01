@@ -34,14 +34,14 @@ set +e
     ;;
   provider-generation)
     go run -p "$concurrency" tools/generate-all-schemas.go --spec-dir=docs/specifications/api
-    scripts/go-retry.sh 3 go mod tidy
+    GOMAXPROCS=1 scripts/go-retry.sh 3 go mod tidy
     ;;
   documentation-generation)
     scripts/generate-provider-docs.sh
     ;;
   release-preflight)
     go run tools/generate-all-schemas.go --spec-dir=docs/specifications/api
-    scripts/go-retry.sh 3 go mod tidy
+    GOMAXPROCS=1 scripts/go-retry.sh 3 go mod tidy
     scripts/generate-provider-docs.sh
     git diff --exit-code
     ;;
