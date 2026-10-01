@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_receiver"
+page_title: "xcsh_alert_receiver landing"
 subcategory: ""
-description: "xcsh_alert_receiver for xcsh_alert_receiver."
-xcsh_docs: {"aliases": [], "body_bytes": 1332, "body_sha256": "sha256:c2b1be8323a8cf2483d5a84c80fcce59e4c997fd4143d155051bf66fece46080", "canonical_id": "xcsh-docs:resources:alert_receiver:fundamentals", "child_ids": ["xcsh-docs:resources:alert_receiver:reference", "xcsh-docs:resources:alert_receiver:examples", "xcsh-docs:resources:alert_receiver:import", "xcsh-docs:resources:alert_receiver:timeouts"], "collection_id": "xcsh-docs:resources:alert_receiver:collection", "completeness": "complete", "id": "xcsh-docs:resources:alert_receiver:fundamentals", "parent_id": null, "path": "docs/resources/alert_receiver.md", "provider_name": "alert_receiver", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_receiver/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_receiver for xcsh_alert_receiver.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_receiverCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_receiver landing."
 ---
+
+# xcsh_alert_receiver landing
+
+<a id="canonical-0fb886588ec1c70113d1093e2a82a5de928b18b20a2a373435526407a441bff5"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_receiver
+<a id="canonical-0544da6be8c51d4803bf9a6c6454aed8198ea4d002c2406dacd0cd91cef82b15"></a>
+
+## xcsh_alert_receiver — xcsh_alert_receiver / 87d24bc2006c / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages new Alert Receiver object in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-e13ad0b59f87055f202abe7e73f24c5697f9afc31709d0e3232fed4da03616cf"></a>
+
+## Prerequisites — xcsh_alert_receiver / 87d24bc2006c / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-61977ded5154b8ba7e59307310df269f3f84f8d6ba42f546ec1f419de7c34005"></a>
+
+## Minimal configuration — xcsh_alert_receiver / 87d24bc2006c / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_alert_receiver" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-91ee31432804a677973f470091057b1dcf751728bab7c65ebe5ccbce380be9d3"></a>
+
+## Root configuration — xcsh_alert_receiver / 87d24bc2006c / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-48a6c25b310db37f3f92f207590bf9eeb701a0756288d00bf62214606d57f4ac"></a>
 
-- [Property reference](../guides/resources--alert_receiver--reference.md)
-- [Examples](../guides/resources--alert_receiver--examples.md)
-- [Import](../guides/resources--alert_receiver--import.md)
-- [Timeouts](../guides/resources--alert_receiver--timeouts.md)
+## Next pages — xcsh_alert_receiver / 87d24bc2006c / 6
+
+- [Property reference](../guides/resources--alert_receiver--reference--group-001.md#canonical-3bdd8813233b978c5891e876eb017fa9fba9a927108a24d7e64bc84768f2c444)
+- [Examples](../guides/resources--alert_receiver--examples--group-001.md#canonical-ba89dbcb9dac7c377504e401a1b7ed2f328cb8fc18ad6bd9894953be2fc2502a)
+- [Import](../guides/resources--alert_receiver--lifecycle--group-001.md#canonical-98b097c7e805a760f02fbb39cfea8d793b0484449340483bdf1576bb0498b4a9)
+- [Timeouts](../guides/resources--alert_receiver--lifecycle--group-001.md#canonical-db028321f45805788de9d55afee044e8a465949cccc6d5265cb7103541282c3f)

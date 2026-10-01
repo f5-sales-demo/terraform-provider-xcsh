@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_waf_attack_signatures"
+page_title: "xcsh_waf_attack_signatures landing"
 subcategory: ""
-description: "xcsh_waf_attack_signatures for xcsh_waf_attack_signatures."
-xcsh_docs: {"aliases": [], "body_bytes": 1145, "body_sha256": "sha256:4dc0ee6621c76ef8441d8ea860d7b9ab662ac910d531eeeb18e0d819d69a0dac", "canonical_id": "xcsh-docs:data-sources:waf_attack_signatures:fundamentals", "child_ids": ["xcsh-docs:data-sources:waf_attack_signatures:reference", "xcsh-docs:data-sources:waf_attack_signatures:examples"], "collection_id": "xcsh-docs:data-sources:waf_attack_signatures:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:waf_attack_signatures:fundamentals", "parent_id": null, "path": "docs/data-sources/waf_attack_signatures.md", "provider_name": "waf_attack_signatures", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_attack_signatures/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_waf_attack_signatures for xcsh_waf_attack_signatures.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_waf_attack_signatures landing."
 ---
+
+# xcsh_waf_attack_signatures landing
+
+<a id="canonical-4263664dad62728ed7ee4477dbb626c200a26b4fc673ffeb3c69ebfb8fec8479"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_waf_attack_signatures
+<a id="canonical-64472d538a18f1b1151a44215be4369a4f05acf824bb298a9cdc35d2b8a60e31"></a>
+
+## xcsh_waf_attack_signatures — xcsh_waf_attack_signatures / d36ba71a92d4 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-## Prerequisites
+<a id="canonical-dd73b150c0d03f3ed6dabaeaa3af7993fd30013459c1a3c951ea4cdeee1a165b"></a>
+
+## Prerequisites — xcsh_waf_attack_signatures / d36ba71a92d4 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-6f6101895193f3aa62f6d232eb2d7fd39e04149acaae220dae9766ebcdd55092"></a>
+
+## Minimal configuration — xcsh_waf_attack_signatures / d36ba71a92d4 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,11 +56,15 @@ output "waf_attack_signatures_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-82f35e35e585b2bd96b946db176ef88291aa697163fdf611d2385a6a007af6a9"></a>
+
+## Root configuration — xcsh_waf_attack_signatures / d36ba71a92d4 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-7e2aebae13d2baab1e312f775e4607f1f06db68c3f63b5507ce836ea39e8e636"></a>
 
-- [Property reference](../guides/data-sources--waf_attack_signatures--reference.md)
-- [Examples](../guides/data-sources--waf_attack_signatures--examples.md)
+## Next pages — xcsh_waf_attack_signatures / d36ba71a92d4 / 6
+
+- [Property reference](../guides/data-sources--waf_attack_signatures--reference--group-001.md#canonical-d8800c568006a12d4c0110d8027440d15955ab5599affd2d76e682b49dec38be)
+- [Examples](../guides/data-sources--waf_attack_signatures--examples--group-001.md#canonical-406df1b7f29a187b4eac690cc0fb9071ea95aff78f5a777330f7d2afc40cd572)

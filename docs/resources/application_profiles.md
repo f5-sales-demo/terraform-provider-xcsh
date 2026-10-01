@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_application_profiles"
+page_title: "xcsh_application_profiles landing"
 subcategory: ""
-description: "xcsh_application_profiles for xcsh_application_profiles."
-xcsh_docs: {"aliases": [], "body_bytes": 1445, "body_sha256": "sha256:7f2b80c8b6f46ba244800a4bb591a6a68f288061934b186d70fcd4674cd186af", "canonical_id": "xcsh-docs:resources:application_profiles:fundamentals", "child_ids": ["xcsh-docs:resources:application_profiles:reference", "xcsh-docs:resources:application_profiles:examples", "xcsh-docs:resources:application_profiles:import", "xcsh-docs:resources:application_profiles:timeouts"], "collection_id": "xcsh-docs:resources:application_profiles:collection", "completeness": "complete", "id": "xcsh-docs:resources:application_profiles:fundamentals", "parent_id": null, "path": "docs/resources/application_profiles.md", "provider_name": "application_profiles", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/application_profiles/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_application_profiles for xcsh_application_profiles.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["application_profilesCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_application_profiles landing."
 ---
+
+# xcsh_application_profiles landing
+
+<a id="canonical-00efa13c12be7b49cefa61c4d967fc1485e14838bc33c17bdcc66248df0d209c"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_application_profiles
+<a id="canonical-4695f0cfcf157e0fb08f37fb89c67266f8939146b3f8b0866f82c47a88197fcc"></a>
+
+## xcsh_application_profiles — xcsh_application_profiles / d6026c0b9b0f / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Application Profiles in a given namespace. If one already exists it will give an error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-63501d372c057a89b7e04bc8b704ccac83ff98b7f9931397645fa36b032214de"></a>
+
+## Prerequisites — xcsh_application_profiles / d6026c0b9b0f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0aabb761ff090b562aa682f50fd0fe002e26471b91d4f595e61dadb46bd6a681"></a>
+
+## Minimal configuration — xcsh_application_profiles / d6026c0b9b0f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_application_profiles" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-12f40742f156243883267acc9ad6c81b784386a60bf89ce9f009b4847859d859"></a>
+
+## Root configuration — xcsh_application_profiles / d6026c0b9b0f / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-019bb8e1d0c2a57cd21e61bf1b1e991606975bd0b2ee24c55a32b2fb4516f9fd"></a>
 
-- [Property reference](../guides/resources--application_profiles--reference.md)
-- [Examples](../guides/resources--application_profiles--examples.md)
-- [Import](../guides/resources--application_profiles--import.md)
-- [Timeouts](../guides/resources--application_profiles--timeouts.md)
+## Next pages — xcsh_application_profiles / d6026c0b9b0f / 6
+
+- [Property reference](../guides/resources--application_profiles--reference--group-001.md#canonical-4002983ebe21e2fc570e5fe9278d8848d8c452bfdc37b1991b0315d9993712d6)
+- [Examples](../guides/resources--application_profiles--examples--group-001.md#canonical-1997211f5f6bcf28b790e55429796b98903d009d88f6006d82ba263143c7649a)
+- [Import](../guides/resources--application_profiles--lifecycle--group-001.md#canonical-338bb23e9d5cc47da4db36e3163347f188d4547c00c02410929f782b8d32418c)
+- [Timeouts](../guides/resources--application_profiles--lifecycle--group-001.md#canonical-130f2b55446c962cc47192dbc460671ebc4f68ee4c3011c4847e977980096f0d)

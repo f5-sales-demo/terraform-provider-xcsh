@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_app_firewall"
+page_title: "xcsh_app_firewall landing"
 subcategory: "Security"
-description: "xcsh_app_firewall for xcsh_app_firewall."
-xcsh_docs: {"aliases": [], "body_bytes": 1344, "body_sha256": "sha256:897beef1adc32a52066e2c4f5248147a5361f4bd54d9db9f768d0fa1a509cf74", "canonical_id": "xcsh-docs:data-sources:app_firewall:fundamentals", "child_ids": ["xcsh-docs:data-sources:app_firewall:reference", "xcsh-docs:data-sources:app_firewall:examples"], "collection_id": "xcsh-docs:data-sources:app_firewall:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:app_firewall:fundamentals", "parent_id": null, "path": "docs/data-sources/app_firewall.md", "provider_name": "app_firewall", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_app_firewall for xcsh_app_firewall.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["app_firewallCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_app_firewall landing."
 ---
+
+# xcsh_app_firewall landing
+
+<a id="canonical-382e1559c072471efc20c44b05ca9ec952e2d80c4bff0fa01ac43dc03116e4f6"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_app_firewall
+<a id="canonical-81c5216e91bb5a0f7c70d3677b537bbfff582a3e4006c45646d5b621d4c95ae7"></a>
+
+## xcsh_app_firewall — xcsh_app_firewall / 871bdc4291ce / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages Application Firewall in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-41c70a36cb11f7f68b408c00367c9c83dbb2a578d00e11b5119f89cb720cb123"></a>
+
+## Prerequisites — xcsh_app_firewall / 871bdc4291ce / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Optional integrations: `service_policy`.
 
 - service_policy: Fine-grained access control rules
 
-## Minimal configuration
+<a id="canonical-8ea2918f58cb54e1e33ed4bf31a2fc865ff820af38773b5e7c3e13665c5c1538"></a>
+
+## Minimal configuration — xcsh_app_firewall / 871bdc4291ce / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,11 +65,15 @@ output "app_firewall_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-7ac89bdf8efe9a12c89987e6af46a07c5cedaa060ce4c61faf13cd97a4d97975"></a>
+
+## Root configuration — xcsh_app_firewall / 871bdc4291ce / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-488b83b0bad09a7b015a17f47cd91f1de0a7c0f3436dd545088dcba8274c54b6"></a>
 
-- [Property reference](../guides/data-sources--app_firewall--reference.md)
-- [Examples](../guides/data-sources--app_firewall--examples.md)
+## Next pages — xcsh_app_firewall / 871bdc4291ce / 6
+
+- [Property reference](../guides/data-sources--app_firewall--reference--group-001.md#canonical-eccb622733c64544d9dd1f7d76cd33f87ffce68fe0a448e2cdddeaebd2518395)
+- [Examples](../guides/data-sources--app_firewall--examples--group-001.md#canonical-dd79e5b08d935c0b78b3339f9166535800c9d5021a648923f2d47769f1d7a913)

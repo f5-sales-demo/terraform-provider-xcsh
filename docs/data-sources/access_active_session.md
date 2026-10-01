@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_access_active_session"
+page_title: "xcsh_access_active_session landing"
 subcategory: ""
-description: "xcsh_access_active_session for xcsh_access_active_session."
-xcsh_docs: {"aliases": [], "body_bytes": 1218, "body_sha256": "sha256:806d48edc3d9bda7e18ab9e001c920f8acecff0a85a84765db8607c096070b34", "canonical_id": "xcsh-docs:data-sources:access_active_session:fundamentals", "child_ids": ["xcsh-docs:data-sources:access_active_session:reference", "xcsh-docs:data-sources:access_active_session:examples"], "collection_id": "xcsh-docs:data-sources:access_active_session:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:access_active_session:fundamentals", "parent_id": null, "path": "docs/data-sources/access_active_session.md", "provider_name": "access_active_session", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/access_active_session/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_access_active_session for xcsh_access_active_session.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_access_active_session landing."
 ---
+
+# xcsh_access_active_session landing
+
+<a id="canonical-4033739913ba1c6085f12486a3986623b110d98373ef67466a8b65704eed74cb"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_access_active_session
+<a id="canonical-177fed81c4b02e57e79071acee3e7baa8adbf2094e8fc442ce53ec2cea8b5453"></a>
+
+## xcsh_access_active_session — xcsh_access_active_session / 80a748d1428b / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-## Prerequisites
+<a id="canonical-5ff8590703c05e5425ea2d0178846976a4193aefbccd6f5fdbcd2eea77843e31"></a>
+
+## Prerequisites — xcsh_access_active_session / 80a748d1428b / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-01895b2d2aa5eb8461303ae8c2ba781b0d48ae935a1d669ef8224ceda773b783"></a>
+
+## Minimal configuration — xcsh_access_active_session / 80a748d1428b / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,11 +58,15 @@ output "access_active_session_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2a3547a5e329e1c2d8b5dcdd33f978ce8d89a4d98aeb44a45e8fab3dd9940fac"></a>
+
+## Root configuration — xcsh_access_active_session / 80a748d1428b / 5
 
 Required root properties: `id`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2eebb26a37ed22ca88054cb7914f5c1bf54c124606d81785d06b8c80e35235b4"></a>
 
-- [Property reference](../guides/data-sources--access_active_session--reference.md)
-- [Examples](../guides/data-sources--access_active_session--examples.md)
+## Next pages — xcsh_access_active_session / 80a748d1428b / 6
+
+- [Property reference](../guides/data-sources--access_active_session--reference--group-001.md#canonical-f9145d41000cc5377b88dd55e2dfd831d018e430e7e6108f72457e70d726428d)
+- [Examples](../guides/data-sources--access_active_session--examples--group-001.md#canonical-1fae4c0e495ede3a8cc200a71a1345278a488be35029641220310fefd9671a9e)

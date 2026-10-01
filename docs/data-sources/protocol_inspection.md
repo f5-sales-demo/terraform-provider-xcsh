@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_protocol_inspection"
+page_title: "xcsh_protocol_inspection landing"
 subcategory: ""
-description: "xcsh_protocol_inspection for xcsh_protocol_inspection."
-xcsh_docs: {"aliases": [], "body_bytes": 1364, "body_sha256": "sha256:141dd2cdfcd1b5a434e6fb226b6cf1e9564693bbd17910285b031d98ac8ef3c5", "canonical_id": "xcsh-docs:data-sources:protocol_inspection:fundamentals", "child_ids": ["xcsh-docs:data-sources:protocol_inspection:reference", "xcsh-docs:data-sources:protocol_inspection:examples"], "collection_id": "xcsh-docs:data-sources:protocol_inspection:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protocol_inspection:fundamentals", "parent_id": null, "path": "docs/data-sources/protocol_inspection.md", "provider_name": "protocol_inspection", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_protocol_inspection for xcsh_protocol_inspection.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["protocol_inspectionCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_protocol_inspection landing."
 ---
+
+# xcsh_protocol_inspection landing
+
+<a id="canonical-77c725c112dfe8c6a26fd1bebe3fb78dbea0cb86c9b03fb1a6550cb324fde634"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_protocol_inspection
+<a id="canonical-23dd275ee6e3ea1421ae7006587aacc6c36904cd66c16f89af72dea7c9ef112d"></a>
+
+## xcsh_protocol_inspection — xcsh_protocol_inspection / 182f5e9b2592 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Protocol Inspection Specification in a given namespace. If one already exists it will give
 an error in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-692aea8a420ddab70d3fe5f0be0ed3be46fa1bddac183afeefe393c304abdd1c"></a>
+
+## Prerequisites — xcsh_protocol_inspection / 182f5e9b2592 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-f2981b0f70e7fdf39883a23df884c1a37193d39a1c2b04c9a8e21581fcb580b8"></a>
+
+## Minimal configuration — xcsh_protocol_inspection / 182f5e9b2592 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "protocol_inspection_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-12995ed8d1f4821b29f5dfa1e31f3553bfbaf765648ca54193dca134fae571ab"></a>
+
+## Root configuration — xcsh_protocol_inspection / 182f5e9b2592 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-6b8e419c96cb1e38bc9655f9801907d54eed31d3e705c06099454bfb451bde2d"></a>
 
-- [Property reference](../guides/data-sources--protocol_inspection--reference.md)
-- [Examples](../guides/data-sources--protocol_inspection--examples.md)
+## Next pages — xcsh_protocol_inspection / 182f5e9b2592 / 6
+
+- [Property reference](../guides/data-sources--protocol_inspection--reference--group-001.md#canonical-8d7eb163bd367f14551787af5c3a1edacc58ccd9ad3d628927f70e0bdc1d96cb)
+- [Examples](../guides/data-sources--protocol_inspection--examples--group-001.md#canonical-aa80b641987380a6c2cb4bc8c9b5799bd83daa72873da274772ef5d74b57bf9b)

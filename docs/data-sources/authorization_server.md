@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_authorization_server"
+page_title: "xcsh_authorization_server landing"
 subcategory: ""
-description: "xcsh_authorization_server for xcsh_authorization_server."
-xcsh_docs: {"aliases": [], "body_bytes": 1363, "body_sha256": "sha256:8020268a160d1be1c735c5c4cee9160296e6816fbb83d8fa167fa5ce76afa4c7", "canonical_id": "xcsh-docs:data-sources:authorization_server:fundamentals", "child_ids": ["xcsh-docs:data-sources:authorization_server:reference", "xcsh-docs:data-sources:authorization_server:examples"], "collection_id": "xcsh-docs:data-sources:authorization_server:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:authorization_server:fundamentals", "parent_id": null, "path": "docs/data-sources/authorization_server.md", "provider_name": "authorization_server", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authorization_server/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_authorization_server for xcsh_authorization_server.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["authorization_serverCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_authorization_server landing."
 ---
+
+# xcsh_authorization_server landing
+
+<a id="canonical-c9a064e11c392b1729b64c4abb5a0c14e6107920f082e94b97489dd17471f27a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_authorization_server
+<a id="canonical-a0d7ce63d300d1c79888b7b9411474d9644b2a44a9915d977f3bec22e08d865d"></a>
+
+## xcsh_authorization_server — xcsh_authorization_server / 7dc8d97fce0a / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages authorization\_server creates a new object in the storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-75001cc491ff292d77aa9309306cb1cfdcb78ae5ef25bf381bb4d57b5d9b78ce"></a>
+
+## Prerequisites — xcsh_authorization_server / 7dc8d97fce0a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-f32e460b17c1c528379d5c9a3f183ccb3b11adfa40271b951f3886e463148db5"></a>
+
+## Minimal configuration — xcsh_authorization_server / 7dc8d97fce0a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "authorization_server_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-76ca0a8337fa5d25aed849a66df18fa516afea45c9f3ba9f3bbd07cc11a14b74"></a>
+
+## Root configuration — xcsh_authorization_server / 7dc8d97fce0a / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-a7233e04d28a7ce822c0bb8fcad8d70cba2345e6b1dce5d5a77f322992a42815"></a>
 
-- [Property reference](../guides/data-sources--authorization_server--reference.md)
-- [Examples](../guides/data-sources--authorization_server--examples.md)
+## Next pages — xcsh_authorization_server / 7dc8d97fce0a / 6
+
+- [Property reference](../guides/data-sources--authorization_server--reference--group-001.md#canonical-4fe633a5d8eadcbda1f3928dac2979247f71fce9af1db4ad727fc19ccb660f8d)
+- [Examples](../guides/data-sources--authorization_server--examples--group-001.md#canonical-8fc47a5c0c28ccc2cd7f1fabecc67d23713c219f4b177fc3dca6b5ebb9377006)

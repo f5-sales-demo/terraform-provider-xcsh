@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_allowlist_policy"
+page_title: "xcsh_bot_allowlist_policy landing"
 subcategory: ""
-description: "xcsh_bot_allowlist_policy for xcsh_bot_allowlist_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1372, "body_sha256": "sha256:1e269c105340163b8d6f722c624cc24965421d12b02769cada5bd14d50b16413", "canonical_id": "xcsh-docs:data-sources:bot_allowlist_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_allowlist_policy:reference", "xcsh-docs:data-sources:bot_allowlist_policy:examples"], "collection_id": "xcsh-docs:data-sources:bot_allowlist_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_allowlist_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_allowlist_policy.md", "provider_name": "bot_allowlist_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_allowlist_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_allowlist_policy for xcsh_bot_allowlist_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_allowlist_policy landing."
 ---
+
+# xcsh_bot_allowlist_policy landing
+
+<a id="canonical-0a54609b088afff008aba1e10b878b96ab1aafdaea5949e64fa726729b39ac67"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_allowlist_policy
+<a id="canonical-a9ea3c511d39d427f2e08310c97adcf89b93a123b8d429de14a9513d57180234"></a>
+
+## xcsh_bot_allowlist_policy — xcsh_bot_allowlist_policy / 2f428033d69a / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Bot Allowlist Policy resource in F5 Distributed Cloud for get bot allowlist policy.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-9b124f1da7101408f4fd25ae1a52e204d0c4b3c59172ac4a3618a2ae59abe270"></a>
+
+## Prerequisites — xcsh_bot_allowlist_policy / 2f428033d69a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-b944498c23a9cbe2d5126842f2871793381ec8959493400379b6c6b3af24e0fb"></a>
+
+## Minimal configuration — xcsh_bot_allowlist_policy / 2f428033d69a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "bot_allowlist_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-79be690454003466e09061d0aaa3677a25a79f6defbe672a4de823bdfb7e6810"></a>
+
+## Root configuration — xcsh_bot_allowlist_policy / 2f428033d69a / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-b31c7ddeb754a37a598a8dcff07eb6d01cce67239d018e2042eb9cf5c49cdaa5"></a>
 
-- [Property reference](../guides/data-sources--bot_allowlist_policy--reference.md)
-- [Examples](../guides/data-sources--bot_allowlist_policy--examples.md)
+## Next pages — xcsh_bot_allowlist_policy / 2f428033d69a / 6
+
+- [Property reference](../guides/data-sources--bot_allowlist_policy--reference--group-001.md#canonical-45b4719f99aa352d1d2ba9a7378ea2084fe7c7e9cc9db8dfe979a0e9fb00b69a)
+- [Examples](../guides/data-sources--bot_allowlist_policy--examples--group-001.md#canonical-8f079968fe3841b46d07432afc6540b4864cc86ec358b6de62886703ad90c4b3)

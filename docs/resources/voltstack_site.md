@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_voltstack_site"
+page_title: "xcsh_voltstack_site landing"
 subcategory: ""
-description: "xcsh_voltstack_site for xcsh_voltstack_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1490, "body_sha256": "sha256:97234b3c803856c33d7777d0bd307fc87b61c8216740905e1eb5b993d33fcac4", "canonical_id": "xcsh-docs:resources:voltstack_site:fundamentals", "child_ids": ["xcsh-docs:resources:voltstack_site:reference", "xcsh-docs:resources:voltstack_site:examples", "xcsh-docs:resources:voltstack_site:import", "xcsh-docs:resources:voltstack_site:timeouts"], "collection_id": "xcsh-docs:resources:voltstack_site:collection", "completeness": "complete", "id": "xcsh-docs:resources:voltstack_site:fundamentals", "parent_id": null, "path": "docs/resources/voltstack_site.md", "provider_name": "voltstack_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/voltstack_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_voltstack_site for xcsh_voltstack_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["voltstack_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_voltstack_site landing."
 ---
+
+# xcsh_voltstack_site landing
+
+<a id="canonical-b9688217f046b26b7c3c5660128e4d4fb1c2166fd262517b575d5580b7142b17"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_voltstack_site
+<a id="canonical-eb07aeb08e9a95a21efbfadc53aa70ee8d179e50c9ce7c12338dc4d92c50a44a"></a>
+
+## xcsh_voltstack_site — xcsh_voltstack_site / 78574b351342 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Voltstack Site resource in F5 Distributed Cloud for deploying App Stack edge computing
 sites.
 
-## Prerequisites
+<a id="canonical-5b1aff9a8ddb302d87fb6ef17b63c322bffeac26a91c16904bab8d6d1e4e7fa3"></a>
+
+## Prerequisites — xcsh_voltstack_site / 78574b351342 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-d600c301e97a762538f157d95329a47dc6cbd5baeca1b3d43bb947859494d073"></a>
+
+## Minimal configuration — xcsh_voltstack_site / 78574b351342 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_voltstack_site" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-45f96e52d4d5430fdf5d868bd1b52ad3f5ae069132fae3256cf38badde456351"></a>
+
+## Root configuration — xcsh_voltstack_site / 78574b351342 / 5
 
 Required root properties: `name`, `namespace`, `volterra_certified_hw`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-4473f81c3e41f3c759f6f3f9d14586b6ea526adc72f4fd6153fd15d765f42a7d"></a>
 
-- [Property reference](../guides/resources--voltstack_site--reference.md)
-- [Examples](../guides/resources--voltstack_site--examples.md)
-- [Import](../guides/resources--voltstack_site--import.md)
-- [Timeouts](../guides/resources--voltstack_site--timeouts.md)
+## Next pages — xcsh_voltstack_site / 78574b351342 / 6
+
+- [Property reference](../guides/resources--voltstack_site--reference--group-001.md#canonical-b3ddccc079feed8c94a9f862590f39f62918f9d739fc6059fb4d79a2465b6a15)
+- [Examples](../guides/resources--voltstack_site--examples--group-001.md#canonical-80622daaa5ef0ae14ed426d2603f5d807d6b2b77ce118a081f8210d154ec653a)
+- [Import](../guides/resources--voltstack_site--lifecycle--group-001.md#canonical-01c6470fb7a188a21ae90227fad45dda7ded398b1c46fdc05c947b798e2370fb)
+- [Timeouts](../guides/resources--voltstack_site--lifecycle--group-001.md#canonical-c1b6ad83b6142b659efd3a65007bbdf9fe03083560168549636e34a84f9ede15)

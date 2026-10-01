@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_policy_based_routing"
+page_title: "xcsh_policy_based_routing landing"
 subcategory: ""
-description: "xcsh_policy_based_routing for xcsh_policy_based_routing."
-xcsh_docs: {"aliases": [], "body_bytes": 1373, "body_sha256": "sha256:63312e8274e2dd8459a9adeba271e61f0f48d2bb827b0b0f668a7bdcccbb14e3", "canonical_id": "xcsh-docs:data-sources:policy_based_routing:fundamentals", "child_ids": ["xcsh-docs:data-sources:policy_based_routing:reference", "xcsh-docs:data-sources:policy_based_routing:examples"], "collection_id": "xcsh-docs:data-sources:policy_based_routing:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:policy_based_routing:fundamentals", "parent_id": null, "path": "docs/data-sources/policy_based_routing.md", "provider_name": "policy_based_routing", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/policy_based_routing/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_policy_based_routing for xcsh_policy_based_routing.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["policy_based_routingCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_policy_based_routing landing."
 ---
+
+# xcsh_policy_based_routing landing
+
+<a id="canonical-9f484c755ac3f52617430a5b2e5df14772b208bb98b0f23491c13317e615ab22"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_policy_based_routing
+<a id="canonical-6cb03e5b205caa27e409c0654733a7e7853cdd342891b38915faedf805221b81"></a>
+
+## xcsh_policy_based_routing — xcsh_policy_based_routing / dad85e9ab155 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Policy Based Routing resource in F5 Distributed Cloud for network policy based routing
 create specification. configuration.
 
-## Prerequisites
+<a id="canonical-14d724a01d32613610c0dd08f7a568d92fa4efdaaa707e2ecb7c8a5168368631"></a>
+
+## Prerequisites — xcsh_policy_based_routing / dad85e9ab155 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-968340ca600f4466718d3caaa76d39980db39e2c907c13958e88551c7d0838c3"></a>
+
+## Minimal configuration — xcsh_policy_based_routing / dad85e9ab155 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "policy_based_routing_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-85e1515f13495be23bc35c931f7ad22287e260f9b2d3036fdc6d02b728615499"></a>
+
+## Root configuration — xcsh_policy_based_routing / dad85e9ab155 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-692d2faded383211d58f2825e441832511dc45d708c344df71eb4529df6ecfe7"></a>
 
-- [Property reference](../guides/data-sources--policy_based_routing--reference.md)
-- [Examples](../guides/data-sources--policy_based_routing--examples.md)
+## Next pages — xcsh_policy_based_routing / dad85e9ab155 / 6
+
+- [Property reference](../guides/data-sources--policy_based_routing--reference--group-001.md#canonical-c8a08487489a65e4943a96746f170ededb15005ed6493658c87fec8120c12e9d)
+- [Examples](../guides/data-sources--policy_based_routing--examples--group-001.md#canonical-815b5acc1617054d1c4c6e24d1ebd4641bd0adb8f150bb7e456ec4289bb2c40d)

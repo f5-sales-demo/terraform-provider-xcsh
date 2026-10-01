@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_bot_defense"
+page_title: "xcsh_network_bot_defense landing"
 subcategory: ""
-description: "xcsh_network_bot_defense for xcsh_network_bot_defense."
-xcsh_docs: {"aliases": [], "body_bytes": 1443, "body_sha256": "sha256:2bc1d40ae56863d0995b4531824a89a55f2a604c6832f9a5c58c89f672cbef21", "canonical_id": "xcsh-docs:data-sources:network_bot_defense:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_bot_defense:reference", "xcsh-docs:data-sources:network_bot_defense:examples"], "collection_id": "xcsh-docs:data-sources:network_bot_defense:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_bot_defense:fundamentals", "parent_id": null, "path": "docs/data-sources/network_bot_defense.md", "provider_name": "network_bot_defense", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_bot_defense/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_bot_defense for xcsh_network_bot_defense.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_bot_defense landing."
 ---
+
+# xcsh_network_bot_defense landing
+
+<a id="canonical-0f1230987fc786b4cb7c4b344761f3dee154f819970a4e6a082efc66aa2b0e4d"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_bot_defense
+<a id="canonical-76ce487c04679e7babd86460145e2308d94e120b987bbeb05e54be3d0db1c45f"></a>
+
+## xcsh_network_bot_defense — xcsh_network_bot_defense / 873f87da7267 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Bot Defense domains for an FQDN-aware firewall or proxy. Values are bundled from
 release; this data source performs no network request. Ports and traffic direction are not encoded
 in the manifest.
 
-## Prerequisites
+<a id="canonical-e2a2037b53398c1281173294e0300c33bdee6f20ea9c91856143151bbda7479a"></a>
+
+## Prerequisites — xcsh_network_bot_defense / 873f87da7267 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-8d0acfe9e53bd7c030bcc4fd5ab7ad9c2e93a5ab3a585b55bf4e743fc6f2b721"></a>
+
+## Minimal configuration — xcsh_network_bot_defense / 873f87da7267 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "bot_defense_https_proxy_rule" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3dba987a0f2a3d7e316b402462c3f7bcba1d2011accb117a9d31a34fd543f2d2"></a>
+
+## Root configuration — xcsh_network_bot_defense / 873f87da7267 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0d975b7d0de11bb65cf3cc989a79bc2108e7e99e2a089fec4bc8bebbc20480d1"></a>
 
-- [Property reference](../guides/data-sources--network_bot_defense--reference.md)
-- [Examples](../guides/data-sources--network_bot_defense--examples.md)
+## Next pages — xcsh_network_bot_defense / 873f87da7267 / 6
+
+- [Property reference](../guides/data-sources--network_bot_defense--reference--group-001.md#canonical-e9b989ac97501f94c8334812a9f1281e2f3df1d62b05ae468e99c21685977e41)
+- [Examples](../guides/data-sources--network_bot_defense--examples--group-001.md#canonical-02700dbe54bec0d993bff3ebb664b29b8813b46344c33b64034f20f39624ad6c)

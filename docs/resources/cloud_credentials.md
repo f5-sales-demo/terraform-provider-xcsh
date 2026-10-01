@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_credentials"
+page_title: "xcsh_cloud_credentials landing"
 subcategory: "Infrastructure"
-description: "xcsh_cloud_credentials for xcsh_cloud_credentials."
-xcsh_docs: {"aliases": [], "body_bytes": 1504, "body_sha256": "sha256:01264cc665d0cbb81e3a73e809c040077c49850ff892f578bf1aee4bc4f1c6ed", "canonical_id": "xcsh-docs:resources:cloud_credentials:fundamentals", "child_ids": ["xcsh-docs:resources:cloud_credentials:reference", "xcsh-docs:resources:cloud_credentials:examples", "xcsh-docs:resources:cloud_credentials:import", "xcsh-docs:resources:cloud_credentials:timeouts"], "collection_id": "xcsh-docs:resources:cloud_credentials:collection", "completeness": "complete", "id": "xcsh-docs:resources:cloud_credentials:fundamentals", "parent_id": null, "path": "docs/resources/cloud_credentials.md", "provider_name": "cloud_credentials", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_credentials for xcsh_cloud_credentials.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cloud_credentialsCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_credentials landing."
 ---
+
+# xcsh_cloud_credentials landing
+
+<a id="canonical-1cb4bf6ac71d4f09833d90c0cb47c40c59691818c5c6c69f8111a26572dc4e18"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_credentials
+<a id="canonical-e4622bee4ffa63c0e2b9a22e991cc12fd762a4f9d86d30d414c6039e26377bad"></a>
+
+## xcsh_cloud_credentials — xcsh_cloud_credentials / b4030bb86004 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud\_credentials
 object. configuration.
 
-## Prerequisites
+<a id="canonical-ad4c464447985ee85b6896670d5b07609fc2ed66dfc86c8ef4c8458619c5512f"></a>
+
+## Prerequisites — xcsh_cloud_credentials / b4030bb86004 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-5d4eebd3c2fa5a6c82813cc9746c56bbe92cc0d618beab5161af8514c3f057c5"></a>
+
+## Minimal configuration — xcsh_cloud_credentials / b4030bb86004 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_cloud_credentials" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-4cb29cd0819ece2cfa1025815b683f80724d7a5ffed103a74683c260e607f77c"></a>
+
+## Root configuration — xcsh_cloud_credentials / b4030bb86004 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-19ac13d7d0e9ea5a9fa0bcb47799f2bda406f8d2913267da2c64cd2e1fb003a3"></a>
 
-- [Property reference](../guides/resources--cloud_credentials--reference.md)
-- [Examples](../guides/resources--cloud_credentials--examples.md)
-- [Import](../guides/resources--cloud_credentials--import.md)
-- [Timeouts](../guides/resources--cloud_credentials--timeouts.md)
+## Next pages — xcsh_cloud_credentials / b4030bb86004 / 6
+
+- [Property reference](../guides/resources--cloud_credentials--reference--group-001.md#canonical-e19ca078f045646b07b7307d630d1eebf178fe6edffad4c6ad87aa0a772b6a20)
+- [Examples](../guides/resources--cloud_credentials--examples--group-001.md#canonical-d82053d4cca79c9fc1875cc320abd0f9f5cfa38701c92ce1d01723b73fef52c9)
+- [Import](../guides/resources--cloud_credentials--lifecycle--group-001.md#canonical-5059158635425194e905f4659a04928b2ebe3549fb964d8e38cd8a883a995dfc)
+- [Timeouts](../guides/resources--cloud_credentials--lifecycle--group-001.md#canonical-4526d993c8c8dbd15d278331185bcc46f36ad1fb2ac5b0f2b93ca35d0bdc7336)

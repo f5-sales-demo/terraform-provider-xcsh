@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_tcp_loadbalancer"
+page_title: "xcsh_tcp_loadbalancer landing"
 subcategory: "Load Balancing"
-description: "xcsh_tcp_loadbalancer for xcsh_tcp_loadbalancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1523, "body_sha256": "sha256:665f951b610b364a41d545eda5179dd1e5eb9605ba387d528c5a29e53315a3f1", "canonical_id": "xcsh-docs:data-sources:tcp_loadbalancer:fundamentals", "child_ids": ["xcsh-docs:data-sources:tcp_loadbalancer:reference", "xcsh-docs:data-sources:tcp_loadbalancer:examples"], "collection_id": "xcsh-docs:data-sources:tcp_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:tcp_loadbalancer:fundamentals", "parent_id": null, "path": "docs/data-sources/tcp_loadbalancer.md", "provider_name": "tcp_loadbalancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tcp_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_tcp_loadbalancer for xcsh_tcp_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tcp_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_tcp_loadbalancer landing."
 ---
+
+# xcsh_tcp_loadbalancer landing
+
+<a id="canonical-ff619d4c6a92fa41f6695468ec3a5d1538b009b416a57e2136569462b99a7d6f"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_tcp_loadbalancer
+<a id="canonical-f99fb61322f8227c7523c31bd19def0bea7647d3482247260d23f46613afed9e"></a>
+
+## xcsh_tcp_loadbalancer — xcsh_tcp_loadbalancer / 4d38c9e2d713 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across
 origin pools.
 
-## Prerequisites
+<a id="canonical-471ed10cd0a4e5b88fc0d1b7d68db1db14f40b059d0d9ff874a89d14c9848a79"></a>
+
+## Prerequisites — xcsh_tcp_loadbalancer / 4d38c9e2d713 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -32,7 +39,9 @@ Optional integrations: `healthcheck`.
 
 - healthcheck: Monitor origin server health
 
-## Minimal configuration
+<a id="canonical-57cd3d624f7d4184d0c8295ab2adbe7ab1568a59436912565f1713ea23efa436"></a>
+
+## Minimal configuration — xcsh_tcp_loadbalancer / 4d38c9e2d713 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,11 +70,15 @@ output "tcp_loadbalancer_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-9f520aa524f1e3fab0578d9111b4b1de77c51e26ed5013d22ef1a3820a593ad7"></a>
+
+## Root configuration — xcsh_tcp_loadbalancer / 4d38c9e2d713 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-79c498e71fa9d58ae821d99c4e95d120305241bf0d7340c1f857776a32578d46"></a>
 
-- [Property reference](../guides/data-sources--tcp_loadbalancer--reference.md)
-- [Examples](../guides/data-sources--tcp_loadbalancer--examples.md)
+## Next pages — xcsh_tcp_loadbalancer / 4d38c9e2d713 / 6
+
+- [Property reference](../guides/data-sources--tcp_loadbalancer--reference--group-001.md#canonical-13ef50def1ca3ae923b44ea13751f5a714a48d50a09cddc18621352d8522588b)
+- [Examples](../guides/data-sources--tcp_loadbalancer--examples--group-001.md#canonical-65b66562cddaab262db2cae975842adac58ad22257dcba28c2897932fad6d3c7)

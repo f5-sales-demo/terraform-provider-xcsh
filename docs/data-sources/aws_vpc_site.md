@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_aws_vpc_site"
+page_title: "xcsh_aws_vpc_site landing"
 subcategory: "Infrastructure"
-description: "xcsh_aws_vpc_site for xcsh_aws_vpc_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1402, "body_sha256": "sha256:757df865fc51f05cb847ec38cec64526cb4d04f810c3bd4a729c3bd6c1e0b66f", "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:fundamentals", "child_ids": ["xcsh-docs:data-sources:aws_vpc_site:reference", "xcsh-docs:data-sources:aws_vpc_site:examples"], "collection_id": "xcsh-docs:data-sources:aws_vpc_site:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:aws_vpc_site:fundamentals", "parent_id": null, "path": "docs/data-sources/aws_vpc_site.md", "provider_name": "aws_vpc_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/aws_vpc_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_aws_vpc_site for xcsh_aws_vpc_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["aws_vpc_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_aws_vpc_site landing."
 ---
+
+# xcsh_aws_vpc_site landing
+
+<a id="canonical-e044179917c669bafdb839ba10c1a81d9f41961466bb9ae2fc71f3716df4b1ab"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_aws_vpc_site
+<a id="canonical-33bc7e36aa1f3951f1dc5b061afcdb8cf7086071b9e503cf94aa25f8fb4a2086"></a>
+
+## xcsh_aws_vpc_site — xcsh_aws_vpc_site / e3f85b66e186 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a AWS VPC Site resource in F5 Distributed Cloud for deploying F5 sites within AWS VPC
 environments.
 
-## Prerequisites
+<a id="canonical-32113dadfd49542bcb95aae872275ee868ef54f83259288e30b1b86a369df2f6"></a>
+
+## Prerequisites — xcsh_aws_vpc_site / e3f85b66e186 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `cloud_credentials`.
 
 - cloud_credentials: AWS authentication for deployment
 
-## Minimal configuration
+<a id="canonical-ba65190c6eaf2925e0d6028f735bfcf6bea429b564959a4d7e91c262eaf92008"></a>
+
+## Minimal configuration — xcsh_aws_vpc_site / e3f85b66e186 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,11 +66,15 @@ output "aws_vpc_site_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-55dd953d84a637b5b20b0563a16c8d2111156730d29de1999495df3200de0dbd"></a>
+
+## Root configuration — xcsh_aws_vpc_site / e3f85b66e186 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-09254ac09f620eae9f55be85c285657970b3fb2fa3c78c6b39457f34cccb038e"></a>
 
-- [Property reference](../guides/data-sources--aws_vpc_site--reference.md)
-- [Examples](../guides/data-sources--aws_vpc_site--examples.md)
+## Next pages — xcsh_aws_vpc_site / e3f85b66e186 / 6
+
+- [Property reference](../guides/data-sources--aws_vpc_site--reference--group-001.md#canonical-0ae65da546e6296a7be7a38b800cc7b7578f4d214a8a51600c66364338fbe66c)
+- [Examples](../guides/data-sources--aws_vpc_site--examples--group-001.md#canonical-5c3437aa50cde77e2eedddc34f6ed350d27b75623455e69714667fa60cf9f156)

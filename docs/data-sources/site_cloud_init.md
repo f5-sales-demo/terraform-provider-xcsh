@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_site_cloud_init"
+page_title: "xcsh_site_cloud_init landing"
 subcategory: ""
-description: "xcsh_site_cloud_init for xcsh_site_cloud_init."
-xcsh_docs: {"aliases": [], "body_bytes": 1223, "body_sha256": "sha256:e9c83ad55bc6732dc554d4a1ea4b7ada722bb71a384c932d53eac713ce8af23d", "canonical_id": "xcsh-docs:data-sources:site_cloud_init:fundamentals", "child_ids": ["xcsh-docs:data-sources:site_cloud_init:reference", "xcsh-docs:data-sources:site_cloud_init:examples"], "collection_id": "xcsh-docs:data-sources:site_cloud_init:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:site_cloud_init:fundamentals", "parent_id": null, "path": "docs/data-sources/site_cloud_init.md", "provider_name": "site_cloud_init", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_cloud_init/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site_cloud_init for xcsh_site_cloud_init.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_site_cloud_init landing."
 ---
+
+# xcsh_site_cloud_init landing
+
+<a id="canonical-bb83253dcef707bb0c00385589b2ba967da3ad61756414aa9015e45e3d75e738"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_site_cloud_init
+<a id="canonical-ff73dd2e2b915723f837c18ad331cec2467349323f1405a78018eba7adca7300"></a>
+
+## xcsh_site_cloud_init — xcsh_site_cloud_init / d132062d6435 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Retrieve Customer Edge cloud-init template.
 
-## Prerequisites
+<a id="canonical-ddd573fb3eff406fcdf9e69ceb086d1b07288f5a895a5210072813c8d3f46889"></a>
+
+## Prerequisites — xcsh_site_cloud_init / d132062d6435 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1be823cd5e50310db4ea18accca77c0e729aa5f434d99198094188ff49e70a07"></a>
+
+## Minimal configuration — xcsh_site_cloud_init / d132062d6435 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "site_cloud_init_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-040d2c08e8d79886a453d660bceafb8eed1cadc3dd0edf4d6f817bf8c824186a"></a>
+
+## Root configuration — xcsh_site_cloud_init / d132062d6435 / 5
 
 Required root properties: `provider_ref`, `site_name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-745c18569f13c7d67616027fd22f31604c4a5de88bf859ab35b3f7ed8f472e3b"></a>
 
-- [Property reference](../guides/data-sources--site_cloud_init--reference.md)
-- [Examples](../guides/data-sources--site_cloud_init--examples.md)
+## Next pages — xcsh_site_cloud_init / d132062d6435 / 6
+
+- [Property reference](../guides/data-sources--site_cloud_init--reference--group-001.md#canonical-449146e9b12ccd06dd9f1b3726adeaaf418081765a16b4774522c5040c4e90da)
+- [Examples](../guides/data-sources--site_cloud_init--examples--group-001.md#canonical-2af1fe52fef4663a7a40baa6d63bcf1d5b04630a18ac1e64cc5f4883fd0f6ca4)

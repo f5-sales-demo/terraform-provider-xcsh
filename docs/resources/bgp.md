@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bgp"
+page_title: "xcsh_bgp landing"
 subcategory: ""
-description: "xcsh_bgp for xcsh_bgp."
-xcsh_docs: {"aliases": [], "body_bytes": 1409, "body_sha256": "sha256:ca92850b7fcd0a69f3c3ce274b19b284661fcb932a403b21231a2011a2c65c19", "canonical_id": "xcsh-docs:resources:bgp:fundamentals", "child_ids": ["xcsh-docs:resources:bgp:reference", "xcsh-docs:resources:bgp:examples", "xcsh-docs:resources:bgp:import", "xcsh-docs:resources:bgp:timeouts"], "collection_id": "xcsh-docs:resources:bgp:collection", "completeness": "complete", "id": "xcsh-docs:resources:bgp:fundamentals", "parent_id": null, "path": "docs/resources/bgp.md", "provider_name": "bgp", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bgp/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bgp for xcsh_bgp.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bgpCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bgp landing."
 ---
+
+# xcsh_bgp landing
+
+<a id="canonical-f452c8cd3b423a60b688afe1a7a3387739d94692cebe36d5a5d7dcaba10144e0"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bgp
+<a id="canonical-65f0c5ac6d6a3853466b00b51a5ca46e4124d37d45bf9bf51f320571e0faddfb"></a>
+
+## xcsh_bgp — xcsh_bgp / a7858fe9b415 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a BGP resource in F5 Distributed Cloud for bgp object is the configuration for peering with
 external bgp servers. it is created by users in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-0c8a25398fcd4dd61e930cd2b1666c8c66b77fcb28533d2ff2f967dac7e95f53"></a>
+
+## Prerequisites — xcsh_bgp / a7858fe9b415 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-ed2017665ecbfc8d8b8e0c1bb207737edb1d5bdf9cb5d8fcba2972ec076e75d6"></a>
+
+## Minimal configuration — xcsh_bgp / a7858fe9b415 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_bgp" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-67afb1afccc316dfba93d4ded4df18d860146ce60b3d06b65f2495e791ae83ef"></a>
+
+## Root configuration — xcsh_bgp / a7858fe9b415 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-686b85466a8894113c3f4a222b737990c21bb7a0be71edbb6d1288d2cefcd4e6"></a>
 
-- [Property reference](../guides/resources--bgp--reference.md)
-- [Examples](../guides/resources--bgp--examples.md)
-- [Import](../guides/resources--bgp--import.md)
-- [Timeouts](../guides/resources--bgp--timeouts.md)
+## Next pages — xcsh_bgp / a7858fe9b415 / 6
+
+- [Property reference](../guides/resources--bgp--reference--group-001.md#canonical-2a2953839e3572dd9ac64a3b58149f926e162c49c7d745107372b9db7b315ccc)
+- [Examples](../guides/resources--bgp--examples--group-001.md#canonical-0b5fe495434f4ae93528ca40a2c382856380185f9580f1f16c5b072a7d6a2bca)
+- [Import](../guides/resources--bgp--lifecycle--group-001.md#canonical-1078d0e498358790f7493c65620697323658a43741ab40880d6be54d64c31acc)
+- [Timeouts](../guides/resources--bgp--lifecycle--group-001.md#canonical-cf0f94b8f0be554446522de77d0c4d87aa513342e488240aa49c6eae45d697f2)

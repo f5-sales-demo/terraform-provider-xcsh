@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_kubernetes_manifests"
+page_title: "xcsh_kubernetes_manifests landing"
 subcategory: ""
-description: "xcsh_kubernetes_manifests for xcsh_kubernetes_manifests."
-xcsh_docs: {"aliases": [], "body_bytes": 1186, "body_sha256": "sha256:1b4f6c7739b68e80f620e687b0ce29dc29256a4d73c9d0618494b8cea79f128f", "canonical_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:fundamentals", "child_ids": ["xcsh-docs:ephemeral-resources:kubernetes_manifests:reference", "xcsh-docs:ephemeral-resources:kubernetes_manifests:examples", "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle"], "collection_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:collection", "completeness": "complete", "id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:fundamentals", "parent_id": null, "path": "docs/ephemeral-resources/kubernetes_manifests.md", "provider_name": "kubernetes_manifests", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "ephemeral-resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/ephemeral-resources/kubernetes_manifests/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_kubernetes_manifests for xcsh_kubernetes_manifests.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_kubernetes_manifests landing."
 ---
+
+# xcsh_kubernetes_manifests landing
+
+<a id="canonical-c83216e14c73f7838248127c78a0137201c23f4a90e3676b65e4448f86ede548"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_kubernetes_manifests
+<a id="canonical-bac1b8e0c33f5a3d21311ce0c069d131ce5b4d1668f7906573562ded23246e34"></a>
+
+## xcsh_kubernetes_manifests — xcsh_kubernetes_manifests / 5c970db1dddd / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Kubernetes workload configuration.
 
-## Prerequisites
+<a id="canonical-ca25ade0b09e4ec7b683929724e50a18b9b3c022b59b4067dc6f226bf67d808f"></a>
+
+## Prerequisites — xcsh_kubernetes_manifests / 5c970db1dddd / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-bf5a4a7f1835c8484bd32563a9466e8a9d5b2ad897f8dea0d5a7513772ab5e11"></a>
+
+## Minimal configuration — xcsh_kubernetes_manifests / 5c970db1dddd / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -44,12 +53,16 @@ ephemeral "xcsh_kubernetes_manifests" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-85b0024713031bcdd0057b0f41d9d02096653f8ddc3a71bff4520a004ea65801"></a>
+
+## Root configuration — xcsh_kubernetes_manifests / 5c970db1dddd / 5
 
 Required root properties: `site`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-bf8403d5274ef035f36aa8827c60231314ff399e890391db25a0252cad5e6c0b"></a>
 
-- [Property reference](../guides/ephemeral-resources--kubernetes_manifests--reference.md)
-- [Examples](../guides/ephemeral-resources--kubernetes_manifests--examples.md)
-- [Lifecycle](../guides/ephemeral-resources--kubernetes_manifests--lifecycle.md)
+## Next pages — xcsh_kubernetes_manifests / 5c970db1dddd / 6
+
+- [Property reference](../guides/ephemeral-resources--kubernetes_manifests--reference--group-001.md#canonical-2ac4a07b42a4e33d39b56bd91d9913d9cb0a8431f6e40485e5151778ee5864c8)
+- [Examples](../guides/ephemeral-resources--kubernetes_manifests--examples--group-001.md#canonical-facff2d02f16b29739081fecca5d71af469e84f62929ac9ed28ace112c3855fe)
+- [Lifecycle](../guides/ephemeral-resources--kubernetes_manifests--lifecycle--group-001.md#canonical-1db5d4ebfb494161bd7d29024efcd30b5eabba5803149c890860ccc09c5f8476)

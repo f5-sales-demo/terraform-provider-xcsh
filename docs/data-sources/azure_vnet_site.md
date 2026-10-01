@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_azure_vnet_site"
+page_title: "xcsh_azure_vnet_site landing"
 subcategory: "Infrastructure"
-description: "xcsh_azure_vnet_site for xcsh_azure_vnet_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1437, "body_sha256": "sha256:6cfbd1563d1feffc902af2a297eec5c3b340389cb81324e88731a459d1225380", "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:fundamentals", "child_ids": ["xcsh-docs:data-sources:azure_vnet_site:reference", "xcsh-docs:data-sources:azure_vnet_site:examples"], "collection_id": "xcsh-docs:data-sources:azure_vnet_site:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:azure_vnet_site:fundamentals", "parent_id": null, "path": "docs/data-sources/azure_vnet_site.md", "provider_name": "azure_vnet_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/azure_vnet_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_azure_vnet_site for xcsh_azure_vnet_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["azure_vnet_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_azure_vnet_site landing."
 ---
+
+# xcsh_azure_vnet_site landing
+
+<a id="canonical-7cb92499b57a54d5442d3ee07b93b09fafe4dea77fa6f1c73ebef54dbe104934"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_azure_vnet_site
+<a id="canonical-aef00c341ea1e651f9b07868491e6b33f737fceee71f4a17c792e73266d7b904"></a>
+
+## xcsh_azure_vnet_site — xcsh_azure_vnet_site / 0bc1d68c746e / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a Azure VNET Site resource in F5 Distributed Cloud for deploying F5 sites within Azure
 Virtual Network environments.
 
-## Prerequisites
+<a id="canonical-6ddd74814afeb6c4746b7a762d22883fc44b12b8b0dd41a9f6d79bc1732c2f73"></a>
+
+## Prerequisites — xcsh_azure_vnet_site / 0bc1d68c746e / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `cloud_credentials`.
 
 - cloud_credentials: Azure authentication for deployment
 
-## Minimal configuration
+<a id="canonical-aacebf93ddc33df3260246ccd8c7ae14e98686fd9b0bb8e35eedb9cc52e95322"></a>
+
+## Minimal configuration — xcsh_azure_vnet_site / 0bc1d68c746e / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,11 +66,15 @@ output "azure_vnet_site_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-acfb88929ce83c58326084f51390ef8b0a1ef19fffb91c543ecad7cd9989923f"></a>
+
+## Root configuration — xcsh_azure_vnet_site / 0bc1d68c746e / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-e524805f0fff9e6c22d48b459e0c793568fc16a7f611c5cb5d33b9ad566bc734"></a>
 
-- [Property reference](../guides/data-sources--azure_vnet_site--reference.md)
-- [Examples](../guides/data-sources--azure_vnet_site--examples.md)
+## Next pages — xcsh_azure_vnet_site / 0bc1d68c746e / 6
+
+- [Property reference](../guides/data-sources--azure_vnet_site--reference--group-001.md#canonical-a4424f966fa597f1188eace4a92ab52837b368faae830053b1a037d77fbacc17)
+- [Examples](../guides/data-sources--azure_vnet_site--examples--group-001.md#canonical-f49a5920408705296143b8899177eca7c7b50a3eb33f5ba7251f88156a58b302)

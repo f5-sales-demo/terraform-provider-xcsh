@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_rate_limiter_policy"
+page_title: "xcsh_rate_limiter_policy landing"
 subcategory: "Security"
-description: "xcsh_rate_limiter_policy for xcsh_rate_limiter_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1387, "body_sha256": "sha256:7901eee3b0923b46f32a9fd797a3f4b283bfe0627482cbd3978d6d44ff1bcfef", "canonical_id": "xcsh-docs:data-sources:rate_limiter_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:reference", "xcsh-docs:data-sources:rate_limiter_policy:examples"], "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:rate_limiter_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/rate_limiter_policy.md", "provider_name": "rate_limiter_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_rate_limiter_policy for xcsh_rate_limiter_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["rate_limiter_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_rate_limiter_policy landing."
 ---
+
+# xcsh_rate_limiter_policy landing
+
+<a id="canonical-d85e7ee161a0d5147d4a3d4ca16bb93ca846a6e3f718c829bcd6aed4d7147bd4"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_rate_limiter_policy
+<a id="canonical-308a34eb3722d5f4d48d00d1953fd64b7e860f2c7f4faee3dc30290548bce31d"></a>
+
+## xcsh_rate_limiter_policy — xcsh_rate_limiter_policy / 4872ee914e6d / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages a Rate Limiter Policy resource in F5 Distributed Cloud for rate limiter policy create
 specification. configuration.
 
-## Prerequisites
+<a id="canonical-de1c537934105572ee891945637c056a3869521cebce706ad1c0fd411eb71e40"></a>
+
+## Prerequisites — xcsh_rate_limiter_policy / 4872ee914e6d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-69f6b650a41326b33ac5feb2bc36e439442d8a2ffc2cff3536c0f7f406902738"></a>
+
+## Minimal configuration — xcsh_rate_limiter_policy / 4872ee914e6d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "rate_limiter_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a3649a17364bf41bd81c4303da10298840aa918c945241cd06eb32d0c0c02b61"></a>
+
+## Root configuration — xcsh_rate_limiter_policy / 4872ee914e6d / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2457217aee095b5d68e8f830c4b7869be8cdb36fbbe75acc49395405f20bc1e7"></a>
 
-- [Property reference](../guides/data-sources--rate_limiter_policy--reference.md)
-- [Examples](../guides/data-sources--rate_limiter_policy--examples.md)
+## Next pages — xcsh_rate_limiter_policy / 4872ee914e6d / 6
+
+- [Property reference](../guides/data-sources--rate_limiter_policy--reference--group-001.md#canonical-9d6a07279db3ea5414f61669cbab5bebf9ed356fff30a5e35a33d069400bad3c)
+- [Examples](../guides/data-sources--rate_limiter_policy--examples--group-001.md#canonical-9af59c23111ef40dd083e7310441f58a2c7e0e1ad5fb8e562709dd4ea7f2db9f)

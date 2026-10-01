@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_namespace"
+page_title: "xcsh_namespace landing"
 subcategory: ""
-description: "xcsh_namespace for xcsh_namespace."
-xcsh_docs: {"aliases": [], "body_bytes": 1243, "body_sha256": "sha256:e6f06ab9159ec909e36bc5e0545c797bc9ed0b8a4ac399e7b49ff7abeaf53452", "canonical_id": "xcsh-docs:data-sources:namespace:fundamentals", "child_ids": ["xcsh-docs:data-sources:namespace:reference", "xcsh-docs:data-sources:namespace:examples"], "collection_id": "xcsh-docs:data-sources:namespace:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:namespace:fundamentals", "parent_id": null, "path": "docs/data-sources/namespace.md", "provider_name": "namespace", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/namespace/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_namespace for xcsh_namespace.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["namespaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_namespace landing."
 ---
+
+# xcsh_namespace landing
+
+<a id="canonical-87303facfb5a86c45f03fd2edff3e82a1b37ef90f0d3be2e23ec03de74d32096"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_namespace
+<a id="canonical-1b941d55d1b44420a39f985d214db8ddd67c56467acb9dfd8a93e1706f895931"></a>
+
+## xcsh_namespace — xcsh_namespace / aaeb769cadc6 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages new namespace. Name of the object is name of the name space in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-dbb4b093853033107dd97707dedce4c9138bae27b5153474630b1e0371c0a2ba"></a>
+
+## Prerequisites — xcsh_namespace / aaeb769cadc6 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-8d3fe21097d97ce053d6577118c3d663d9ad2775edf70d7f88e046c3a2f46695"></a>
+
+## Minimal configuration — xcsh_namespace / aaeb769cadc6 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "namespace_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1b7ddda40dbd5fb92b41e5b4450de23800e7a3f13ae53c74e0f8a028c5955d94"></a>
+
+## Root configuration — xcsh_namespace / aaeb769cadc6 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3b0c46e14502279701f820a5421bcc79c29449fd9859445a780e8413803baf72"></a>
 
-- [Property reference](../guides/data-sources--namespace--reference.md)
-- [Examples](../guides/data-sources--namespace--examples.md)
+## Next pages — xcsh_namespace / aaeb769cadc6 / 6
+
+- [Property reference](../guides/data-sources--namespace--reference--group-001.md#canonical-6f4493fe6a03e423b14ed16b610b1d61c98ab9ef17f2f98fa04f2fb20e9e9fd7)
+- [Examples](../guides/data-sources--namespace--examples--group-001.md#canonical-13126340d43a7fef70e3c42c1e8d7b7fb39680618a33f6e79757825b1db49b7e)

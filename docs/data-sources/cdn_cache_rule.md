@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cdn_cache_rule"
+page_title: "xcsh_cdn_cache_rule landing"
 subcategory: ""
-description: "xcsh_cdn_cache_rule for xcsh_cdn_cache_rule."
-xcsh_docs: {"aliases": [], "body_bytes": 1288, "body_sha256": "sha256:65ac46cb08d066279c0f048255a5d2442df1e28c3ac63aaaa75cb024fefa2b6a", "canonical_id": "xcsh-docs:data-sources:cdn_cache_rule:fundamentals", "child_ids": ["xcsh-docs:data-sources:cdn_cache_rule:reference", "xcsh-docs:data-sources:cdn_cache_rule:examples"], "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_cache_rule:fundamentals", "parent_id": null, "path": "docs/data-sources/cdn_cache_rule.md", "provider_name": "cdn_cache_rule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cdn_cache_rule for xcsh_cdn_cache_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cdn_cache_ruleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cdn_cache_rule landing."
 ---
+
+# xcsh_cdn_cache_rule landing
+
+<a id="canonical-727b5aab8761041dba2c3d26acd033e191cb47a8d8343b9c5c9ea22286e70589"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cdn_cache_rule
+<a id="canonical-fd67cec200faa74c51023312257e505a0f156d1b6bd63d206665c15c41c795fc"></a>
+
+## xcsh_cdn_cache_rule — xcsh_cdn_cache_rule / ce855d997dc5 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a CDN Cache Rule resource in F5 Distributed Cloud for cdn loadbalancer specification.
 configuration.
 
-## Prerequisites
+<a id="canonical-3840602217c06804d86c6b86acc1161fbfd2b11a175b47e955860b6ab4d6e778"></a>
+
+## Prerequisites — xcsh_cdn_cache_rule / ce855d997dc5 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-bfe16d2a38a9fab9a94f5f8f3e1237518d7f688e0a10d94213ebe91d5811201b"></a>
+
+## Minimal configuration — xcsh_cdn_cache_rule / ce855d997dc5 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cdn_cache_rule_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-dab367562aa2124443445f3a900154c52cb98d39cbfee0e5e8d6e2310ca63a50"></a>
+
+## Root configuration — xcsh_cdn_cache_rule / ce855d997dc5 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-cbb62068f36be7488282a845219d0b1642f5606647cfeb16c86acfdd518bcc4f"></a>
 
-- [Property reference](../guides/data-sources--cdn_cache_rule--reference.md)
-- [Examples](../guides/data-sources--cdn_cache_rule--examples.md)
+## Next pages — xcsh_cdn_cache_rule / ce855d997dc5 / 6
+
+- [Property reference](../guides/data-sources--cdn_cache_rule--reference--group-001.md#canonical-b8dd202c6c3d15a64786c181af5b951bb789335c4a000437e6946559b2cf93d9)
+- [Examples](../guides/data-sources--cdn_cache_rule--examples--group-001.md#canonical-5bb95f551d7b0fd1f82574637552008edccd3cf016caf1cf657dbfc5e5b9b9ef)

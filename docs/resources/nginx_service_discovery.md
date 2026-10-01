@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_nginx_service_discovery"
+page_title: "xcsh_nginx_service_discovery landing"
 subcategory: ""
-description: "xcsh_nginx_service_discovery for xcsh_nginx_service_discovery."
-xcsh_docs: {"aliases": [], "body_bytes": 1645, "body_sha256": "sha256:544481d6e81718f3fecc717ac81d11c0232e97529328e2862a1afc4c2b76e2a3", "canonical_id": "xcsh-docs:resources:nginx_service_discovery:fundamentals", "child_ids": ["xcsh-docs:resources:nginx_service_discovery:reference", "xcsh-docs:resources:nginx_service_discovery:examples", "xcsh-docs:resources:nginx_service_discovery:import", "xcsh-docs:resources:nginx_service_discovery:timeouts"], "collection_id": "xcsh-docs:resources:nginx_service_discovery:collection", "completeness": "complete", "id": "xcsh-docs:resources:nginx_service_discovery:fundamentals", "parent_id": null, "path": "docs/resources/nginx_service_discovery.md", "provider_name": "nginx_service_discovery", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/nginx_service_discovery/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_nginx_service_discovery for xcsh_nginx_service_discovery.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["nginx_service_discoveryCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_nginx_service_discovery landing."
 ---
+
+# xcsh_nginx_service_discovery landing
+
+<a id="canonical-9f101755538801ac6046faa20459834b8511ae6b45bee321e3800bd29419268b"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_nginx_service_discovery
+<a id="canonical-bfd1b09898b44112dc0d9e02cc612b03fff15a5daaa8e743a0e1616206df594a"></a>
+
+## xcsh_nginx_service_discovery — xcsh_nginx_service_discovery / 861d2d0c4d8a / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to create nginx service
 discovery object for a site or virtual site in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-7c88db2ad797c92264b70c3e123bcc8be6061b2119a64945d4154ab8f69af689"></a>
+
+## Prerequisites — xcsh_nginx_service_discovery / 861d2d0c4d8a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-bef62abdf78b48630a769675f7915be9eee4db2c277afcc3d60ff30384ec57f9"></a>
+
+## Minimal configuration — xcsh_nginx_service_discovery / 861d2d0c4d8a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_nginx_service_discovery" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-c94a8a142e1a68fa423e7c74fea52dde3281ec0d2e7c2e549ee3be1bfaefd0c5"></a>
+
+## Root configuration — xcsh_nginx_service_discovery / 861d2d0c4d8a / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-c035f4cb648334c9bdb4adcc9f217487ef8db4ffb7555623240692f2b34cbae8"></a>
 
-- [Property reference](../guides/resources--nginx_service_discovery--reference.md)
-- [Examples](../guides/resources--nginx_service_discovery--examples.md)
-- [Import](../guides/resources--nginx_service_discovery--import.md)
-- [Timeouts](../guides/resources--nginx_service_discovery--timeouts.md)
+## Next pages — xcsh_nginx_service_discovery / 861d2d0c4d8a / 6
+
+- [Property reference](../guides/resources--nginx_service_discovery--reference--group-001.md#canonical-7c43a05457b4d262da288872a5e7442922d9f0b5651f9b7c0efeb8a3e37d7c09)
+- [Examples](../guides/resources--nginx_service_discovery--examples--group-001.md#canonical-c18b13d10d0226163fc8cf1360174bc98d4ef06d5d4daa9e87bea575065b2b6a)
+- [Import](../guides/resources--nginx_service_discovery--lifecycle--group-001.md#canonical-e59531dcf659d7250fd99d0d8a49733700fce4acb7f11c2728fb5b386e15180c)
+- [Timeouts](../guides/resources--nginx_service_discovery--lifecycle--group-001.md#canonical-b0e567bcc337829b40f3bb58c9f1012f3a2948dce57b31cfbd14620ee8ab8dd7)

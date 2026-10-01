@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_certificate_chain"
+page_title: "xcsh_certificate_chain landing"
 subcategory: "Security"
-description: "xcsh_certificate_chain for xcsh_certificate_chain."
-xcsh_docs: {"aliases": [], "body_bytes": 1546, "body_sha256": "sha256:3dc4c8c46de9aff78836d9784672dcbf67b410621cef4cb02649ef1f82a96589", "canonical_id": "xcsh-docs:resources:certificate_chain:fundamentals", "child_ids": ["xcsh-docs:resources:certificate_chain:reference", "xcsh-docs:resources:certificate_chain:examples", "xcsh-docs:resources:certificate_chain:import", "xcsh-docs:resources:certificate_chain:timeouts"], "collection_id": "xcsh-docs:resources:certificate_chain:collection", "completeness": "complete", "id": "xcsh-docs:resources:certificate_chain:fundamentals", "parent_id": null, "path": "docs/resources/certificate_chain.md", "provider_name": "certificate_chain", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate_chain/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_certificate_chain for xcsh_certificate_chain.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["certificate_chainCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_certificate_chain landing."
 ---
+
+# xcsh_certificate_chain landing
+
+<a id="canonical-f0d6989e5267b6b55a7b8070bbe48d5745c060de8472924023939e563ef7d93a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_certificate_chain
+<a id="canonical-75aae910d1a5c2e5d7f1ce23f82c84e0295b6e3a57207988360abb091a5967c4"></a>
+
+## xcsh_certificate_chain — xcsh_certificate_chain / 12aec357a4b5 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for
 TLS.
 
-## Prerequisites
+<a id="canonical-b7c689d62c44fdc3e54b649b42e25c70241b625418d5f1a9038bef048df22ca9"></a>
+
+## Prerequisites — xcsh_certificate_chain / 12aec357a4b5 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-c17a9060605ce5b044938a359a7636cfa2e6f96f99f52f2927679384e5aa2b04"></a>
+
+## Minimal configuration — xcsh_certificate_chain / 12aec357a4b5 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,13 +61,17 @@ resource "xcsh_certificate_chain" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-8753d578f90be59c7d4cd2bf4fae55cb14fe8728415dbeb7d07d76186052c86f"></a>
+
+## Root configuration — xcsh_certificate_chain / 12aec357a4b5 / 5
 
 Required root properties: `certificate_url`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-7ca9944a9c76f1fafee2f901ba9a929211644a604d464cbb2b1cfb081061c154"></a>
 
-- [Property reference](../guides/resources--certificate_chain--reference.md)
-- [Examples](../guides/resources--certificate_chain--examples.md)
-- [Import](../guides/resources--certificate_chain--import.md)
-- [Timeouts](../guides/resources--certificate_chain--timeouts.md)
+## Next pages — xcsh_certificate_chain / 12aec357a4b5 / 6
+
+- [Property reference](../guides/resources--certificate_chain--reference--group-001.md#canonical-c976c618810c3d923d3d6cdad9e66893de920464905dd953c308630b99c54079)
+- [Examples](../guides/resources--certificate_chain--examples--group-001.md#canonical-ae11625a3f3cabc566632a4055fe0cbec86e2eadd028c0ed14ee98a590bd533c)
+- [Import](../guides/resources--certificate_chain--lifecycle--group-001.md#canonical-7d09b404d603ce47b91ca76b13ee58644070bdaec24e088be28e2a4b918f5495)
+- [Timeouts](../guides/resources--certificate_chain--lifecycle--group-001.md#canonical-5b376bc5d39d1210832247605041b8f4eb18e3ffe1ff4b0ec092a1f0256cadbf)

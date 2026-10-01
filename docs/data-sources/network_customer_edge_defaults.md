@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_customer_edge_defaults"
+page_title: "xcsh_network_customer_edge_defaults landing"
 subcategory: ""
-description: "xcsh_network_customer_edge_defaults for xcsh_network_customer_edge_defaults."
-xcsh_docs: {"aliases": [], "body_bytes": 1707, "body_sha256": "sha256:b04386e33cf3ccc164e1ca9dba97117372f65133a5c72cc5fb35a327903fcb06", "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_customer_edge_defaults:reference", "xcsh-docs:data-sources:network_customer_edge_defaults:examples"], "collection_id": "xcsh-docs:data-sources:network_customer_edge_defaults:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_customer_edge_defaults:fundamentals", "parent_id": null, "path": "docs/data-sources/network_customer_edge_defaults.md", "provider_name": "network_customer_edge_defaults", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_customer_edge_defaults/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_customer_edge_defaults for xcsh_network_customer_edge_defaults.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_customer_edge_defaults landing."
 ---
+
+# xcsh_network_customer_edge_defaults landing
+
+<a id="canonical-8c8aceca215153c5d6cbb0356d721adf1b2910c6b46462a618d6991aacfa7f50"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_customer_edge_defaults
+<a id="canonical-b9b60c317f0f7f400b27583c9f2440dd15ccca8e34df73c9b388685f01b9c99a"></a>
+
+## xcsh_network_customer_edge_defaults — xcsh_network_customer_edge_defaults / 394b47679358 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Default DNS and NTP destinations for Customer Edge firewall rules. Values are bu
 pinned OpenAPI release; this data source performs no network request. Ports and traffic direction
 are not encoded in the manifest.
 
-## Prerequisites
+<a id="canonical-71ee489f53cb23edfcc31c48c543c9fe060226dd03af2a2099c437f8d333ae8f"></a>
+
+## Prerequisites — xcsh_network_customer_edge_defaults / 394b47679358 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-275890c671e8ca80543695fec45a8439dbe2aea886d67c74b3d01ead32762fb2"></a>
+
+## Minimal configuration — xcsh_network_customer_edge_defaults / 394b47679358 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,11 +68,15 @@ output "customer_edge_default_egress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-9bbf0c30dad858bd869df6e3c3edf4d8f4276a65cdd19f9b79d6b867799fcf05"></a>
+
+## Root configuration — xcsh_network_customer_edge_defaults / 394b47679358 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3086729dc0bfdc3fcf8df8f47a924ac138dac956a1e4ea292e2be01a0b605f94"></a>
 
-- [Property reference](../guides/data-sources--network_customer_edge_defaults--reference.md)
-- [Examples](../guides/data-sources--network_customer_edge_defaults--examples.md)
+## Next pages — xcsh_network_customer_edge_defaults / 394b47679358 / 6
+
+- [Property reference](../guides/data-sources--network_customer_edge_defaults--reference--group-001.md#canonical-9d1fe2e704b8f5c9223fc878a892d37925ab8d4550c772fa254b3648116a6364)
+- [Examples](../guides/data-sources--network_customer_edge_defaults--examples--group-001.md#canonical-dad5520819a51e807e7cbd81ab2c891d213a43f84c729fcbc54363d4cf27c7dc)

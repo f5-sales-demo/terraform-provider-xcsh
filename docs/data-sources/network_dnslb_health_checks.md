@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_dnslb_health_checks"
+page_title: "xcsh_network_dnslb_health_checks landing"
 subcategory: ""
-description: "xcsh_network_dnslb_health_checks for xcsh_network_dnslb_health_checks."
-xcsh_docs: {"aliases": [], "body_bytes": 1498, "body_sha256": "sha256:948aa0a8695c4efa0cdd3003c084fcb341a18148ae69b0f9ab156abba6210830", "canonical_id": "xcsh-docs:data-sources:network_dnslb_health_checks:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_dnslb_health_checks:reference", "xcsh-docs:data-sources:network_dnslb_health_checks:examples"], "collection_id": "xcsh-docs:data-sources:network_dnslb_health_checks:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_dnslb_health_checks:fundamentals", "parent_id": null, "path": "docs/data-sources/network_dnslb_health_checks.md", "provider_name": "network_dnslb_health_checks", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_dnslb_health_checks/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_dnslb_health_checks for xcsh_network_dnslb_health_checks.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_dnslb_health_checks landing."
 ---
+
+# xcsh_network_dnslb_health_checks landing
+
+<a id="canonical-7fe15c0ea60ec26d670552c2fb5cea28d2a66ac5c60327c73de2c1f6647d76b6"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_dnslb_health_checks
+<a id="canonical-14d2f58ed24e6c0aee7be32d8520bc8e4321beba02047cfcc04148d3448a488b"></a>
+
+## xcsh_network_dnslb_health_checks — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ DNS Load Balancer health-check probe IPv4 addresses. Values are bundled from the
 release; this data source performs no network request. Ports and traffic direction are not encoded
 in the manifest.
 
-## Prerequisites
+<a id="canonical-f88c03ed03590aa679208830a022452bfaee8b22deece22deb9ab2796daff35f"></a>
+
+## Prerequisites — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-169f607771d9bc82818a7f66675a3a362298402437f2d7fba106ac4970248f88"></a>
+
+## Minimal configuration — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "https_health_check_ingress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a47d7000372f23b0897aff38a6040591cd13817815439434d42ee5ee5941677e"></a>
+
+## Root configuration — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1cde1655c7d71ca67554aaabd38bab5b21e176ae1d41bc313f7e3393c3dacf77"></a>
 
-- [Property reference](../guides/data-sources--network_dnslb_health_checks--reference.md)
-- [Examples](../guides/data-sources--network_dnslb_health_checks--examples.md)
+## Next pages — xcsh_network_dnslb_health_checks / 2cee541f2a3e / 6
+
+- [Property reference](../guides/data-sources--network_dnslb_health_checks--reference--group-001.md#canonical-eb3db1582ccee632fd8bc87ae872f5e5735d27c136a8bf35db85d8a0ae5e35ba)
+- [Examples](../guides/data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-33d31580d0a9942499cdade7b7ab7db335b8c5e8687bfa6ff986ff99d6735606)

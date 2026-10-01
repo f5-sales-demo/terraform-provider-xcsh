@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_infrastructure"
+page_title: "xcsh_bot_infrastructure landing"
 subcategory: ""
-description: "xcsh_bot_infrastructure for xcsh_bot_infrastructure."
-xcsh_docs: {"aliases": [], "body_bytes": 1273, "body_sha256": "sha256:c7daa861b0ba923038b869735a5ba6f6736a9054bad2d023f86117d146156847", "canonical_id": "xcsh-docs:data-sources:bot_infrastructure:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_infrastructure:reference", "xcsh-docs:data-sources:bot_infrastructure:examples"], "collection_id": "xcsh-docs:data-sources:bot_infrastructure:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_infrastructure:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_infrastructure.md", "provider_name": "bot_infrastructure", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_infrastructure/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_infrastructure for xcsh_bot_infrastructure.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bot_infrastructureCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_infrastructure landing."
 ---
+
+# xcsh_bot_infrastructure landing
+
+<a id="canonical-877bbb7d337b693d557733ad6caa7f00c7f8b096aeb76ab4bf994720688abb64"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_infrastructure
+<a id="canonical-e19f0f270e56aebac72f6896814998717ce2949108f3ebf7ba122370e4c959f7"></a>
+
+## xcsh_bot_infrastructure — xcsh_bot_infrastructure / 08022d1cd3b3 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Bot Infrastructure in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-260351bb88ac3f72a36638f9a78fb119c881cdf799f5a075ba0af3e9185f1bb7"></a>
+
+## Prerequisites — xcsh_bot_infrastructure / 08022d1cd3b3 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1741158fae9d3990ee560b630d665854a899e05d271307ec8d5a596ea9c24ee7"></a>
+
+## Minimal configuration — xcsh_bot_infrastructure / 08022d1cd3b3 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "bot_infrastructure_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-5aa05381451fcb10583be87dff2d6a5738cbce3010953bd6acea8f39eb599af2"></a>
+
+## Root configuration — xcsh_bot_infrastructure / 08022d1cd3b3 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1a6b2d16b560a27adafe517d0ed77d084b1bcac90217caf02855df0b28b3cb89"></a>
 
-- [Property reference](../guides/data-sources--bot_infrastructure--reference.md)
-- [Examples](../guides/data-sources--bot_infrastructure--examples.md)
+## Next pages — xcsh_bot_infrastructure / 08022d1cd3b3 / 6
+
+- [Property reference](../guides/data-sources--bot_infrastructure--reference--group-001.md#canonical-e3ce34ec019c1f41a1f0eae669da3664626b6c7209669ae24fa287835acfefee)
+- [Examples](../guides/data-sources--bot_infrastructure--examples--group-001.md#canonical-f81d994c8dee00bb9e231d904fced88e7af9e8c8d882c731cb033b9b31919ca3)

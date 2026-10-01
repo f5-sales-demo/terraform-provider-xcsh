@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_ike_phase2_profile"
+page_title: "xcsh_ike_phase2_profile landing"
 subcategory: ""
-description: "xcsh_ike_phase2_profile for xcsh_ike_phase2_profile."
-xcsh_docs: {"aliases": [], "body_bytes": 1334, "body_sha256": "sha256:c8706e6a5e29845ef50819e77993e5859cff46e2828d47993c6de44f35e00e0b", "canonical_id": "xcsh-docs:data-sources:ike_phase2_profile:fundamentals", "child_ids": ["xcsh-docs:data-sources:ike_phase2_profile:reference", "xcsh-docs:data-sources:ike_phase2_profile:examples"], "collection_id": "xcsh-docs:data-sources:ike_phase2_profile:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:ike_phase2_profile:fundamentals", "parent_id": null, "path": "docs/data-sources/ike_phase2_profile.md", "provider_name": "ike_phase2_profile", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike_phase2_profile/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_ike_phase2_profile for xcsh_ike_phase2_profile.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["ike_phase2_profileCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_ike_phase2_profile landing."
 ---
+
+# xcsh_ike_phase2_profile landing
+
+<a id="canonical-d4f07d0519ebc7b4b0d60c702b18e26168602089d08803fd25362ad1cabf1c5c"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_ike_phase2_profile
+<a id="canonical-aa88561fa19c36c23fb6f2cbc91720afc506947b869823b2fd5c8176a414a8dd"></a>
+
+## xcsh_ike_phase2_profile — xcsh_ike_phase2_profile / 5d917b86e68e / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification.
 configuration.
 
-## Prerequisites
+<a id="canonical-f296f70745e377512eddc72ccf72afaa2d3fb4ae86aed31fdea983e486bcc1a8"></a>
+
+## Prerequisites — xcsh_ike_phase2_profile / 5d917b86e68e / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-c8b6c6c067de8c2472e66e5a46fc8b34ea3f86fd6a5458e6de137ceb165587f8"></a>
+
+## Minimal configuration — xcsh_ike_phase2_profile / 5d917b86e68e / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "ike_phase2_profile_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-71b3efc3d5417b1b07e5083c86564304b0727dd5975accb7748b14b7d2e920a6"></a>
+
+## Root configuration — xcsh_ike_phase2_profile / 5d917b86e68e / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-d1c2bc3808f802bc88144992007c1d09f31f7e15427db3e943e45c3221387beb"></a>
 
-- [Property reference](../guides/data-sources--ike_phase2_profile--reference.md)
-- [Examples](../guides/data-sources--ike_phase2_profile--examples.md)
+## Next pages — xcsh_ike_phase2_profile / 5d917b86e68e / 6
+
+- [Property reference](../guides/data-sources--ike_phase2_profile--reference--group-001.md#canonical-69208af1f987cbde066b5daf25f7fe566428d0259b66669340f64476744b4c9a)
+- [Examples](../guides/data-sources--ike_phase2_profile--examples--group-001.md#canonical-59588c09ef53762a3a76590a75aaee307169f6d19df7a933e040c76d7162e176)

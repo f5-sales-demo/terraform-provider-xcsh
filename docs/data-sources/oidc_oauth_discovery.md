@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_oidc_oauth_discovery"
+page_title: "xcsh_oidc_oauth_discovery landing"
 subcategory: ""
-description: "xcsh_oidc_oauth_discovery for xcsh_oidc_oauth_discovery."
-xcsh_docs: {"aliases": [], "body_bytes": 1173, "body_sha256": "sha256:c95a9163f544571037ae57cc7307ddffc0feccd58b6113bdb40c9656ed1ce5a7", "canonical_id": "xcsh-docs:data-sources:oidc_oauth_discovery:fundamentals", "child_ids": ["xcsh-docs:data-sources:oidc_oauth_discovery:reference", "xcsh-docs:data-sources:oidc_oauth_discovery:examples"], "collection_id": "xcsh-docs:data-sources:oidc_oauth_discovery:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:oidc_oauth_discovery:fundamentals", "parent_id": null, "path": "docs/data-sources/oidc_oauth_discovery.md", "provider_name": "oidc_oauth_discovery", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/oidc_oauth_discovery/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_oidc_oauth_discovery for xcsh_oidc_oauth_discovery.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_oidc_oauth_discovery landing."
 ---
+
+# xcsh_oidc_oauth_discovery landing
+
+<a id="canonical-6699f2a062d3230c5b4e6d55d20704f4124103bcf43f441267242ac4de16ca5a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_oidc_oauth_discovery
+<a id="canonical-a38869c9a3083d98ef2b66c0ff0e4f971236ffbb2b86550570d8208ab3a8bb88"></a>
+
+## xcsh_oidc_oauth_discovery — xcsh_oidc_oauth_discovery / 93db28599dd6 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-7b5dcdbc352e9b8a303823e64210c539cdd374a91abcbd6dcb1125a216c3e1a4"></a>
+
+## Prerequisites — xcsh_oidc_oauth_discovery / 93db28599dd6 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-4a5b0af13868cd02c6c9a91c7bfc5a5c065ada0561deb8d946fdc29e07d8233c"></a>
+
+## Minimal configuration — xcsh_oidc_oauth_discovery / 93db28599dd6 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "oidc_oauth_discovery_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-6c0d8b583393d520138d3101a52885a6750b0f5c04622d45f6cbcfd171692a70"></a>
+
+## Root configuration — xcsh_oidc_oauth_discovery / 93db28599dd6 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-862f7763957f014339110c378b97f2ca288b6fccc8192dd00e2ce72ef2a7b1dd"></a>
 
-- [Property reference](../guides/data-sources--oidc_oauth_discovery--reference.md)
-- [Examples](../guides/data-sources--oidc_oauth_discovery--examples.md)
+## Next pages — xcsh_oidc_oauth_discovery / 93db28599dd6 / 6
+
+- [Property reference](../guides/data-sources--oidc_oauth_discovery--reference--group-001.md#canonical-8080b48cb0feeea357a5116a2e8d2f87213d62c9c935f7da9a09cb40d2eabf8a)
+- [Examples](../guides/data-sources--oidc_oauth_discovery--examples--group-001.md#canonical-d1c9c61b2b856005f03f81e500769e4378d5d66b010de9eb777ffee119e652a8)

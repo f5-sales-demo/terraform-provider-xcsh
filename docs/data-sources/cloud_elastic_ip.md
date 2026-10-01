@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_elastic_ip"
+page_title: "xcsh_cloud_elastic_ip landing"
 subcategory: ""
-description: "xcsh_cloud_elastic_ip for xcsh_cloud_elastic_ip."
-xcsh_docs: {"aliases": [], "body_bytes": 1310, "body_sha256": "sha256:1dcaf5b0a7a87d9ff7d7a5ccc52f8e41eafbbc46615b561b89956aff154c9ef2", "canonical_id": "xcsh-docs:data-sources:cloud_elastic_ip:fundamentals", "child_ids": ["xcsh-docs:data-sources:cloud_elastic_ip:reference", "xcsh-docs:data-sources:cloud_elastic_ip:examples"], "collection_id": "xcsh-docs:data-sources:cloud_elastic_ip:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cloud_elastic_ip:fundamentals", "parent_id": null, "path": "docs/data-sources/cloud_elastic_ip.md", "provider_name": "cloud_elastic_ip", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_elastic_ip/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_elastic_ip for xcsh_cloud_elastic_ip.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cloud_elastic_ipCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_elastic_ip landing."
 ---
+
+# xcsh_cloud_elastic_ip landing
+
+<a id="canonical-2b2f30e89bfb277ce22595cc89aff6edb2de7c5d6f5d72c5d631bef5fa2ab292"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_elastic_ip
+<a id="canonical-d5ca3ac65dca6952e10fed01b5d019996af39157084fbf53a76dd8c9d617df95"></a>
+
+## xcsh_cloud_elastic_ip — xcsh_cloud_elastic_ip / 03abe8e0e00d / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-a4fa942f1ceed1082d66481a66d382c9298ce453221eab7b5a30897bc1d0b5f3"></a>
+
+## Prerequisites — xcsh_cloud_elastic_ip / 03abe8e0e00d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-4e09f931cce60539e469c22d7d0b6adb7c1b02e6ea1b19d69c174a867717b99c"></a>
+
+## Minimal configuration — xcsh_cloud_elastic_ip / 03abe8e0e00d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cloud_elastic_ip_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-6e021f7285826b78c46e5f60a61c3ad20aac7d536e770c980098a86cb2c4b99d"></a>
+
+## Root configuration — xcsh_cloud_elastic_ip / 03abe8e0e00d / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-4933436a8e191e1bce8c827d61c179c654ff14ddcec826737b0f4d116106477f"></a>
 
-- [Property reference](../guides/data-sources--cloud_elastic_ip--reference.md)
-- [Examples](../guides/data-sources--cloud_elastic_ip--examples.md)
+## Next pages — xcsh_cloud_elastic_ip / 03abe8e0e00d / 6
+
+- [Property reference](../guides/data-sources--cloud_elastic_ip--reference--group-001.md#canonical-ef15d26eed8ba06029d76ff217be5d95cee1296437e2bcdfc5add660013e8dcb)
+- [Examples](../guides/data-sources--cloud_elastic_ip--examples--group-001.md#canonical-076152532c256f4736b20a7aad09ccaa23aa6c26028f74c80e32ace794cb1a1e)

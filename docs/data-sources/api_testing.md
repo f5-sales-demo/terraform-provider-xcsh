@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_api_testing"
+page_title: "xcsh_api_testing landing"
 subcategory: ""
-description: "xcsh_api_testing for xcsh_api_testing."
-xcsh_docs: {"aliases": [], "body_bytes": 1207, "body_sha256": "sha256:3b3ee6762bafc2f46d19ba98edcdec61c4b81c2dd17db17ceb46f7d5720b8807", "canonical_id": "xcsh-docs:data-sources:api_testing:fundamentals", "child_ids": ["xcsh-docs:data-sources:api_testing:reference", "xcsh-docs:data-sources:api_testing:examples"], "collection_id": "xcsh-docs:data-sources:api_testing:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_testing:fundamentals", "parent_id": null, "path": "docs/data-sources/api_testing.md", "provider_name": "api_testing", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_api_testing for xcsh_api_testing.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["api_testingCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_api_testing landing."
 ---
+
+# xcsh_api_testing landing
+
+<a id="canonical-53728795593d298c8eed58f811191d2ef0f7236e7e77cb78260547474431a0ac"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_api_testing
+<a id="canonical-4f4b50ad267767ab36bd03366d1bf06887c511b38fed96331282b993c00e1b8b"></a>
+
+## xcsh_api_testing — xcsh_api_testing / 992b39eaacad / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a API Testing resource in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-01f5cc44a635fb3eb959b1cc246d7479924d5acae1efda5bec03c8ef97126c77"></a>
+
+## Prerequisites — xcsh_api_testing / 992b39eaacad / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-ec189eb75517e0dd1ffb27cd2b4d2910e17d42e21ecc0e2c3f3fe061aa6e266d"></a>
+
+## Minimal configuration — xcsh_api_testing / 992b39eaacad / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "api_testing_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-25fd128079eb3e40535213be4f296203da351edf0be17e762da60a11eccfcebe"></a>
+
+## Root configuration — xcsh_api_testing / 992b39eaacad / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-5c560038b08d546355163309f07b76cb637e42add5f3fc56992c8e55fe494e53"></a>
 
-- [Property reference](../guides/data-sources--api_testing--reference.md)
-- [Examples](../guides/data-sources--api_testing--examples.md)
+## Next pages — xcsh_api_testing / 992b39eaacad / 6
+
+- [Property reference](../guides/data-sources--api_testing--reference--group-001.md#canonical-c29fb04ff0e7f10a5a7e03af6728d874d4b9396f13a83d733b7df848936cd493)
+- [Examples](../guides/data-sources--api_testing--examples--group-001.md#canonical-beb504e58ed4f5cdc2da1cb373b5d71c3498aaee616e4b912c35bcb206ab55b3)

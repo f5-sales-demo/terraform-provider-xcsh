@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_connector"
+page_title: "xcsh_network_connector landing"
 subcategory: "Networking"
-description: "xcsh_network_connector for xcsh_network_connector."
-xcsh_docs: {"aliases": [], "body_bytes": 1623, "body_sha256": "sha256:09ee663cff690543ed1e559bf6a0ecf004b0f77a4d2656dd64df5f612009d17e", "canonical_id": "xcsh-docs:resources:network_connector:fundamentals", "child_ids": ["xcsh-docs:resources:network_connector:reference", "xcsh-docs:resources:network_connector:examples", "xcsh-docs:resources:network_connector:import", "xcsh-docs:resources:network_connector:timeouts"], "collection_id": "xcsh-docs:resources:network_connector:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_connector:fundamentals", "parent_id": null, "path": "docs/resources/network_connector.md", "provider_name": "network_connector", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_connector for xcsh_network_connector.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_connectorCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_connector landing."
 ---
+
+# xcsh_network_connector landing
+
+<a id="canonical-0cb56818b44775bd16a78d7c4430851038331e4d21680537b2f6be63dce8e010"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_connector
+<a id="canonical-c872e68322ce1b859e1facfb4266c2c171e9b8cc15d3accda8784bd4bff90e4d"></a>
+
+## xcsh_network_connector — xcsh_network_connector / 21cee089d396 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by
 users in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-d4f719351158e916e905cbd659c72e428ced335d7842dc12ba3d1540b02e5e07"></a>
+
+## Prerequisites — xcsh_network_connector / 21cee089d396 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `virtual_network`.
 
 - virtual_network: Network to connect
 
-## Minimal configuration
+<a id="canonical-b5df403e1b02801dd3c4817a7d4c26cc422a9ee1a8327a386c0d3f29ddab5962"></a>
+
+## Minimal configuration — xcsh_network_connector / 21cee089d396 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,13 +63,17 @@ resource "xcsh_network_connector" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-dbbe2425b661ee799ecc65f99c2646470567ae2e6cdf1e3e635b90626764d4f2"></a>
+
+## Root configuration — xcsh_network_connector / 21cee089d396 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0bb130aabb7f75cce809a4d8a3e80f2e61c144438c1d00779bab3f0e39472e48"></a>
 
-- [Property reference](../guides/resources--network_connector--reference.md)
-- [Examples](../guides/resources--network_connector--examples.md)
-- [Import](../guides/resources--network_connector--import.md)
-- [Timeouts](../guides/resources--network_connector--timeouts.md)
+## Next pages — xcsh_network_connector / 21cee089d396 / 6
+
+- [Property reference](../guides/resources--network_connector--reference--group-001.md#canonical-ec878df0d04ea9f1eac68f80926f55ca939df9125352efce9b144b7bb4ad30fd)
+- [Examples](../guides/resources--network_connector--examples--group-001.md#canonical-da5d1aadf602caf35fa642617b8652781dcdfdb9c4b01054e2e6ee1d216efbff)
+- [Import](../guides/resources--network_connector--lifecycle--group-001.md#canonical-99266101de64536830d8356e1a4262545ec691de5a88830c5007df5b7700e727)
+- [Timeouts](../guides/resources--network_connector--lifecycle--group-001.md#canonical-c6eaac6ffbfdc7cfe36e41f8d49435aa9468b5a55d119910f009f70a8135e916)

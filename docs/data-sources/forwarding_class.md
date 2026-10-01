@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_forwarding_class"
+page_title: "xcsh_forwarding_class landing"
 subcategory: ""
-description: "xcsh_forwarding_class for xcsh_forwarding_class."
-xcsh_docs: {"aliases": [], "body_bytes": 1338, "body_sha256": "sha256:ea47af8ab39a59e4581bd7b05bf2c8598dc3c2dbc7befa63662421ad4edf6acc", "canonical_id": "xcsh-docs:data-sources:forwarding_class:fundamentals", "child_ids": ["xcsh-docs:data-sources:forwarding_class:reference", "xcsh-docs:data-sources:forwarding_class:examples"], "collection_id": "xcsh-docs:data-sources:forwarding_class:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:forwarding_class:fundamentals", "parent_id": null, "path": "docs/data-sources/forwarding_class.md", "provider_name": "forwarding_class", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forwarding_class/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_forwarding_class for xcsh_forwarding_class.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["forwarding_classCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_forwarding_class landing."
 ---
+
+# xcsh_forwarding_class landing
+
+<a id="canonical-3b133379aa5b31b88a0783e6e5d2d0a53474466c614a38dd2cbdc055e1e46e23"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_forwarding_class
+<a id="canonical-524477b66dc5153c643fd817f40286244ddd03c6dc25260ee51864946a5a26a5"></a>
+
+## xcsh_forwarding_class — xcsh_forwarding_class / 690d8dc10edc / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Forwarding Class resource in F5 Distributed Cloud for forwarding class is created by users
 in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-cc881c3c552e119cb33b5285272c728b19e3d0277322c3e11ff2c72fd9f7cf6c"></a>
+
+## Prerequisites — xcsh_forwarding_class / 690d8dc10edc / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-687ea6c11c0e90c0a05570e2a1e188dee4bd1f1e631a9179ca6cd341d59c84fe"></a>
+
+## Minimal configuration — xcsh_forwarding_class / 690d8dc10edc / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "forwarding_class_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-607bdbac013278945a3f016cfabe1a6783f71ba62acc57f4a89cb7b4fcb78d21"></a>
+
+## Root configuration — xcsh_forwarding_class / 690d8dc10edc / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-747d0a02131ac87c5bdfac14aecd2640aa13cdaac289c1936974f505bcec5c2a"></a>
 
-- [Property reference](../guides/data-sources--forwarding_class--reference.md)
-- [Examples](../guides/data-sources--forwarding_class--examples.md)
+## Next pages — xcsh_forwarding_class / 690d8dc10edc / 6
+
+- [Property reference](../guides/data-sources--forwarding_class--reference--group-001.md#canonical-6ec71ff62f075a2e37a43517a8a9b211feae94a629c2e1fc0af087e3ac82abe7)
+- [Examples](../guides/data-sources--forwarding_class--examples--group-001.md#canonical-75575c16923f49aa304e0a71ec8c3ee586191de8d37a0f4e564b37791041c33e)

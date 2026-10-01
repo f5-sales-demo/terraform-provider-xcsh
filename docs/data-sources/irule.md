@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_irule"
+page_title: "xcsh_irule landing"
 subcategory: ""
-description: "xcsh_irule for xcsh_irule."
-xcsh_docs: {"aliases": [], "body_bytes": 1198, "body_sha256": "sha256:c59160f4ba51e8f6ba03b004b5f806fa948927d413958cf7c3664980a8bc7cf5", "canonical_id": "xcsh-docs:data-sources:irule:fundamentals", "child_ids": ["xcsh-docs:data-sources:irule:reference", "xcsh-docs:data-sources:irule:examples"], "collection_id": "xcsh-docs:data-sources:irule:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:irule:fundamentals", "parent_id": null, "path": "docs/data-sources/irule.md", "provider_name": "irule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/irule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_irule for xcsh_irule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["iruleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_irule landing."
 ---
+
+# xcsh_irule landing
+
+<a id="canonical-2d46463305002f54ff3a1ae4bb70fcb0aa618cbcb1816cb90bb6c2a6ed549962"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_irule
+<a id="canonical-2d1ea6c730d0a71c0695423fd3d2bbeafbb59ebda3cbfa5ee08a3030ffc179bd"></a>
+
+## xcsh_irule — xcsh_irule / f6f98d09b867 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages iRule in a given namespace. If one already exists it will give an error in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-3ece3b776c61b9d1544cb419c600cc179585c83a9a790e1454950fbe3fba21b9"></a>
+
+## Prerequisites — xcsh_irule / f6f98d09b867 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-8557da19ad31f83dc0572b4c22b705e3de477b0dc1fc31e60b571b996eb5eff4"></a>
+
+## Minimal configuration — xcsh_irule / f6f98d09b867 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "irule_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-de5ef5f1f76868e1784031810019a507a2b7fb9e2d9057c9c786121fad7e0eab"></a>
+
+## Root configuration — xcsh_irule / f6f98d09b867 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-92ba14ca5e62f0a29daa9b2799c6af560b7b0fed5e0d0b21f91bc30720933c0b"></a>
 
-- [Property reference](../guides/data-sources--irule--reference.md)
-- [Examples](../guides/data-sources--irule--examples.md)
+## Next pages — xcsh_irule / f6f98d09b867 / 6
+
+- [Property reference](../guides/data-sources--irule--reference--group-001.md#canonical-86a3e148141db31b69bea2546604e814213c814fc5ca09e8be422e905b31ed84)
+- [Examples](../guides/data-sources--irule--examples--group-001.md#canonical-2de7ae51f53e24a111116c100bfd19a60484b4b51f3ad177bb6724e12299aa5d)

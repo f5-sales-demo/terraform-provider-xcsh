@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_customer_edge_egress"
+page_title: "xcsh_network_customer_edge_egress landing"
 subcategory: ""
-description: "xcsh_network_customer_edge_egress for xcsh_network_customer_edge_egress."
-xcsh_docs: {"aliases": [], "body_bytes": 1766, "body_sha256": "sha256:9d65627b784c983824bdbd8f08818c69093a4b78635c95115969ba12f4b0f045", "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_customer_edge_egress:reference", "xcsh-docs:data-sources:network_customer_edge_egress:examples"], "collection_id": "xcsh-docs:data-sources:network_customer_edge_egress:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals", "parent_id": null, "path": "docs/data-sources/network_customer_edge_egress.md", "provider_name": "network_customer_edge_egress", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_customer_edge_egress/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_customer_edge_egress for xcsh_network_customer_edge_egress.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_customer_edge_egress landing."
 ---
+
+# xcsh_network_customer_edge_egress landing
+
+<a id="canonical-e8a53f08d4a40bf225466083460717f25dabd979bfa6a17a3cab3b3fbaa24138"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_customer_edge_egress
+<a id="canonical-dc31891e547e5cca0a4f4643b7fe8de85689056be07cdf163e59fc50a6907ccc"></a>
+
+## xcsh_network_customer_edge_egress — xcsh_network_customer_edge_egress / 79cd67327bcf / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Secure Mesh v2 registration IPv4 addresses and egress domains. Legacy Customer E
 intentionally excluded. Values are bundled from the pinned OpenAPI release; this data source
 performs no network request. Ports and traffic direction are not encoded in the manifest.
 
-## Prerequisites
+<a id="canonical-847fb8a4cdc13a37549f402626ad294e992ea6bf6188a2d457242de7e47db7cd"></a>
+
+## Prerequisites — xcsh_network_customer_edge_egress / 79cd67327bcf / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-51488a15ef25df60c331b04c7ee84e99fb15900f288739ee69524c7cd95e0f34"></a>
+
+## Minimal configuration — xcsh_network_customer_edge_egress / 79cd67327bcf / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,11 +63,15 @@ output "secure_mesh_v2_https_egress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-aa1740bc39ce66198a119d6aab4d0aa5335a98a9c22cf9ace5b0a5019c6cda14"></a>
+
+## Root configuration — xcsh_network_customer_edge_egress / 79cd67327bcf / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-148c83ae26e9778516deee4853b0e8bf48aa5d7c65e4877043376b5b40467b99"></a>
 
-- [Property reference](../guides/data-sources--network_customer_edge_egress--reference.md)
-- [Examples](../guides/data-sources--network_customer_edge_egress--examples.md)
+## Next pages — xcsh_network_customer_edge_egress / 79cd67327bcf / 6
+
+- [Property reference](../guides/data-sources--network_customer_edge_egress--reference--group-001.md#canonical-fcf3f94ae406bb1faa761b4a9cdf3711b3d6f68f069675781ca1886e216a0b88)
+- [Examples](../guides/data-sources--network_customer_edge_egress--examples--group-001.md#canonical-7f463e71e192bcbb9a976ba4c7ba9f7598a671ac30aada9471885444abcfcfe0)

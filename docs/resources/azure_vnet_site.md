@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_azure_vnet_site"
+page_title: "xcsh_azure_vnet_site landing"
 subcategory: "Infrastructure"
-description: "xcsh_azure_vnet_site for xcsh_azure_vnet_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1746, "body_sha256": "sha256:f0f0e66ea2487d4123cb12c19d125e1bc7ddb8edcebb8fb77e2a24a6dec7bc45", "canonical_id": "xcsh-docs:resources:azure_vnet_site:fundamentals", "child_ids": ["xcsh-docs:resources:azure_vnet_site:reference", "xcsh-docs:resources:azure_vnet_site:examples", "xcsh-docs:resources:azure_vnet_site:import", "xcsh-docs:resources:azure_vnet_site:timeouts"], "collection_id": "xcsh-docs:resources:azure_vnet_site:collection", "completeness": "complete", "id": "xcsh-docs:resources:azure_vnet_site:fundamentals", "parent_id": null, "path": "docs/resources/azure_vnet_site.md", "provider_name": "azure_vnet_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/azure_vnet_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_azure_vnet_site for xcsh_azure_vnet_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["azure_vnet_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_azure_vnet_site landing."
 ---
+
+# xcsh_azure_vnet_site landing
+
+<a id="canonical-b087f208aea9bf78194523dff06d0d9350f1017d40cb35999cbaea1a437ac4d7"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_azure_vnet_site
+<a id="canonical-f1f430cec2e7b0e9df4560c6843d3bcefab776a956446c932ad0f6595d2e68b7"></a>
+
+## xcsh_azure_vnet_site — xcsh_azure_vnet_site / 9577a2eb032a / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a Azure VNET Site resource in F5 Distributed Cloud for deploying F5 sites within Azure
 Virtual Network environments.
 
-## Prerequisites
+<a id="canonical-f9af7233854af87cb34f051d996b32e4fdedab42b169c4c89cb0ba1a276c1aa2"></a>
+
+## Prerequisites — xcsh_azure_vnet_site / 9577a2eb032a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `cloud_credentials`.
 
 - cloud_credentials: Azure authentication for deployment
 
-## Minimal configuration
+<a id="canonical-b20b9a94081be9055f11a8acc0eb98663cf5f1eb865acbb5a5c632842c4d7b3e"></a>
+
+## Minimal configuration — xcsh_azure_vnet_site / 9577a2eb032a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,13 +67,17 @@ resource "xcsh_azure_vnet_site" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-d1cbe5e484cfbd05d652cb2273a6a46fc57c4106e750e2dc60adc4d77b448b3c"></a>
+
+## Root configuration — xcsh_azure_vnet_site / 9577a2eb032a / 5
 
 Required root properties: `machine_type`, `name`, `resource_group`, `ssh_key`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-7fac16052cb9d5e1c83595caab84e513ecfaf367f06040a0bb9dfcebb1e23d4a"></a>
 
-- [Property reference](../guides/resources--azure_vnet_site--reference.md)
-- [Examples](../guides/resources--azure_vnet_site--examples.md)
-- [Import](../guides/resources--azure_vnet_site--import.md)
-- [Timeouts](../guides/resources--azure_vnet_site--timeouts.md)
+## Next pages — xcsh_azure_vnet_site / 9577a2eb032a / 6
+
+- [Property reference](../guides/resources--azure_vnet_site--reference--group-001.md#canonical-c663d8e15601cf9de2f980c11b1d3fc2561d340189ef651c56155a79bbbd7b6e)
+- [Examples](../guides/resources--azure_vnet_site--examples--group-001.md#canonical-9937a731c0dc2b330f80d47e29602b5ae88158752b84247f2c29ad2df826847e)
+- [Import](../guides/resources--azure_vnet_site--lifecycle--group-001.md#canonical-f648ca3ca347ef7f27ab59f79b2ea2fc8e404b3aa0320144c0651eb872996c1d)
+- [Timeouts](../guides/resources--azure_vnet_site--lifecycle--group-001.md#canonical-657250870f51d2fc065cd36a65251ff9d62fee97de47bd65305eba10ee17e64d)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_api_crawler"
+page_title: "xcsh_api_crawler landing"
 subcategory: ""
-description: "xcsh_api_crawler for xcsh_api_crawler."
-xcsh_docs: {"aliases": [], "body_bytes": 1207, "body_sha256": "sha256:deb5dbf6f40c779c07477f5d4746fe2b52b396573a97d954ffd7c5d02ab13ab0", "canonical_id": "xcsh-docs:data-sources:api_crawler:fundamentals", "child_ids": ["xcsh-docs:data-sources:api_crawler:reference", "xcsh-docs:data-sources:api_crawler:examples"], "collection_id": "xcsh-docs:data-sources:api_crawler:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_crawler:fundamentals", "parent_id": null, "path": "docs/data-sources/api_crawler.md", "provider_name": "api_crawler", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_api_crawler for xcsh_api_crawler.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["api_crawlerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_api_crawler landing."
 ---
+
+# xcsh_api_crawler landing
+
+<a id="canonical-cedfb8c689c5d10465fe169549e2cc3c250d6d8c6030df19c6e083bfbfa76aa5"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_api_crawler
+<a id="canonical-a9d0c995267d28a2017cd8da2586adf3d28fe348ce48064322198e2bbfbe36e7"></a>
+
+## xcsh_api_crawler — xcsh_api_crawler / 2520eebd8ba7 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a API Crawler resource in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-320227868d3e61e2ad3dced2f3b8a9c495ec6cc94775013e2d53b0d7c669b49d"></a>
+
+## Prerequisites — xcsh_api_crawler / 2520eebd8ba7 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-69b5213da288b7bdcaf8df9061c42f5f2bca69e79caa08bd6a5f29efe50b0269"></a>
+
+## Minimal configuration — xcsh_api_crawler / 2520eebd8ba7 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "api_crawler_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-cd1098b370fc23e002bee930bfdc33a113442bcbe986cc3a3bb973a6c57dfb7b"></a>
+
+## Root configuration — xcsh_api_crawler / 2520eebd8ba7 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-598954dfabc0c17cb4a521b77c11919fc6ddce16ea2f1cd2ca99604b63e4e07b"></a>
 
-- [Property reference](../guides/data-sources--api_crawler--reference.md)
-- [Examples](../guides/data-sources--api_crawler--examples.md)
+## Next pages — xcsh_api_crawler / 2520eebd8ba7 / 6
+
+- [Property reference](../guides/data-sources--api_crawler--reference--group-001.md#canonical-28a3aac178dc4be3f000c830210b2c47249b673430fc2cf275ec9a1b9ece900b)
+- [Examples](../guides/data-sources--api_crawler--examples--group-001.md#canonical-cff911ec166cbf5a694bf3603257154d58c94c5d4bb92d5158a71f07ff81a815)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_managed_client_customer_support_comments"
+page_title: "xcsh_managed_client_customer_support_comments landing"
 subcategory: ""
-description: "xcsh_managed_client_customer_support_comments for xcsh_managed_client_customer_support_comments."
-xcsh_docs: {"aliases": [], "body_bytes": 1324, "body_sha256": "sha256:3cecf85e196ae7e267ec14d9bd9af3975bec1dc23997b17891685b4651d0f70d", "canonical_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:fundamentals", "child_ids": ["xcsh-docs:data-sources:managed_client_customer_support_comments:reference", "xcsh-docs:data-sources:managed_client_customer_support_comments:examples"], "collection_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:managed_client_customer_support_comments:fundamentals", "parent_id": null, "path": "docs/data-sources/managed_client_customer_support_comments.md", "provider_name": "managed_client_customer_support_comments", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/managed_client_customer_support_comments/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_managed_client_customer_support_comments for xcsh_managed_client_customer_support_comments.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_managed_client_customer_support_comments landing."
 ---
+
+# xcsh_managed_client_customer_support_comments landing
+
+<a id="canonical-19ed2b0f382c1ee9657068d0bff6bb41635a9678de67d991c72fb726a66c69ab"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_managed_client_customer_support_comments
+<a id="canonical-fedec397fbfd87818cb1ec3f13325a6015e8af11587d6baeb06219efbf8a45c3"></a>
+
+## xcsh_managed_client_customer_support_comments — xcsh_managed_client_customer_support_comments / a202023adcd6 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-## Prerequisites
+<a id="canonical-ae7b842607eba8619d60c2c718fd362eaa744036a9c806382c445b6c6fc6e148"></a>
+
+## Prerequisites — xcsh_managed_client_customer_support_comments / a202023adcd6 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3e0bc956bdcf2f08033c1a000fe694f5e28e2af6a5c6dfaa4c5b33ac13488b50"></a>
+
+## Minimal configuration — xcsh_managed_client_customer_support_comments / a202023adcd6 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "managed_client_customer_support_comments_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-df89fafbd03aab44b5f80c06bf0167f355b592ca18711c7efe2084601a03a954"></a>
+
+## Root configuration — xcsh_managed_client_customer_support_comments / a202023adcd6 / 5
 
 Required root properties: `tp_id`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-cc40831c231177811b7293fea179210a970ce78987efaa61e235d0ef01f638f0"></a>
 
-- [Property reference](../guides/data-sources--managed_client_customer_support_comments--reference.md)
-- [Examples](../guides/data-sources--managed_client_customer_support_comments--examples.md)
+## Next pages — xcsh_managed_client_customer_support_comments / a202023adcd6 / 6
+
+- [Property reference](../guides/data-sources--managed_client_customer_support_comments--reference--group-001.md#canonical-002a4575b61eb4ad6cacc307c2f712501721ed41a3e99b73773ff4b3e8095b91)
+- [Examples](../guides/data-sources--managed_client_customer_support_comments--examples--group-001.md#canonical-cc0ea23565c192a388b604de1b0ea61a22dc512875758e6628c231e975bf2815)

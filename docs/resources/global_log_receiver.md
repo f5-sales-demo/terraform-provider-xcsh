@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_global_log_receiver"
+page_title: "xcsh_global_log_receiver landing"
 subcategory: ""
-description: "xcsh_global_log_receiver for xcsh_global_log_receiver."
-xcsh_docs: {"aliases": [], "body_bytes": 1390, "body_sha256": "sha256:35a3761f2370fb0fb3d27133e318df3e4e5d15e2e085693d6b6fb3a599a0c0b5", "canonical_id": "xcsh-docs:resources:global_log_receiver:fundamentals", "child_ids": ["xcsh-docs:resources:global_log_receiver:reference", "xcsh-docs:resources:global_log_receiver:examples", "xcsh-docs:resources:global_log_receiver:import", "xcsh-docs:resources:global_log_receiver:timeouts"], "collection_id": "xcsh-docs:resources:global_log_receiver:collection", "completeness": "complete", "id": "xcsh-docs:resources:global_log_receiver:fundamentals", "parent_id": null, "path": "docs/resources/global_log_receiver.md", "provider_name": "global_log_receiver", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/global_log_receiver/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_global_log_receiver for xcsh_global_log_receiver.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["global_log_receiverCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_global_log_receiver landing."
 ---
+
+# xcsh_global_log_receiver landing
+
+<a id="canonical-1e880e7c7bdf1c11b455555a94902bc778fe398e7ddf9f5ea18b9a24baf3c5e5"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_global_log_receiver
+<a id="canonical-6b3d5eaf45b7113e2ea91b6b564da149ea04a7f2e6a8b42f529cf9109b3fb65b"></a>
+
+## xcsh_global_log_receiver — xcsh_global_log_receiver / acfd4e516ac0 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages new Global Log Receiver object in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-b5be1c88739c5b102b32beeeb9a790d5c7c232dceb839dce1d5bc3515d83f6bd"></a>
+
+## Prerequisites — xcsh_global_log_receiver / acfd4e516ac0 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-ada2358e62f26fe628fb7e70302710f5bbfdf1de1f6a32366a51bb7f9a1cd6c2"></a>
+
+## Minimal configuration — xcsh_global_log_receiver / acfd4e516ac0 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_global_log_receiver" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-5d480a62de965ea7dc31d2619efd86f918acb776af2398225c4fd3f046583309"></a>
+
+## Root configuration — xcsh_global_log_receiver / acfd4e516ac0 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-c3e87aad10003ffc677e4c4a4ea0e8577a5268df53c9b83ef99292432692b6a4"></a>
 
-- [Property reference](../guides/resources--global_log_receiver--reference.md)
-- [Examples](../guides/resources--global_log_receiver--examples.md)
-- [Import](../guides/resources--global_log_receiver--import.md)
-- [Timeouts](../guides/resources--global_log_receiver--timeouts.md)
+## Next pages — xcsh_global_log_receiver / acfd4e516ac0 / 6
+
+- [Property reference](../guides/resources--global_log_receiver--reference--group-001.md#canonical-7af3c00623500b670d8cb63b589e72d65b2843d1315a7848a75cd621def04808)
+- [Examples](../guides/resources--global_log_receiver--examples--group-001.md#canonical-5c26fc0d1d2807236ae02af52707999e5e595a8aae44687b256637a6e9951aaf)
+- [Import](../guides/resources--global_log_receiver--lifecycle--group-001.md#canonical-fd636c89e15c31c2420003286cdeffc263c9d5d51c7c91c1858f492c8a0eedaa)
+- [Timeouts](../guides/resources--global_log_receiver--lifecycle--group-001.md#canonical-26a15a7a91bf182fca614bc5847ced9fcdc552d9e414a370ace5079ce25917d8)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_addon_service_activation_status"
+page_title: "xcsh_addon_service_activation_status landing"
 subcategory: ""
-description: "xcsh_addon_service_activation_status for xcsh_addon_service_activation_status."
-xcsh_docs: {"aliases": [], "body_bytes": 1860, "body_sha256": "sha256:96f47843e3cabd3488cfe884681ec3d081e699e6e1aece9b94188b52d0af41ac", "canonical_id": "xcsh-docs:data-sources:addon_service_activation_status:fundamentals", "child_ids": ["xcsh-docs:data-sources:addon_service_activation_status:reference", "xcsh-docs:data-sources:addon_service_activation_status:examples"], "collection_id": "xcsh-docs:data-sources:addon_service_activation_status:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:addon_service_activation_status:fundamentals", "parent_id": null, "path": "docs/data-sources/addon_service_activation_status.md", "provider_name": "addon_service_activation_status", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/addon_service_activation_status/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_addon_service_activation_status for xcsh_addon_service_activation_status.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_addon_service_activation_status landing."
 ---
+
+# xcsh_addon_service_activation_status landing
+
+<a id="canonical-d23bd9a2e3d652134f2d7eae64e927317103e2f5329e77bf01c22114d878a506"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_addon_service_activation_status
+<a id="canonical-465315a473bbd9ac1d1144581392e4ffb2adc239bbf742af021f474da1e0ae3a"></a>
+
+## xcsh_addon_service_activation_status — xcsh_addon_service_activation_status / 4dc401abc9be / 2
 
 Breadcrumbs:
 
@@ -27,11 +32,15 @@ current subscription state is.
 pending activation | | \`AS\_SUBSCRIBED\` | Service is active and subscribed | | \`AS\_ERROR\` |
 Subscription in error state |
 
-## Prerequisites
+<a id="canonical-f38aa391e6bb05bf1274f6db963e79d182d042135ff4dee440d572f0cfba8b13"></a>
+
+## Prerequisites — xcsh_addon_service_activation_status / 4dc401abc9be / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-86ad71cec148f85d1e602eb75f9d71e27dd4ce5a932309bf3a67498ffd547809"></a>
+
+## Minimal configuration — xcsh_addon_service_activation_status / 4dc401abc9be / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,11 +68,15 @@ output "addon_service_activation_state" {
 }
 ```
 
-## Root configuration
+<a id="canonical-7e106cde9575aa0d131c8a6a2286bcfbfcf439e5d379ddbe62b79296e4027049"></a>
+
+## Root configuration — xcsh_addon_service_activation_status / 4dc401abc9be / 5
 
 Required root properties: `addon_service`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-4aae7b5c4a4e340ef8409a5793869dc8f2fd01dea07de293f9c285e08af92708"></a>
 
-- [Property reference](../guides/data-sources--addon_service_activation_status--reference.md)
-- [Examples](../guides/data-sources--addon_service_activation_status--examples.md)
+## Next pages — xcsh_addon_service_activation_status / 4dc401abc9be / 6
+
+- [Property reference](../guides/data-sources--addon_service_activation_status--reference--group-001.md#canonical-f41bda08979dbea479c6a4df981142036fa7233a29104511d138789f181b019b)
+- [Examples](../guides/data-sources--addon_service_activation_status--examples--group-001.md#canonical-d291fe604a5df6f19ada2116def1f779abd33918a13909945c2a13c9a8ccc44e)

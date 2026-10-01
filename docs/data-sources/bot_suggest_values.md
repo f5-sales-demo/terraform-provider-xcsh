@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_suggest_values"
+page_title: "xcsh_bot_suggest_values landing"
 subcategory: ""
-description: "xcsh_bot_suggest_values for xcsh_bot_suggest_values."
-xcsh_docs: {"aliases": [], "body_bytes": 1157, "body_sha256": "sha256:e6e94edf7a2b7fb426916e024f611ba37310faa675bce80e24ea2e05b994b8a0", "canonical_id": "xcsh-docs:data-sources:bot_suggest_values:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_suggest_values:reference", "xcsh-docs:data-sources:bot_suggest_values:examples"], "collection_id": "xcsh-docs:data-sources:bot_suggest_values:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_suggest_values:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_suggest_values.md", "provider_name": "bot_suggest_values", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_suggest_values/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_suggest_values for xcsh_bot_suggest_values.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_suggest_values landing."
 ---
+
+# xcsh_bot_suggest_values landing
+
+<a id="canonical-eb5fdcd8e576fd0893458000f2f7792dfce1074e73bded33582900b2e388a473"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_suggest_values
+<a id="canonical-a5b3b92488807553d63a7a43dda88a3150fe82777c4f5525b7718a78cca57e9c"></a>
+
+## xcsh_bot_suggest_values — xcsh_bot_suggest_values / 75008e866ab6 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-1c2481c176ca8162a9ddfcb4413b22605fe02fb5b298d54fb8022db866cdcfc0"></a>
+
+## Prerequisites — xcsh_bot_suggest_values / 75008e866ab6 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-b6e98ea0e9ea35453144b3584c7d5923b44f484e02bf135a5bcd78fa861174e3"></a>
+
+## Minimal configuration — xcsh_bot_suggest_values / 75008e866ab6 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "bot_suggest_values_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-420f660c54361d983ddf7fb10127caa90ed5423a471617f3f08c05657ccfcde4"></a>
+
+## Root configuration — xcsh_bot_suggest_values / 75008e866ab6 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-035145d3a88564bcdbc4a91f93fe47c400efa17d44c3062663f41395fa5b0a37"></a>
 
-- [Property reference](../guides/data-sources--bot_suggest_values--reference.md)
-- [Examples](../guides/data-sources--bot_suggest_values--examples.md)
+## Next pages — xcsh_bot_suggest_values / 75008e866ab6 / 6
+
+- [Property reference](../guides/data-sources--bot_suggest_values--reference--group-001.md#canonical-1fd46f22c3a31585d917103e1b4692467b3651cd75d9fe25d8cf70497503b572)
+- [Examples](../guides/data-sources--bot_suggest_values--examples--group-001.md#canonical-cb1677c61520b70852bab053740849ce32413907dccd3d431b685980ca92525d)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_http_loadbalancer"
+page_title: "xcsh_http_loadbalancer landing"
 subcategory: "Load Balancing"
-description: "xcsh_http_loadbalancer for xcsh_http_loadbalancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1799, "body_sha256": "sha256:c2eebb3f29bb2e1a136ce2c6ef104eccf45c7c8c170dcecf60a857c285e21393", "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:fundamentals", "child_ids": ["xcsh-docs:data-sources:http_loadbalancer:reference", "xcsh-docs:data-sources:http_loadbalancer:examples"], "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:fundamentals", "parent_id": null, "path": "docs/data-sources/http_loadbalancer.md", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_http_loadbalancer for xcsh_http_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_http_loadbalancer landing."
 ---
+
+# xcsh_http_loadbalancer landing
+
+<a id="canonical-b9265d3d0725df0ed2c4fa4994941446ef82cd791555a70b1901a5649c1cce80"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_http_loadbalancer
+<a id="canonical-46e0b4d089461c7c5277cd695b38dda7eba54cc9a71c543666d0ae3b42e9172c"></a>
+
+## xcsh_http_loadbalancer — xcsh_http_loadbalancer / 4da6e2b99b16 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic
 with routing and security controls.
 
-## Prerequisites
+<a id="canonical-89da182d8c7ad828db61cc72d918128390d29f2329dd909d165d3f717e1892f1"></a>
+
+## Prerequisites — xcsh_http_loadbalancer / 4da6e2b99b16 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -38,7 +45,9 @@ Optional integrations: `healthcheck`, `app_firewall`, `certificate`, `rate_limit
 
 - rate_limiter: Protect against traffic spikes
 
-## Minimal configuration
+<a id="canonical-0d317c4b25f4b943ee7607c4561f97ce755aa20a4750ef4a75db40b730a6e373"></a>
+
+## Minimal configuration — xcsh_http_loadbalancer / 4da6e2b99b16 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -67,11 +76,15 @@ output "http_loadbalancer_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-865d5c8fe91660beaf0504f85fa0b0cd79eb3a9d9c8e227d5055244adabd195f"></a>
+
+## Root configuration — xcsh_http_loadbalancer / 4da6e2b99b16 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3a70b113dc44c1da562faf50a3f16de29e5fc6b49bac386719d7e16ee3f2ce1c"></a>
 
-- [Property reference](../guides/data-sources--http_loadbalancer--reference.md)
-- [Examples](../guides/data-sources--http_loadbalancer--examples.md)
+## Next pages — xcsh_http_loadbalancer / 4da6e2b99b16 / 6
+
+- [Property reference](../guides/data-sources--http_loadbalancer--reference--group-001.md#canonical-58128a4ee6bcaa29c55314ef6e094489064f6b317a0ae1e19d044979c56872b8)
+- [Examples](../guides/data-sources--http_loadbalancer--examples--group-001.md#canonical-864faaea9ccf4e93d6c60b5343dae9fe756da6f5fa5779fee9023c494681a6d4)

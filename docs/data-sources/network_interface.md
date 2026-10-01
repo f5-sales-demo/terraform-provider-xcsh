@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_interface"
+page_title: "xcsh_network_interface landing"
 subcategory: ""
-description: "xcsh_network_interface for xcsh_network_interface."
-xcsh_docs: {"aliases": [], "body_bytes": 1399, "body_sha256": "sha256:68e36f6c8b7aa8841bdeefe464d0654d93d6a7624203ec90e46957dc1c816c0f", "canonical_id": "xcsh-docs:data-sources:network_interface:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_interface:reference", "xcsh-docs:data-sources:network_interface:examples"], "collection_id": "xcsh-docs:data-sources:network_interface:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_interface:fundamentals", "parent_id": null, "path": "docs/data-sources/network_interface.md", "provider_name": "network_interface", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_interface for xcsh_network_interface.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_interfaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_interface landing."
 ---
+
+# xcsh_network_interface landing
+
+<a id="canonical-2b84ad157d6a5aa91dc5f09196ffd113bb3ae8054c873880ffcc2055550d089e"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_interface
+<a id="canonical-8995b4e321af9ab3beb8a46b473103b1a5644fef64b0cc97db3412d6560bd3e4"></a>
+
+## xcsh_network_interface — xcsh_network_interface / b5e997a1e07a / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Network Interface resource in F5 Distributed Cloud for network interface represents
 configuration of a network device. it is created by users in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-42d0ec24bf53f2ee86fa404834ed9167d1ff101a56ef039e377b4186067fb2fe"></a>
+
+## Prerequisites — xcsh_network_interface / b5e997a1e07a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-459317fb786e00a8b2c7e078118f1c2ad08fe650dfb6f05602160ccc43abbe83"></a>
+
+## Minimal configuration — xcsh_network_interface / b5e997a1e07a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "network_interface_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-b1a1af318a9c5272f8a137c3f0138a03ca27268ffe0e1a115eef05b20193baac"></a>
+
+## Root configuration — xcsh_network_interface / b5e997a1e07a / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1262bb557ced0b38752bc671ec10dac724ae9f9769582fde1cac59c181f4b24c"></a>
 
-- [Property reference](../guides/data-sources--network_interface--reference.md)
-- [Examples](../guides/data-sources--network_interface--examples.md)
+## Next pages — xcsh_network_interface / b5e997a1e07a / 6
+
+- [Property reference](../guides/data-sources--network_interface--reference--group-001.md#canonical-727acd3bc463226c03ce24381e7e30db3be51700329ff5aea905c4046ff507a4)
+- [Examples](../guides/data-sources--network_interface--examples--group-001.md#canonical-9fa7fa1fc3b9dbc53b75c7440e35e8a3e37ba004e065e2deff3541442c1ec5cc)

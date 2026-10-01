@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_api_definition"
+page_title: "xcsh_api_definition landing"
 subcategory: "API Management"
-description: "xcsh_api_definition for xcsh_api_definition."
-xcsh_docs: {"aliases": [], "body_bytes": 1431, "body_sha256": "sha256:59adaeac52a29341f3cefab5b3720b8b2f442b6e31674d581f14086c7d812f31", "canonical_id": "xcsh-docs:resources:api_definition:fundamentals", "child_ids": ["xcsh-docs:resources:api_definition:reference", "xcsh-docs:resources:api_definition:examples", "xcsh-docs:resources:api_definition:import", "xcsh-docs:resources:api_definition:timeouts"], "collection_id": "xcsh-docs:resources:api_definition:collection", "completeness": "complete", "id": "xcsh-docs:resources:api_definition:fundamentals", "parent_id": null, "path": "docs/resources/api_definition.md", "provider_name": "api_definition", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_api_definition for xcsh_api_definition.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["api_definitionCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_api_definition landing."
 ---
+
+# xcsh_api_definition landing
+
+<a id="canonical-1a9d8086edc81a3081bdb5af5cf08e65d779e0999f32054324107309653381b0"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_api_definition
+<a id="canonical-acf4768e382d861d58fb20413eb63e8781bcbd17bf3b338fde2f5ade02264635"></a>
+
+## xcsh_api_definition — xcsh_api_definition / d98cc36bb275 / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages API Definition in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-cb965aaf8f958c82b30eb8c1900d01c2c033f0720025a4439c82187005a15ab4"></a>
+
+## Prerequisites — xcsh_api_definition / d98cc36bb275 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Optional integrations: `api_endpoint`.
 
 - api_endpoint: Endpoints defined by this API
 
-## Minimal configuration
+<a id="canonical-79d8321092d7748cfa3fd62a701cb14327b308a7f5934f11ccfdb2beea324eeb"></a>
+
+## Minimal configuration — xcsh_api_definition / d98cc36bb275 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,13 +62,17 @@ resource "xcsh_api_definition" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-e4c020c202cd96c51d32fe66de763239062988f7d1af8f279652509475eebb3d"></a>
+
+## Root configuration — xcsh_api_definition / d98cc36bb275 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-aa2aa18b51903af7b4926d3b592d437a58a815fb4dae04172c93b227c2e46616"></a>
 
-- [Property reference](../guides/resources--api_definition--reference.md)
-- [Examples](../guides/resources--api_definition--examples.md)
-- [Import](../guides/resources--api_definition--import.md)
-- [Timeouts](../guides/resources--api_definition--timeouts.md)
+## Next pages — xcsh_api_definition / d98cc36bb275 / 6
+
+- [Property reference](../guides/resources--api_definition--reference--group-001.md#canonical-471f59a89019910686397873c505f66f07862a821758d35780a19c9fb9b7aaa5)
+- [Examples](../guides/resources--api_definition--examples--group-001.md#canonical-49827350fd565d874def3c4d3aa62c89a8251685c5428c58bd74db2481e14124)
+- [Import](../guides/resources--api_definition--lifecycle--group-001.md#canonical-ae277c6718304bfe1bb57336cf31a097e904a3b6e05b0b20ca377e419b52ebd5)
+- [Timeouts](../guides/resources--api_definition--lifecycle--group-001.md#canonical-822ab293f2b144b60c5180d97984312d4742952db3f9bab0eb305380ea90867c)

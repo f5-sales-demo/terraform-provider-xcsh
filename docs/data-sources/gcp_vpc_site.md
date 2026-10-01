@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_gcp_vpc_site"
+page_title: "xcsh_gcp_vpc_site landing"
 subcategory: "Infrastructure"
-description: "xcsh_gcp_vpc_site for xcsh_gcp_vpc_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1411, "body_sha256": "sha256:3484e0a57df71c0a4c74895f96da00c31d822cf1a7604a38b7d22477a91607ed", "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:fundamentals", "child_ids": ["xcsh-docs:data-sources:gcp_vpc_site:reference", "xcsh-docs:data-sources:gcp_vpc_site:examples"], "collection_id": "xcsh-docs:data-sources:gcp_vpc_site:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:gcp_vpc_site:fundamentals", "parent_id": null, "path": "docs/data-sources/gcp_vpc_site.md", "provider_name": "gcp_vpc_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/gcp_vpc_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_gcp_vpc_site for xcsh_gcp_vpc_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["gcp_vpc_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_gcp_vpc_site landing."
 ---
+
+# xcsh_gcp_vpc_site landing
+
+<a id="canonical-5ea9fe516e4a08529559279a042e97dbbf9f03724114ad43d94e8dc493e60ce2"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_gcp_vpc_site
+<a id="canonical-72e07cae866efc2692323ff3fd94132684af880d4dbb4d6dd76ee746d5067be4"></a>
+
+## xcsh_gcp_vpc_site — xcsh_gcp_vpc_site / 739c20cdeb47 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a GCP VPC Site resource in F5 Distributed Cloud for deploying F5 sites within Google Cloud
 VPC environments.
 
-## Prerequisites
+<a id="canonical-634ef363811c99e928864c335d6fa5918f62a1e9ccdf2418fbbbe4909b6d539d"></a>
+
+## Prerequisites — xcsh_gcp_vpc_site / 739c20cdeb47 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `cloud_credentials`.
 
 - cloud_credentials: GCP authentication for deployment
 
-## Minimal configuration
+<a id="canonical-c420823a4bc4235c1602bbaa0fe0242d6b07dfd469e1bb2e74e0e57dc380b56a"></a>
+
+## Minimal configuration — xcsh_gcp_vpc_site / 739c20cdeb47 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,11 +66,15 @@ output "gcp_vpc_site_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-14ee8e66fb200f2f6ecf9219ea70e79c42b3126a67a94a97ed190d81c56d8888"></a>
+
+## Root configuration — xcsh_gcp_vpc_site / 739c20cdeb47 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1fc4711ff1f039ea8add2d136bdefebfbd1804c9855b158f8225277ed6bc07db"></a>
 
-- [Property reference](../guides/data-sources--gcp_vpc_site--reference.md)
-- [Examples](../guides/data-sources--gcp_vpc_site--examples.md)
+## Next pages — xcsh_gcp_vpc_site / 739c20cdeb47 / 6
+
+- [Property reference](../guides/data-sources--gcp_vpc_site--reference--group-001.md#canonical-0bb43411449195b0334decb33d03b877c3d64f4ac0db69b30c8b848a6e1d74e1)
+- [Examples](../guides/data-sources--gcp_vpc_site--examples--group-001.md#canonical-5b11c53bee7c17cb53c566c755e7e65a5bb1035e2aedfe5a5351a6f68d283a1d)

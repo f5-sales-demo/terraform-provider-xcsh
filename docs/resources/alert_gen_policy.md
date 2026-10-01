@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_gen_policy"
+page_title: "xcsh_alert_gen_policy landing"
 subcategory: ""
-description: "xcsh_alert_gen_policy for xcsh_alert_gen_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1346, "body_sha256": "sha256:08629b09060224c28155a39f35c17a8b738c2a51cd4f5480b2c531e5208eb768", "canonical_id": "xcsh-docs:resources:alert_gen_policy:fundamentals", "child_ids": ["xcsh-docs:resources:alert_gen_policy:reference", "xcsh-docs:resources:alert_gen_policy:examples", "xcsh-docs:resources:alert_gen_policy:import", "xcsh-docs:resources:alert_gen_policy:timeouts"], "collection_id": "xcsh-docs:resources:alert_gen_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:alert_gen_policy:fundamentals", "parent_id": null, "path": "docs/resources/alert_gen_policy.md", "provider_name": "alert_gen_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_gen_policy for xcsh_alert_gen_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_gen_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_gen_policy landing."
 ---
+
+# xcsh_alert_gen_policy landing
+
+<a id="canonical-a1aae63c73737fe28891b8dddcd40970e1ba1214a48d75c4ae655469cca81541"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_gen_policy
+<a id="canonical-397e5e2147fc4814f76f37cfedd870f8a815dff72bc5941992d55ced23d3e68e"></a>
+
+## xcsh_alert_gen_policy — xcsh_alert_gen_policy / c4e9aa96b278 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Alert Generation Policy in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-e702e9a38f6702b155ea2df87fc401cae9afaaeedc051146fbed12a84ca529ba"></a>
+
+## Prerequisites — xcsh_alert_gen_policy / c4e9aa96b278 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0c8b757c54631b400af580b7ca01575261850d1a0388f28aa5d175b23afafdec"></a>
+
+## Minimal configuration — xcsh_alert_gen_policy / c4e9aa96b278 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_alert_gen_policy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3e71ff1e41cf2c47553aae6b70df9f9d7a0f2c03c1a4e70c5e874d204d435b0e"></a>
+
+## Root configuration — xcsh_alert_gen_policy / c4e9aa96b278 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-4cb63fdb7af5bd73492484f76334e0aac331416e41e85d5f656b1433d6839886"></a>
 
-- [Property reference](../guides/resources--alert_gen_policy--reference.md)
-- [Examples](../guides/resources--alert_gen_policy--examples.md)
-- [Import](../guides/resources--alert_gen_policy--import.md)
-- [Timeouts](../guides/resources--alert_gen_policy--timeouts.md)
+## Next pages — xcsh_alert_gen_policy / c4e9aa96b278 / 6
+
+- [Property reference](../guides/resources--alert_gen_policy--reference--group-001.md#canonical-17ec4655f437510f18a5ab3c4e0b2710c50f8dd33e3adde8ef55402086569933)
+- [Examples](../guides/resources--alert_gen_policy--examples--group-001.md#canonical-7fd687224e91550528fa39bd463f5c448de431f0363111f202eaf62154fd297f)
+- [Import](../guides/resources--alert_gen_policy--lifecycle--group-001.md#canonical-53449129ad12f0eb78a15cd536169b009ea5e30c6376054473ad2a1729808e46)
+- [Timeouts](../guides/resources--alert_gen_policy--lifecycle--group-001.md#canonical-a3bd1f56deba8fbdde007203f5b82bbf9fea60c4ecac6aa8965eb97cfc8a35d7)

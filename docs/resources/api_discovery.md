@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_api_discovery"
+page_title: "xcsh_api_discovery landing"
 subcategory: ""
-description: "xcsh_api_discovery for xcsh_api_discovery."
-xcsh_docs: {"aliases": [], "body_bytes": 1432, "body_sha256": "sha256:3c9404ec859675e187b19bef8a6b14bd984476534b8914c8125931ad0b263548", "canonical_id": "xcsh-docs:resources:api_discovery:fundamentals", "child_ids": ["xcsh-docs:resources:api_discovery:reference", "xcsh-docs:resources:api_discovery:examples", "xcsh-docs:resources:api_discovery:import", "xcsh-docs:resources:api_discovery:timeouts"], "collection_id": "xcsh-docs:resources:api_discovery:collection", "completeness": "complete", "id": "xcsh-docs:resources:api_discovery:fundamentals", "parent_id": null, "path": "docs/resources/api_discovery.md", "provider_name": "api_discovery", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_api_discovery for xcsh_api_discovery.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["api_discoveryCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_api_discovery landing."
 ---
+
+# xcsh_api_discovery landing
+
+<a id="canonical-fff0c8d1271786e411169d435430f2430b433fc66759a1a7fca2bad027a99fb4"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_api_discovery
+<a id="canonical-03400f7f027ae9a70eca0fa98fa5fc0e06cd4db117954d4613195900112e58a5"></a>
+
+## xcsh_api_discovery — xcsh_api_discovery / f56936e36999 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages API discovery creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-e280e62362ceba01c7896d1d56ba70b85ca77ca18bea198ffc15ab8a724b2c1a"></a>
+
+## Prerequisites — xcsh_api_discovery / f56936e36999 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-90f94afce14ad453fce18dbced02610a0373c02eda3e8f6462502735a02f7a6f"></a>
+
+## Minimal configuration — xcsh_api_discovery / f56936e36999 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_api_discovery" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3349fdef81cead2c2baa7b10c842411fd818836acaec16ff61c1a4c1345d9f68"></a>
+
+## Root configuration — xcsh_api_discovery / f56936e36999 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-a7a470df8194f2f246deb345d86d0a13e45a81a2624b9546d01a2e5f68f32f47"></a>
 
-- [Property reference](../guides/resources--api_discovery--reference.md)
-- [Examples](../guides/resources--api_discovery--examples.md)
-- [Import](../guides/resources--api_discovery--import.md)
-- [Timeouts](../guides/resources--api_discovery--timeouts.md)
+## Next pages — xcsh_api_discovery / f56936e36999 / 6
+
+- [Property reference](../guides/resources--api_discovery--reference--group-001.md#canonical-575bca73ed45a994813627df03f207d6700fcf5d58cbd77144034ddaffad7a83)
+- [Examples](../guides/resources--api_discovery--examples--group-001.md#canonical-93f0346c60bede5e7e23ca2c25083fbc71af112c5b402b831fcc7c6ea64733a4)
+- [Import](../guides/resources--api_discovery--lifecycle--group-001.md#canonical-75d7cc9e6fedb06de3d4ad194cc8a9b7d5bd9d541f44dd5efa44042fff6fc79d)
+- [Timeouts](../guides/resources--api_discovery--lifecycle--group-001.md#canonical-0709184a68e01a860b032b1c5564ee0183d91f635046e59c85a8cc806e41e4ad)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_public_ip"
+page_title: "xcsh_public_ip landing"
 subcategory: ""
-description: "xcsh_public_ip for xcsh_public_ip."
-xcsh_docs: {"aliases": [], "body_bytes": 1321, "body_sha256": "sha256:32aaf8a01c94aa0693e34f1726d503442017c28f132eb1f541e398dfe229438c", "canonical_id": "xcsh-docs:data-sources:public_ip:fundamentals", "child_ids": ["xcsh-docs:data-sources:public_ip:reference", "xcsh-docs:data-sources:public_ip:examples"], "collection_id": "xcsh-docs:data-sources:public_ip:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:public_ip:fundamentals", "parent_id": null, "path": "docs/data-sources/public_ip.md", "provider_name": "public_ip", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/public_ip/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_public_ip for xcsh_public_ip.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_public_ip landing."
 ---
+
+# xcsh_public_ip landing
+
+<a id="canonical-4d58cc44b5d0834da51e718a5f01b7b87916d0e39e4050de470be23a21d6e26a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_public_ip
+<a id="canonical-9bbb91ecd0d6be90bd26423371d214af545e5e7f591f867b6df23dd68c3f3181"></a>
+
+## xcsh_public_ip — xcsh_public_ip / ac2c512d6506 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Public IP resource in F5 Distributed Cloud for get public\_ip will get the object from the
 storage backend for namespace metadata.namespace. configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-7a05212473c34741f31fc836bc31ad38a05c29c551334dfaf7a51f7e36cb8b6d"></a>
+
+## Prerequisites — xcsh_public_ip / ac2c512d6506 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-aa7d87cf27fb2717d26caea69d4a7f717f7b8331510d6270e4ddbda5067764c3"></a>
+
+## Minimal configuration — xcsh_public_ip / ac2c512d6506 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "public_ip_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-76c5fbf3df92c5bb8b5c543b23242bbdf9c98e0fcc21794247e3bb213cac2a07"></a>
+
+## Root configuration — xcsh_public_ip / ac2c512d6506 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-74384cc713deaf8c0ad829c2716a25317bd25ba2fe4be1a5dc550f456829962f"></a>
 
-- [Property reference](../guides/data-sources--public_ip--reference.md)
-- [Examples](../guides/data-sources--public_ip--examples.md)
+## Next pages — xcsh_public_ip / ac2c512d6506 / 6
+
+- [Property reference](../guides/data-sources--public_ip--reference--group-001.md#canonical-78f60b2c54e55db478e018b4fa9587caff6345ca30632666a4315d5669f9c5ec)
+- [Examples](../guides/data-sources--public_ip--examples--group-001.md#canonical-66ff80522379979087e1b46893f2f83bfdb92352b04293cec0b8fa51c4d25c3f)

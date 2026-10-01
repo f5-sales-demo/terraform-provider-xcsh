@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_link"
+page_title: "xcsh_cloud_link landing"
 subcategory: ""
-description: "xcsh_cloud_link for xcsh_cloud_link."
-xcsh_docs: {"aliases": [], "body_bytes": 1215, "body_sha256": "sha256:d40a05dd98fe438e2d56628c99c0cd9fdffaa2c1fe7b9dbc2221182b1f606b7f", "canonical_id": "xcsh-docs:data-sources:cloud_link:fundamentals", "child_ids": ["xcsh-docs:data-sources:cloud_link:reference", "xcsh-docs:data-sources:cloud_link:examples"], "collection_id": "xcsh-docs:data-sources:cloud_link:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cloud_link:fundamentals", "parent_id": null, "path": "docs/data-sources/cloud_link.md", "provider_name": "cloud_link", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_link for xcsh_cloud_link.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cloud_linkCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_link landing."
 ---
+
+# xcsh_cloud_link landing
+
+<a id="canonical-3ef122572f65916275a0f8fe0c7d1dc1b10b359850c532ebe64c0f31f1465013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_link
+<a id="canonical-6edd9427770704acb4eb4aac02b4527829d2d3a96e97f45df8660c4feee0d651"></a>
+
+## xcsh_cloud_link — xcsh_cloud_link / ddebdcd98326 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages new CloudLink with configured parameters in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-97fc3567177c6eb6ba76431c616c3137ffa835acce82e6b59ec1ddee2fd20b02"></a>
+
+## Prerequisites — xcsh_cloud_link / ddebdcd98326 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-91bb4c315c84d60c27a7596ba3a8425d7977e3003071779eb148c92d48350361"></a>
+
+## Minimal configuration — xcsh_cloud_link / ddebdcd98326 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "cloud_link_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-bbc647e43334cb72cf9f6cf28b40f297afbcdaa6ebe298056eb86c78c9008b48"></a>
+
+## Root configuration — xcsh_cloud_link / ddebdcd98326 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-bbfd903e7fdbcf88aa90b09f9fc07fae1a087904f0fd5fc38e13215df67649e1"></a>
 
-- [Property reference](../guides/data-sources--cloud_link--reference.md)
-- [Examples](../guides/data-sources--cloud_link--examples.md)
+## Next pages — xcsh_cloud_link / ddebdcd98326 / 6
+
+- [Property reference](../guides/data-sources--cloud_link--reference--group-001.md#canonical-670a826d39c9d89e1bf0dbc4088d3a0059f267b1d391c20761b085901989f886)
+- [Examples](../guides/data-sources--cloud_link--examples--group-001.md#canonical-1eb9e5d5f9aa54cd66d121744031aeea05feb427e7cf46b447e7f37931955fe1)

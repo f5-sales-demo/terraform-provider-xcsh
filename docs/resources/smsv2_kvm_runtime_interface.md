@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_smsv2_kvm_runtime_interface"
+page_title: "xcsh_smsv2_kvm_runtime_interface landing"
 subcategory: ""
-description: "xcsh_smsv2_kvm_runtime_interface for xcsh_smsv2_kvm_runtime_interface."
-xcsh_docs: {"aliases": [], "body_bytes": 1400, "body_sha256": "sha256:e2bb72e2fda9eb8e1c4559b1bfcf80832130e3dc4d6c5af7d6dc17f38f15e4ee", "canonical_id": "xcsh-docs:resources:smsv2_kvm_runtime_interface:fundamentals", "child_ids": ["xcsh-docs:resources:smsv2_kvm_runtime_interface:reference", "xcsh-docs:resources:smsv2_kvm_runtime_interface:examples"], "collection_id": "xcsh-docs:resources:smsv2_kvm_runtime_interface:collection", "completeness": "complete", "id": "xcsh-docs:resources:smsv2_kvm_runtime_interface:fundamentals", "parent_id": null, "path": "docs/resources/smsv2_kvm_runtime_interface.md", "provider_name": "smsv2_kvm_runtime_interface", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/smsv2_kvm_runtime_interface/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_smsv2_kvm_runtime_interface for xcsh_smsv2_kvm_runtime_interface.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_smsv2_kvm_runtime_interface landing."
 ---
+
+# xcsh_smsv2_kvm_runtime_interface landing
+
+<a id="canonical-2f0c16a5489e111182e91669fdd8243ae8c574bdb1fc5fc1e4ab1808527039b3"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_smsv2_kvm_runtime_interface
+<a id="canonical-e7419d295b36832e85f1fc5f8bccb3f33336ac9af25f2c04ac1b1488429c1ac4"></a>
+
+## xcsh_smsv2_kvm_runtime_interface — xcsh_smsv2_kvm_runtime_interface / e39e9ebd75d3 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Adopts one existing XC-owned KVM Secure Mesh Site v2 SLI child and manages only its DHCP/static IPv4
 mode. It never creates or deletes the runtime child.
 
-## Prerequisites
+<a id="canonical-8f56999d56af45026aac106c5dbcba6e1936477ae0946f91c99d38490a73c4e0"></a>
+
+## Prerequisites — xcsh_smsv2_kvm_runtime_interface / e39e9ebd75d3 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-6690c5fd96291476327509e59ac45f1c1af3521a44e3a616cc617a68a3a086ec"></a>
+
+## Minimal configuration — xcsh_smsv2_kvm_runtime_interface / e39e9ebd75d3 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ resource "xcsh_smsv2_kvm_runtime_interface" "sli" {
 }
 ```
 
-## Root configuration
+<a id="canonical-4bc06b86d6c81bc4f4784a27c0e268cc4820e2a7e0ce2f9b81a10fcc2b3dc70e"></a>
+
+## Root configuration — xcsh_smsv2_kvm_runtime_interface / e39e9ebd75d3 / 5
 
 Required root properties: `expected_mac`, `ipv4_cidr`, `site`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2ac613ae08d44ebbcf618040c6266b030eacc9969a600d3023cf716b62bda003"></a>
 
-- [Property reference](../guides/resources--smsv2_kvm_runtime_interface--reference.md)
-- [Examples](../guides/resources--smsv2_kvm_runtime_interface--examples.md)
+## Next pages — xcsh_smsv2_kvm_runtime_interface / e39e9ebd75d3 / 6
+
+- [Property reference](../guides/resources--smsv2_kvm_runtime_interface--reference--group-001.md#canonical-c66a286cbeb4e0f17e9c67b0ec0c11e7d79620ab55229d34ee040b173be79841)
+- [Examples](../guides/resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-c509cd984ffc370cab24b54c647c3de108332d63fff3a31baacfaacd3e5f847d)

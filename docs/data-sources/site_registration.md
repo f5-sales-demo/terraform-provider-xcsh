@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_site_registration"
+page_title: "xcsh_site_registration landing"
 subcategory: ""
-description: "xcsh_site_registration for xcsh_site_registration."
-xcsh_docs: {"aliases": [], "body_bytes": 3559, "body_sha256": "sha256:1f906b1ae133709f0d882baf301905136fbe894a2e19668e697af6c221d952e5", "canonical_id": "xcsh-docs:data-sources:site_registration:fundamentals", "child_ids": ["xcsh-docs:data-sources:site_registration:reference", "xcsh-docs:data-sources:site_registration:examples"], "collection_id": "xcsh-docs:data-sources:site_registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:site_registration:fundamentals", "parent_id": null, "path": "docs/data-sources/site_registration.md", "provider_name": "site_registration", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_registration/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site_registration for xcsh_site_registration.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_site_registration landing."
 ---
+
+# xcsh_site_registration landing
+
+<a id="canonical-29e210d357a5bdcac6bb8895520d01f565fe4c298fee3fb79b2fce630978c912"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_site_registration
+<a id="canonical-371f76364ce820097831e543ca3edda015d5e9c2a0ac545e6a35c43c0fa85e45"></a>
+
+## xcsh_site_registration — xcsh_site_registration / 7faa2e1f1f9d / 2
 
 Breadcrumbs:
 
@@ -34,11 +39,15 @@ resource "xcsh\_registration\_approval" "ce" \{ count = data.xcsh\_site\_registr
 \*\*Possible \`state\` values:\*\* \`NOTSET\`, \`NEW\`, \`APPROVED\`, \`ADMITTED\`, \`RETIRED\`,
 \`FAILED\`, \`DONE\`, \`PENDING\`, \`ONLINE\`, \`UPGRADING\`, \`MAINTENANCE\`, \`FAILED\_INACTIVE\`.
 
-## Prerequisites
+<a id="canonical-8881388f09285cfcef7e652e0cde87a575493ec6807441f3649a47d3294860e5"></a>
+
+## Prerequisites — xcsh_site_registration / 7faa2e1f1f9d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2d831152a1e172c90087e87e819d953409cd61ce4cf5948a935ce58856abaae3"></a>
+
+## Minimal configuration — xcsh_site_registration / 7faa2e1f1f9d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -99,11 +108,15 @@ resource "xcsh_registration_approval" "ce" {
 }
 ```
 
-## Root configuration
+<a id="canonical-85516e9fc12b44b69316b242e2a9ed26e7dc7afef6f72b8b7c36711b2704047f"></a>
+
+## Root configuration — xcsh_site_registration / 7faa2e1f1f9d / 5
 
 Required root properties: `site_name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-661af57be09ac942638df6a8a6362a178a14eabe833c2439de113889b2d90327"></a>
 
-- [Property reference](../guides/data-sources--site_registration--reference.md)
-- [Examples](../guides/data-sources--site_registration--examples.md)
+## Next pages — xcsh_site_registration / 7faa2e1f1f9d / 6
+
+- [Property reference](../guides/data-sources--site_registration--reference--group-001.md#canonical-b894edd5f71c8e0dd62fda7420a5fb0ac3186df32f033ed0b50b08a89478d898)
+- [Examples](../guides/data-sources--site_registration--examples--group-001.md#canonical-2ffc7a37abcd0056a9f2d90bd2820c24ce6c8a60078d36dfa1a9cc17da2afecf)

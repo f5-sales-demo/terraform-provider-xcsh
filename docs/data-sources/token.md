@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_token"
+page_title: "xcsh_token landing"
 subcategory: "Identity"
-description: "xcsh_token for xcsh_token."
-xcsh_docs: {"aliases": [], "body_bytes": 1302, "body_sha256": "sha256:9e1e10b7ce2395b03de0518eb695806b0d6064775fc528dff946703769ce5de9", "canonical_id": "xcsh-docs:data-sources:token:fundamentals", "child_ids": ["xcsh-docs:data-sources:token:reference", "xcsh-docs:data-sources:token:examples"], "collection_id": "xcsh-docs:data-sources:token:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:token:fundamentals", "parent_id": null, "path": "docs/data-sources/token.md", "provider_name": "token", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/token/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_token for xcsh_token.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tokenCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_token landing."
 ---
+
+# xcsh_token landing
+
+<a id="canonical-807087d4571bee22ab642d9c81935b55fbfa12fbb563a3245dda111f3a3e04a2"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_token
+<a id="canonical-a43789e8a93e168a2d293493a0fac597c787a2ee4ef47ba0eaebbc2081a9cecf"></a>
+
+## xcsh_token — xcsh_token / 1b0d4da1c5a3 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages new token. Token object is used to manage site admission. User must generate token before
 provisioning and pass this token to site during it's registration in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-057aa478537dd9c277d470b1d1f07cb7c3cc48c03c2993b3a8b6b20b69546ade"></a>
+
+## Prerequisites — xcsh_token / 1b0d4da1c5a3 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-f92b0a2734b555f7bd1351041835f4454a4a7a1c76e3fe4a5ad87702ff98b6a1"></a>
+
+## Minimal configuration — xcsh_token / 1b0d4da1c5a3 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "token_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-50fad55f8b8fc8d5579a31437f6557cf8c4b5dfded1934a72e1e0281c9eff561"></a>
+
+## Root configuration — xcsh_token / 1b0d4da1c5a3 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2df63e046f0e99e9e12a051271e5423370f06d4f269639a96e8dc9bd7877b0b3"></a>
 
-- [Property reference](../guides/data-sources--token--reference.md)
-- [Examples](../guides/data-sources--token--examples.md)
+## Next pages — xcsh_token / 1b0d4da1c5a3 / 6
+
+- [Property reference](../guides/data-sources--token--reference--group-001.md#canonical-722430f94f35b0d2e9c17930c6fab80d7093f146d88e1f310120119163a9f05a)
+- [Examples](../guides/data-sources--token--examples--group-001.md#canonical-48e55ab18f6d9f5efd96fc6d6200ed21e196eeca9c0b4d74d36b64f40d067778)

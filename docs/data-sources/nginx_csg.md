@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_nginx_csg"
+page_title: "xcsh_nginx_csg landing"
 subcategory: ""
-description: "xcsh_nginx_csg for xcsh_nginx_csg."
-xcsh_docs: {"aliases": [], "body_bytes": 1256, "body_sha256": "sha256:46019c0247777c111744990264d011100ac47385811113ac84188bb99923f018", "canonical_id": "xcsh-docs:data-sources:nginx_csg:fundamentals", "child_ids": ["xcsh-docs:data-sources:nginx_csg:reference", "xcsh-docs:data-sources:nginx_csg:examples"], "collection_id": "xcsh-docs:data-sources:nginx_csg:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:nginx_csg:fundamentals", "parent_id": null, "path": "docs/data-sources/nginx_csg.md", "provider_name": "nginx_csg", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_csg/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_nginx_csg for xcsh_nginx_csg.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_nginx_csg landing."
 ---
+
+# xcsh_nginx_csg landing
+
+<a id="canonical-c410c59f0b8d71705523fc80bce3a448bc2e5b40e768ceaa424debd127388095"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_nginx_csg
+<a id="canonical-bd2f8ae0660ae882054100f05958079dfea926ee745631462f9b3f8b9e07f445"></a>
+
+## xcsh_nginx_csg — xcsh_nginx_csg / 69c1aa49dc31 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Nginx Csg resource in F5 Distributed Cloud for get nginx csg configuration. configuration.
 (read-only data source)
 
-## Prerequisites
+<a id="canonical-46458e078527e27c2a737f72ede5566c78b5d8f3188155d402dc92ba89bc5762"></a>
+
+## Prerequisites — xcsh_nginx_csg / 69c1aa49dc31 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-c60b29251e0d14becd810a0d62200ff4b862d3c70bbbb4bf4457f17cfa38cd62"></a>
+
+## Minimal configuration — xcsh_nginx_csg / 69c1aa49dc31 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "nginx_csg_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-d864f8bbe07350ddd91c949c7d66b64255d2480bdfb01f0bfcc99536aea3f1e3"></a>
+
+## Root configuration — xcsh_nginx_csg / 69c1aa49dc31 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0570c9c6154932ae98b29b57076bc041ea8253617798ec369b4aaff81c8b7fcb"></a>
 
-- [Property reference](../guides/data-sources--nginx_csg--reference.md)
-- [Examples](../guides/data-sources--nginx_csg--examples.md)
+## Next pages — xcsh_nginx_csg / 69c1aa49dc31 / 6
+
+- [Property reference](../guides/data-sources--nginx_csg--reference--group-001.md#canonical-d475c7367cf5faac52b1c3c5588be6a77c688dee95c47c7e686b714ba7ed1ac0)
+- [Examples](../guides/data-sources--nginx_csg--examples--group-001.md#canonical-086165534725127b74852bb823de8e81842f7adbfe62b524f29a1fbc2ee653b6)

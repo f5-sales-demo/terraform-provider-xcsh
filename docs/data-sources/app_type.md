@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_app_type"
+page_title: "xcsh_app_type landing"
 subcategory: ""
-description: "xcsh_app_type for xcsh_app_type."
-xcsh_docs: {"aliases": [], "body_bytes": 1225, "body_sha256": "sha256:eb2db3fab275d0efa2a703f529016e1ec17d2fe8dc3aaa225d340a204f27ea0b", "canonical_id": "xcsh-docs:data-sources:app_type:fundamentals", "child_ids": ["xcsh-docs:data-sources:app_type:reference", "xcsh-docs:data-sources:app_type:examples"], "collection_id": "xcsh-docs:data-sources:app_type:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:app_type:fundamentals", "parent_id": null, "path": "docs/data-sources/app_type.md", "provider_name": "app_type", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_type/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_app_type for xcsh_app_type.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["app_typeCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_app_type landing."
 ---
+
+# xcsh_app_type landing
+
+<a id="canonical-a05f527d2022e16c05ae64b94126a5cf0528b771352bcca895e3afb7446c725c"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_app_type
+<a id="canonical-d26ce86fabab993eb59a3bbfd714fb51f8d5ca58b6c5325e156356df9318dbb6"></a>
+
+## xcsh_app_type — xcsh_app_type / 95ec58c37eea / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-f7b4ead8030991de0e8ab5658f13a0e7c56bdd105d3be8b342dca8b236920837"></a>
+
+## Prerequisites — xcsh_app_type / 95ec58c37eea / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-6c642a5b2366b2844032e0e11a9167233a5713a057ccb0af2be182acd6cf48e7"></a>
+
+## Minimal configuration — xcsh_app_type / 95ec58c37eea / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "app_type_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-4a3bffa0b3d4aec164522f2c780ed7c968ad3112dd216abdd9d06ef5120b7b0b"></a>
+
+## Root configuration — xcsh_app_type / 95ec58c37eea / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-c90cd5ae10357f6e7a1f82dd8ba1a1198573cc7ba304ed3465641b208ebfc7ec"></a>
 
-- [Property reference](../guides/data-sources--app_type--reference.md)
-- [Examples](../guides/data-sources--app_type--examples.md)
+## Next pages — xcsh_app_type / 95ec58c37eea / 6
+
+- [Property reference](../guides/data-sources--app_type--reference--group-001.md#canonical-e94d90df6cbb06549a51c7d3e2057461f524b7c1d655589f838727813a6e5329)
+- [Examples](../guides/data-sources--app_type--examples--group-001.md#canonical-92963a326d3f64840ee203fb8602b7ecd63f4db1fd0ee3492c5862d8f217a946)

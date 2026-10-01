@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_user_account"
+page_title: "xcsh_cloud_user_account landing"
 subcategory: ""
-description: "xcsh_cloud_user_account for xcsh_cloud_user_account."
-xcsh_docs: {"aliases": [], "body_bytes": 1349, "body_sha256": "sha256:9d22a985b0120ebefe92667723b9e1ce29531613c147f2b357593ac388a7a340", "canonical_id": "xcsh-docs:data-sources:cloud_user_account:fundamentals", "child_ids": ["xcsh-docs:data-sources:cloud_user_account:reference", "xcsh-docs:data-sources:cloud_user_account:examples"], "collection_id": "xcsh-docs:data-sources:cloud_user_account:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cloud_user_account:fundamentals", "parent_id": null, "path": "docs/data-sources/cloud_user_account.md", "provider_name": "cloud_user_account", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_user_account/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_user_account for xcsh_cloud_user_account.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cloud_user_accountCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_user_account landing."
 ---
+
+# xcsh_cloud_user_account landing
+
+<a id="canonical-19961304f17d7e113e05ba91728d23383e280fe37853600cb3d5aced6a71c489"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_user_account
+<a id="canonical-b7e1f0cc98149cffd37403b50419f1b9ca0a65685a5feb8db9b451fa6e33aba3"></a>
+
+## xcsh_cloud_user_account — xcsh_cloud_user_account / 858ab116bffc / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Cloud User Account resource in F5 Distributed Cloud for cloud user account object create
 specifications. configuration.
 
-## Prerequisites
+<a id="canonical-2a4296b09ccf54fb357a804a8b6f16037e81545fbb89a0fd2507271d989abedd"></a>
+
+## Prerequisites — xcsh_cloud_user_account / 858ab116bffc / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-7ed5fb76d09c9029acc85e70386978ceeecaeba4c65d9fc6d2a71707d44c16b2"></a>
+
+## Minimal configuration — xcsh_cloud_user_account / 858ab116bffc / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cloud_user_account_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a503a31a64b95243fa9fa06cf924d9c1ef2a771cdf373b16a573e791dffc1987"></a>
+
+## Root configuration — xcsh_cloud_user_account / 858ab116bffc / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-c8ef8a9a783e12f2b33f34e8f692db427f0f91e38170a2cef7f4c3fac0821ebc"></a>
 
-- [Property reference](../guides/data-sources--cloud_user_account--reference.md)
-- [Examples](../guides/data-sources--cloud_user_account--examples.md)
+## Next pages — xcsh_cloud_user_account / 858ab116bffc / 6
+
+- [Property reference](../guides/data-sources--cloud_user_account--reference--group-001.md#canonical-900c84c9a5a9f196aca7fd76c191e49e38f64612a95e7e99265b923c4594e1dd)
+- [Examples](../guides/data-sources--cloud_user_account--examples--group-001.md#canonical-5b28d2a6e4eaaa25e915ccb803d71dba9a9e9a9309e122177c605a960bd2d6f7)

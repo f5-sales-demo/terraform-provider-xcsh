@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_service_policy_set"
+page_title: "xcsh_service_policy_set landing"
 subcategory: ""
-description: "xcsh_service_policy_set for xcsh_service_policy_set."
-xcsh_docs: {"aliases": [], "body_bytes": 1415, "body_sha256": "sha256:f9c2055ae4054e20b5b46f7a941d91ebc540378ba35b6c612dbedf7d6d68a6e1", "canonical_id": "xcsh-docs:data-sources:service_policy_set:fundamentals", "child_ids": ["xcsh-docs:data-sources:service_policy_set:reference", "xcsh-docs:data-sources:service_policy_set:examples"], "collection_id": "xcsh-docs:data-sources:service_policy_set:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy_set:fundamentals", "parent_id": null, "path": "docs/data-sources/service_policy_set.md", "provider_name": "service_policy_set", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_set/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_service_policy_set for xcsh_service_policy_set.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_service_policy_set landing."
 ---
+
+# xcsh_service_policy_set landing
+
+<a id="canonical-52eaa9a13b0184a72441569b070040914137b030f2dff5fcdbb25301ba8d99b6"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_service_policy_set
+<a id="canonical-f6f6095be66cff84e31a2718330511fed6a8a1c3cff920aaed7b7001563376e9"></a>
+
+## xcsh_service_policy_set — xcsh_service_policy_set / 798ccf734010 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Service Policy Set resource in F5 Distributed Cloud for get service\_policy\_set reads a
 given object from storage backend for metadata.namespace. configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-db72365b066949e95c5998b8e95262361a43b6b4d0695fa5f859481b9f10600e"></a>
+
+## Prerequisites — xcsh_service_policy_set / 798ccf734010 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-e4e10a708192c49808c4fb6df2315ff7afee780224247607ef95cade792cacd9"></a>
+
+## Minimal configuration — xcsh_service_policy_set / 798ccf734010 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "service_policy_set_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-53ae71654bb7dfddb41c27e536923e0c3a92fa5487d4b8e52dbcd7c3ce8d9273"></a>
+
+## Root configuration — xcsh_service_policy_set / 798ccf734010 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-54bab6e7644442c751f3990c4c745ba0fbb126a519e84016f403df71d602d5f0"></a>
 
-- [Property reference](../guides/data-sources--service_policy_set--reference.md)
-- [Examples](../guides/data-sources--service_policy_set--examples.md)
+## Next pages — xcsh_service_policy_set / 798ccf734010 / 6
+
+- [Property reference](../guides/data-sources--service_policy_set--reference--group-001.md#canonical-d53562a654aeea2fda5c0f68cc93c43674dbd4ca72481940eaa91fb9ed762863)
+- [Examples](../guides/data-sources--service_policy_set--examples--group-001.md#canonical-64a0cc77566504934e629646dfc340565e8343844ecc4a17ecf571158b2ff726)

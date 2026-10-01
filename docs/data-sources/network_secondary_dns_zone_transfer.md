@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_secondary_dns_zone_transfer"
+page_title: "xcsh_network_secondary_dns_zone_transfer landing"
 subcategory: ""
-description: "xcsh_network_secondary_dns_zone_transfer for xcsh_network_secondary_dns_zone_transfer."
-xcsh_docs: {"aliases": [], "body_bytes": 1852, "body_sha256": "sha256:9c7c75fac80a4487423b8f81fbea94304a49425c7e5243042fe89096c0e52fb8", "canonical_id": "xcsh-docs:data-sources:network_secondary_dns_zone_transfer:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_secondary_dns_zone_transfer:reference", "xcsh-docs:data-sources:network_secondary_dns_zone_transfer:examples"], "collection_id": "xcsh-docs:data-sources:network_secondary_dns_zone_transfer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_secondary_dns_zone_transfer:fundamentals", "parent_id": null, "path": "docs/data-sources/network_secondary_dns_zone_transfer.md", "provider_name": "network_secondary_dns_zone_transfer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_secondary_dns_zone_transfer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_secondary_dns_zone_transfer for xcsh_network_secondary_dns_zone_transfer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_secondary_dns_zone_transfer landing."
 ---
+
+# xcsh_network_secondary_dns_zone_transfer landing
+
+<a id="canonical-25016e00cea8bc0aefc3e5a4e212e97a109bad45a1c5bde7fb294579d48ebe32"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_secondary_dns_zone_transfer
+<a id="canonical-c21df305415f23e8cc7614235d0351e94803cb8e940a0f75eb45097580c372c8"></a>
+
+## xcsh_network_secondary_dns_zone_transfer — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Published Secondary DNS transfer and notify IPv4 addresses. The source does not 
 purposes. Values are bundled from the pinned OpenAPI release; this data source performs no network
 request. Ports and traffic direction are not encoded in the manifest.
 
-## Prerequisites
+<a id="canonical-ced39f5b6043367bd14be04ed3b18a0e993bcdf23dedeca3853aaa1c31ece807"></a>
+
+## Prerequisites — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-5aa8533bc7db5d2f96c2bb2e456d34bd6fbeace3af1eec141dc03563cd6d3dde"></a>
+
+## Minimal configuration — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -61,11 +70,15 @@ output "secondary_dns_rules" {
 }
 ```
 
-## Root configuration
+<a id="canonical-b2101240f647a4d92c6aa6fd3f9805109db89015fb8166f01a6c3617cdbf6839"></a>
+
+## Root configuration — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3ec9376a6250475eb0cee86b3ad89743869635e796f59dfd4e54cc7cdb751579"></a>
 
-- [Property reference](../guides/data-sources--network_secondary_dns_zone_transfer--reference.md)
-- [Examples](../guides/data-sources--network_secondary_dns_zone_transfer--examples.md)
+## Next pages — xcsh_network_secondary_dns_zone_transfer / 750038b75e6a / 6
+
+- [Property reference](../guides/data-sources--network_secondary_dns_zone_transfer--reference--group-001.md#canonical-c945fd07bc00a831ed39b45e5684e423a74eab2504bb40760e1b07243fd4e278)
+- [Examples](../guides/data-sources--network_secondary_dns_zone_transfer--examples--group-001.md#canonical-bc67719214c86f2fffbd605245afc762550a9ca52160a01d1c861afb2aaf5d2f)

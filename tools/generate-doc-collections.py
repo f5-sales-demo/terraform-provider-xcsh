@@ -23,11 +23,13 @@ from urllib.parse import quote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from import_contract import resolve_import_contract
+from registry_projection import project as grouped_project
 
 PROVIDER = "registry.terraform.io/f5-sales-demo/xcsh"
 SITE = "https://f5-sales-demo.github.io/terraform-provider-xcsh"
 REGISTRY_FILENAME_BUDGET = 240
 REGISTRY_LIMIT = 500_000  # HashiCorp documents 500KB, including frontmatter.
+PROJECTION_RECEIPT_BUDGET = 800_000
 TYPES = {
     "resources": ("resource_schemas", "resources", "resource.tf", "resource"),
     "data-sources": (
@@ -724,161 +726,7 @@ def projection_name(page):
 
 
 def registry_project(pages, categories):
-    outputs = {}
-    anchor_destinations = {}
-    destinations = {}
-    by_url = {}
-    for page in pages:
-        kind, name = page["provider_type"], page["provider_name"]
-        path = (
-            f"docs/{kind}/{name}.md"
-            if page["role"] == "fundamentals"
-            else f"docs/guides/{projection_name(page)}.md"
-        )
-        destinations[page["id"]] = path
-        url = (
-            SITE
-            + "/"
-            + page["path"].removeprefix("documentation/").removesuffix("index.md")
-        )
-        by_url[url] = page["id"]
-    for page in pages:
-        output_path = destinations[page["id"]]
-
-        def rewrite(match, source_path=output_path):
-            label, href = match.groups()
-            url, sep, anchor = href.partition("#")
-            identifier = by_url.get(url)
-            if not identifier:
-                return match.group(0)
-            relative = os.path.relpath(
-                destinations[identifier], str(PurePosixPath(source_path).parent)
-            )
-            return f"[{label}]({relative}{sep}{anchor})"
-
-        body = LINK.sub(rewrite, page["body"])
-        projected = dict(
-            page,
-            path=output_path,
-            canonical_id=page["id"],
-            publishing_destination="registry",
-        )
-        rendered = frontmatter(projected, body, categories[page["collection_id"]])
-        if len(rendered.encode()) > REGISTRY_LIMIT:
-            # Split only at complete semantic H2/H3 sections. No arbitrary AI
-            # cutoff, paragraph slicing, partial code fence, or dropped bytes.
-            sections = re.split(r"(?m)(?=^##(?:#)? )", body)
-            complete_sections = []
-            for section in sections:
-                if (
-                    len(frontmatter(projected, section).encode())
-                    <= REGISTRY_LIMIT - 4096
-                ):
-                    complete_sections.append(section)
-                    continue
-                lines = section.splitlines(keepends=True)
-                table_start = next(
-                    (
-                        i
-                        for i, line in enumerate(lines)
-                        if line.startswith("| Schema path |")
-                    ),
-                    None,
-                )
-                if table_start is None:
-                    complete_sections.append(section)
-                    continue
-                prefix = "".join(lines[: table_start + 2])
-                rows = "".join(lines[table_start + 2 :]).splitlines(keepends=True)
-                table_chunk = prefix
-                for row in rows:
-                    if (
-                        len(frontmatter(projected, table_chunk + row).encode())
-                        > REGISTRY_LIMIT - 4096
-                    ):
-                        complete_sections.append(table_chunk)
-                        table_chunk = prefix
-                    table_chunk += row
-                complete_sections.append(table_chunk)
-            sections = complete_sections
-            if any(
-                len(frontmatter(projected, section).encode()) > REGISTRY_LIMIT
-                for section in sections
-            ):
-                raise ValueError(
-                    f"complete coherent Registry section cannot fit 500KB: {output_path}"
-                )
-            parts = []
-            chunk = ""
-            for section in sections:
-                if (
-                    len(frontmatter(projected, chunk + section).encode())
-                    > REGISTRY_LIMIT - 4096
-                ):
-                    parts.append(chunk)
-                    chunk = ""
-                chunk += section
-            parts.append(chunk)
-            landing = f"# {page['title']}\n\nComplete reference sections:\n\n"
-            for index, original_part in enumerate(parts, 1):
-                part = original_part
-                if not re.search(r"(?m)^# ", part):
-                    part = f"# {page['title']} — Part {index}\n\n" + part
-                part_path = f"docs/guides/{projection_name(page)}--part-{index}.md"
-                landing += f"- [Part {index}]({os.path.relpath(part_path, str(PurePosixPath(output_path).parent))})\n"
-                for anchor in re.findall(r'<a id="([^"]+)"', part):
-                    anchor_destinations[(output_path, anchor)] = part_path
-                outputs[part_path] = frontmatter(
-                    dict(projected, path=part_path, projection_part=index),
-                    normalize_body(part),
-                    categories[page["collection_id"]],
-                )
-            rendered = frontmatter(
-                projected, landing, categories[page["collection_id"]]
-            )
-        outputs[output_path] = rendered
-        page["registry_path"] = output_path
-    for source_path, rendered in list(outputs.items()):
-        metadata_text, body = rendered.split("---\n\n", 1)
-
-        def move_anchor(match, current_path=source_path):
-            label, href = match.groups()
-            target, separator, anchor = href.partition("#")
-            if not separator or re.match(r"[a-z]+:", target):
-                return match.group(0)
-            resolved = os.path.normpath(
-                str(PurePosixPath(current_path).parent / target)
-            )
-            part = anchor_destinations.get((resolved, anchor))
-            if part is None:
-                return match.group(0)
-            relative = os.path.relpath(part, str(PurePosixPath(current_path).parent))
-            return f"[{label}]({relative}#{anchor})"
-
-        body = normalize_body(LINK.sub(move_anchor, body))
-        if "<!-- textlint-disable terminology -->" not in body:
-            body = (
-                "<!-- Exact provider and upstream contract identifiers. -->\n\n<!-- textlint-disable terminology -->\n\n"
-                + body
-            )
-        metadata_lines = metadata_text.splitlines()
-        metadata = json.loads(
-            next(
-                line.removeprefix("xcsh_docs: ")
-                for line in metadata_lines
-                if line.startswith("xcsh_docs: ")
-            )
-        )
-        metadata.update(
-            body_bytes=len(body.encode()), body_sha256=digest(body.encode())
-        )
-        metadata_lines = [
-            "xcsh_docs: " + json_text(metadata)
-            if line.startswith("xcsh_docs: ")
-            else line
-            for line in metadata_lines
-        ]
-        outputs[source_path] = "\n".join(metadata_lines) + "\n---\n\n" + body
+    outputs, _ = grouped_project(pages, categories, SITE)
     return outputs
 
 
@@ -909,6 +757,8 @@ def validate(pages, collections, outputs):
             raise ValueError(f"Registry storage ceiling exceeded: {output}")
         for _, href in prose_links(text):
             target, _, anchor = href.partition("#")
+            if target in (SITE + "/llms.txt", SITE + "/terraform-llms-index.json"):
+                continue
             if target.startswith(SITE + "/"):
                 if target not in urls:
                     raise ValueError(f"unresolved canonical link: {target}")
@@ -1007,7 +857,13 @@ def generate(root, schema_path, constraints_path):
                 )
                 outputs[page["path"]] = frontmatter(page, body, collection.category)
                 pages.append(page)
-    outputs.update(registry_project(pages, categories))
+    registry_outputs, projection = grouped_project(
+        pages, categories, SITE, version=os.environ.get("DOCUMENTATION_VERSION")
+    )
+    outputs.update(registry_outputs)
+    outputs["documentation/registry-projection-manifest.json"] = (
+        json.dumps(projection, indent=2, sort_keys=True) + "\n"
+    )
     registry_navigation(surface, outputs)
     provider_index = (root / "templates/index.md.tmpl").read_text(encoding="utf-8")
     provider_example = (root / "examples/provider/provider.tf").read_text(
@@ -1017,18 +873,104 @@ def generate(root, schema_path, constraints_path):
         '{{ tffile "examples/provider/provider.tf" }}',
         "```terraform\n" + provider_example.rstrip() + "\n```",
     )
+    provider_index = provider_index.replace("(llms.txt)", "(" + SITE + "/llms.txt)")
     outputs["docs/index.md"] = provider_index
+    auxiliary = [("provider", "setup", provider_index)]
     for guide in sorted((root / "templates/guides").glob("*.md")):
-        outputs["docs/guides/" + guide.name] = guide.read_text(encoding="utf-8")
-    reference_outputs = {
-        path: content
-        for path, content in outputs.items()
-        if path != "docs/index.md"
-        and not (
-            path.startswith("docs/guides/") and "--" not in PurePosixPath(path).name
+        text = guide.read_text(encoding="utf-8")
+        text = text.replace(
+            "../../examples/",
+            "https://github.com/f5-sales-demo/terraform-provider-xcsh/blob/"
+            + os.environ.get("DOCUMENTATION_VERSION", "main")
+            + "/examples/",
         )
+        outputs["docs/guides/" + guide.name] = text
+        auxiliary.append(("guides", guide.stem, text))
+    for kind, name, text in auxiliary:
+        body = text.split("---\n", 2)[-1].lstrip() if text.startswith("---\n") else text
+        identifier = stable_id(kind, name, "overview")
+        page = {
+            "id": identifier,
+            "collection_id": stable_id(kind, name, "collection"),
+            "provider_type": kind,
+            "provider_name": name,
+            "role": "overview",
+            "schema_path": [],
+            "parent_id": None,
+            "child_ids": [],
+            "title": "Provider setup and authentication"
+            if kind == "provider"
+            else name,
+            "summary": "Complete provider setup and authentication."
+            if kind == "provider"
+            else "Maintained " + name + " guide.",
+            "aliases": [],
+            "completeness": "complete",
+            "path": f"documentation/{kind}/{name}/index.md",
+            "body": body,
+            "body_bytes": len(body.encode()),
+            "body_sha256": digest(body.encode()),
+            "provider_schema_digest": schema_digest,
+            "spec_pin_digest": specs.pin_digest,
+            "registry_path": "docs/index.md"
+            if kind == "provider"
+            else f"docs/guides/{name}.md",
+        }
+        pages.append(page)
+        outputs[page["path"]] = frontmatter(page, body)
+        projection["sections"].append(
+            {
+                "canonical_id": identifier,
+                "section_id": identifier,
+                "source_sha256": digest(body.encode()),
+                "source_bytes": len(body.encode()),
+                "canonical_source_sha256": digest(body.encode()),
+                "registry_path": page["registry_path"],
+                "mode": "embedded",
+                "canonical_url": SITE + f"/{kind}/{name}/",
+                "anchor_map": {},
+                "anchor": "",
+            }
+        )
+    projection["provider_schema_digest"] = schema_digest
+    projection["spec_pin_digest"] = specs.pin_digest
+    projection["files"] = {
+        path: {"bytes": len(text.encode()), "sha256": digest(text.encode())}
+        for path, text in sorted(outputs.items())
+        if path.startswith("docs/")
     }
-    validate(pages, collections, reference_outputs)
+    outputs["documentation/registry-projection-manifest.json"] = (
+        json.dumps(projection, indent=2, sort_keys=True) + "\n"
+    )
+    shards, pending, pending_bytes = [], [], 0
+    for section in projection.pop("sections"):
+        size = len(json.dumps(section, ensure_ascii=False).encode()) + 1
+        if pending and pending_bytes + size > PROJECTION_RECEIPT_BUDGET:
+            shards.append(pending)
+            pending, pending_bytes = [], 0
+        pending.append(section)
+        pending_bytes += size
+    if pending:
+        shards.append(pending)
+    projection["section_manifests"] = []
+    for number, records in enumerate(shards, 1):
+        path = f"documentation/registry-projection/sections-{number:04}.json"
+        text = (
+            json.dumps(
+                {"schema_version": 1, "sections": records},
+                separators=(",", ":"),
+                ensure_ascii=False,
+            )
+            + "\n"
+        )
+        outputs[path] = text
+        projection["section_manifests"].append(
+            {"path": path, "section_count": len(records)}
+        )
+    outputs["documentation/registry-projection-manifest.json"] = (
+        json.dumps(projection, sort_keys=True) + "\n"
+    )
+    validate(pages, collections, outputs)
     entries = [
         {
             k: v
@@ -1066,7 +1008,14 @@ def generate(root, schema_path, constraints_path):
             f"- [{c.kind}/{c.name}]({SITE}/{c.kind}/{c.name}/): {c.description.splitlines()[0]}"
             for c in collections
         )
-        + "\n"
+        + "\n- [Provider setup and authentication]("
+        + SITE
+        + "/provider/setup/)\n"
+        + "".join(
+            f"- [{name} guide]({SITE}/guides/{name}/)\n"
+            for kind, name, _ in auxiliary
+            if kind == "guides"
+        )
     )
     # The Pages builder copies only _data static assets; publish full Markdown
     # bytes there for exact AI retrieval without using transformed text.
@@ -1118,7 +1067,14 @@ def generate(root, schema_path, constraints_path):
             f"- [{c.kind}: xcsh_{c.name}]({SITE}/{c.kind}/{c.name}/)"
             for c in collections
         )
-        + "\n"
+        + "\n\n- [Provider setup and authentication]("
+        + SITE
+        + "/provider/setup/)\n"
+        + "".join(
+            f"- [{name} guide]({SITE}/guides/{name}/)\n"
+            for kind, name, _ in auxiliary
+            if kind == "guides"
+        )
     )
     for kind in TYPES:
         outputs[f"documentation/{kind}/index.md"] = (
@@ -1177,7 +1133,9 @@ def generate(root, schema_path, constraints_path):
         if version not in ("Version: 2.5.6", "2.5.6"):
             raise ValueError("documentation formatter must be Biome 2.5.6")
     for relative, text in list(outputs.items()):
-        if relative.endswith(".json"):
+        if relative.endswith(".json") and not relative.startswith(
+            "documentation/registry-projection/"
+        ):
             formatted = subprocess.run(  # noqa: S603 - generated path and verified formatter
                 [
                     *formatter,
@@ -1212,6 +1170,9 @@ def generate(root, schema_path, constraints_path):
     )
     print(
         f"Generated {len(collections)} collections, {len(pages)} pages, {sum(len(c.coverage) for c in collections)} exact property destinations."
+    )
+    print(
+        f"Registry: {len(projection['files'])} documents, maximum {max(item['bytes'] for item in projection['files'].values())} bytes; {sum(item['mode'] == 'canonical-link' for shard in shards for item in shard)} oversized exceptions."
     )
     print(
         f"HTTP load balancer: {len(http.coverage)} properties; fundamentals {http.pages[stable_id(http.kind, http.name, 'fundamentals')]['body_bytes']} bytes."

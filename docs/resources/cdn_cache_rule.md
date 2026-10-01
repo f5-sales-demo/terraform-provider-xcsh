@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cdn_cache_rule"
+page_title: "xcsh_cdn_cache_rule landing"
 subcategory: ""
-description: "xcsh_cdn_cache_rule for xcsh_cdn_cache_rule."
-xcsh_docs: {"aliases": [], "body_bytes": 1415, "body_sha256": "sha256:5b20f1d60fecf7f15bd48384b8fb5bc47fcc9141e1a6805370890667def837a9", "canonical_id": "xcsh-docs:resources:cdn_cache_rule:fundamentals", "child_ids": ["xcsh-docs:resources:cdn_cache_rule:reference", "xcsh-docs:resources:cdn_cache_rule:examples", "xcsh-docs:resources:cdn_cache_rule:import", "xcsh-docs:resources:cdn_cache_rule:timeouts"], "collection_id": "xcsh-docs:resources:cdn_cache_rule:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_cache_rule:fundamentals", "parent_id": null, "path": "docs/resources/cdn_cache_rule.md", "provider_name": "cdn_cache_rule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_cache_rule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cdn_cache_rule for xcsh_cdn_cache_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cdn_cache_ruleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cdn_cache_rule landing."
 ---
+
+# xcsh_cdn_cache_rule landing
+
+<a id="canonical-e0e92aa98813cd7b91f796af1402650a131c06ef78bf9801126f371cdb70a081"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cdn_cache_rule
+<a id="canonical-15a0f477121930e1a07a413ccc77e9e8f77682d3b9c31248e7b251ce2712d164"></a>
+
+## xcsh_cdn_cache_rule — xcsh_cdn_cache_rule / da3a49551ba4 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a CDN Cache Rule resource in F5 Distributed Cloud for cdn loadbalancer specification.
 configuration.
 
-## Prerequisites
+<a id="canonical-703a859bc999f6f5638c6e8c86c98567b7b278b0013c50b0c7d3a2e70714ab90"></a>
+
+## Prerequisites — xcsh_cdn_cache_rule / da3a49551ba4 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-5aa68390830307ce1b1916e4333a1331dae5dab90628b950ed6ef8173398395d"></a>
+
+## Minimal configuration — xcsh_cdn_cache_rule / da3a49551ba4 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_cdn_cache_rule" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-48612da350673b0454fd3d664b43a2ce5fef3e0a52a10832f9dda189d1bbc469"></a>
+
+## Root configuration — xcsh_cdn_cache_rule / da3a49551ba4 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-24ecb62eb208b3288ca45f8c243039b17bcb996d4dfb7f83dbf7f57c5afb3b9e"></a>
 
-- [Property reference](../guides/resources--cdn_cache_rule--reference.md)
-- [Examples](../guides/resources--cdn_cache_rule--examples.md)
-- [Import](../guides/resources--cdn_cache_rule--import.md)
-- [Timeouts](../guides/resources--cdn_cache_rule--timeouts.md)
+## Next pages — xcsh_cdn_cache_rule / da3a49551ba4 / 6
+
+- [Property reference](../guides/resources--cdn_cache_rule--reference--group-001.md#canonical-0debae215b3c4fc4c6dda2dd02f05cf0a752629e49c17285897ce53e06ecc481)
+- [Examples](../guides/resources--cdn_cache_rule--examples--group-001.md#canonical-26f48ea8b5f91d0dad499291c518db3babf530eb629d1bb63ef4b4191f7fdfa5)
+- [Import](../guides/resources--cdn_cache_rule--lifecycle--group-001.md#canonical-dd361e84d6649bc3c5d88388fa7e6876c2d87ff9f842d0df5df9a5615ddf6367)
+- [Timeouts](../guides/resources--cdn_cache_rule--lifecycle--group-001.md#canonical-007c5c6d5ded78d2f65e76e302c09cfb99ac8204148fac0db9c98fa9b93346ba)

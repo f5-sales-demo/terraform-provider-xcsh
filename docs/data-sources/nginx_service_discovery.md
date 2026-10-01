@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_nginx_service_discovery"
+page_title: "xcsh_nginx_service_discovery landing"
 subcategory: ""
-description: "xcsh_nginx_service_discovery for xcsh_nginx_service_discovery."
-xcsh_docs: {"aliases": [], "body_bytes": 1448, "body_sha256": "sha256:bf34040aa5722e3b47298f359284f5c150530c9903da2b2e14ce51631ede4fc5", "canonical_id": "xcsh-docs:data-sources:nginx_service_discovery:fundamentals", "child_ids": ["xcsh-docs:data-sources:nginx_service_discovery:reference", "xcsh-docs:data-sources:nginx_service_discovery:examples"], "collection_id": "xcsh-docs:data-sources:nginx_service_discovery:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:nginx_service_discovery:fundamentals", "parent_id": null, "path": "docs/data-sources/nginx_service_discovery.md", "provider_name": "nginx_service_discovery", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_nginx_service_discovery for xcsh_nginx_service_discovery.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["nginx_service_discoveryCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_nginx_service_discovery landing."
 ---
+
+# xcsh_nginx_service_discovery landing
+
+<a id="canonical-20a77ba34df172f8899cd77b9d06e83d5056bcba93fb611466b7f24b213ccfb5"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_nginx_service_discovery
+<a id="canonical-34aa3ac8216e6940f27bbda6ed546a4e3ead6709d693d08795e0241839eab9e9"></a>
+
+## xcsh_nginx_service_discovery — xcsh_nginx_service_discovery / 8b1a11a820c8 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to create nginx service
 discovery object for a site or virtual site in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-db91003af90acab99be7d4821987514a12294bb088c333bc989129376be3fe20"></a>
+
+## Prerequisites — xcsh_nginx_service_discovery / 8b1a11a820c8 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-247b455981ddadc3e588625b92c8d4d2bc929ac72746f9a52b928849152d00e7"></a>
+
+## Minimal configuration — xcsh_nginx_service_discovery / 8b1a11a820c8 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "nginx_service_discovery_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-73c5d7acb0f74c8bab62d50c065c6b9c6be13bb13a8594608ef3dbd73f05be9c"></a>
+
+## Root configuration — xcsh_nginx_service_discovery / 8b1a11a820c8 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-c24e841476d74e6481ef02b9780cdf8bd8690e2102265d08ecf12699e344d768"></a>
 
-- [Property reference](../guides/data-sources--nginx_service_discovery--reference.md)
-- [Examples](../guides/data-sources--nginx_service_discovery--examples.md)
+## Next pages — xcsh_nginx_service_discovery / 8b1a11a820c8 / 6
+
+- [Property reference](../guides/data-sources--nginx_service_discovery--reference--group-001.md#canonical-bd7faee5a6863c243227640fd4c42e49997c33eab641c67241f2503c658612e6)
+- [Examples](../guides/data-sources--nginx_service_discovery--examples--group-001.md#canonical-766ba811139fdb5dc6fb3bb8d510b3535c22c310114d846a562ea2bab8392701)

@@ -1,0 +1,208 @@
+---
+page_title: "Provider setup and authentication"
+subcategory: ""
+description: "Complete provider setup and authentication."
+xcsh_docs: {"aliases": [], "body_bytes": 7170, "body_sha256": "sha256:ead3a2e4de0bf83b2e4fb9ffbd9ad3365e69be28ddf1e52b2a3a15ddea0683e5", "child_ids": [], "collection_id": "xcsh-docs:provider:setup:collection", "completeness": "complete", "id": "xcsh-docs:provider:setup:overview", "parent_id": null, "path": "documentation/provider/setup/index.md", "provider_name": "setup", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "provider", "registry_path": "docs/index.md", "role": "overview", "schema_path": [], "schema_version": 1, "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Complete provider setup and authentication."}
+---
+
+# XCSH Provider
+
+The XCSH Terraform provider enables infrastructure as code management for F5 Distributed Cloud resources. Configure HTTP/TCP load balancers, origin pools, application firewalls, service policies, cloud sites, and networking through declarative Terraform configurations.
+
+This is a community-maintained provider built from public F5 API documentation.
+
+## Requirements
+
+| Name      | Version |
+| --------- | ------- |
+| terraform | >= 1.14 |
+
+~> **Note:** This provider includes first-class actions, which require Terraform 1.14 or later. The provider does not define provider functions.
+
+## Upgrading from v9 through v11
+
+Versions v10.0.0 through v11.3.0 accidentally left broad-provider consumers without a supported path
+by publishing only the SMSv2-focused subset. Version v11.4.0 restores every type registered by
+v9.5.2 while retaining the SMSv2 and offline network allowlist additions. Upgrade with a saved plan
+and investigate any managed-resource change before applying; no import or state surgery is required
+for the restored type names.
+
+## Authenticating to F5 Distributed Cloud
+
+The XCSH Terraform provider supports multiple authentication methods:
+
+1. **API Token** — Token-based bearer authentication
+2. **P12 Certificate** — Mutual TLS authentication using a PKCS#12 bundle (recommended for production)
+3. **PEM Certificate** — Certificate-based authentication using separate PEM certificate and private key files
+
+For more information, see the [F5 Distributed Cloud Credentials Guide](https://docs.cloud.f5.com/docs-v2/administration/how-tos/user-mgmt/Credentials).
+
+## Example Usage
+
+```terraform
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+# Configure the F5XC Provider with API Token Authentication
+provider "xcsh" {
+  api_url   = "https://your-tenant.console.ves.volterra.io"
+  api_token = var.xcsh_api_token
+}
+
+# Alternatively, use environment variables:
+# export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
+# export XCSH_API_TOKEN="your-api-token"
+
+variable "xcsh_api_token" {
+  description = "F5 Distributed Cloud API Token"
+  type        = string
+  sensitive   = true
+}
+
+# Or use P12 Certificate Authentication:
+# provider "xcsh" {
+#   api_url      = "https://your-tenant.console.ves.volterra.io"
+#   api_p12_file = "/path/to/certificate.p12"
+#   p12_password = var.xcsh_p12_password
+# }
+#
+# Environment variables for P12 authentication:
+# export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
+# export XCSH_P12_FILE="/path/to/certificate.p12"
+# export XCSH_P12_PASSWORD="your-p12-password"  # gitleaks:allow
+```
+
+## Argument Reference
+
+### Required (one of the following authentication methods)
+
+* `api_token` — F5 Distributed Cloud API token (`String`, Sensitive). Can also be set with the `XCSH_API_TOKEN` environment variable.
+
+* `api_p12_file` — Path to a PKCS#12 certificate bundle file (`String`). Can also be set with the `XCSH_P12_FILE` environment variable. Requires `p12_password`.
+
+* `api_cert` and `api_key` — Paths to PEM-encoded certificate and private key files (`String`). Can also be set with the `XCSH_CERT` and `XCSH_KEY` environment variables.
+
+### Optional
+
+* `api_url` — F5 Distributed Cloud API URL (`String`). Base URL **without** `/api` suffix. Required. No default. Set to your tenant URL (for example, `https://<XC_TENANT>.console.ves.volterra.io`). Can also be set with the `XCSH_API_URL` environment variable.
+
+* `p12_password` — Password for the PKCS#12 certificate bundle (`String`, Sensitive). Required when using `api_p12_file`. Can also be set with the `XCSH_P12_PASSWORD` environment variable.
+
+* `api_ca_cert` — Path to a PEM-encoded CA certificate file (`String`). Optional, used for server certificate verification. Can also be set with the `XCSH_CACERT` environment variable.
+
+## Authentication Options
+
+### Option 1: API Token Authentication
+
+The simplest authentication method using an API token.
+
+**Provider Configuration:**
+
+```hcl
+provider "xcsh" {
+  api_url   = "https://<XC_TENANT>.console.ves.volterra.io"
+  api_token = var.xcsh_api_token
+}
+```
+
+**Environment Variables:**
+
+```bash
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_API_TOKEN="<XC_API_TOKEN>"
+```
+
+### Option 2: P12 Certificate Authentication
+
+Certificate-based authentication using a PKCS#12 bundle downloaded from F5 Distributed Cloud.
+
+**Provider Configuration:**
+
+```hcl
+provider "xcsh" {
+  api_url      = "https://<XC_TENANT>.console.ves.volterra.io"
+  api_p12_file = "/path/to/credentials.p12"
+  p12_password = var.xcsh_p12_password
+}
+```
+
+**Environment Variables:**
+
+```bash
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_P12_FILE="/path/to/credentials.p12"
+export XCSH_P12_PASSWORD="<XC_P12_PASSWORD>"
+```
+
+### Option 3: PEM Certificate Authentication
+
+Certificate-based authentication using separate PEM-encoded certificate and private key files.
+
+**Provider Configuration:**
+
+```hcl
+provider "xcsh" {
+  api_url     = "https://<XC_TENANT>.console.ves.volterra.io"
+  api_cert    = "/path/to/certificate.crt"
+  api_key     = "/path/to/private.key"
+  api_ca_cert = "/path/to/ca-certificate.crt"  # Optional
+}
+```
+
+**Environment Variables:**
+
+```bash
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_CERT="/path/to/certificate.crt"
+export XCSH_KEY="/path/to/private.key"
+export XCSH_CACERT="/path/to/ca-certificate.crt"  # Optional
+```
+
+~> **Note:** Environment variables are the recommended approach for automated CI/CD pipelines to avoid storing sensitive credentials in version control.
+
+## Getting Started
+
+1. **Generate API Credentials**: In the F5 Distributed Cloud Console, navigate to **Administration** → **Personal Management** → **Credentials**, and create an API Token or download a certificate bundle.
+
+2. **Configure the Provider**: Add the provider configuration block to your Terraform root module using one of the authentication options above.
+
+3. **Create Resources**: Manage F5 Distributed Cloud resources such as namespaces, load balancers, and origin pools.
+
+### Example: Create a Namespace
+
+```hcl
+resource "xcsh_namespace" "example" {
+  name = "example-namespace"
+}
+```
+
+### Example: Create an HTTP Load Balancer
+
+```hcl
+resource "xcsh_http_loadbalancer" "example" {
+  name      = "example-load-balancer"
+  namespace = "example-namespace"
+  domains   = ["example.com"]
+}
+```
+
+## Resources and Data Sources
+
+Browse the documentation sidebar for the complete list of resources and data sources organized by category.
+
+## AI-Consumable Documentation
+
+For AI assistants and tools, this provider publishes machine-readable documentation:
+
+* **[llms.txt](https://f5-sales-demo.github.io/terraform-provider-xcsh/llms.txt)** — Entry point with provider identity, syntax rules, and category index
+* **Per-resource files** — Self-contained text files at `_llms-txt/resources/<name>.txt` with required fields, OneOf groups, minimal valid configs, and dependency chains
+
+<!-- Template version: 1.2.0 - Add AI-consumable documentation section -->

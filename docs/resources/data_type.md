@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_data_type"
+page_title: "xcsh_data_type landing"
 subcategory: ""
-description: "xcsh_data_type for xcsh_data_type."
-xcsh_docs: {"aliases": [], "body_bytes": 1385, "body_sha256": "sha256:bb97a563f4644edaebd26553869df4d7db68888338be48fc8f8a477003665d8d", "canonical_id": "xcsh-docs:resources:data_type:fundamentals", "child_ids": ["xcsh-docs:resources:data_type:reference", "xcsh-docs:resources:data_type:examples", "xcsh-docs:resources:data_type:import", "xcsh-docs:resources:data_type:timeouts"], "collection_id": "xcsh-docs:resources:data_type:collection", "completeness": "complete", "id": "xcsh-docs:resources:data_type:fundamentals", "parent_id": null, "path": "docs/resources/data_type.md", "provider_name": "data_type", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_data_type for xcsh_data_type.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["data_typeCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_data_type landing."
 ---
+
+# xcsh_data_type landing
+
+<a id="canonical-1cff15081e577df3cc4acee98c37a779281dfe15bfd78338a144f83da6db7bdc"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_data_type
+<a id="canonical-c828ab2119454762d59faa050a520eeb43b4f3a4afb35ceb55988a6ea362b99c"></a>
+
+## xcsh_data_type — xcsh_data_type / 71f312f3765b / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages data\_type creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-b66aa8c4f5464967cb4f64fedbfc8c04b9ef20a3d491374bd88a624ec6c844e5"></a>
+
+## Prerequisites — xcsh_data_type / 71f312f3765b / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-26f36bfdb65983a81ad5ccc49bc1000f420c2bb764763cda0437fe028b6dbf8e"></a>
+
+## Minimal configuration — xcsh_data_type / 71f312f3765b / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_data_type" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a1c887252fa0bfdd863b68a938fa9661768de0e946566ff5913bcf5140562811"></a>
+
+## Root configuration — xcsh_data_type / 71f312f3765b / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-290bbefabf77a76f0d761b29a99db10f096edb4648c5645cfd0faf0701e84563"></a>
 
-- [Property reference](../guides/resources--data_type--reference.md)
-- [Examples](../guides/resources--data_type--examples.md)
-- [Import](../guides/resources--data_type--import.md)
-- [Timeouts](../guides/resources--data_type--timeouts.md)
+## Next pages — xcsh_data_type / 71f312f3765b / 6
+
+- [Property reference](../guides/resources--data_type--reference--group-001.md#canonical-0b4bcef4cf9c0ef8b8a8c71ba751ea78d2753b38ce148712e866e6dc49645b88)
+- [Examples](../guides/resources--data_type--examples--group-001.md#canonical-f6fcb5b6928c9a403046c371b1e2041d0b724dd72cc231fccb0851e9f5346050)
+- [Import](../guides/resources--data_type--lifecycle--group-001.md#canonical-9a35c59b2f222d3733cc3f5fed11513984d6ffddf3e84f238fcea63a275f41d3)
+- [Timeouts](../guides/resources--data_type--lifecycle--group-001.md#canonical-3cbbb8c92b860749df4036ae205b8b2f50e705acdd543f1dd527b92118162937)

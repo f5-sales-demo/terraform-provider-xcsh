@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_smsv2_contract"
+page_title: "xcsh_smsv2_contract landing"
 subcategory: ""
-description: "xcsh_smsv2_contract for xcsh_smsv2_contract."
-xcsh_docs: {"aliases": [], "body_bytes": 2030, "body_sha256": "sha256:ec92e904974ccbc86c33f43d93eb437a180907102dbea2c1d277ee1edd4aa136", "canonical_id": "xcsh-docs:data-sources:smsv2_contract:fundamentals", "child_ids": ["xcsh-docs:data-sources:smsv2_contract:reference", "xcsh-docs:data-sources:smsv2_contract:examples"], "collection_id": "xcsh-docs:data-sources:smsv2_contract:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:smsv2_contract:fundamentals", "parent_id": null, "path": "docs/data-sources/smsv2_contract.md", "provider_name": "smsv2_contract", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/smsv2_contract/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_smsv2_contract for xcsh_smsv2_contract.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_smsv2_contract landing."
 ---
+
+# xcsh_smsv2_contract landing
+
+<a id="canonical-ddd15ea458a3f5ed23a42b800fa42b8dffdba0c7d81ee4b50cc837fb2665315d"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_smsv2_contract
+<a id="canonical-554902648499e34549f5e371116738499c9549650146e34bd3458fd2a2b2cd75"></a>
+
+## xcsh_smsv2_contract — xcsh_smsv2_contract / 05febd154682 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Publishes the immutable clean-break SMSv2 AWS, Azure, and KVM capability contracts compiled into
 this provider release.
 
-## Prerequisites
+<a id="canonical-86509fe3898e696e804509b1164f17a6446a8d67db942a6b603eb7d38eb7147a"></a>
+
+## Prerequisites — xcsh_smsv2_contract / 05febd154682 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-c162798dec8b2e3130b921d612bc21349cc72ae04e4d8caefd6a32f3e32c2ac8"></a>
+
+## Minimal configuration — xcsh_smsv2_contract / 05febd154682 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,11 +68,15 @@ output "smsv2_contract" {
 }
 ```
 
-## Root configuration
+<a id="canonical-251e5fb5d297e45f9f7c3e36e3d6d062c9f8f3f14c7ffb86ffcdacb83b1b3bf2"></a>
+
+## Root configuration — xcsh_smsv2_contract / 05febd154682 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-694e2d55ef8e7159096af27303c19b3b93d54c03ece52365d536a7d430ade7e5"></a>
 
-- [Property reference](../guides/data-sources--smsv2_contract--reference.md)
-- [Examples](../guides/data-sources--smsv2_contract--examples.md)
+## Next pages — xcsh_smsv2_contract / 05febd154682 / 6
+
+- [Property reference](../guides/data-sources--smsv2_contract--reference--group-001.md#canonical-aed6d17a0c073443d72b12798a8d63b1f9994716daf404245427562e32f84419)
+- [Examples](../guides/data-sources--smsv2_contract--examples--group-001.md#canonical-ccf6768914d16112d2da6e223c8d15a789508b84132428ac17ca8c306d5e420c)

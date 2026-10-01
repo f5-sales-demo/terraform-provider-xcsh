@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_device_intelligence_high_risk_transactions"
+page_title: "xcsh_device_intelligence_high_risk_transactions landing"
 subcategory: ""
-description: "xcsh_device_intelligence_high_risk_transactions for xcsh_device_intelligence_high_risk_transactions."
-xcsh_docs: {"aliases": [], "body_bytes": 1347, "body_sha256": "sha256:663bd11eab3506c5dbaee3f3474219604dbe5045b4c74e3aadbb0025bd3f1b39", "canonical_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:fundamentals", "child_ids": ["xcsh-docs:data-sources:device_intelligence_high_risk_transactions:reference", "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:examples"], "collection_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:fundamentals", "parent_id": null, "path": "docs/data-sources/device_intelligence_high_risk_transactions.md", "provider_name": "device_intelligence_high_risk_transactions", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_device_intelligence_high_risk_transactions for xcsh_device_intelligence_high_risk_transactions.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_device_intelligence_high_risk_transactions landing."
 ---
+
+# xcsh_device_intelligence_high_risk_transactions landing
+
+<a id="canonical-bbed0edf8db05608f8be2a8179ea53e5a9950cfd284c5ef8682ca9cf1f163e53"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_device_intelligence_high_risk_transactions
+<a id="canonical-f9426558c8363eebed0fd2ea99d85818d513e96fc5e24ea9ffa5af2e7755807e"></a>
+
+## xcsh_device_intelligence_high_risk_transactions — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-a2a931497a93aca0b468039f2931a38096ec0b1aa6c98f46f6e4d7189cc7fc56"></a>
+
+## Prerequisites — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-f98a8000b0b5724c75f982b2ee69c55c4e7091486be0f947baa242af5a2eb831"></a>
+
+## Minimal configuration — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "device_intelligence_high_risk_transactions_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-e786bd7a42f882c6b93690bd48dbac29daabffdc6b58ea6e53eb66a92d5932f8"></a>
+
+## Root configuration — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-8cba23b3979461c18b43ecef0046fe754beffd7e89f506021d1d6caa4fe03401"></a>
 
-- [Property reference](../guides/data-sources--device_intelligence_high_risk_transactions--reference.md)
-- [Examples](../guides/data-sources--device_intelligence_high_risk_transactions--examples.md)
+## Next pages — xcsh_device_intelligence_high_risk_transactions / ef0f0367a0f7 / 6
+
+- [Property reference](../guides/data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-8c637c6f29bdf42921c0ef7d58cc0d69a33fa56e41e372d98331c7c516d186ea)
+- [Examples](../guides/data-sources--device_intelligence_high_risk_transactions--examples--group-001.md#canonical-d966d8a36af7cefa045e7fbb075fac0386a0f18bc0a3d6461456996da2f07cba)

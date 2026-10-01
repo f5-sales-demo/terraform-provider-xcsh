@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_waf_threat_campaigns"
+page_title: "xcsh_waf_threat_campaigns landing"
 subcategory: ""
-description: "xcsh_waf_threat_campaigns for xcsh_waf_threat_campaigns."
-xcsh_docs: {"aliases": [], "body_bytes": 1137, "body_sha256": "sha256:f12b8055482d43fc53d833dc5d550a5cd6d607597f13601447e9bbad6be43330", "canonical_id": "xcsh-docs:data-sources:waf_threat_campaigns:fundamentals", "child_ids": ["xcsh-docs:data-sources:waf_threat_campaigns:reference", "xcsh-docs:data-sources:waf_threat_campaigns:examples"], "collection_id": "xcsh-docs:data-sources:waf_threat_campaigns:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:waf_threat_campaigns:fundamentals", "parent_id": null, "path": "docs/data-sources/waf_threat_campaigns.md", "provider_name": "waf_threat_campaigns", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_threat_campaigns/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_waf_threat_campaigns for xcsh_waf_threat_campaigns.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_waf_threat_campaigns landing."
 ---
+
+# xcsh_waf_threat_campaigns landing
+
+<a id="canonical-7be59cb54e54a57b58790a6d698af9a944d99024e95e82c6c13245f1022ce4c9"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_waf_threat_campaigns
+<a id="canonical-ff47f473f2bd737b16019aff9046b3289469e69410445030988ffdfdaf2e7314"></a>
+
+## xcsh_waf_threat_campaigns — xcsh_waf_threat_campaigns / c74bdce1806d / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-## Prerequisites
+<a id="canonical-b17c422ea14f7de2d06b6bf8dcd281320c07c8b30a96c8b12b2fb44834829ba4"></a>
+
+## Prerequisites — xcsh_waf_threat_campaigns / c74bdce1806d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-c18d9e03d2c454ec246e72431dfdb73553cf6260d21d9422ca1d380e987e9560"></a>
+
+## Minimal configuration — xcsh_waf_threat_campaigns / c74bdce1806d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,11 +56,15 @@ output "waf_threat_campaigns_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-770c9245d22b3c81d8a09100f758619f418b4a3321b17a97403938018179727a"></a>
+
+## Root configuration — xcsh_waf_threat_campaigns / c74bdce1806d / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-5b2a19c65ddda50b2c331292fb5aa435f3ba372f016271cace83befbc45eff31"></a>
 
-- [Property reference](../guides/data-sources--waf_threat_campaigns--reference.md)
-- [Examples](../guides/data-sources--waf_threat_campaigns--examples.md)
+## Next pages — xcsh_waf_threat_campaigns / c74bdce1806d / 6
+
+- [Property reference](../guides/data-sources--waf_threat_campaigns--reference--group-001.md#canonical-b6e27744b7fb85106a6f572c628de8e4a957ca299bbde4a98a1b3f663513454a)
+- [Examples](../guides/data-sources--waf_threat_campaigns--examples--group-001.md#canonical-29903504357da819dc7add84f48a72f236128ef7415d2078166b99480be82358)

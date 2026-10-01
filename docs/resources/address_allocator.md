@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_address_allocator"
+page_title: "xcsh_address_allocator landing"
 subcategory: ""
-description: "xcsh_address_allocator for xcsh_address_allocator."
-xcsh_docs: {"aliases": [], "body_bytes": 1546, "body_sha256": "sha256:268183b74c14179a3045705697f03ee7815d929fbc38161704a452fe825f3951", "canonical_id": "xcsh-docs:resources:address_allocator:fundamentals", "child_ids": ["xcsh-docs:resources:address_allocator:reference", "xcsh-docs:resources:address_allocator:examples", "xcsh-docs:resources:address_allocator:import", "xcsh-docs:resources:address_allocator:timeouts"], "collection_id": "xcsh-docs:resources:address_allocator:collection", "completeness": "complete", "id": "xcsh-docs:resources:address_allocator:fundamentals", "parent_id": null, "path": "docs/resources/address_allocator.md", "provider_name": "address_allocator", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/address_allocator/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_address_allocator for xcsh_address_allocator.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["address_allocatorCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_address_allocator landing."
 ---
+
+# xcsh_address_allocator landing
+
+<a id="canonical-a90eda9d0678adc17d442e30a4391e1edf799c2a7419e020376896c3e91a3aba"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_address_allocator
+<a id="canonical-37696de01c36c1a28466a3e93086a67f6f6dd47db054f887e1cba15ba15000f0"></a>
+
+## xcsh_address_allocator — xcsh_address_allocator / 21a0bd8fcd61 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Address Allocator will create an address allocator object in 'system' namespace of the user
 in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-dcb2631afd864373ff038ed947e752c2bd28fab8bda9707831dff9fbb328be85"></a>
+
+## Prerequisites — xcsh_address_allocator / 21a0bd8fcd61 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-84e64d115b843330ca2b5de47298b36576af636928feb8474bb1ce68c3ae2625"></a>
+
+## Minimal configuration — xcsh_address_allocator / 21a0bd8fcd61 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_address_allocator" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-4b7f696125b68712c676cb962790092945ccd6547956557cddc1d9e33c39a354"></a>
+
+## Root configuration — xcsh_address_allocator / 21a0bd8fcd61 / 5
 
 Required root properties: `address_pool`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-99ef6f8f753c0f8449598a8be31de26fba9a5eb6a712a9d704cfc64b2bae297a"></a>
 
-- [Property reference](../guides/resources--address_allocator--reference.md)
-- [Examples](../guides/resources--address_allocator--examples.md)
-- [Import](../guides/resources--address_allocator--import.md)
-- [Timeouts](../guides/resources--address_allocator--timeouts.md)
+## Next pages — xcsh_address_allocator / 21a0bd8fcd61 / 6
+
+- [Property reference](../guides/resources--address_allocator--reference--group-001.md#canonical-6c53b0269d6a197e4c6beae947a7d28d842ea2701871f0c541ede9d544757f27)
+- [Examples](../guides/resources--address_allocator--examples--group-001.md#canonical-9abf27a8eeb302922bcfca6b62f937985c07ee9f303d8f0174b830c873cb1952)
+- [Import](../guides/resources--address_allocator--lifecycle--group-001.md#canonical-7e1fa737f98bb2ea13e24c2c1e1453a19863d6210d8db84bae3d54b88865c7fe)
+- [Timeouts](../guides/resources--address_allocator--lifecycle--group-001.md#canonical-60eb9705c00e730ea1ecfe9263165fab29f22f76a32e5eb5f5caa8596af75662)

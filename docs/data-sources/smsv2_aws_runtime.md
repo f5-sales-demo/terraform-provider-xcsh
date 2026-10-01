@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_smsv2_aws_runtime"
+page_title: "xcsh_smsv2_aws_runtime landing"
 subcategory: ""
-description: "xcsh_smsv2_aws_runtime for xcsh_smsv2_aws_runtime."
-xcsh_docs: {"aliases": [], "body_bytes": 1684, "body_sha256": "sha256:c016538e1dbe710684bbb6cf3cdf9b3f48dd3bf8cc18b8d39b4dc00973098ae6", "canonical_id": "xcsh-docs:data-sources:smsv2_aws_runtime:fundamentals", "child_ids": ["xcsh-docs:data-sources:smsv2_aws_runtime:reference", "xcsh-docs:data-sources:smsv2_aws_runtime:examples"], "collection_id": "xcsh-docs:data-sources:smsv2_aws_runtime:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:smsv2_aws_runtime:fundamentals", "parent_id": null, "path": "docs/data-sources/smsv2_aws_runtime.md", "provider_name": "smsv2_aws_runtime", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/smsv2_aws_runtime/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_smsv2_aws_runtime for xcsh_smsv2_aws_runtime.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_smsv2_aws_runtime landing."
 ---
+
+# xcsh_smsv2_aws_runtime landing
+
+<a id="canonical-585eec57272cb79858684d22159d08a11b9cc9e8b386856fa87be603c746a674"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_smsv2_aws_runtime
+<a id="canonical-8ee857d1b4d6b00b8a3c43dfe53afd88f905c855eaa4c11e58b2e94bd3e96fe9"></a>
+
+## xcsh_smsv2_aws_runtime — xcsh_smsv2_aws_runtime / 84a901ff6cb1 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Correlates AWS ENI identities with SMSv2 configuration, site provisioning and published
 physical-link status.
 
-## Prerequisites
+<a id="canonical-62387c705f1f0f6aafcc0d78bd234e8c075cb87e8e20088e675c884cd9571533"></a>
+
+## Prerequisites — xcsh_smsv2_aws_runtime / 84a901ff6cb1 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-dc22778c3d2100ab15d1e2d980691788320c962b260da6f6b414101bbe8649f3"></a>
+
+## Minimal configuration — xcsh_smsv2_aws_runtime / 84a901ff6cb1 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -68,11 +77,15 @@ output "smsv2_healthy" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2459ef32957b3b129cb903f592ccbd74a3ce18f11ee7af331e8c1267a651324a"></a>
+
+## Root configuration — xcsh_smsv2_aws_runtime / 84a901ff6cb1 / 5
 
 Required root properties: `namespace`, `nodes`, `site`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-be7c00ffdef2e3273c34ccad308a3d62277836ad27579dc39ebc62f5486f9103"></a>
 
-- [Property reference](../guides/data-sources--smsv2_aws_runtime--reference.md)
-- [Examples](../guides/data-sources--smsv2_aws_runtime--examples.md)
+## Next pages — xcsh_smsv2_aws_runtime / 84a901ff6cb1 / 6
+
+- [Property reference](../guides/data-sources--smsv2_aws_runtime--reference--group-001.md#canonical-5d8cf40e83f05228ca10a7a18a1f29237fffea18c626c7b13a3340addaede44e)
+- [Examples](../guides/data-sources--smsv2_aws_runtime--examples--group-001.md#canonical-1f1ef6b6795670d3320b1dbfef99fe9e58367a1eb0223c900d0fe48596f3d807)

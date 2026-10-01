@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_healthcheck"
+page_title: "xcsh_healthcheck landing"
 subcategory: "Monitoring"
-description: "xcsh_healthcheck for xcsh_healthcheck."
-xcsh_docs: {"aliases": [], "body_bytes": 1764, "body_sha256": "sha256:a3d2082f3effa6102e81d633a34561f171a77ece5e12179af24188d32c7a5229", "canonical_id": "xcsh-docs:resources:healthcheck:fundamentals", "child_ids": ["xcsh-docs:resources:healthcheck:reference", "xcsh-docs:resources:healthcheck:examples", "xcsh-docs:resources:healthcheck:import", "xcsh-docs:resources:healthcheck:timeouts"], "collection_id": "xcsh-docs:resources:healthcheck:collection", "completeness": "complete", "id": "xcsh-docs:resources:healthcheck:fundamentals", "parent_id": null, "path": "docs/resources/healthcheck.md", "provider_name": "healthcheck", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/healthcheck/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_healthcheck for xcsh_healthcheck.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["healthcheckCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_healthcheck landing."
 ---
+
+# xcsh_healthcheck landing
+
+<a id="canonical-f0e0b52fe26a915d9253dab7c548947e75b45cc54cc1365504f77e6116413610"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_healthcheck
+<a id="canonical-748623dd5fff0d7b43b9bc52c6182c9c18d1c6bcb02d1557d41d577300e4fd8d"></a>
+
+## xcsh_healthcheck — xcsh_healthcheck / 409e15f8cb98 / 2
 
 Breadcrumbs:
 
@@ -19,13 +24,17 @@ Manages a Healthcheck resource in F5 Distributed Cloud for healthcheck object de
 determine if the given endpoint is healthy. single healthcheck object can be referred to by one or
 many cluster objects. configuration.
 
-## Prerequisites
+<a id="canonical-18a463ffd624cb6e682324131f567a82ca61517da457246ffbd1b0dae6c2d810"></a>
+
+## Prerequisites — xcsh_healthcheck / 409e15f8cb98 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-3616f920e092fab3d5163ca3a31db970143093cb935af0afd93e75160c37e6fa"></a>
+
+## Minimal configuration — xcsh_healthcheck / 409e15f8cb98 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,13 +65,17 @@ resource "xcsh_healthcheck" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-93ca2bc27c0fc11e481d949786dfb21192703edd2af128b61dd1101b01b478cb"></a>
+
+## Root configuration — xcsh_healthcheck / 409e15f8cb98 / 5
 
 Required root properties: `healthy_threshold`, `interval`, `name`, `namespace`, `timeout`, `unhealthy_threshold`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1715920be30094e1a9f334f1591f0e0dd463d1141671373e464ff7d97d462d77"></a>
 
-- [Property reference](../guides/resources--healthcheck--reference.md)
-- [Examples](../guides/resources--healthcheck--examples.md)
-- [Import](../guides/resources--healthcheck--import.md)
-- [Timeouts](../guides/resources--healthcheck--timeouts.md)
+## Next pages — xcsh_healthcheck / 409e15f8cb98 / 6
+
+- [Property reference](../guides/resources--healthcheck--reference--group-001.md#canonical-69cf6b124469edd6162003b0efb6990b1520a382f7ed148683df55cab5d76fe7)
+- [Examples](../guides/resources--healthcheck--examples--group-001.md#canonical-b7cdb440e7554403280ee57b7ea19ebccc7158e032b753d3ebfc687c05a758d5)
+- [Import](../guides/resources--healthcheck--lifecycle--group-001.md#canonical-a0298e08fc5c10a71d5c12cbb2fe59459804b4cc6d4c3d1a21133b4cd099bc6c)
+- [Timeouts](../guides/resources--healthcheck--lifecycle--group-001.md#canonical-0766deb6b330da9e608a834ce20f0e9f7e61c23a2b605b7657308feda60bbcd4)

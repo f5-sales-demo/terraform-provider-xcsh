@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_trusted_ca_list"
+page_title: "xcsh_trusted_ca_list landing"
 subcategory: ""
-description: "xcsh_trusted_ca_list for xcsh_trusted_ca_list."
-xcsh_docs: {"aliases": [], "body_bytes": 1299, "body_sha256": "sha256:62a30c258944df91e9d1d9425afa0ef412a6a8d1f4dd6941acb314ce4d8ebe2f", "canonical_id": "xcsh-docs:data-sources:trusted_ca_list:fundamentals", "child_ids": ["xcsh-docs:data-sources:trusted_ca_list:reference", "xcsh-docs:data-sources:trusted_ca_list:examples"], "collection_id": "xcsh-docs:data-sources:trusted_ca_list:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:trusted_ca_list:fundamentals", "parent_id": null, "path": "docs/data-sources/trusted_ca_list.md", "provider_name": "trusted_ca_list", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/trusted_ca_list/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_trusted_ca_list for xcsh_trusted_ca_list.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["trusted_ca_listCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_trusted_ca_list landing."
 ---
+
+# xcsh_trusted_ca_list landing
+
+<a id="canonical-ed5a0ca4002a9acc208559e5d135f6efdf6a9d227170b35fe4e3ac7a7857549a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_trusted_ca_list
+<a id="canonical-588dbda040c74fa0a54ae11d4df87002d8de8bc5b05ef1b6cb09417d52971ec7"></a>
+
+## xcsh_trusted_ca_list — xcsh_trusted_ca_list / 9351258b0821 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Trusted CA List resource in F5 Distributed Cloud for trusted certificate authority list
 management.
 
-## Prerequisites
+<a id="canonical-509efe3b06034c5561ee1e8f2b56e0572e9ccf27ba918022c55d2690fa1805cd"></a>
+
+## Prerequisites — xcsh_trusted_ca_list / 9351258b0821 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-935ae49492d695d94bdfdac9ca6c547dfa8e1bb695b007bf5d01b9be00eeea23"></a>
+
+## Minimal configuration — xcsh_trusted_ca_list / 9351258b0821 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "trusted_ca_list_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-bc7b7b9ff4ff7b7e3ed57dc63cefca704308e527daeda0ba61a9c3ae8920fa82"></a>
+
+## Root configuration — xcsh_trusted_ca_list / 9351258b0821 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-14f7aa6e66c43b413082463705a4779f1a4e8d262d54eafcd209e0498388a97a"></a>
 
-- [Property reference](../guides/data-sources--trusted_ca_list--reference.md)
-- [Examples](../guides/data-sources--trusted_ca_list--examples.md)
+## Next pages — xcsh_trusted_ca_list / 9351258b0821 / 6
+
+- [Property reference](../guides/data-sources--trusted_ca_list--reference--group-001.md#canonical-dcb8d54ef3f35aabca505c635ade0b5d8ebdf23a0c754eba510299b4cac35f27)
+- [Examples](../guides/data-sources--trusted_ca_list--examples--group-001.md#canonical-c5f1bedb8562795d2af752ebb622617996bd72502544fb62b1642964f38af908)

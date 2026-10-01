@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_code_base_integration"
+page_title: "xcsh_code_base_integration landing"
 subcategory: ""
-description: "xcsh_code_base_integration for xcsh_code_base_integration."
-xcsh_docs: {"aliases": [], "body_bytes": 1302, "body_sha256": "sha256:a34a030abfe02dd6003e2019115490d0750f04be765e5a82aa4db0f0a9ab2975", "canonical_id": "xcsh-docs:data-sources:code_base_integration:fundamentals", "child_ids": ["xcsh-docs:data-sources:code_base_integration:reference", "xcsh-docs:data-sources:code_base_integration:examples"], "collection_id": "xcsh-docs:data-sources:code_base_integration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:code_base_integration:fundamentals", "parent_id": null, "path": "docs/data-sources/code_base_integration.md", "provider_name": "code_base_integration", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/code_base_integration/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_code_base_integration for xcsh_code_base_integration.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["code_base_integrationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_code_base_integration landing."
 ---
+
+# xcsh_code_base_integration landing
+
+<a id="canonical-dfd634386a632b8766c1f79a7fe219dee977271c92ddfb192ce6925365cdbb55"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_code_base_integration
+<a id="canonical-e1eb7cbfec959fb8f6e58765d9d02dc41ef7b040706b977f210f0e30d90a30d4"></a>
+
+## xcsh_code_base_integration — xcsh_code_base_integration / 2abd5159de93 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages integration details in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-b705c696929efd8293d35be909a2e6444722e13a658f948b01dcc003eb6c8bf5"></a>
+
+## Prerequisites — xcsh_code_base_integration / 2abd5159de93 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-b731f8f31f8b7f3fc26829f33503e8c18af34cb856601e00be2174e922744c24"></a>
+
+## Minimal configuration — xcsh_code_base_integration / 2abd5159de93 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "code_base_integration_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2ebdec4fd6760e4c63bfce3aa7d5993cfa677b8d57a74a4a2c9e558c12525690"></a>
+
+## Root configuration — xcsh_code_base_integration / 2abd5159de93 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-a2ea337ba99147abc175da850b6357573409f1214d39ac5af11a5b340fbf3060"></a>
 
-- [Property reference](../guides/data-sources--code_base_integration--reference.md)
-- [Examples](../guides/data-sources--code_base_integration--examples.md)
+## Next pages — xcsh_code_base_integration / 2abd5159de93 / 6
+
+- [Property reference](../guides/data-sources--code_base_integration--reference--group-001.md#canonical-bf7364062ab003f6a5afc722ec7c5ff0dffa6a5c90e531ab18f12c5fdd2db00a)
+- [Examples](../guides/data-sources--code_base_integration--examples--group-001.md#canonical-1c960e71d8f0331c3ff5be704f697493d965f155409f7befe21e1e6bbd7bfbb3)

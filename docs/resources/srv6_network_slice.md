@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_srv6_network_slice"
+page_title: "xcsh_srv6_network_slice landing"
 subcategory: ""
-description: "xcsh_srv6_network_slice for xcsh_srv6_network_slice."
-xcsh_docs: {"aliases": [], "body_bytes": 1530, "body_sha256": "sha256:242128c2c1b0ace0e699881d53e2b08cbd1f5db4b5a9a78e49dce5c70dba7f23", "canonical_id": "xcsh-docs:resources:srv6_network_slice:fundamentals", "child_ids": ["xcsh-docs:resources:srv6_network_slice:reference", "xcsh-docs:resources:srv6_network_slice:examples", "xcsh-docs:resources:srv6_network_slice:import", "xcsh-docs:resources:srv6_network_slice:timeouts"], "collection_id": "xcsh-docs:resources:srv6_network_slice:collection", "completeness": "complete", "id": "xcsh-docs:resources:srv6_network_slice:fundamentals", "parent_id": null, "path": "docs/resources/srv6_network_slice.md", "provider_name": "srv6_network_slice", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/srv6_network_slice/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_srv6_network_slice for xcsh_srv6_network_slice.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["srv6_network_sliceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_srv6_network_slice landing."
 ---
+
+# xcsh_srv6_network_slice landing
+
+<a id="canonical-431435cc9f00e58094c1dd963b8aa9cec4251ea8dcbf3313b046ca1921402d3e"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_srv6_network_slice
+<a id="canonical-5e545bb37ad7778107adbafff3f229d466b78dc992c0cd26e39405ef676e950d"></a>
+
+## xcsh_srv6_network_slice — xcsh_srv6_network_slice / b42b560f8b58 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages srv6\_network\_slice creates a new object in the storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-54893bd2ce639a0132ade1ba3da9a75479c12ec6bfa5e17eb28097e5b208bdd4"></a>
+
+## Prerequisites — xcsh_srv6_network_slice / b42b560f8b58 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-47ebac27ac9e0312608f0f27c3fed456c5164f16e81ec9df3ef43dbd77c09878"></a>
+
+## Minimal configuration — xcsh_srv6_network_slice / b42b560f8b58 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_srv6_network_slice" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0a1645ef9f89ae5df1ec2f370f3552d4e4e3514f192fcdbb87dcb4f6e511952c"></a>
+
+## Root configuration — xcsh_srv6_network_slice / b42b560f8b58 / 5
 
 Required root properties: `name`, `sid_prefixes`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-169b11399f55997489f0ffee3171c4520c67f795059416a63b20ec3357bfd839"></a>
 
-- [Property reference](../guides/resources--srv6_network_slice--reference.md)
-- [Examples](../guides/resources--srv6_network_slice--examples.md)
-- [Import](../guides/resources--srv6_network_slice--import.md)
-- [Timeouts](../guides/resources--srv6_network_slice--timeouts.md)
+## Next pages — xcsh_srv6_network_slice / b42b560f8b58 / 6
+
+- [Property reference](../guides/resources--srv6_network_slice--reference--group-001.md#canonical-a9921f7005bdd8167184c5a6a56fca49fff6fc9a386f4d22e032d049c63fc870)
+- [Examples](../guides/resources--srv6_network_slice--examples--group-001.md#canonical-228c5eca67933ce19c2353ffab9baa21c19c683b96c643cd0f23c62c39acc9e1)
+- [Import](../guides/resources--srv6_network_slice--lifecycle--group-001.md#canonical-49d2c70de7063a333d4931b3a921f8d08214ee237ad5e3715fbc6fde2768f201)
+- [Timeouts](../guides/resources--srv6_network_slice--lifecycle--group-001.md#canonical-6b5170b64d10d3e92f1a2b241f2c94c933794d119256b0a9a5055a34daedf100)

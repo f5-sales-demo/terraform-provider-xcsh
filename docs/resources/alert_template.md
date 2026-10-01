@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_template"
+page_title: "xcsh_alert_template landing"
 subcategory: ""
-description: "xcsh_alert_template for xcsh_alert_template."
-xcsh_docs: {"aliases": [], "body_bytes": 1499, "body_sha256": "sha256:490f43cfa56949a0ace2bbab82598d4a72c8046a5d7dccb0bf90ad6bceef2615", "canonical_id": "xcsh-docs:resources:alert_template:fundamentals", "child_ids": ["xcsh-docs:resources:alert_template:reference", "xcsh-docs:resources:alert_template:examples", "xcsh-docs:resources:alert_template:import", "xcsh-docs:resources:alert_template:timeouts"], "collection_id": "xcsh-docs:resources:alert_template:collection", "completeness": "complete", "id": "xcsh-docs:resources:alert_template:fundamentals", "parent_id": null, "path": "docs/resources/alert_template.md", "provider_name": "alert_template", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_template/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_template for xcsh_alert_template.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_templateCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_template landing."
 ---
+
+# xcsh_alert_template landing
+
+<a id="canonical-97fd669adea834d391f4ccd360fb87c16cdfc5afd855377f3e5665ed96c729d7"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_template
+<a id="canonical-d09a79cbfb8745db75eb4d3ed46f07c5af7889ad00d0673192671ea74d9fc4a2"></a>
+
+## xcsh_alert_template — xcsh_alert_template / 52f7aefe3f1d / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Domain to protect in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-a4dee82c7466f74f712d2f1a952b6ed5547385fddf3720a624281fca3816f821"></a>
+
+## Prerequisites — xcsh_alert_template / 52f7aefe3f1d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-782a1d58939bdcac46dd07b612ee915280ab635fe47c094c6893fb73a6b5358f"></a>
+
+## Minimal configuration — xcsh_alert_template / 52f7aefe3f1d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,13 +60,17 @@ resource "xcsh_alert_template" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-f16def9ddc75f026683b7ff0bb9c9d8341ea36c6f0f2a8f298d28d958adde77c"></a>
+
+## Root configuration — xcsh_alert_template / 52f7aefe3f1d / 5
 
 Required root properties: `alert_message`, `alert_message_details`, `alert_name`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-d1b37c8692274e3c2f2a9a658c203c476b5337580e13bb3387ee843056a276ee"></a>
 
-- [Property reference](../guides/resources--alert_template--reference.md)
-- [Examples](../guides/resources--alert_template--examples.md)
-- [Import](../guides/resources--alert_template--import.md)
-- [Timeouts](../guides/resources--alert_template--timeouts.md)
+## Next pages — xcsh_alert_template / 52f7aefe3f1d / 6
+
+- [Property reference](../guides/resources--alert_template--reference--group-001.md#canonical-5fdfbe7749f50797d48aa600091b2ae0aae8cf488d15e19a3a5448fc91baf7ef)
+- [Examples](../guides/resources--alert_template--examples--group-001.md#canonical-7ec8b75b4bc0ba306d7f1dc1964880f19646ce5e88533bfa6737b7d85e35ccdb)
+- [Import](../guides/resources--alert_template--lifecycle--group-001.md#canonical-c1ff8d22a3a82ff3b3ef385e9f7d43a288ce00f11fabc12b2927cd8e614e6483)
+- [Timeouts](../guides/resources--alert_template--lifecycle--group-001.md#canonical-1964042c27228e53abf7cec2a6c9f835da18d8385c88f07fc1a0bcc93dd2de30)

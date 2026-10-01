@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dc_cluster_group"
+page_title: "xcsh_dc_cluster_group landing"
 subcategory: ""
-description: "xcsh_dc_cluster_group for xcsh_dc_cluster_group."
-xcsh_docs: {"aliases": [], "body_bytes": 1254, "body_sha256": "sha256:b45401edc08db15382c6c2ecfcdea7361382fc8c757aa967e419a69ccb47c3f1", "canonical_id": "xcsh-docs:data-sources:dc_cluster_group:fundamentals", "child_ids": ["xcsh-docs:data-sources:dc_cluster_group:reference", "xcsh-docs:data-sources:dc_cluster_group:examples"], "collection_id": "xcsh-docs:data-sources:dc_cluster_group:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dc_cluster_group:fundamentals", "parent_id": null, "path": "docs/data-sources/dc_cluster_group.md", "provider_name": "dc_cluster_group", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dc_cluster_group/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dc_cluster_group for xcsh_dc_cluster_group.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dc_cluster_groupCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dc_cluster_group landing."
 ---
+
+# xcsh_dc_cluster_group landing
+
+<a id="canonical-a0240865dc3b4d8fc779d80a3fc0926a687cf9901210cdea3e46d6b423dc41b7"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dc_cluster_group
+<a id="canonical-97f486d5e0a447d654f602e6c14c252931052ec4e1d6d551730584efc7722366"></a>
+
+## xcsh_dc_cluster_group — xcsh_dc_cluster_group / 68f0e1ee928b / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages DC Cluster group in given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-e77299dcd6b47582d98a756db054d787ff04c90f4110a8afc110c15b4f7b0aba"></a>
+
+## Prerequisites — xcsh_dc_cluster_group / 68f0e1ee928b / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-a3cc852ded47d5216e390b7696aab80754bbf7c4308bf2694c68d63982cff9af"></a>
+
+## Minimal configuration — xcsh_dc_cluster_group / 68f0e1ee928b / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "dc_cluster_group_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-eb852915e38b6f3504efb3f5504bd4cfaceab0618c388bdc8272da340d3a3795"></a>
+
+## Root configuration — xcsh_dc_cluster_group / 68f0e1ee928b / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-581abc4ae02681e62786bf4cb6505f933accbce3218cb8c7aee22b8efec5d421"></a>
 
-- [Property reference](../guides/data-sources--dc_cluster_group--reference.md)
-- [Examples](../guides/data-sources--dc_cluster_group--examples.md)
+## Next pages — xcsh_dc_cluster_group / 68f0e1ee928b / 6
+
+- [Property reference](../guides/data-sources--dc_cluster_group--reference--group-001.md#canonical-44fdcb354fbb0d410aa13e0c7edd48a9c9ad808c808a37edef7204a79b332e4b)
+- [Examples](../guides/data-sources--dc_cluster_group--examples--group-001.md#canonical-4a9ea2aeea2342c033a4b640f81a52986acdf9e373a1343b192be86253d100c9)

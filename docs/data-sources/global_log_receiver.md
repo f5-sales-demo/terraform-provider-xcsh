@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_global_log_receiver"
+page_title: "xcsh_global_log_receiver landing"
 subcategory: ""
-description: "xcsh_global_log_receiver for xcsh_global_log_receiver."
-xcsh_docs: {"aliases": [], "body_bytes": 1293, "body_sha256": "sha256:e235034b85d1cc944b59f34f1df6022c7a47072739b1367d17ae6430097cd9fa", "canonical_id": "xcsh-docs:data-sources:global_log_receiver:fundamentals", "child_ids": ["xcsh-docs:data-sources:global_log_receiver:reference", "xcsh-docs:data-sources:global_log_receiver:examples"], "collection_id": "xcsh-docs:data-sources:global_log_receiver:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:global_log_receiver:fundamentals", "parent_id": null, "path": "docs/data-sources/global_log_receiver.md", "provider_name": "global_log_receiver", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/global_log_receiver/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_global_log_receiver for xcsh_global_log_receiver.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["global_log_receiverCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_global_log_receiver landing."
 ---
+
+# xcsh_global_log_receiver landing
+
+<a id="canonical-bbe33d0388be4510b21f5849c51ab7aaec189b2464d934d6c0530c9b932bbb7c"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_global_log_receiver
+<a id="canonical-33fc6bdd09fdf34427f300fe58242323c3655efbc1967dfe257d3e6e2c687fd1"></a>
+
+## xcsh_global_log_receiver — xcsh_global_log_receiver / 2e6d53a8cd43 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages new Global Log Receiver object in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-fc6d3dc1a7027a2ac0ea86ec8587c3587c82a81fa7ecc44a0969603c2c196f80"></a>
+
+## Prerequisites — xcsh_global_log_receiver / 2e6d53a8cd43 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-885d1b00e565f65fd2237bc68b5dbbabcc0acf2112e57e63386886e8bd342698"></a>
+
+## Minimal configuration — xcsh_global_log_receiver / 2e6d53a8cd43 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "global_log_receiver_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-52cb1f39ddfec97a7e26c6fab8de31c518aa2921d36bbe3a61a8940a9db43d51"></a>
+
+## Root configuration — xcsh_global_log_receiver / 2e6d53a8cd43 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-093512a44859e26683562daafbce0c9e25fa5d75446c3d57b410993a6517059a"></a>
 
-- [Property reference](../guides/data-sources--global_log_receiver--reference.md)
-- [Examples](../guides/data-sources--global_log_receiver--examples.md)
+## Next pages — xcsh_global_log_receiver / 2e6d53a8cd43 / 6
+
+- [Property reference](../guides/data-sources--global_log_receiver--reference--group-001.md#canonical-71ebb33f827d1c6f274624cc4b12b2f74df3dfba6681014794fca1fc58ee64fe)
+- [Examples](../guides/data-sources--global_log_receiver--examples--group-001.md#canonical-cbd6e8041fc1a2b6d29872815c4d2cbae71d5823e5f69ef6270a7d868231f463)

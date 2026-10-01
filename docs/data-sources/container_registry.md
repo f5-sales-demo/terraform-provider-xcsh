@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_container_registry"
+page_title: "xcsh_container_registry landing"
 subcategory: "Container"
-description: "xcsh_container_registry for xcsh_container_registry."
-xcsh_docs: {"aliases": [], "body_bytes": 1361, "body_sha256": "sha256:225983cf221a08566db925a58c738bd03bb6764db57b38ef69440435ceca5b85", "canonical_id": "xcsh-docs:data-sources:container_registry:fundamentals", "child_ids": ["xcsh-docs:data-sources:container_registry:reference", "xcsh-docs:data-sources:container_registry:examples"], "collection_id": "xcsh-docs:data-sources:container_registry:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:container_registry:fundamentals", "parent_id": null, "path": "docs/data-sources/container_registry.md", "provider_name": "container_registry", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/container_registry/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_container_registry for xcsh_container_registry.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["container_registryCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_container_registry landing."
 ---
+
+# xcsh_container_registry landing
+
+<a id="canonical-17f6d44ebd4531a50d36aec8be1db646843481c3c17219cc6a239a366b16525f"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_container_registry
+<a id="canonical-610abdbd7ba5b544723e4741c36f322897cf2eefd50ccc819234d69fa72c3968"></a>
+
+## xcsh_container_registry — xcsh_container_registry / 3599c75f8a2f / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages a Container Registry resource in F5 Distributed Cloud for container image registry
 configuration.
 
-## Prerequisites
+<a id="canonical-4b6e867be66dc87d02ed4b1a2c2fa147656cd67d851cac80496cbd3ec9f1c4bd"></a>
+
+## Prerequisites — xcsh_container_registry / 3599c75f8a2f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-## Minimal configuration
+<a id="canonical-dac9e9c99a6cddfa8fe2b936a1410e401dcf976c963cfe82e9d38a51dd0c5b56"></a>
+
+## Minimal configuration — xcsh_container_registry / 3599c75f8a2f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "container_registry_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-faa2ad6a34b6b020f710b2d529c9b0dd0b0488dc283b6645815f734c66a9e8ca"></a>
+
+## Root configuration — xcsh_container_registry / 3599c75f8a2f / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-33a9972a96ed6626852a124a0938b56f03556708ed3590665fccd371c3a166fd"></a>
 
-- [Property reference](../guides/data-sources--container_registry--reference.md)
-- [Examples](../guides/data-sources--container_registry--examples.md)
+## Next pages — xcsh_container_registry / 3599c75f8a2f / 6
+
+- [Property reference](../guides/data-sources--container_registry--reference--group-001.md#canonical-e58992eaf4724a8cf0c7f0fa641dc1f519eedb53d24397f6ae8cf4129ef62c19)
+- [Examples](../guides/data-sources--container_registry--examples--group-001.md#canonical-b02af979eb8bc9023d2ac42c427813e22c4f214bd2b8b65871fb12f69dd19488)

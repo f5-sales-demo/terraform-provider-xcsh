@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_policer"
+page_title: "xcsh_policer landing"
 subcategory: ""
-description: "xcsh_policer for xcsh_policer."
-xcsh_docs: {"aliases": [], "body_bytes": 1183, "body_sha256": "sha256:9dc04013c9be0bc040702dce37f619d2f6621402cb3064de596af9deea1da999", "canonical_id": "xcsh-docs:data-sources:policer:fundamentals", "child_ids": ["xcsh-docs:data-sources:policer:reference", "xcsh-docs:data-sources:policer:examples"], "collection_id": "xcsh-docs:data-sources:policer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:policer:fundamentals", "parent_id": null, "path": "docs/data-sources/policer.md", "provider_name": "policer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/policer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_policer for xcsh_policer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["policerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_policer landing."
 ---
+
+# xcsh_policer landing
+
+<a id="canonical-fc38c1c976cffbbb7d1001c95e37ff2eb2f3d9753461e9f18f25729eae4994c0"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_policer
+<a id="canonical-a2e7c3264d55fd6ada954229331343471a5d16df0bab7dee87b5c1a8c18807fc"></a>
+
+## xcsh_policer — xcsh_policer / b31432c0cbcb / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages new policer with traffic rate limits in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-a21409c8834325da6284a112c708259936ab513cfc1f7913e0aba945add14487"></a>
+
+## Prerequisites — xcsh_policer / b31432c0cbcb / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-f67588a88e70365cfdcef78bca9c6d7b4a9e49dfa869a5c43cae5e4fd8bd97c3"></a>
+
+## Minimal configuration — xcsh_policer / b31432c0cbcb / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "policer_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-c32acf54e84680df97f2a0145d0b6fe82e0509dc06665e1715e79b17265cd578"></a>
+
+## Root configuration — xcsh_policer / b31432c0cbcb / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-b1ea50810840f79dd8799d82b1a6c87d09b16721c690fb5a54a00fedafaccca1"></a>
 
-- [Property reference](../guides/data-sources--policer--reference.md)
-- [Examples](../guides/data-sources--policer--examples.md)
+## Next pages — xcsh_policer / b31432c0cbcb / 6
+
+- [Property reference](../guides/data-sources--policer--reference--group-001.md#canonical-f87bd9bfc4cb7f2e29ae21826a8d294799efb0c555b9ca771f74fa96c2470bc7)
+- [Examples](../guides/data-sources--policer--examples--group-001.md#canonical-1ef5a3f8e94ec063f1bd6e0f9cd0fd48a7ac2bcac02a6bd4e066dc01077cf67d)

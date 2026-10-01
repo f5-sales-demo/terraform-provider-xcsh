@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_segment"
+page_title: "xcsh_segment landing"
 subcategory: ""
-description: "xcsh_segment for xcsh_segment."
-xcsh_docs: {"aliases": [], "body_bytes": 1275, "body_sha256": "sha256:84f8d00e28bd233e7f354f88b7e2482c07e8c3ca9d982e041cede574a6b6dce3", "canonical_id": "xcsh-docs:resources:segment:fundamentals", "child_ids": ["xcsh-docs:resources:segment:reference", "xcsh-docs:resources:segment:examples", "xcsh-docs:resources:segment:import", "xcsh-docs:resources:segment:timeouts"], "collection_id": "xcsh-docs:resources:segment:collection", "completeness": "complete", "id": "xcsh-docs:resources:segment:fundamentals", "parent_id": null, "path": "docs/resources/segment.md", "provider_name": "segment", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/segment/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_segment for xcsh_segment.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["segmentCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_segment landing."
 ---
+
+# xcsh_segment landing
+
+<a id="canonical-115b348cc2da26907c0d3a2200fee1c45353481468d739f4370fd6bf8ca9a410"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_segment
+<a id="canonical-1b87d34d642c93f734ccd643d108ec1c1b3a7a59acf4351f8e76823614deaf6f"></a>
+
+## xcsh_segment — xcsh_segment / fbb84e0c6676 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a Segment resource in F5 Distributed Cloud for segment. configuration.
 
-## Prerequisites
+<a id="canonical-5c6bef26a3dd8a4b6fc01fcf64d822fe8b267856d1105d07ce42fa18cfdf47a6"></a>
+
+## Prerequisites — xcsh_segment / fbb84e0c6676 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-36af67194e07fa7355c5ff2c1f6dd8f74725c7cbf6721143e24ce93ea8a50311"></a>
+
+## Minimal configuration — xcsh_segment / fbb84e0c6676 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_segment" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3ee7b26f82bd808da5ee4f56ce1d3a7ace1bed4b10dc80b9fe8df9614218ccde"></a>
+
+## Root configuration — xcsh_segment / fbb84e0c6676 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-66facd3ba25d7df72ee9e3805390b5f6a5e085ee007cd11acc7241d9457628f5"></a>
 
-- [Property reference](../guides/resources--segment--reference.md)
-- [Examples](../guides/resources--segment--examples.md)
-- [Import](../guides/resources--segment--import.md)
-- [Timeouts](../guides/resources--segment--timeouts.md)
+## Next pages — xcsh_segment / fbb84e0c6676 / 6
+
+- [Property reference](../guides/resources--segment--reference--group-001.md#canonical-3fd2ddf918ccce02c13c05b12c882f76272305dd050891bce28f013df6b7f704)
+- [Examples](../guides/resources--segment--examples--group-001.md#canonical-0418839d33d311e131d6c8096eb96c74b36716c6c6f8f95cbcf0cdbf37919cff)
+- [Import](../guides/resources--segment--lifecycle--group-001.md#canonical-41092275632d3f0289dab80de7bc6fb98dec83c9ace3e6df0234a4718e97b503)
+- [Timeouts](../guides/resources--segment--lifecycle--group-001.md#canonical-22318fba13a82551dbeb74f91235b2cd9207b08cbdd54a072a3325d7ab102927)

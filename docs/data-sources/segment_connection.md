@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_segment_connection"
+page_title: "xcsh_segment_connection landing"
 subcategory: ""
-description: "xcsh_segment_connection for xcsh_segment_connection."
-xcsh_docs: {"aliases": [], "body_bytes": 1359, "body_sha256": "sha256:58628d2be10ba1ee9497dbdb07c9c53599c3a69a2cf551a10f51a9da84f273f7", "canonical_id": "xcsh-docs:data-sources:segment_connection:fundamentals", "child_ids": ["xcsh-docs:data-sources:segment_connection:reference", "xcsh-docs:data-sources:segment_connection:examples"], "collection_id": "xcsh-docs:data-sources:segment_connection:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:segment_connection:fundamentals", "parent_id": null, "path": "docs/data-sources/segment_connection.md", "provider_name": "segment_connection", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/segment_connection/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_segment_connection for xcsh_segment_connection.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_segment_connection landing."
 ---
+
+# xcsh_segment_connection landing
+
+<a id="canonical-0c16447dbb90eb025faf624280439f7e29eddfddfb4f25b086f9782baa1798bb"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_segment_connection
+<a id="canonical-a6da0fae50efbd2f57ad4dc447851fe15187a25b177a66d90c43f9389fb71213"></a>
+
+## xcsh_segment_connection — xcsh_segment_connection / ab7c2a6a9503 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Segment Connection resource in F5 Distributed Cloud for segment connector specification.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-1633da37043634c1656a397a0e7035cfe96b4c5bab70b2ce0ac8c3f28e713e3a"></a>
+
+## Prerequisites — xcsh_segment_connection / ab7c2a6a9503 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-8ed8aa6ea6c5041713194d800620a54b446b15b9b0623f71ab4217d73c733187"></a>
+
+## Minimal configuration — xcsh_segment_connection / ab7c2a6a9503 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "segment_connection_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1f33b2dd9dd344bbcf5e6ddd23f268232d474dd64f5be2bae9fe52a1889fc5af"></a>
+
+## Root configuration — xcsh_segment_connection / ab7c2a6a9503 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-cad4eaed6f92c9095265e90a2802d410578c3d8fe59f675a20869fad4236e4e3"></a>
 
-- [Property reference](../guides/data-sources--segment_connection--reference.md)
-- [Examples](../guides/data-sources--segment_connection--examples.md)
+## Next pages — xcsh_segment_connection / ab7c2a6a9503 / 6
+
+- [Property reference](../guides/data-sources--segment_connection--reference--group-001.md#canonical-039339d9bb77663d5c6ad587cbb365f2ec5c0bac87336e75f19b8d462289de67)
+- [Examples](../guides/data-sources--segment_connection--examples--group-001.md#canonical-24ec7a5c619a8fc6d498f9870b47000d9fb9103887ff32960750e2644c0b7bdf)

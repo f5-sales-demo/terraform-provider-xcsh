@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_template"
+page_title: "xcsh_alert_template landing"
 subcategory: ""
-description: "xcsh_alert_template for xcsh_alert_template."
-xcsh_docs: {"aliases": [], "body_bytes": 1232, "body_sha256": "sha256:fb81ffa258b8ef658ae10d88daf8399290db5dfe6e4019c762c6e433107f889d", "canonical_id": "xcsh-docs:data-sources:alert_template:fundamentals", "child_ids": ["xcsh-docs:data-sources:alert_template:reference", "xcsh-docs:data-sources:alert_template:examples"], "collection_id": "xcsh-docs:data-sources:alert_template:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:alert_template:fundamentals", "parent_id": null, "path": "docs/data-sources/alert_template.md", "provider_name": "alert_template", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_template/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_template for xcsh_alert_template.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_templateCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_template landing."
 ---
+
+# xcsh_alert_template landing
+
+<a id="canonical-43748ee092eb77be7c417e05e7d416bc1aead9dc6699db467e2027d12e27cf88"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_template
+<a id="canonical-39682ebad3e1683cf7304d22f9efa64d295c9b8b931c6119b801ee776c6977a1"></a>
+
+## xcsh_alert_template — xcsh_alert_template / f3d006fb9aad / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Domain to protect in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-66b735a55a397eb507f6434f96a9865913dc46e71e2e45149026d4e75f7ae651"></a>
+
+## Prerequisites — xcsh_alert_template / f3d006fb9aad / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-d78d0d34826c9d859b9d09c8381cffc9b96235d5070e6ceb16e599d19fd5667c"></a>
+
+## Minimal configuration — xcsh_alert_template / f3d006fb9aad / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "alert_template_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-d566aca7ae185bb8b7c27a8c972474c1226239542589073a66a9f59446a2351b"></a>
+
+## Root configuration — xcsh_alert_template / f3d006fb9aad / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-bd277cd842c23d37ae077ecb78b2080e1a0327c2fa8cd6d47702c6bdbd767cee"></a>
 
-- [Property reference](../guides/data-sources--alert_template--reference.md)
-- [Examples](../guides/data-sources--alert_template--examples.md)
+## Next pages — xcsh_alert_template / f3d006fb9aad / 6
+
+- [Property reference](../guides/data-sources--alert_template--reference--group-001.md#canonical-e6acd3bb08b31083263c203b17dd9b602b533a79339a12f5c11f80d073103560)
+- [Examples](../guides/data-sources--alert_template--examples--group-001.md#canonical-e7c73e3ee522555b1d0dfc331cfd8a97f27c510ca20b448538b9f423afd2f12d)

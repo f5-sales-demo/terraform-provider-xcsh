@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_peer_top_good_bots"
+page_title: "xcsh_bot_peer_top_good_bots landing"
 subcategory: ""
-description: "xcsh_bot_peer_top_good_bots for xcsh_bot_peer_top_good_bots."
-xcsh_docs: {"aliases": [], "body_bytes": 1199, "body_sha256": "sha256:b7945e021bc5a40a3c8a997c94dd76c9f4b5abfb06893bfd9bac84bddc89e828", "canonical_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_peer_top_good_bots:reference", "xcsh-docs:data-sources:bot_peer_top_good_bots:examples"], "collection_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_peer_top_good_bots:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_peer_top_good_bots.md", "provider_name": "bot_peer_top_good_bots", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_top_good_bots/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_peer_top_good_bots for xcsh_bot_peer_top_good_bots.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_peer_top_good_bots landing."
 ---
+
+# xcsh_bot_peer_top_good_bots landing
+
+<a id="canonical-cc077f9c205b2a2bad9388a3f1f0bfb9445ec52b5c9b1a27c681c552089ee8f2"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_peer_top_good_bots
+<a id="canonical-564ba4fe0147816d8b978806fd624e8edcbd7cdad5a9cae5a76a469059d82c08"></a>
+
+## xcsh_bot_peer_top_good_bots — xcsh_bot_peer_top_good_bots / 673cc0a461e0 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Bot detection and defense configuration.
 
-## Prerequisites
+<a id="canonical-26683f38e126f375a82f6c71d24e4fb7bda571a9675935758ad475ebd1fbb321"></a>
+
+## Prerequisites — xcsh_bot_peer_top_good_bots / 673cc0a461e0 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-8e62b3e7d37546533e1580e012b17394f8c3aee83eb56d19e2f02984896868d5"></a>
+
+## Minimal configuration — xcsh_bot_peer_top_good_bots / 673cc0a461e0 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "bot_peer_top_good_bots_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-9d0192abae46690dbed376f46bd4ecb08067886d61c89c14c537a1bf56ec8486"></a>
+
+## Root configuration — xcsh_bot_peer_top_good_bots / 673cc0a461e0 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-aa755f81e9b91b4c924a12dd97a29993175e135905e2bd6e30c8f41b5591ca64"></a>
 
-- [Property reference](../guides/data-sources--bot_peer_top_good_bots--reference.md)
-- [Examples](../guides/data-sources--bot_peer_top_good_bots--examples.md)
+## Next pages — xcsh_bot_peer_top_good_bots / 673cc0a461e0 / 6
+
+- [Property reference](../guides/data-sources--bot_peer_top_good_bots--reference--group-001.md#canonical-6ac86678f40f40275bf9c57605bc9b4e11cf7b3003d83b65b2d5f4fdfbda158e)
+- [Examples](../guides/data-sources--bot_peer_top_good_bots--examples--group-001.md#canonical-db31b0223ac18b2e200dbc5b695a237d253b717574490767f7c9603adca1fdd9)

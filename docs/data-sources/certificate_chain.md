@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_certificate_chain"
+page_title: "xcsh_certificate_chain landing"
 subcategory: "Security"
-description: "xcsh_certificate_chain for xcsh_certificate_chain."
-xcsh_docs: {"aliases": [], "body_bytes": 1351, "body_sha256": "sha256:4b4c3a7413e99b1648f434d760aa564fe4d99b04bb2aea34afbbae08d25b7059", "canonical_id": "xcsh-docs:data-sources:certificate_chain:fundamentals", "child_ids": ["xcsh-docs:data-sources:certificate_chain:reference", "xcsh-docs:data-sources:certificate_chain:examples"], "collection_id": "xcsh-docs:data-sources:certificate_chain:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:certificate_chain:fundamentals", "parent_id": null, "path": "docs/data-sources/certificate_chain.md", "provider_name": "certificate_chain", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate_chain/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_certificate_chain for xcsh_certificate_chain.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["certificate_chainCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_certificate_chain landing."
 ---
+
+# xcsh_certificate_chain landing
+
+<a id="canonical-ce3d2afc41637e97fe322a943a0e26b7ffd06d1052a2a27eea5dfed15f9134f9"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_certificate_chain
+<a id="canonical-7beea005ac7df0d00e02a8ce3d69d85f62fb295177dc6658827fb508470ca810"></a>
+
+## xcsh_certificate_chain — xcsh_certificate_chain / 825752767c51 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for
 TLS.
 
-## Prerequisites
+<a id="canonical-55418a360d7d54c1ccd91bba62726f927b7650fa99ab69ce5f23dc09f2d9a5db"></a>
+
+## Prerequisites — xcsh_certificate_chain / 825752767c51 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-14558076b79cf78abe24c489d4f7bd565462bb0d68434c6ab6250ea341ce6f08"></a>
+
+## Minimal configuration — xcsh_certificate_chain / 825752767c51 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "certificate_chain_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-6088a247a03064d8b630f132a78323f132950a4133721a15b0129ff1d26c85f5"></a>
+
+## Root configuration — xcsh_certificate_chain / 825752767c51 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-6198c970660795bf6d7d40b241021f95c7a3d06c74190ab53473cc37c7aea681"></a>
 
-- [Property reference](../guides/data-sources--certificate_chain--reference.md)
-- [Examples](../guides/data-sources--certificate_chain--examples.md)
+## Next pages — xcsh_certificate_chain / 825752767c51 / 6
+
+- [Property reference](../guides/data-sources--certificate_chain--reference--group-001.md#canonical-d9436ba22d8301c6a0f02ff16a4d8396e3f87a177d590cb144774d33852ac5b8)
+- [Examples](../guides/data-sources--certificate_chain--examples--group-001.md#canonical-f4afd07874bc514a268ecf295767366e70decfe868e724cc487b9b5f454ea748)

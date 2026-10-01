@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_mitigated_domain"
+page_title: "xcsh_mitigated_domain landing"
 subcategory: ""
-description: "xcsh_mitigated_domain for xcsh_mitigated_domain."
-xcsh_docs: {"aliases": [], "body_bytes": 1251, "body_sha256": "sha256:c702183d6d64053890f2a7c89c490ff3ee7928fc3b5b5995db35eb54902eb991", "canonical_id": "xcsh-docs:data-sources:mitigated_domain:fundamentals", "child_ids": ["xcsh-docs:data-sources:mitigated_domain:reference", "xcsh-docs:data-sources:mitigated_domain:examples"], "collection_id": "xcsh-docs:data-sources:mitigated_domain:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:mitigated_domain:fundamentals", "parent_id": null, "path": "docs/data-sources/mitigated_domain.md", "provider_name": "mitigated_domain", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/mitigated_domain/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_mitigated_domain for xcsh_mitigated_domain.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["mitigated_domainCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_mitigated_domain landing."
 ---
+
+# xcsh_mitigated_domain landing
+
+<a id="canonical-efcfbe08e10eae8cd34e645079b3b2ddf4a333bb259bfc7f7c6325c8868a5fb4"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_mitigated_domain
+<a id="canonical-1497ace92e20a28c9ac483ec8ba247f6ec0f22955d4d7995585cbd827d45f83d"></a>
+
+## xcsh_mitigated_domain — xcsh_mitigated_domain / f42ccf8e0132 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Mitigated Domain in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-9a5661a4a545cc5d4e6415c78f2dcdfdb71c64ddb51a5279d14b77369c4ea150"></a>
+
+## Prerequisites — xcsh_mitigated_domain / f42ccf8e0132 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1a8e78f81806081982001ca24b027c25488cc76258a74768984c80b60c64e0c5"></a>
+
+## Minimal configuration — xcsh_mitigated_domain / f42ccf8e0132 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "mitigated_domain_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-9f78d83eae3da9adac3c9b3b7e5efb5c0d3f837faa706ad0efdcdc93aef75b7e"></a>
+
+## Root configuration — xcsh_mitigated_domain / f42ccf8e0132 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0945ee04fc55bbeb6551a04cecd52499950ca471fd8c11000d613e7a797cb129"></a>
 
-- [Property reference](../guides/data-sources--mitigated_domain--reference.md)
-- [Examples](../guides/data-sources--mitigated_domain--examples.md)
+## Next pages — xcsh_mitigated_domain / f42ccf8e0132 / 6
+
+- [Property reference](../guides/data-sources--mitigated_domain--reference--group-001.md#canonical-219ebdfe9e83d72a62a01c844ad18ac7c83ab7629b5a58cda760c069bc6d72e2)
+- [Examples](../guides/data-sources--mitigated_domain--examples--group-001.md#canonical-6c61924190f11f3700744be4ef278107ba6451dcbc41246a1e2d9701afbbda24)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_policy_based_routing"
+page_title: "xcsh_policy_based_routing landing"
 subcategory: ""
-description: "xcsh_policy_based_routing for xcsh_policy_based_routing."
-xcsh_docs: {"aliases": [], "body_bytes": 1525, "body_sha256": "sha256:268f04085fb85871f0ef1e563e7b867b71b45bcba446bd8f2192db9f05c6d817", "canonical_id": "xcsh-docs:resources:policy_based_routing:fundamentals", "child_ids": ["xcsh-docs:resources:policy_based_routing:reference", "xcsh-docs:resources:policy_based_routing:examples", "xcsh-docs:resources:policy_based_routing:import", "xcsh-docs:resources:policy_based_routing:timeouts"], "collection_id": "xcsh-docs:resources:policy_based_routing:collection", "completeness": "complete", "id": "xcsh-docs:resources:policy_based_routing:fundamentals", "parent_id": null, "path": "docs/resources/policy_based_routing.md", "provider_name": "policy_based_routing", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_policy_based_routing for xcsh_policy_based_routing.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["policy_based_routingCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_policy_based_routing landing."
 ---
+
+# xcsh_policy_based_routing landing
+
+<a id="canonical-6f1c7cea107838781ae5ab4cd5ec1fa8f4de7488f244d42cc676348e55c31152"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_policy_based_routing
+<a id="canonical-2b8462451f0806fe0aee5bd45011bcd67c303c0d6502747a9461d1a11ab6c679"></a>
+
+## xcsh_policy_based_routing — xcsh_policy_based_routing / 011d30b1cd1a / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Policy Based Routing resource in F5 Distributed Cloud for network policy based routing
 create specification. configuration.
 
-## Prerequisites
+<a id="canonical-cb1dc3ad5c4819e7e851fcb9536a3298ba884dfbd4b043be1ff6c6d4dc0208e4"></a>
+
+## Prerequisites — xcsh_policy_based_routing / 011d30b1cd1a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-ab1ff8a3c0d999a63781953df46bdd06f34e516dfb7513730bbd3efc10e9f6e9"></a>
+
+## Minimal configuration — xcsh_policy_based_routing / 011d30b1cd1a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_policy_based_routing" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-037987cef7e58cf5a56a19726b4bdc6f50a4ae28724eb0327f484a06b5502f5f"></a>
+
+## Root configuration — xcsh_policy_based_routing / 011d30b1cd1a / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-5be56c029a018670a3ebf75d8a2b070c185988629da3754c90e6534dec17e861"></a>
 
-- [Property reference](../guides/resources--policy_based_routing--reference.md)
-- [Examples](../guides/resources--policy_based_routing--examples.md)
-- [Import](../guides/resources--policy_based_routing--import.md)
-- [Timeouts](../guides/resources--policy_based_routing--timeouts.md)
+## Next pages — xcsh_policy_based_routing / 011d30b1cd1a / 6
+
+- [Property reference](../guides/resources--policy_based_routing--reference--group-001.md#canonical-7a80a6f1ee6f6296fe821d9b09a9003d6bf3b5c5dd54a0de6b0fb4dce9623d4e)
+- [Examples](../guides/resources--policy_based_routing--examples--group-001.md#canonical-2b37fbed9b408e1b36ae3feaeae2737ab01aa3c0205049bbd43a7fe1d7bd105d)
+- [Import](../guides/resources--policy_based_routing--lifecycle--group-001.md#canonical-569d51116aad9d0df02aee8921d14c4eb7f4859e1e2acd8ab49f9329ee070b1e)
+- [Timeouts](../guides/resources--policy_based_routing--lifecycle--group-001.md#canonical-4679ef1fe84c62092c5f5cc4b7f35d425f28a788cbce4bedb77db7ea8054188c)

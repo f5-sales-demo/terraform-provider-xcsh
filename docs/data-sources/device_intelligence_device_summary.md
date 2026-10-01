@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_device_intelligence_device_summary"
+page_title: "xcsh_device_intelligence_device_summary landing"
 subcategory: ""
-description: "xcsh_device_intelligence_device_summary for xcsh_device_intelligence_device_summary."
-xcsh_docs: {"aliases": [], "body_bytes": 1327, "body_sha256": "sha256:95fc0b887d0d662e0fa82ce66ade72a466d3dd31945775bb6878e472a55f7c1d", "canonical_id": "xcsh-docs:data-sources:device_intelligence_device_summary:fundamentals", "child_ids": ["xcsh-docs:data-sources:device_intelligence_device_summary:reference", "xcsh-docs:data-sources:device_intelligence_device_summary:examples"], "collection_id": "xcsh-docs:data-sources:device_intelligence_device_summary:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:device_intelligence_device_summary:fundamentals", "parent_id": null, "path": "docs/data-sources/device_intelligence_device_summary.md", "provider_name": "device_intelligence_device_summary", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_device_summary/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_device_intelligence_device_summary for xcsh_device_intelligence_device_summary.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_device_intelligence_device_summary landing."
 ---
+
+# xcsh_device_intelligence_device_summary landing
+
+<a id="canonical-f8e0600c589deef40fd9b13736eefcb6123534aaac445791790673b2e06e3989"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_device_intelligence_device_summary
+<a id="canonical-b8c7b167ab83457da48d5789b0e2e484258975e8589986e32127115b15c37f1e"></a>
+
+## xcsh_device_intelligence_device_summary — xcsh_device_intelligence_device_summary / 32e02e00cf94 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-3f2509863caedaabcc42cb270c461b05e64dd6b12a7d7e42a7ae66f4e9d425f3"></a>
+
+## Prerequisites — xcsh_device_intelligence_device_summary / 32e02e00cf94 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-52169d7da26d80aeab13922ccd86ed4036693ed61e7bd7c7ccdcee015ab9e471"></a>
+
+## Minimal configuration — xcsh_device_intelligence_device_summary / 32e02e00cf94 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,11 +58,15 @@ output "device_intelligence_device_summary_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-c2a4ef0f52e549841643420661af7a0d637ba33cdb084b0cdc6de118074e6ec2"></a>
+
+## Root configuration — xcsh_device_intelligence_device_summary / 32e02e00cf94 / 5
 
 Required root properties: `device_id`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-9097c592b228fbedf7108dd72539ccf0bfea5a31bbd362392156087c23a42306"></a>
 
-- [Property reference](../guides/data-sources--device_intelligence_device_summary--reference.md)
-- [Examples](../guides/data-sources--device_intelligence_device_summary--examples.md)
+## Next pages — xcsh_device_intelligence_device_summary / 32e02e00cf94 / 6
+
+- [Property reference](../guides/data-sources--device_intelligence_device_summary--reference--group-001.md#canonical-93f159bc76d0b51ddc452c0d614270f715e8fbdad2fe323e8255e24d25ca5d9a)
+- [Examples](../guides/data-sources--device_intelligence_device_summary--examples--group-001.md#canonical-f15d9ca0379e4fc7bac628f18fdc6e1e7930d4b49dbab055002e7b17b00a53d7)

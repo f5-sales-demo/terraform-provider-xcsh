@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_route"
+page_title: "xcsh_route landing"
 subcategory: ""
-description: "xcsh_route for xcsh_route."
-xcsh_docs: {"aliases": [], "body_bytes": 1296, "body_sha256": "sha256:5d1f683c35542597b195877d39b25dbef69fba702340ff5569cb704598567f65", "canonical_id": "xcsh-docs:data-sources:route:fundamentals", "child_ids": ["xcsh-docs:data-sources:route:reference", "xcsh-docs:data-sources:route:examples"], "collection_id": "xcsh-docs:data-sources:route:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:route:fundamentals", "parent_id": null, "path": "docs/data-sources/route.md", "provider_name": "route", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_route for xcsh_route.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["routeCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_route landing."
 ---
+
+# xcsh_route landing
+
+<a id="canonical-ea42e1ea4cf100a20de1cf54455610a98c198155f1e50696dd3051675e64bcc7"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_route
+<a id="canonical-f2c4b71f115b18f8085b80486d432f3437c17a97e108524f007455225517cbcd"></a>
+
+## xcsh_route — xcsh_route / 15d657738e87 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Manages route object in a given namespace. Route object is list of route rules. 
 condition to match incoming requests and actions to take on matching requests in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-790bdaad8fd41950c02e18a353ae650353e1e467ff57e2b1f435612ac26a178c"></a>
+
+## Prerequisites — xcsh_route / 15d657738e87 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-383d0650b4eca485f3f5f69d027d19a940632d57c31633019af6067662d22362"></a>
+
+## Minimal configuration — xcsh_route / 15d657738e87 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "route_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-02a5da6357b480fb0b5feb9f86ca7a54bbf19d8103b8cf8582e821696e4300e2"></a>
+
+## Root configuration — xcsh_route / 15d657738e87 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-ff67fb0a828e7fa7b6dc3b1480feaec5370b81854a4179a51fc9737bb65c9af4"></a>
 
-- [Property reference](../guides/data-sources--route--reference.md)
-- [Examples](../guides/data-sources--route--examples.md)
+## Next pages — xcsh_route / 15d657738e87 / 6
+
+- [Property reference](../guides/data-sources--route--reference--group-001.md#canonical-a6c77d69b7834e989d425e83281601a25261f73228caae96eeda7871db19dfbf)
+- [Examples](../guides/data-sources--route--examples--group-001.md#canonical-9391d20cfe41560e191bcd91f8e4b8422c2d0ad54f96e4235a550fc4f43c4447)

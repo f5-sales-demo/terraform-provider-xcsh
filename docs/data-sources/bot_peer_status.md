@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_peer_status"
+page_title: "xcsh_bot_peer_status landing"
 subcategory: ""
-description: "xcsh_bot_peer_status for xcsh_bot_peer_status."
-xcsh_docs: {"aliases": [], "body_bytes": 1133, "body_sha256": "sha256:05f2cd721c2e6ad6a13704e5b52d6f6fb31e7128f5ea8c8467610d0ba0b2a435", "canonical_id": "xcsh-docs:data-sources:bot_peer_status:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_peer_status:reference", "xcsh-docs:data-sources:bot_peer_status:examples"], "collection_id": "xcsh-docs:data-sources:bot_peer_status:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_peer_status:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_peer_status.md", "provider_name": "bot_peer_status", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_status/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_peer_status for xcsh_bot_peer_status.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_peer_status landing."
 ---
+
+# xcsh_bot_peer_status landing
+
+<a id="canonical-67ec1acf92d1d20d9c08be3fef0b7bd8125ef46625bfa7cae7978e9ffcf45de4"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_peer_status
+<a id="canonical-14c91ad8aa3a4688e754d68a2f135d29fc70ddc5109786947e6da005e33b830e"></a>
+
+## xcsh_bot_peer_status — xcsh_bot_peer_status / f30e1dc20f24 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-90c43b8156de288a5f16830816dd87890bc6a316ebf50daf7423d7d0fafd5da3"></a>
+
+## Prerequisites — xcsh_bot_peer_status / f30e1dc20f24 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-fb53f1cbc4b82ac4e67a62a5cc48413db12f261017143c7007be49888b3709f8"></a>
+
+## Minimal configuration — xcsh_bot_peer_status / f30e1dc20f24 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "bot_peer_status_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3d53bbddb244891cd2d62d5cac5131fd061546beeca339359e636ca7d5e6fa32"></a>
+
+## Root configuration — xcsh_bot_peer_status / f30e1dc20f24 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-4ce4ae00c0ab0a7e75fccfb958fe32d3796dd1e87cb420977b992b3c4488133d"></a>
 
-- [Property reference](../guides/data-sources--bot_peer_status--reference.md)
-- [Examples](../guides/data-sources--bot_peer_status--examples.md)
+## Next pages — xcsh_bot_peer_status / f30e1dc20f24 / 6
+
+- [Property reference](../guides/data-sources--bot_peer_status--reference--group-001.md#canonical-af5bdebbe653a239e2a54201e0a334a1c2e085d044d39db19e057bf1f650b4a5)
+- [Examples](../guides/data-sources--bot_peer_status--examples--group-001.md#canonical-47ce9ed4715ab48aef0cbccef3678f1d5336b8af21bd233e2b03e7094538d3e7)

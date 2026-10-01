@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_nfv_service"
+page_title: "xcsh_nfv_service landing"
 subcategory: ""
-description: "xcsh_nfv_service for xcsh_nfv_service."
-xcsh_docs: {"aliases": [], "body_bytes": 1336, "body_sha256": "sha256:89ea5952d00139c5231fc0104cf32dc942d6dea768d6dd88617dcd09190accf5", "canonical_id": "xcsh-docs:resources:nfv_service:fundamentals", "child_ids": ["xcsh-docs:resources:nfv_service:reference", "xcsh-docs:resources:nfv_service:examples", "xcsh-docs:resources:nfv_service:import", "xcsh-docs:resources:nfv_service:timeouts"], "collection_id": "xcsh-docs:resources:nfv_service:collection", "completeness": "complete", "id": "xcsh-docs:resources:nfv_service:fundamentals", "parent_id": null, "path": "docs/resources/nfv_service.md", "provider_name": "nfv_service", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/nfv_service/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_nfv_service for xcsh_nfv_service.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["nfv_serviceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_nfv_service landing."
 ---
+
+# xcsh_nfv_service landing
+
+<a id="canonical-2be57939079325a93785e24152f0bc745de9e02cf389bf33da3baca2a2ce1b2a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_nfv_service
+<a id="canonical-fe49eae72535716275c1f1882a674b01e69ff6b7c4902035e0f5f229de2a029a"></a>
+
+## xcsh_nfv_service — xcsh_nfv_service / 12ad0da006bf / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages new NFV service with configured parameters in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-531a541f8f5d60503621372a3672d5da1b0c5aa4f71c422627b106f87d366800"></a>
+
+## Prerequisites — xcsh_nfv_service / 12ad0da006bf / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-b8c0768eb90085c33f36c466cdc523739443da43f8bd74b6a4d491d165f50564"></a>
+
+## Minimal configuration — xcsh_nfv_service / 12ad0da006bf / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_nfv_service" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-eef9d5e555eab05979dcff33a69697c59af3a7f6ba1ed678f2a1903100b478f1"></a>
+
+## Root configuration — xcsh_nfv_service / 12ad0da006bf / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-093a3bf4158773a1430a80bfb223b356a67c3f928293edcf3f0bc3d4aea4920b"></a>
 
-- [Property reference](../guides/resources--nfv_service--reference.md)
-- [Examples](../guides/resources--nfv_service--examples.md)
-- [Import](../guides/resources--nfv_service--import.md)
-- [Timeouts](../guides/resources--nfv_service--timeouts.md)
+## Next pages — xcsh_nfv_service / 12ad0da006bf / 6
+
+- [Property reference](../guides/resources--nfv_service--reference--group-001.md#canonical-4f83719cb3e08028ce8f20e6ccecde153a38aedb2349dc1f6ee54b514aa84878)
+- [Examples](../guides/resources--nfv_service--examples--group-001.md#canonical-fb601c4a70a8553becbfe72e87df89c17d140f83c5c1549cbb177631c1d2b373)
+- [Import](../guides/resources--nfv_service--lifecycle--group-001.md#canonical-bb22cebc03e8b53a7325c6bd63fe2064586fe8fe7e34de5160f6b6d2b99a006b)
+- [Timeouts](../guides/resources--nfv_service--lifecycle--group-001.md#canonical-8aa9ec314fd24507127f25156aaa112a435faeea12c6b76a74d905a0a3319dc2)

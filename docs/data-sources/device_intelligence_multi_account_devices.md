@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_device_intelligence_multi_account_devices"
+page_title: "xcsh_device_intelligence_multi_account_devices landing"
 subcategory: ""
-description: "xcsh_device_intelligence_multi_account_devices for xcsh_device_intelligence_multi_account_devices."
-xcsh_docs: {"aliases": [], "body_bytes": 1339, "body_sha256": "sha256:86c3e8d3ad40c98afd54429e6cf17b64b773d3f57147dce820fee1d4f87b2bb1", "canonical_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:fundamentals", "child_ids": ["xcsh-docs:data-sources:device_intelligence_multi_account_devices:reference", "xcsh-docs:data-sources:device_intelligence_multi_account_devices:examples"], "collection_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:fundamentals", "parent_id": null, "path": "docs/data-sources/device_intelligence_multi_account_devices.md", "provider_name": "device_intelligence_multi_account_devices", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_multi_account_devices/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_device_intelligence_multi_account_devices for xcsh_device_intelligence_multi_account_devices.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_device_intelligence_multi_account_devices landing."
 ---
+
+# xcsh_device_intelligence_multi_account_devices landing
+
+<a id="canonical-d7032758bccd44c0b77f242e2c10eff4929329ac7188194b5b4d1630cd87bd40"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_device_intelligence_multi_account_devices
+<a id="canonical-97b3fe33c442be09e55a3280f7315af5b63c1790bb1322087994be785d1e0958"></a>
+
+## xcsh_device_intelligence_multi_account_devices — xcsh_device_intelligence_multi_account_devices / 68089e80e65e / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-ea05a9ee21c718c1c73926109601a10604c91d210cc6c5999d2734fd772f9678"></a>
+
+## Prerequisites — xcsh_device_intelligence_multi_account_devices / 68089e80e65e / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2059222f6d30b20a9ac4999bebc55bde58535569c23f80dfb27abe8e89969772"></a>
+
+## Minimal configuration — xcsh_device_intelligence_multi_account_devices / 68089e80e65e / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "device_intelligence_multi_account_devices_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-9be7ebaed0486558fc49aea3785f6a1f0aa3591354547fd275b8f11c867968f4"></a>
+
+## Root configuration — xcsh_device_intelligence_multi_account_devices / 68089e80e65e / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-76223d3f81521486e79fd03a9b6332e79860c8cce6a5cb82ffb3cfb29d8cc463"></a>
 
-- [Property reference](../guides/data-sources--device_intelligence_multi_account_devices--reference.md)
-- [Examples](../guides/data-sources--device_intelligence_multi_account_devices--examples.md)
+## Next pages — xcsh_device_intelligence_multi_account_devices / 68089e80e65e / 6
+
+- [Property reference](../guides/data-sources--device_intelligence_multi_account_devices--reference--group-001.md#canonical-0297391df16a3a9dd9f80b68cd4db055feaadb98c0563c5575f355edfa4a9064)
+- [Examples](../guides/data-sources--device_intelligence_multi_account_devices--examples--group-001.md#canonical-93853d1839c4e0042bb32f26d8621ff01e93335761b40166a77432b3e30de778)

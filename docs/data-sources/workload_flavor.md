@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_workload_flavor"
+page_title: "xcsh_workload_flavor landing"
 subcategory: ""
-description: "xcsh_workload_flavor for xcsh_workload_flavor."
-xcsh_docs: {"aliases": [], "body_bytes": 1227, "body_sha256": "sha256:50f7ba6baca6aca6185d324517a3d2cd02bceac60527575861d2788ef2dcc0b1", "canonical_id": "xcsh-docs:data-sources:workload_flavor:fundamentals", "child_ids": ["xcsh-docs:data-sources:workload_flavor:reference", "xcsh-docs:data-sources:workload_flavor:examples"], "collection_id": "xcsh-docs:data-sources:workload_flavor:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload_flavor:fundamentals", "parent_id": null, "path": "docs/data-sources/workload_flavor.md", "provider_name": "workload_flavor", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload_flavor/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_workload_flavor for xcsh_workload_flavor.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["workload_flavorCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_workload_flavor landing."
 ---
+
+# xcsh_workload_flavor landing
+
+<a id="canonical-8c8c0ecc2e6ee25fc807e107477b515e49f3e31343c02d3b3fb96b576dfd8acc"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_workload_flavor
+<a id="canonical-dd8bd8bd5de56ba87c034acf620559460ae2e17da920f1a343cf2833bb62f473"></a>
+
+## xcsh_workload_flavor — xcsh_workload_flavor / ac133c0c04a1 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages workload\_flavor in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-9085d48dc3249804ada61863c0dcc97fd57e9c31363400f862a80af9a4e4eb4f"></a>
+
+## Prerequisites — xcsh_workload_flavor / ac133c0c04a1 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-c7c8f07e9ae0982eafc99f361fb1fea47236cec2948ff8150e648aab5e6bdd75"></a>
+
+## Minimal configuration — xcsh_workload_flavor / ac133c0c04a1 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "workload_flavor_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-636a70b2c459f2b67241c7c5bce64293a564d521578d0c305a4717b0e2af20e0"></a>
+
+## Root configuration — xcsh_workload_flavor / ac133c0c04a1 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-19b65502f6aa971cb128df99c90b138bfc46853065e18d2c4b76a3638d637716"></a>
 
-- [Property reference](../guides/data-sources--workload_flavor--reference.md)
-- [Examples](../guides/data-sources--workload_flavor--examples.md)
+## Next pages — xcsh_workload_flavor / ac133c0c04a1 / 6
+
+- [Property reference](../guides/data-sources--workload_flavor--reference--group-001.md#canonical-9193b6067e4e8e493c8d2e08f2541bfa4d5b090c7074a32eae1dc6e93462dee9)
+- [Examples](../guides/data-sources--workload_flavor--examples--group-001.md#canonical-a9945d616ff369efe638b8eb3f7f840bfb4552c8f0287e9b4578032eb5f36892)

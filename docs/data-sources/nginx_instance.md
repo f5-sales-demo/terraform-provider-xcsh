@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_nginx_instance"
+page_title: "xcsh_nginx_instance landing"
 subcategory: ""
-description: "xcsh_nginx_instance for xcsh_nginx_instance."
-xcsh_docs: {"aliases": [], "body_bytes": 1316, "body_sha256": "sha256:300fb968460d118723bf09f439410904ef643c12545bc3df337831fd50233c14", "canonical_id": "xcsh-docs:data-sources:nginx_instance:fundamentals", "child_ids": ["xcsh-docs:data-sources:nginx_instance:reference", "xcsh-docs:data-sources:nginx_instance:examples"], "collection_id": "xcsh-docs:data-sources:nginx_instance:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:nginx_instance:fundamentals", "parent_id": null, "path": "docs/data-sources/nginx_instance.md", "provider_name": "nginx_instance", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_nginx_instance for xcsh_nginx_instance.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_nginx_instance landing."
 ---
+
+# xcsh_nginx_instance landing
+
+<a id="canonical-b9ef2669c0bf7b4c379f2af4596962e7273bf8b58edf51272ccb89570543335a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_nginx_instance
+<a id="canonical-641e48bc55474f616d5fc464a5623c39e6284a0d74d553d87abb898ec89ec8d9"></a>
+
+## xcsh_nginx_instance — xcsh_nginx_instance / 6c7b068e5653 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Nginx Instance resource in F5 Distributed Cloud for get nginx instance configuration.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-a95f1e114a72547575448b73b42f0b8f71d460392f6491a0cad8c3314546f78f"></a>
+
+## Prerequisites — xcsh_nginx_instance / 6c7b068e5653 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-6de6b905f9ae457db41730c0d2777f3c862a6799906db32cc38adfc3d71da6c7"></a>
+
+## Minimal configuration — xcsh_nginx_instance / 6c7b068e5653 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "nginx_instance_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a7f73b3de557b7a14918f5a59cec3fa4891c2576f40ce04a45e9a13764c33548"></a>
+
+## Root configuration — xcsh_nginx_instance / 6c7b068e5653 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-bb29f3a290f0dd460a24d345fdcc8ce8f60f18b1d3b1701c1c1e3c11afea3b5a"></a>
 
-- [Property reference](../guides/data-sources--nginx_instance--reference.md)
-- [Examples](../guides/data-sources--nginx_instance--examples.md)
+## Next pages — xcsh_nginx_instance / 6c7b068e5653 / 6
+
+- [Property reference](../guides/data-sources--nginx_instance--reference--group-001.md#canonical-dd5056fa9ff48164c06415e85ac04b9f289523c7992d8a1f6a56f04b83798c21)
+- [Examples](../guides/data-sources--nginx_instance--examples--group-001.md#canonical-f1cfd45c9eb52b9043c8dddc78a39f8e6d4c57431fafe737175b7666f359758d)

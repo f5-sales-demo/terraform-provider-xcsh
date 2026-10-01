@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_tunnel"
+page_title: "xcsh_tunnel landing"
 subcategory: ""
-description: "xcsh_tunnel for xcsh_tunnel."
-xcsh_docs: {"aliases": [], "body_bytes": 1207, "body_sha256": "sha256:557990c906a98cbda2382a2394ad88ec11a69bf0af1c98d04e0cac78d65b2bd9", "canonical_id": "xcsh-docs:data-sources:tunnel:fundamentals", "child_ids": ["xcsh-docs:data-sources:tunnel:reference", "xcsh-docs:data-sources:tunnel:examples"], "collection_id": "xcsh-docs:data-sources:tunnel:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:tunnel:fundamentals", "parent_id": null, "path": "docs/data-sources/tunnel.md", "provider_name": "tunnel", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tunnel/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_tunnel for xcsh_tunnel.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tunnelCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_tunnel landing."
 ---
+
+# xcsh_tunnel landing
+
+<a id="canonical-4a29ad0424b0245b80e17e625816f6cf1350032e2eedd0aa4c64c636f219e081"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_tunnel
+<a id="canonical-c0fbe18aac8a085826370aca5cb0a38bc2aed695fd94a40f11da1ad3a504015c"></a>
+
+## xcsh_tunnel — xcsh_tunnel / bde3443da9de / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages tunnel in a given namespace. If one already exist it will give a error in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-319c820fed440dc01b9a427c32b38ecf0fa2b4feab27d4ba56c8e1cb80095449"></a>
+
+## Prerequisites — xcsh_tunnel / bde3443da9de / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-659629fce2d8d997cd9553d92b1dab474bf578d15e363b731ae28411ca93c89f"></a>
+
+## Minimal configuration — xcsh_tunnel / bde3443da9de / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "tunnel_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a4229c025ee5c371478f20412a67ca8ab9a03536b083c36b075227580bc21ed6"></a>
+
+## Root configuration — xcsh_tunnel / bde3443da9de / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-77e04517b44c812d49cd2158ccf383a0a5d114ce36fdd2c3f3aa87018ec8e6ea"></a>
 
-- [Property reference](../guides/data-sources--tunnel--reference.md)
-- [Examples](../guides/data-sources--tunnel--examples.md)
+## Next pages — xcsh_tunnel / bde3443da9de / 6
+
+- [Property reference](../guides/data-sources--tunnel--reference--group-001.md#canonical-34a9b4f3823b8e24e5b8fd12ce61ffd5e7ed68ad007c35cd4cfd37ceb9d5aefa)
+- [Examples](../guides/data-sources--tunnel--examples--group-001.md#canonical-f0f2d675aa3ad4df19b03048afbed9c24424795f3a5748460812f25e5fbb78f4)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_securemesh_site"
+page_title: "xcsh_securemesh_site landing"
 subcategory: ""
-description: "xcsh_securemesh_site for xcsh_securemesh_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1538, "body_sha256": "sha256:fefbfc95b67d0078f6518e73559bf48348c0403260ef4e39cce1bd2162c3d128", "canonical_id": "xcsh-docs:resources:securemesh_site:fundamentals", "child_ids": ["xcsh-docs:resources:securemesh_site:reference", "xcsh-docs:resources:securemesh_site:examples", "xcsh-docs:resources:securemesh_site:import", "xcsh-docs:resources:securemesh_site:timeouts"], "collection_id": "xcsh-docs:resources:securemesh_site:collection", "completeness": "complete", "id": "xcsh-docs:resources:securemesh_site:fundamentals", "parent_id": null, "path": "docs/resources/securemesh_site.md", "provider_name": "securemesh_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/securemesh_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_securemesh_site for xcsh_securemesh_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["securemesh_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_securemesh_site landing."
 ---
+
+# xcsh_securemesh_site landing
+
+<a id="canonical-29910c0e7bc405230381f804594785cf63014342be390afce858ee8c458a45bc"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_securemesh_site
+<a id="canonical-b85b5427e9d93ab1fb71783c07dfe84e0b7da4de935293a5f03b18ebb4f2fa9f"></a>
+
+## xcsh_securemesh_site — xcsh_securemesh_site / 8c8d7e6231c2 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with
 distributed security.
 
-## Prerequisites
+<a id="canonical-44323eaf8a35cb1abf9ebfe949fda88bc1053085a1a7d2afc1038c4fd6ddaff2"></a>
+
+## Prerequisites — xcsh_securemesh_site / 8c8d7e6231c2 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-11ad4fd490305cce997d000bd0961e0994abdae9ae2ab0aeaf08a74776175d20"></a>
+
+## Minimal configuration — xcsh_securemesh_site / 8c8d7e6231c2 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_securemesh_site" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-80a373a0729e397f16b41ee44ab92774b79cda8031a012c12e07d7b24f5b6181"></a>
+
+## Root configuration — xcsh_securemesh_site / 8c8d7e6231c2 / 5
 
 Required root properties: `name`, `namespace`, `volterra_certified_hw`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-464becd0575be2423e0943370f8c57d9e89b7e5b994a542d2179f6c8de17bea0"></a>
 
-- [Property reference](../guides/resources--securemesh_site--reference.md)
-- [Examples](../guides/resources--securemesh_site--examples.md)
-- [Import](../guides/resources--securemesh_site--import.md)
-- [Timeouts](../guides/resources--securemesh_site--timeouts.md)
+## Next pages — xcsh_securemesh_site / 8c8d7e6231c2 / 6
+
+- [Property reference](../guides/resources--securemesh_site--reference--group-001.md#canonical-2ce4986a55070676c0c3f96d500bff087a583e8c305caafef2f055a9f2c0ec9a)
+- [Examples](../guides/resources--securemesh_site--examples--group-001.md#canonical-d56096c5e963bd57d646cd37b499d4475dfe3831c2ce681cd4a104aa7f0fd5ee)
+- [Import](../guides/resources--securemesh_site--lifecycle--group-001.md#canonical-daa4f8647cbc3a356c3bdafc396e941f53148631304d2652e2fd4b464d4d341c)
+- [Timeouts](../guides/resources--securemesh_site--lifecycle--group-001.md#canonical-6b58f266a654b9709361f84249c6759da4ef8a314b567a5c10589d5402167adb)

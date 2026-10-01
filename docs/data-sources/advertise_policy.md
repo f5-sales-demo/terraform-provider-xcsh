@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_advertise_policy"
+page_title: "xcsh_advertise_policy landing"
 subcategory: ""
-description: "xcsh_advertise_policy for xcsh_advertise_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1410, "body_sha256": "sha256:4f6f114cff2d66122572a5f2c01e2008f9b649d38c3cc338c0519fdfeade8886", "canonical_id": "xcsh-docs:data-sources:advertise_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:advertise_policy:reference", "xcsh-docs:data-sources:advertise_policy:examples"], "collection_id": "xcsh-docs:data-sources:advertise_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:advertise_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/advertise_policy.md", "provider_name": "advertise_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/advertise_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_advertise_policy for xcsh_advertise_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["advertise_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_advertise_policy landing."
 ---
+
+# xcsh_advertise_policy landing
+
+<a id="canonical-77ee33ff70b16dfe904993ef2a4855e549c025f272b16e2a9e8fc0423965ca2a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_advertise_policy
+<a id="canonical-ed8472d3a190fc29ce09d4981355e77ba278aec007f3b90bb0394f64122dad58"></a>
+
+## xcsh_advertise_policy — xcsh_advertise_policy / 17173258e110 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Manages a Advertise Policy resource in F5 Distributed Cloud for advertise\_polic
 how and where a service represented by a given virtual\_host object is advertised to consumers.
 configuration.
 
-## Prerequisites
+<a id="canonical-6827282011d6d5931e39640a9e29ea952efab90af612bffe48156eb7a38107ec"></a>
+
+## Prerequisites — xcsh_advertise_policy / 17173258e110 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-8370a8b0d609a980452cb4522262e80e05320bdaba764d5e95240989e3a4724f"></a>
+
+## Minimal configuration — xcsh_advertise_policy / 17173258e110 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "advertise_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-c21a1a6fc686397ecf3782394d4bbd307d8668f82067c78b1550a8c20c3296df"></a>
+
+## Root configuration — xcsh_advertise_policy / 17173258e110 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-e773137e0af83dc22053ce27d7da79c86645ab2ad3d6c0004a36134caccecb84"></a>
 
-- [Property reference](../guides/data-sources--advertise_policy--reference.md)
-- [Examples](../guides/data-sources--advertise_policy--examples.md)
+## Next pages — xcsh_advertise_policy / 17173258e110 / 6
+
+- [Property reference](../guides/data-sources--advertise_policy--reference--group-001.md#canonical-c4a8545fdd17da3cdb3ef89ede55dd3f490b1b6a1e1ad35e3f19bc23129b3595)
+- [Examples](../guides/data-sources--advertise_policy--examples--group-001.md#canonical-c122cffd8cafcc703c56445d899d66062863b9857605e22c90abff36dee4d815)

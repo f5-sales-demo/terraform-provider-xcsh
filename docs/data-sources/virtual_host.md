@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_virtual_host"
+page_title: "xcsh_virtual_host landing"
 subcategory: ""
-description: "xcsh_virtual_host for xcsh_virtual_host."
-xcsh_docs: {"aliases": [], "body_bytes": 1228, "body_sha256": "sha256:1ecae387ca851143a93ed2605f60b4210cd71f514ff6382a725692fba7328e58", "canonical_id": "xcsh-docs:data-sources:virtual_host:fundamentals", "child_ids": ["xcsh-docs:data-sources:virtual_host:reference", "xcsh-docs:data-sources:virtual_host:examples"], "collection_id": "xcsh-docs:data-sources:virtual_host:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:virtual_host:fundamentals", "parent_id": null, "path": "docs/data-sources/virtual_host.md", "provider_name": "virtual_host", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_host/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_virtual_host for xcsh_virtual_host.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["virtual_hostCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_virtual_host landing."
 ---
+
+# xcsh_virtual_host landing
+
+<a id="canonical-c365aed4cfa0fbfdfe78adcb3521d491ecfe7a11e97f7277bd85e506856cbee8"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_virtual_host
+<a id="canonical-9ab0af4543bbc46570b780fb5f6e40dc6981b83117508ad134bc6545994f735f"></a>
+
+## xcsh_virtual_host — xcsh_virtual_host / f5109a52e8f3 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages virtual host in a given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-d143caa652a3d88ba5653db41e25083e9bc8d09efbcd2bd4a79b79417fc0c797"></a>
+
+## Prerequisites — xcsh_virtual_host / f5109a52e8f3 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-451510beb3a020ad4bcd779b3d699f0928132b6405c4537232628af2fbb53fad"></a>
+
+## Minimal configuration — xcsh_virtual_host / f5109a52e8f3 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "virtual_host_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a0bcbf64dab9852f13f1614a9895f3241f189e7b6887ba43b4b1e24c30eae5ec"></a>
+
+## Root configuration — xcsh_virtual_host / f5109a52e8f3 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-589e714adc5d7d7629931cff171bab63a59ee5910fb6ea25b6c0362e6af7c4c2"></a>
 
-- [Property reference](../guides/data-sources--virtual_host--reference.md)
-- [Examples](../guides/data-sources--virtual_host--examples.md)
+## Next pages — xcsh_virtual_host / f5109a52e8f3 / 6
+
+- [Property reference](../guides/data-sources--virtual_host--reference--group-001.md#canonical-7d0b64e615839ee4869f74f3a3ecb15ca62c06c786a0aed14e53a7a714f35a5d)
+- [Examples](../guides/data-sources--virtual_host--examples--group-001.md#canonical-1007d5b46c405c4dac828dcf0244f383fa0b2d87d812c2533acf250ab93f0856)

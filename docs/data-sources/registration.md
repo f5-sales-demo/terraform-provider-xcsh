@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_registration"
+page_title: "xcsh_registration landing"
 subcategory: ""
-description: "xcsh_registration for xcsh_registration."
-xcsh_docs: {"aliases": [], "body_bytes": 1304, "body_sha256": "sha256:bd84d2c699f3ff1017a2df7ecac3719c105c48730b20982a913776ca19241f36", "canonical_id": "xcsh-docs:data-sources:registration:fundamentals", "child_ids": ["xcsh-docs:data-sources:registration:reference", "xcsh-docs:data-sources:registration:examples"], "collection_id": "xcsh-docs:data-sources:registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:registration:fundamentals", "parent_id": null, "path": "docs/data-sources/registration.md", "provider_name": "registration", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_registration for xcsh_registration.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["registrationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_registration landing."
 ---
+
+# xcsh_registration landing
+
+<a id="canonical-2746a399e29ec20e70d5fe8bd2126104322cfa8facd6b7656951f85370c6ccf1"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_registration
+<a id="canonical-4bef301e08a9664e0930eef5d62840ba40fb31d94a46fa39f2e63603e00071c1"></a>
+
+## xcsh_registration — xcsh_registration / ec73786d331a / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Registration resource in F5 Distributed Cloud for vpm creates registration using this
 message, never used by users. configuration.
 
-## Prerequisites
+<a id="canonical-53901e7ac1f8a9ea94da9a15cbae1c7e7c23d2eeaca7a9b0b958dbd9b4e24ede"></a>
+
+## Prerequisites — xcsh_registration / ec73786d331a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-caefeda44a5d3c6228c82a43b82be2436b1847a49df5969064c4b9539bdb1c4c"></a>
+
+## Minimal configuration — xcsh_registration / ec73786d331a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "registration_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-c159c17d3f0042561f6fc9a91468ad358d693cfd2d5291eef93ea4ab1ba443c4"></a>
+
+## Root configuration — xcsh_registration / ec73786d331a / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3df3cb2de0727668a0d7fa825c6abd816c71fd00789e3bc367cd562406e5dfe7"></a>
 
-- [Property reference](../guides/data-sources--registration--reference.md)
-- [Examples](../guides/data-sources--registration--examples.md)
+## Next pages — xcsh_registration / ec73786d331a / 6
+
+- [Property reference](../guides/data-sources--registration--reference--group-001.md#canonical-515aab2ff4416a2f1aa445644e411a2400e1d40ad9d313746445e68b449bf4c6)
+- [Examples](../guides/data-sources--registration--examples--group-001.md#canonical-308dd2706c143d052513a67a5ad0066da2434e408835e3cde8ea716d8d0bf9f7)

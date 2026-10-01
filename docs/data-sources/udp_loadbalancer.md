@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_udp_loadbalancer"
+page_title: "xcsh_udp_loadbalancer landing"
 subcategory: ""
-description: "xcsh_udp_loadbalancer for xcsh_udp_loadbalancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1314, "body_sha256": "sha256:676812335e6a9e8312df34330f2bac1d16f52e47fd5cde9fd9bc093ff74965cd", "canonical_id": "xcsh-docs:data-sources:udp_loadbalancer:fundamentals", "child_ids": ["xcsh-docs:data-sources:udp_loadbalancer:reference", "xcsh-docs:data-sources:udp_loadbalancer:examples"], "collection_id": "xcsh-docs:data-sources:udp_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:udp_loadbalancer:fundamentals", "parent_id": null, "path": "docs/data-sources/udp_loadbalancer.md", "provider_name": "udp_loadbalancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_udp_loadbalancer for xcsh_udp_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["udp_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_udp_loadbalancer landing."
 ---
+
+# xcsh_udp_loadbalancer landing
+
+<a id="canonical-156fae62fee7cb9e0e712d30277f9f65b8ba96c3336177b95c39c819598c5ba3"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_udp_loadbalancer
+<a id="canonical-b1cc91f6d1cca3309759e6f662651ae628c78443072cecd8c7974f27b638b528"></a>
+
+## xcsh_udp_loadbalancer — xcsh_udp_loadbalancer / 6102c82f6c9f / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across
 origin pools.
 
-## Prerequisites
+<a id="canonical-7ee6a7a1238ad775ca1ccddcd02143f02e0c8f46fc7986bfe3035202f1a13128"></a>
+
+## Prerequisites — xcsh_udp_loadbalancer / 6102c82f6c9f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-4ba6533e4c88b91a1b07bcdef25aff36c4f8113ed3b89f26af2ca088b3902148"></a>
+
+## Minimal configuration — xcsh_udp_loadbalancer / 6102c82f6c9f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "udp_loadbalancer_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a159c981ea0daaebcb5adca2cdbdd66bd80edd79b9e8bcffca34e6a292765b60"></a>
+
+## Root configuration — xcsh_udp_loadbalancer / 6102c82f6c9f / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-e8dbcc55f621ac598e241d3bf870108bf60c6ea16909412b5fb4f9b11543cd6e"></a>
 
-- [Property reference](../guides/data-sources--udp_loadbalancer--reference.md)
-- [Examples](../guides/data-sources--udp_loadbalancer--examples.md)
+## Next pages — xcsh_udp_loadbalancer / 6102c82f6c9f / 6
+
+- [Property reference](../guides/data-sources--udp_loadbalancer--reference--group-001.md#canonical-90bfc5c745211e4757205cd8fe220a2b5c2c1103253488671914bb68c847c39c)
+- [Examples](../guides/data-sources--udp_loadbalancer--examples--group-001.md#canonical-f833d9606febec82d58db6db4015687e7ba0a4ad447343f297ba85f5f428ae9e)

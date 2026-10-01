@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_securemesh_site"
+page_title: "xcsh_securemesh_site landing"
 subcategory: ""
-description: "xcsh_securemesh_site for xcsh_securemesh_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1314, "body_sha256": "sha256:133b3b67b33cd82a126cc92131906040ed4b5a44e2431ba46849e10c8ed30f30", "canonical_id": "xcsh-docs:data-sources:securemesh_site:fundamentals", "child_ids": ["xcsh-docs:data-sources:securemesh_site:reference", "xcsh-docs:data-sources:securemesh_site:examples"], "collection_id": "xcsh-docs:data-sources:securemesh_site:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:securemesh_site:fundamentals", "parent_id": null, "path": "docs/data-sources/securemesh_site.md", "provider_name": "securemesh_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/securemesh_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_securemesh_site for xcsh_securemesh_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["securemesh_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_securemesh_site landing."
 ---
+
+# xcsh_securemesh_site landing
+
+<a id="canonical-5f91b1b3404e561dd8f463d8833156b2b57b09182e422126fe076a2265156cec"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_securemesh_site
+<a id="canonical-2c8951b0aaecdc1134372ddf8991726f482b811c82fc5a687f37ce316f7c3031"></a>
+
+## xcsh_securemesh_site — xcsh_securemesh_site / c58701380656 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with
 distributed security.
 
-## Prerequisites
+<a id="canonical-8e4c64bbb6e7bda6a9b0025209bcf54ecca1fc3f477177de6b560f9fc26d6874"></a>
+
+## Prerequisites — xcsh_securemesh_site / c58701380656 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3f5aa4d6cd42207948d4494e005bc8e21f087018c5d888dd870af69779510edd"></a>
+
+## Minimal configuration — xcsh_securemesh_site / c58701380656 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "securemesh_site_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-adff79a8438f121bf2ad336be6d85431290a510c5a6eb5c6b853f3d2d98f5f2a"></a>
+
+## Root configuration — xcsh_securemesh_site / c58701380656 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-338bd004b50a1a184c4fdf0ce9549eb3b73cfd283cc39bffb017e2189bfb879d"></a>
 
-- [Property reference](../guides/data-sources--securemesh_site--reference.md)
-- [Examples](../guides/data-sources--securemesh_site--examples.md)
+## Next pages — xcsh_securemesh_site / c58701380656 / 6
+
+- [Property reference](../guides/data-sources--securemesh_site--reference--group-001.md#canonical-70f2b876f8c6ed3295459dbe10e8713248e8af1fefb7e4604690cfecd9889552)
+- [Examples](../guides/data-sources--securemesh_site--examples--group-001.md#canonical-e9fdcf3f99896d5d2d8fc3260c18902073b98d1b6b84881b2fcdb33ae6a33ade)

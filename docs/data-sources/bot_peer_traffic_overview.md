@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_peer_traffic_overview"
+page_title: "xcsh_bot_peer_traffic_overview landing"
 subcategory: ""
-description: "xcsh_bot_peer_traffic_overview for xcsh_bot_peer_traffic_overview."
-xcsh_docs: {"aliases": [], "body_bytes": 1212, "body_sha256": "sha256:992e034158555bf22df0bc94ac6514781e9c5d105984563f0f620ca7ec3a6fee", "canonical_id": "xcsh-docs:data-sources:bot_peer_traffic_overview:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_peer_traffic_overview:reference", "xcsh-docs:data-sources:bot_peer_traffic_overview:examples"], "collection_id": "xcsh-docs:data-sources:bot_peer_traffic_overview:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_peer_traffic_overview:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_peer_traffic_overview.md", "provider_name": "bot_peer_traffic_overview", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_traffic_overview/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_peer_traffic_overview for xcsh_bot_peer_traffic_overview.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_peer_traffic_overview landing."
 ---
+
+# xcsh_bot_peer_traffic_overview landing
+
+<a id="canonical-5b05326e4d591c752fdaa94722e4badaea615d250171e751c47a2266294991d7"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_peer_traffic_overview
+<a id="canonical-8eb701007e9aae83cc6d1d59152398c8cbbbd27ea3a5df8565db3062fa10b34f"></a>
+
+## xcsh_bot_peer_traffic_overview — xcsh_bot_peer_traffic_overview / 53ec1b08503f / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-922511d3b7474a8f8d3d6eb43d3b248d3c4723109365e26f98bc6327a2dfbde8"></a>
+
+## Prerequisites — xcsh_bot_peer_traffic_overview / 53ec1b08503f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-310d5001ffd8e29cb3977e35834ee16f5690516341333f228e54de9dca982fc9"></a>
+
+## Minimal configuration — xcsh_bot_peer_traffic_overview / 53ec1b08503f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "bot_peer_traffic_overview_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-d69d7e495018be8ec12d6e0f5943b29c8d9b54ef2bf1e52423b041cc9770e4c0"></a>
+
+## Root configuration — xcsh_bot_peer_traffic_overview / 53ec1b08503f / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-eb067f042cb61796616151e46150c83c7cf7853dd84ed70eea203f0514bbca50"></a>
 
-- [Property reference](../guides/data-sources--bot_peer_traffic_overview--reference.md)
-- [Examples](../guides/data-sources--bot_peer_traffic_overview--examples.md)
+## Next pages — xcsh_bot_peer_traffic_overview / 53ec1b08503f / 6
+
+- [Property reference](../guides/data-sources--bot_peer_traffic_overview--reference--group-001.md#canonical-53367a814368233d59c0d60053b9993843031752de8473de41d0df93b435773a)
+- [Examples](../guides/data-sources--bot_peer_traffic_overview--examples--group-001.md#canonical-3a2834e1966934c911456ee9fe04e4648fad8cd2a00dcf42484439d3b4adfcf3)

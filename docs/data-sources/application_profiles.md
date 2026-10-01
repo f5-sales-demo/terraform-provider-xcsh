@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_application_profiles"
+page_title: "xcsh_application_profiles landing"
 subcategory: ""
-description: "xcsh_application_profiles for xcsh_application_profiles."
-xcsh_docs: {"aliases": [], "body_bytes": 1361, "body_sha256": "sha256:86a4205c105f7cbf332747780955b3cd6f01bcc4c58bb00dc902677d326d8046", "canonical_id": "xcsh-docs:data-sources:application_profiles:fundamentals", "child_ids": ["xcsh-docs:data-sources:application_profiles:reference", "xcsh-docs:data-sources:application_profiles:examples"], "collection_id": "xcsh-docs:data-sources:application_profiles:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:application_profiles:fundamentals", "parent_id": null, "path": "docs/data-sources/application_profiles.md", "provider_name": "application_profiles", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_application_profiles for xcsh_application_profiles.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["application_profilesCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_application_profiles landing."
 ---
+
+# xcsh_application_profiles landing
+
+<a id="canonical-759630bb83acabf06c265dca13c07d88ae392193439f6c718a93ef52b0ecd37c"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_application_profiles
+<a id="canonical-9d795432dc8c4967968115ff6fa7a1add32638cde0836a724c4d299be0e1328f"></a>
+
+## xcsh_application_profiles — xcsh_application_profiles / bb7f2aeb04fc / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Application Profiles in a given namespace. If one already exists it will give an error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-ee3babe6be88710ace7c7b01cbf4a0cc4366b452617fdf4b370acee5300e0cb7"></a>
+
+## Prerequisites — xcsh_application_profiles / bb7f2aeb04fc / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-792881b3863b7685ad7b7809d0aa6376cf136aebc064bf1e828fb958994feefb"></a>
+
+## Minimal configuration — xcsh_application_profiles / bb7f2aeb04fc / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "application_profiles_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-cad611ce011d09eb7c04f92a9394d9f864a5b38772699d566d02486f036539c0"></a>
+
+## Root configuration — xcsh_application_profiles / bb7f2aeb04fc / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-deb9472860031ec7e7a6e19f935ed2cafb27023546234b9bafe30bac7f274581"></a>
 
-- [Property reference](../guides/data-sources--application_profiles--reference.md)
-- [Examples](../guides/data-sources--application_profiles--examples.md)
+## Next pages — xcsh_application_profiles / bb7f2aeb04fc / 6
+
+- [Property reference](../guides/data-sources--application_profiles--reference--group-001.md#canonical-d0885eb035e95f1b1c36adc903324929bfd8a8166bc6eb75d22521793fb630ed)
+- [Examples](../guides/data-sources--application_profiles--examples--group-001.md#canonical-4f157bf871ffc5e090bca94e3729fc5b9aa57f302edc85a8cb0c006e9a14aad4)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_data_intelligence"
+page_title: "xcsh_network_data_intelligence landing"
 subcategory: ""
-description: "xcsh_network_data_intelligence for xcsh_network_data_intelligence."
-xcsh_docs: {"aliases": [], "body_bytes": 1426, "body_sha256": "sha256:aef61a037980f5be10dd5dbe2fadd4f652ffa9e88167eae4c7a517dff3204ae3", "canonical_id": "xcsh-docs:data-sources:network_data_intelligence:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_data_intelligence:reference", "xcsh-docs:data-sources:network_data_intelligence:examples"], "collection_id": "xcsh-docs:data-sources:network_data_intelligence:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_data_intelligence:fundamentals", "parent_id": null, "path": "docs/data-sources/network_data_intelligence.md", "provider_name": "network_data_intelligence", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_data_intelligence/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_data_intelligence for xcsh_network_data_intelligence.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_data_intelligence landing."
 ---
+
+# xcsh_network_data_intelligence landing
+
+<a id="canonical-db1c6e7c4254880692807159269c6d76d21575ca6575b838319cf6c66703a647"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_data_intelligence
+<a id="canonical-59e126ba9b135ea80cbda0c0529eced68485382e62b4c15306b9533d2933da85"></a>
+
+## xcsh_network_data_intelligence — xcsh_network_data_intelligence / fd62344ac446 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Regional Data Intelligence IPv4 destinations. Values are bundled from the pinned
 this data source performs no network request. Ports and traffic direction are not encoded in the
 manifest.
 
-## Prerequisites
+<a id="canonical-e511a3d17540fe8c1f3856025adf9162b0753eb7bf63e2f3d3a2b3fd57ba4a53"></a>
+
+## Prerequisites — xcsh_network_data_intelligence / fd62344ac446 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-f3f06f22277a5d882e256aaccde30c436b22888c2140db8cc91dc2091e340b3d"></a>
+
+## Minimal configuration — xcsh_network_data_intelligence / fd62344ac446 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "data_intelligence_https_egress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-9690c14b478d056ae81009fe947567f4d787c49cf8fd72c7056701e11efd0716"></a>
+
+## Root configuration — xcsh_network_data_intelligence / fd62344ac446 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-a6526b2d1f4e5ad87f66273768eca1067b0f291db7234763b9c86cb36d6523bc"></a>
 
-- [Property reference](../guides/data-sources--network_data_intelligence--reference.md)
-- [Examples](../guides/data-sources--network_data_intelligence--examples.md)
+## Next pages — xcsh_network_data_intelligence / fd62344ac446 / 6
+
+- [Property reference](../guides/data-sources--network_data_intelligence--reference--group-001.md#canonical-c658a6fbfe8dbbe5fd2dab0eb03fbfc881b85553026886291a106a251c844753)
+- [Examples](../guides/data-sources--network_data_intelligence--examples--group-001.md#canonical-3b7b4a98c89d8243a85c0a9412ae43f816de2f4deca4d3e685794d6ea3227e8b)

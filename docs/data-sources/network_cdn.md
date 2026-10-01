@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_cdn"
+page_title: "xcsh_network_cdn landing"
 subcategory: ""
-description: "xcsh_network_cdn for xcsh_network_cdn."
-xcsh_docs: {"aliases": [], "body_bytes": 1360, "body_sha256": "sha256:c98e77caa504734b54993378ba5dbb58b34b54783e48ad9c9f37d39c1aed51cb", "canonical_id": "xcsh-docs:data-sources:network_cdn:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_cdn:reference", "xcsh-docs:data-sources:network_cdn:examples"], "collection_id": "xcsh-docs:data-sources:network_cdn:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_cdn:fundamentals", "parent_id": null, "path": "docs/data-sources/network_cdn.md", "provider_name": "network_cdn", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_cdn/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_cdn for xcsh_network_cdn.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_cdn landing."
 ---
+
+# xcsh_network_cdn landing
+
+<a id="canonical-fe445c78360c578eaf7df047899b5aa7530327fec5e46dfc02c8b8d89d741656"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_cdn
+<a id="canonical-75c4ceb8aa32eba612527509a1af73a3ec0472fb1145e780434720a274f72c2c"></a>
+
+## xcsh_network_cdn — xcsh_network_cdn / 8176fb3d2ad1 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ CDN IPv4 networks for origin or network-firewall ingress allowlists. Values are 
 pinned OpenAPI release; this data source performs no network request. Ports and traffic direction
 are not encoded in the manifest.
 
-## Prerequisites
+<a id="canonical-41c7ab25f3b9edcc3dc13bde77ddb7d87492c0e0f0c38d40e3d13cbdacdac7a2"></a>
+
+## Prerequisites — xcsh_network_cdn / 8176fb3d2ad1 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-469d3645573dd20af48e763d3eca07bc77db398f8e736dd1cef835865e201805"></a>
+
+## Minimal configuration — xcsh_network_cdn / 8176fb3d2ad1 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cdn_https_origin_ingress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-7b3ee34744ea46599f9315508d8f3f75acdc6303c9d489251580c50b3880494d"></a>
+
+## Root configuration — xcsh_network_cdn / 8176fb3d2ad1 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-087ecbe9f08ed4f4937587c2792a0560cd7c71adc0f8a3ff7ce5b4f61ff60c82"></a>
 
-- [Property reference](../guides/data-sources--network_cdn--reference.md)
-- [Examples](../guides/data-sources--network_cdn--examples.md)
+## Next pages — xcsh_network_cdn / 8176fb3d2ad1 / 6
+
+- [Property reference](../guides/data-sources--network_cdn--reference--group-001.md#canonical-cbda8b2c4920edab916746235744ca1fdca4a914e282936ed48fa87e4d80bb47)
+- [Examples](../guides/data-sources--network_cdn--examples--group-001.md#canonical-505237567fe5f04878c86fd50cdc9d89964a065b8c895e7d8eb1f6358bf91dba)

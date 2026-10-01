@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_data_group"
+page_title: "xcsh_data_group landing"
 subcategory: ""
-description: "xcsh_data_group for xcsh_data_group."
-xcsh_docs: {"aliases": [], "body_bytes": 1251, "body_sha256": "sha256:20a4507705998efd9f15b8670a9f089c832cc75d7fb3586072dbbaf79198cb33", "canonical_id": "xcsh-docs:data-sources:data_group:fundamentals", "child_ids": ["xcsh-docs:data-sources:data_group:reference", "xcsh-docs:data-sources:data_group:examples"], "collection_id": "xcsh-docs:data-sources:data_group:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:data_group:fundamentals", "parent_id": null, "path": "docs/data-sources/data_group.md", "provider_name": "data_group", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_group/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_data_group for xcsh_data_group.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["data_groupCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_data_group landing."
 ---
+
+# xcsh_data_group landing
+
+<a id="canonical-2a09189b698920d6a460102d0b7a21e1e3e6e93e2691c7d484224253a3e63dc2"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_data_group
+<a id="canonical-466aa7c58ed861a073e792283d1e0473746b28379ae8e9ae41f52f780910240b"></a>
+
+## xcsh_data_group — xcsh_data_group / 6fd816eb1c88 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages data group in a given namespace. If one already exists it will give an error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3d90ff6779978d518d69a94331db94f22d70a5fe83560581d8e60d47ec60dc89"></a>
+
+## Prerequisites — xcsh_data_group / 6fd816eb1c88 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1c9687c2e53bedb3c9ada4b9f517cdf67f4812ad7a3b8fae003eec2e49749415"></a>
+
+## Minimal configuration — xcsh_data_group / 6fd816eb1c88 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "data_group_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-4f417d79e33c1516e3e531a74efdb5c8fa228e0865d6c9bc62f2bd3fa42144d2"></a>
+
+## Root configuration — xcsh_data_group / 6fd816eb1c88 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-e1d1957d2d298bf94bf7a0e5decc9c74717acea12ad3bc673b898491d4f2dcf3"></a>
 
-- [Property reference](../guides/data-sources--data_group--reference.md)
-- [Examples](../guides/data-sources--data_group--examples.md)
+## Next pages — xcsh_data_group / 6fd816eb1c88 / 6
+
+- [Property reference](../guides/data-sources--data_group--reference--group-001.md#canonical-9af800ba0cbf5ecb49db6ffae6b8045770a7445bd1c47bd0c92945103279aa81)
+- [Examples](../guides/data-sources--data_group--examples--group-001.md#canonical-30577a5df82559f5bd7a5798e84dcf0a6240212b5fc1fd6cbfe37d0f6b76bb0f)

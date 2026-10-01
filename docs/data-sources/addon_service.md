@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_addon_service"
+page_title: "xcsh_addon_service landing"
 subcategory: ""
-description: "xcsh_addon_service for xcsh_addon_service."
-xcsh_docs: {"aliases": [], "body_bytes": 1688, "body_sha256": "sha256:cee09b7fe4ad126f9f0d25d50feed7405929d325c782d62f11be4be92b3cd8a4", "canonical_id": "xcsh-docs:data-sources:addon_service:fundamentals", "child_ids": ["xcsh-docs:data-sources:addon_service:reference", "xcsh-docs:data-sources:addon_service:examples"], "collection_id": "xcsh-docs:data-sources:addon_service:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:addon_service:fundamentals", "parent_id": null, "path": "docs/data-sources/addon_service.md", "provider_name": "addon_service", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/addon_service/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_addon_service for xcsh_addon_service.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_addon_service landing."
 ---
+
+# xcsh_addon_service landing
+
+<a id="canonical-bc6915e40d9e500717e2d5968bc07fc54c844773be24d2f94cca4e8c5e83fe99"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_addon_service
+<a id="canonical-2ac0bef858ce745b00fd2c70059264c55b6c5bdb8327b416390a520ebbc7360f"></a>
+
+## xcsh_addon_service — xcsh_addon_service / 39d83e413826 / 2
 
 Breadcrumbs:
 
@@ -25,11 +30,15 @@ addon service details including tier requirements and activation type.
 subscribe to an addon service, please use the F5 Distributed Cloud Console or contact your account
 team.
 
-## Prerequisites
+<a id="canonical-70eed51f3e0ab04500e53561f4646d8abaccc45b4a313f0dc2e68d87efa6b0c4"></a>
+
+## Prerequisites — xcsh_addon_service / 39d83e413826 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-421772c7bb92add6407be3f5374625f2d2ba551a7d9ef1637e4c848c4a9539e2"></a>
+
+## Minimal configuration — xcsh_addon_service / 39d83e413826 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,11 +67,15 @@ output "addon_service_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-d3aca3543b71b589ad1004fa17972ab50b70f856c068ffb39b497cc7f6503c23"></a>
+
+## Root configuration — xcsh_addon_service / 39d83e413826 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0b2d28cce7179d8018474cae0f67b169a62dddc91db1857cd70062c283f4c120"></a>
 
-- [Property reference](../guides/data-sources--addon_service--reference.md)
-- [Examples](../guides/data-sources--addon_service--examples.md)
+## Next pages — xcsh_addon_service / 39d83e413826 / 6
+
+- [Property reference](../guides/data-sources--addon_service--reference--group-001.md#canonical-11d603208fbd7d6adbc72e5aae21645bfb00d74593d5c996a45e0a5dfc81a055)
+- [Examples](../guides/data-sources--addon_service--examples--group-001.md#canonical-a0399fbaae69f1178cd71f7f0650d72facb92ceb4977c1fad637c238fe1acb8f)

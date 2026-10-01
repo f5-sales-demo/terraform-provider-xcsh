@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_zone"
+page_title: "xcsh_dns_zone landing"
 subcategory: "DNS"
-description: "xcsh_dns_zone for xcsh_dns_zone."
-xcsh_docs: {"aliases": [], "body_bytes": 1718, "body_sha256": "sha256:02fdc031fce61afd2e4a0c8fbd3f3c9bd746eff88f571dbc711e32f7f2291e33", "canonical_id": "xcsh-docs:data-sources:dns_zone:fundamentals", "child_ids": ["xcsh-docs:data-sources:dns_zone:reference", "xcsh-docs:data-sources:dns_zone:examples"], "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:fundamentals", "parent_id": null, "path": "docs/data-sources/dns_zone.md", "provider_name": "dns_zone", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_zone for xcsh_dns_zone.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_zone landing."
 ---
+
+# xcsh_dns_zone landing
+
+<a id="canonical-02bc847e36c00371c54bc379ac1dbb58c1c0a02c7c78750a8c5190f02a02af5d"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_zone
+<a id="canonical-ab819fba5262c16be6f2ca7295b06b6ed0c0adf9f65a2efe81e319767c12f5b7"></a>
+
+## xcsh_dns_zone — xcsh_dns_zone / 53e427031169 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-ae8ca94b5a0f42738a1cf8783a8c65fcee1259c7d5bc3f1076dec53af37d9682"></a>
+
+## Prerequisites — xcsh_dns_zone / 53e427031169 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Optional integrations: `dns_load_balancer`.
 
 - dns_load_balancer: Geographic or weighted DNS routing
 
-## Minimal configuration
+<a id="canonical-59297d8fd69b1daff8994065860ecfae713a1393f40d4442616ed6dc65db53d5"></a>
+
+## Minimal configuration — xcsh_dns_zone / 53e427031169 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -70,11 +79,15 @@ output "dns_zone_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-75d1ed77fc756d063cb58cdee5d83cdcc9872938da8a2bf3aa65a422d8927d64"></a>
+
+## Root configuration — xcsh_dns_zone / 53e427031169 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-ff5298a3152eb452f992b1008bd07c580d0beaff17a3705afdc81e684f5af9fd"></a>
 
-- [Property reference](../guides/data-sources--dns_zone--reference.md)
-- [Examples](../guides/data-sources--dns_zone--examples.md)
+## Next pages — xcsh_dns_zone / 53e427031169 / 6
+
+- [Property reference](../guides/data-sources--dns_zone--reference--group-001.md#canonical-78018855a314933db8c9e2b1edd52e65b80fdeff100fdff7b9f615ac179d2205)
+- [Examples](../guides/data-sources--dns_zone--examples--group-001.md#canonical-17f8d062238fb35a54de166b256b564642f2aadc0f23fe04b8a8b988b597ea70)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_address_allocator"
+page_title: "xcsh_address_allocator landing"
 subcategory: ""
-description: "xcsh_address_allocator for xcsh_address_allocator."
-xcsh_docs: {"aliases": [], "body_bytes": 1336, "body_sha256": "sha256:d368a5e46975114c94c0795a298aa600c2431b6064d1c8ffe65824ae3629fa7c", "canonical_id": "xcsh-docs:data-sources:address_allocator:fundamentals", "child_ids": ["xcsh-docs:data-sources:address_allocator:reference", "xcsh-docs:data-sources:address_allocator:examples"], "collection_id": "xcsh-docs:data-sources:address_allocator:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:address_allocator:fundamentals", "parent_id": null, "path": "docs/data-sources/address_allocator.md", "provider_name": "address_allocator", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/address_allocator/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_address_allocator for xcsh_address_allocator.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["address_allocatorCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_address_allocator landing."
 ---
+
+# xcsh_address_allocator landing
+
+<a id="canonical-b37f5189fa71c353983be346c78099ee10d1935bec31c657e73fc56ee3cc9d4b"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_address_allocator
+<a id="canonical-c8ff8988de2dde6f541f5b0852809dacd7afede4a36e6f8eacaf73350a3e0871"></a>
+
+## xcsh_address_allocator — xcsh_address_allocator / 702b6fce20fb / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Address Allocator will create an address allocator object in 'system' namespace of the user
 in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-8dc3b03e86cd8ecef1645fc253209ca8a2110cf236b5d1c5afbc7ae6e3154271"></a>
+
+## Prerequisites — xcsh_address_allocator / 702b6fce20fb / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-70818ce53b30363f71cc64485d38ee811f90731bd820c71be19dcef0c6b9c172"></a>
+
+## Minimal configuration — xcsh_address_allocator / 702b6fce20fb / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "address_allocator_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-7d9925d6b11d39a8fc60dfea6d1ca4cba3121293fd8d2de8bdef953a92a5895b"></a>
+
+## Root configuration — xcsh_address_allocator / 702b6fce20fb / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-7fdebc0ad9a7c970ec594e2c94d7b71dcbadc76cce018001dd438a3789535362"></a>
 
-- [Property reference](../guides/data-sources--address_allocator--reference.md)
-- [Examples](../guides/data-sources--address_allocator--examples.md)
+## Next pages — xcsh_address_allocator / 702b6fce20fb / 6
+
+- [Property reference](../guides/data-sources--address_allocator--reference--group-001.md#canonical-06d6ef2a4ebffe9fba2c3fad1b3c86d8113e071f5d1178e3a4362816a6103b09)
+- [Examples](../guides/data-sources--address_allocator--examples--group-001.md#canonical-761000534cef216afc668fad5da8ef473c794b9038d0e472d3d1e231d57a3618)

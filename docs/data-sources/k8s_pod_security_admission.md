@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_k8s_pod_security_admission"
+page_title: "xcsh_k8s_pod_security_admission landing"
 subcategory: ""
-description: "xcsh_k8s_pod_security_admission for xcsh_k8s_pod_security_admission."
-xcsh_docs: {"aliases": [], "body_bytes": 1392, "body_sha256": "sha256:932858626346e61eae8223789371a14edd8f5318fe63d5a22b2cb2ced6e369ab", "canonical_id": "xcsh-docs:data-sources:k8s_pod_security_admission:fundamentals", "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_admission:reference", "xcsh-docs:data-sources:k8s_pod_security_admission:examples"], "collection_id": "xcsh-docs:data-sources:k8s_pod_security_admission:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:k8s_pod_security_admission:fundamentals", "parent_id": null, "path": "docs/data-sources/k8s_pod_security_admission.md", "provider_name": "k8s_pod_security_admission", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_admission/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_k8s_pod_security_admission for xcsh_k8s_pod_security_admission.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["k8s_pod_security_admissionCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_k8s_pod_security_admission landing."
 ---
+
+# xcsh_k8s_pod_security_admission landing
+
+<a id="canonical-88ae5d168b412044bc8417c7ce5983a32c7859a06953fb6b8556ed0a1d095187"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_k8s_pod_security_admission
+<a id="canonical-06a1dc0e03bfa920db6b33abcf53ee76bf6584a4623372f5e14949e1d55c0f03"></a>
+
+## xcsh_k8s_pod_security_admission — xcsh_k8s_pod_security_admission / da950a4438f4 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages k8s\_pod\_security\_admission will create the object in the storage backend in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-160b785f2aca27f72e3332d2e87f526fa341089da4c7bd3d5b1ad5137450b057"></a>
+
+## Prerequisites — xcsh_k8s_pod_security_admission / da950a4438f4 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-fed4bdc8ebc2d4e10e79a47c6a910a25df0aa03bce3c6d85e94391ca58b2a311"></a>
+
+## Minimal configuration — xcsh_k8s_pod_security_admission / da950a4438f4 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "k8s_pod_security_admission_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-d12882eaaec18a47f0f01180cdf65493b6d91b3e534b0a038cc1a681f59ac516"></a>
+
+## Root configuration — xcsh_k8s_pod_security_admission / da950a4438f4 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-df9466e905367202e675b0e91c9bb527550464fa6173887455be912b731b31af"></a>
 
-- [Property reference](../guides/data-sources--k8s_pod_security_admission--reference.md)
-- [Examples](../guides/data-sources--k8s_pod_security_admission--examples.md)
+## Next pages — xcsh_k8s_pod_security_admission / da950a4438f4 / 6
+
+- [Property reference](../guides/data-sources--k8s_pod_security_admission--reference--group-001.md#canonical-5fd005062b9320a2068df985e51783fcea0f0a0befdb9d79d80f0e2c81436219)
+- [Examples](../guides/data-sources--k8s_pod_security_admission--examples--group-001.md#canonical-5a85d8d1b4c7cefa592434cedd4b2c9208658b616ce6e1b1a3785f38c70c6370)

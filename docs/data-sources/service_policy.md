@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_service_policy"
+page_title: "xcsh_service_policy landing"
 subcategory: "Security"
-description: "xcsh_service_policy for xcsh_service_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1331, "body_sha256": "sha256:fb36cd073510f8ffbe510a0b6cddd923883bb7f7c9a5bbe092e8aa69f7273d0c", "canonical_id": "xcsh-docs:data-sources:service_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:service_policy:reference", "xcsh-docs:data-sources:service_policy:examples"], "collection_id": "xcsh-docs:data-sources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/service_policy.md", "provider_name": "service_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_service_policy for xcsh_service_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_service_policy landing."
 ---
+
+# xcsh_service_policy landing
+
+<a id="canonical-562b2fff5c42ebb1cb9b4a4ad3343a608c21cb1e61939fa0a6d4331979d343b3"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_service_policy
+<a id="canonical-f09610c57c62fb82e33be575245b7cf656dc311bb9a2c37d7f15524eb4ddd7ae"></a>
+
+## xcsh_service_policy — xcsh_service_policy / 45fc4ada863f / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages service\_policy creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-27dcf350e8ff18b790adac4a9267ac69a70caca9cd0558ad0fdafb253ec87436"></a>
+
+## Prerequisites — xcsh_service_policy / 45fc4ada863f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-## Minimal configuration
+<a id="canonical-47913439acf3f2bea48255cb1a9421e6260629d765648ce983a0f0b0a3732d22"></a>
+
+## Minimal configuration — xcsh_service_policy / 45fc4ada863f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "service_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-b25bc78d1eb4816e83d10f13c0501b79ccb16710280aa4f958e7bbf0396fbba5"></a>
+
+## Root configuration — xcsh_service_policy / 45fc4ada863f / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-8e3639a8844760c031c8f70980e2695e9f143c1d97d4acd85775f4c39161d64d"></a>
 
-- [Property reference](../guides/data-sources--service_policy--reference.md)
-- [Examples](../guides/data-sources--service_policy--examples.md)
+## Next pages — xcsh_service_policy / 45fc4ada863f / 6
+
+- [Property reference](../guides/data-sources--service_policy--reference--group-001.md#canonical-f64b25532920797098edbc17516d2f6c4ee99a917eb7049e2fc3def30deda387)
+- [Examples](../guides/data-sources--service_policy--examples--group-001.md#canonical-b43809c2072d0e215aefdfe6e7ca74d503f696f88f9d9f4abacdb2e701bde2c0)

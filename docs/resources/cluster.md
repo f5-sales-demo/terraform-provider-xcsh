@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cluster"
+page_title: "xcsh_cluster landing"
 subcategory: ""
-description: "xcsh_cluster for xcsh_cluster."
-xcsh_docs: {"aliases": [], "body_bytes": 1386, "body_sha256": "sha256:b46394161574ac464f7c2c581a747adfa58141fe8f744b4d1ba166dc38410082", "canonical_id": "xcsh-docs:resources:cluster:fundamentals", "child_ids": ["xcsh-docs:resources:cluster:reference", "xcsh-docs:resources:cluster:examples", "xcsh-docs:resources:cluster:import", "xcsh-docs:resources:cluster:timeouts"], "collection_id": "xcsh-docs:resources:cluster:collection", "completeness": "complete", "id": "xcsh-docs:resources:cluster:fundamentals", "parent_id": null, "path": "docs/resources/cluster.md", "provider_name": "cluster", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cluster for xcsh_cluster.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["clusterCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cluster landing."
 ---
+
+# xcsh_cluster landing
+
+<a id="canonical-20bb6d7dccbcd66a532c13c39eef64afca905ef17bcf433f8dc42dffbeda9d03"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cluster
+<a id="canonical-875a5fe9af269b3738243b23f3f5440fae0cb1ef625edc6b36c54ed9099f7fb2"></a>
+
+## xcsh_cluster — xcsh_cluster / 4125d25387d1 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages cluster will create the object in the storage backend for namespace metadata.namespace in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-01586dd22ceb130e3b8b48eb90027c30a23b500c2e616508da888d7b7594b0ba"></a>
+
+## Prerequisites — xcsh_cluster / 4125d25387d1 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-400809178387a66ddf7f23145be61e9396bc572ff37dee2eccefd1ba00944826"></a>
+
+## Minimal configuration — xcsh_cluster / 4125d25387d1 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_cluster" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-11854c27dc3363535e4d81317ba32de3f1b6518d5865fcf33317b7378b3536b0"></a>
+
+## Root configuration — xcsh_cluster / 4125d25387d1 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-b80fc1e9568d4c5bf5468a6936893a3e66388e27fbde2ca2c1b66f84be8a5c8c"></a>
 
-- [Property reference](../guides/resources--cluster--reference.md)
-- [Examples](../guides/resources--cluster--examples.md)
-- [Import](../guides/resources--cluster--import.md)
-- [Timeouts](../guides/resources--cluster--timeouts.md)
+## Next pages — xcsh_cluster / 4125d25387d1 / 6
+
+- [Property reference](../guides/resources--cluster--reference--group-001.md#canonical-d175f294f6c224794e7bae24d22e1403155d4299cbdbb0d190c275f1d70e2cf9)
+- [Examples](../guides/resources--cluster--examples--group-001.md#canonical-2a64e3e2f1d23626e4a5d1d790bae01ba53b4660306296670e9eb3b6281ad329)
+- [Import](../guides/resources--cluster--lifecycle--group-001.md#canonical-c553c2d02b8677b6abf5b54aa54df926a0e3be0347f5f97061be1153c7bd8138)
+- [Timeouts](../guides/resources--cluster--lifecycle--group-001.md#canonical-09391447a464a24ae12b10aab179d126ef5081cc3ec5b59189d37d0affc8bc36)

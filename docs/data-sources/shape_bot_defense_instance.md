@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_shape_bot_defense_instance"
+page_title: "xcsh_shape_bot_defense_instance landing"
 subcategory: ""
-description: "xcsh_shape_bot_defense_instance for xcsh_shape_bot_defense_instance."
-xcsh_docs: {"aliases": [], "body_bytes": 1451, "body_sha256": "sha256:df9362a61bae460a1a9ff127bb8d1c807ae8dd68e8cb65714e420b1c4e4d7eb3", "canonical_id": "xcsh-docs:data-sources:shape_bot_defense_instance:fundamentals", "child_ids": ["xcsh-docs:data-sources:shape_bot_defense_instance:reference", "xcsh-docs:data-sources:shape_bot_defense_instance:examples"], "collection_id": "xcsh-docs:data-sources:shape_bot_defense_instance:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:shape_bot_defense_instance:fundamentals", "parent_id": null, "path": "docs/data-sources/shape_bot_defense_instance.md", "provider_name": "shape_bot_defense_instance", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/shape_bot_defense_instance/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_shape_bot_defense_instance for xcsh_shape_bot_defense_instance.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_shape_bot_defense_instance landing."
 ---
+
+# xcsh_shape_bot_defense_instance landing
+
+<a id="canonical-c06d624c324df14fa465e15a9ea25b4fefdb447d6a384de57f971c0b2de209bb"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_shape_bot_defense_instance
+<a id="canonical-18706186ae44521e8ba3647648ae5d08561e2ee14c3ba0e833e6235e14090a4f"></a>
+
+## xcsh_shape_bot_defense_instance — xcsh_shape_bot_defense_instance / f466d109015b / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Shape Bot Defense Instance resource in F5 Distributed Cloud for get virtual host from a
 given namespace. configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-aa9976f514272e3e6a43d442cfbe07e42a3d7d865f8aa6eafbef322f5a82bb6e"></a>
+
+## Prerequisites — xcsh_shape_bot_defense_instance / f466d109015b / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-df2db5cc7f12284ada555b229226473bedebad0daa2a59284254dd2002d27483"></a>
+
+## Minimal configuration — xcsh_shape_bot_defense_instance / f466d109015b / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "shape_bot_defense_instance_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-7ab2585e8029759ea0918a9bdaa2184dea85bc49d69bab10cf9f4ab0d738e075"></a>
+
+## Root configuration — xcsh_shape_bot_defense_instance / f466d109015b / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-6a50912e8e96fb796c4d7fc0d778bd5088212fb528f354dfc9a4cbfa63ce6b96"></a>
 
-- [Property reference](../guides/data-sources--shape_bot_defense_instance--reference.md)
-- [Examples](../guides/data-sources--shape_bot_defense_instance--examples.md)
+## Next pages — xcsh_shape_bot_defense_instance / f466d109015b / 6
+
+- [Property reference](../guides/data-sources--shape_bot_defense_instance--reference--group-001.md#canonical-a2f33e8f8c2c828b37e044330ecb2d9104174d36beda291e8383c017e47bec6b)
+- [Examples](../guides/data-sources--shape_bot_defense_instance--examples--group-001.md#canonical-50b5f6e1abc26f913446cc3b2915bcec61e66ce812ebcafd5537d8950015d628)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_policy"
+page_title: "xcsh_alert_policy landing"
 subcategory: "Monitoring"
-description: "xcsh_alert_policy for xcsh_alert_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1252, "body_sha256": "sha256:8002648fbfecf6508673f36eb0e3f04262f2205f4ca8a4ca687b0f5a48f39fd0", "canonical_id": "xcsh-docs:data-sources:alert_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:alert_policy:reference", "xcsh-docs:data-sources:alert_policy:examples"], "collection_id": "xcsh-docs:data-sources:alert_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:alert_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/alert_policy.md", "provider_name": "alert_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_policy for xcsh_alert_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_policy landing."
 ---
+
+# xcsh_alert_policy landing
+
+<a id="canonical-3839c02b07d955e3e93e0d2e71298906f0e75421074c8fd38c1a7d4e4f56055c"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_policy
+<a id="canonical-0ed1007803438fbc39777cfe3a0186122d662a1b3f8c5aad38592ddedde82a6f"></a>
+
+## xcsh_alert_policy — xcsh_alert_policy / 4b9aba9f7399 / 2
 
 Breadcrumbs:
 
@@ -17,13 +22,17 @@ Breadcrumbs:
 
 Manages new Alert Policy Object in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-8b721da1199f2b7e41f7472645f5ca947f1409204620cc37b1c9483097874b3b"></a>
+
+## Prerequisites — xcsh_alert_policy / 4b9aba9f7399 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-2186061ac47d62cd370406dc63176e39f85f6ace9993c887da052d6fde1654eb"></a>
+
+## Minimal configuration — xcsh_alert_policy / 4b9aba9f7399 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "alert_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-4fa54f0af788346f583a291c4c1cb9cf6126587667436b387931c16276389d5d"></a>
+
+## Root configuration — xcsh_alert_policy / 4b9aba9f7399 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3c61419a774db0354c79c870eaa3ec682270a60e852dfd57c24fbad85ee80630"></a>
 
-- [Property reference](../guides/data-sources--alert_policy--reference.md)
-- [Examples](../guides/data-sources--alert_policy--examples.md)
+## Next pages — xcsh_alert_policy / 4b9aba9f7399 / 6
+
+- [Property reference](../guides/data-sources--alert_policy--reference--group-001.md#canonical-96a61606ae7f7cdfa2189a69f67c959ba0d7cb9eb20ab147015fece06408b99b)
+- [Examples](../guides/data-sources--alert_policy--examples--group-001.md#canonical-3d81f623ab4dcd5d770dbd48b8bef571212d883a505f979b3fabf28a252d1469)

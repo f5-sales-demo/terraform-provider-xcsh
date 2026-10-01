@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_load_balancer"
+page_title: "xcsh_dns_load_balancer landing"
 subcategory: "DNS"
-description: "xcsh_dns_load_balancer for xcsh_dns_load_balancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1421, "body_sha256": "sha256:a019cb109aabaf453fa4d682ebfeec1866cf66bcad03ceda964f8d28dbca8335", "canonical_id": "xcsh-docs:data-sources:dns_load_balancer:fundamentals", "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:reference", "xcsh-docs:data-sources:dns_load_balancer:examples"], "collection_id": "xcsh-docs:data-sources:dns_load_balancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_load_balancer:fundamentals", "parent_id": null, "path": "docs/data-sources/dns_load_balancer.md", "provider_name": "dns_load_balancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_load_balancer for xcsh_dns_load_balancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_load_balancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_load_balancer landing."
 ---
+
+# xcsh_dns_load_balancer landing
+
+<a id="canonical-639f0fcc6176dfa735154dc2a6993c8c3f13473206fe7b68e03e66d22c4c0a93"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_load_balancer
+<a id="canonical-ba37721dbe6bbf714cc455c9dcdc9fdc279f4ec339c25b1f3f6b4fbcc58ae8bd"></a>
+
+## xcsh_dns_load_balancer — xcsh_dns_load_balancer / f6267e53f364 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-e764d65b354e954bcfa73f4a0ccc10edca3556f779dbaea285c8fb1165387165"></a>
+
+## Prerequisites — xcsh_dns_load_balancer / f6267e53f364 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `dns_zone`.
 
 - dns_zone: Parent zone for DNS records
 
-## Minimal configuration
+<a id="canonical-e6551273e5967d7496b443c65741bca744fe67e95a74db35e475e508ff171093"></a>
+
+## Minimal configuration — xcsh_dns_load_balancer / f6267e53f364 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,11 +66,15 @@ output "dns_load_balancer_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-ce70e0e896bc053928be8d5a3482638e6a0b49f94fe16ebc53d0169661824aa9"></a>
+
+## Root configuration — xcsh_dns_load_balancer / f6267e53f364 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-357ff9e7d4b75ba1ffb18e102d6fec2ffddcf5bce7258a7c1a186af4968d82d4"></a>
 
-- [Property reference](../guides/data-sources--dns_load_balancer--reference.md)
-- [Examples](../guides/data-sources--dns_load_balancer--examples.md)
+## Next pages — xcsh_dns_load_balancer / f6267e53f364 / 6
+
+- [Property reference](../guides/data-sources--dns_load_balancer--reference--group-001.md#canonical-de83d2932248cb9be96fc334defc36e2686068cd9ef5f35213e8dc567cd904aa)
+- [Examples](../guides/data-sources--dns_load_balancer--examples--group-001.md#canonical-53377b934401d143eba0bcda241ab1eabf8ad0e63f31cec3dd8a9ba854484274)

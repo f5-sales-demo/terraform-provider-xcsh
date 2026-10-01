@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_global_log_receiver"
+page_title: "xcsh_network_global_log_receiver landing"
 subcategory: ""
-description: "xcsh_network_global_log_receiver for xcsh_network_global_log_receiver."
-xcsh_docs: {"aliases": [], "body_bytes": 1621, "body_sha256": "sha256:1304d97e7e87b0c55af40061e5dbc9b0a86393505e6ccd2563b34a2cda1e8234", "canonical_id": "xcsh-docs:data-sources:network_global_log_receiver:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_global_log_receiver:reference", "xcsh-docs:data-sources:network_global_log_receiver:examples"], "collection_id": "xcsh-docs:data-sources:network_global_log_receiver:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_global_log_receiver:fundamentals", "parent_id": null, "path": "docs/data-sources/network_global_log_receiver.md", "provider_name": "network_global_log_receiver", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_global_log_receiver/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_global_log_receiver for xcsh_network_global_log_receiver.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_global_log_receiver landing."
 ---
+
+# xcsh_network_global_log_receiver landing
+
+<a id="canonical-251b976c87f6429c83905ed8e699743bc66f5d388ccb287b6ab1dc588898d9a5"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_global_log_receiver
+<a id="canonical-072a4bf94e8c9bf7b3f26a858e566bf463afd8746eb28bf870a0c3a98f64fe23"></a>
+
+## xcsh_network_global_log_receiver — xcsh_network_global_log_receiver / 5dabd7b0d55f / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Global Log Receiver destinations. Published source entries mix CIDRs and individ
 Values are bundled from the pinned OpenAPI release; this data source performs no network request.
 Ports and traffic direction are not encoded in the manifest.
 
-## Prerequisites
+<a id="canonical-c18b14fd1a0b27815177cd003982d5dbba5e7bbffad73029701a33aaee36cd24"></a>
+
+## Prerequisites — xcsh_network_global_log_receiver / 5dabd7b0d55f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-bd6ac7f16e3119c46f715e95b422db9c95c7f98237913bbdaf333ba2ab108872"></a>
+
+## Minimal configuration — xcsh_network_global_log_receiver / 5dabd7b0d55f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "tls_syslog_egress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-5ec7a6c928b11170728edaa0f15acbf15ef9e4cb55ba464015d4a136cc6b79c3"></a>
+
+## Root configuration — xcsh_network_global_log_receiver / 5dabd7b0d55f / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-9103fc73b15e7a4ffea7a2337df2f3b6ef03c6ad009ebd7e4f7d43ce850203d7"></a>
 
-- [Property reference](../guides/data-sources--network_global_log_receiver--reference.md)
-- [Examples](../guides/data-sources--network_global_log_receiver--examples.md)
+## Next pages — xcsh_network_global_log_receiver / 5dabd7b0d55f / 6
+
+- [Property reference](../guides/data-sources--network_global_log_receiver--reference--group-001.md#canonical-72b74013a2b858f443b06606f41d24e6214625ccc7f7916d9f905b8d9e85df4f)
+- [Examples](../guides/data-sources--network_global_log_receiver--examples--group-001.md#canonical-62c4b37833b41dd8f8d601a10f553355c910f426180fe77dc01774450591215d)

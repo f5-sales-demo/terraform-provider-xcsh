@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_detection_rule"
+page_title: "xcsh_bot_detection_rule landing"
 subcategory: ""
-description: "xcsh_bot_detection_rule for xcsh_bot_detection_rule."
-xcsh_docs: {"aliases": [], "body_bytes": 1348, "body_sha256": "sha256:8e64122cf99b2ee282aafc6f7d7c4bdef35178a7fcb51cfcc9473001886e52cf", "canonical_id": "xcsh-docs:data-sources:bot_detection_rule:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_detection_rule:reference", "xcsh-docs:data-sources:bot_detection_rule:examples"], "collection_id": "xcsh-docs:data-sources:bot_detection_rule:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_detection_rule:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_detection_rule.md", "provider_name": "bot_detection_rule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_detection_rule for xcsh_bot_detection_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_detection_rule landing."
 ---
+
+# xcsh_bot_detection_rule landing
+
+<a id="canonical-a904c12467d27c1ff259b9084cd492f62e963591ee8010367082ed7499705052"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_detection_rule
+<a id="canonical-4a7bf070cc83aaccb190b134b20e9b42530551c18834f0fb55436e874043d1ba"></a>
+
+## xcsh_bot_detection_rule — xcsh_bot_detection_rule / c4ddc57be508 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Bot Detection Rule resource in F5 Distributed Cloud for get bot detection rule.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-a2f9d1b62086a94062ec42e8194abf0081efa040e7b085e19f72119ac4a2663d"></a>
+
+## Prerequisites — xcsh_bot_detection_rule / c4ddc57be508 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-b895922567357243e9ff3daeda9a52ce5316d141ce8a44dc703576ed0769b27b"></a>
+
+## Minimal configuration — xcsh_bot_detection_rule / c4ddc57be508 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "bot_detection_rule_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-69d03cfa4281cf700922904cbbafdf9ae92020cda7ba5f3fca5134b31117ed0d"></a>
+
+## Root configuration — xcsh_bot_detection_rule / c4ddc57be508 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-99adbdade33065dabf6932960e7fa0353c2c80b77449c990c77e3fc0cdffcdd7"></a>
 
-- [Property reference](../guides/data-sources--bot_detection_rule--reference.md)
-- [Examples](../guides/data-sources--bot_detection_rule--examples.md)
+## Next pages — xcsh_bot_detection_rule / c4ddc57be508 / 6
+
+- [Property reference](../guides/data-sources--bot_detection_rule--reference--group-001.md#canonical-7003e9dcedcdc81d72637cd8ac57d9509b0c46a0c2dd75e7391e39c0ba1ec277)
+- [Examples](../guides/data-sources--bot_detection_rule--examples--group-001.md#canonical-ae5f7faec0025da533bf32857ec6eece19301ba3f0323f8e2964ccac10dfbf02)

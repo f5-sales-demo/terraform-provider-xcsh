@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_nat_policy"
+page_title: "xcsh_nat_policy landing"
 subcategory: ""
-description: "xcsh_nat_policy for xcsh_nat_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1290, "body_sha256": "sha256:51586725d36684ca6c2099e16bcb2ca0b95809692a32069f086dc33d4369c2fb", "canonical_id": "xcsh-docs:data-sources:nat_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:nat_policy:reference", "xcsh-docs:data-sources:nat_policy:examples"], "collection_id": "xcsh-docs:data-sources:nat_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:nat_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/nat_policy.md", "provider_name": "nat_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nat_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_nat_policy for xcsh_nat_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["nat_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_nat_policy landing."
 ---
+
+# xcsh_nat_policy landing
+
+<a id="canonical-a5fec5294bc8787088593c2d4f32bac4080e871efb271be14c772afab23ddd19"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_nat_policy
+<a id="canonical-79be24f873cf068cc4c44dc6c09fa2d83fb8a89a8fe56b29159c52271e1f6cb4"></a>
+
+## xcsh_nat_policy — xcsh_nat_policy / 3ff1933d5caf / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a NAT Policy resource in F5 Distributed Cloud for nat policy create specification configures
 nat policy with multiple rules,. configuration.
 
-## Prerequisites
+<a id="canonical-9a894880b344d75d3fa37fa34ab219559429dcd5aba05b8b3479bd29c1397cff"></a>
+
+## Prerequisites — xcsh_nat_policy / 3ff1933d5caf / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-303000cc35151dc233580df4ed3b18b797a944cfcb92b95de922ee7adf375c20"></a>
+
+## Minimal configuration — xcsh_nat_policy / 3ff1933d5caf / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "nat_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1a31ed2c037826616589410b7aad7b689128c0704e8d6dd004978061bf965ac4"></a>
+
+## Root configuration — xcsh_nat_policy / 3ff1933d5caf / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-59898b853de5b079a32c1e1fb5c79e20a45c88ff6c81ccced61e2b10f05287d4"></a>
 
-- [Property reference](../guides/data-sources--nat_policy--reference.md)
-- [Examples](../guides/data-sources--nat_policy--examples.md)
+## Next pages — xcsh_nat_policy / 3ff1933d5caf / 6
+
+- [Property reference](../guides/data-sources--nat_policy--reference--group-001.md#canonical-3700bcc776d70423b66533c4058868d9b850878907e066987ec2e221b01c7899)
+- [Examples](../guides/data-sources--nat_policy--examples--group-001.md#canonical-29569badf4ac6533a49f84111b8f371cb2a24d15313f0d6ee8386e1a348410c6)

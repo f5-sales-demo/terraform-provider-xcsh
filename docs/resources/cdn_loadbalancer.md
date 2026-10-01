@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cdn_loadbalancer"
+page_title: "xcsh_cdn_loadbalancer landing"
 subcategory: "Load Balancing"
-description: "xcsh_cdn_loadbalancer for xcsh_cdn_loadbalancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1644, "body_sha256": "sha256:466db215be0b3d9b1c208d4d031ec27096ffcfcadf6ae8443e0027b03cc2c9d0", "canonical_id": "xcsh-docs:resources:cdn_loadbalancer:fundamentals", "child_ids": ["xcsh-docs:resources:cdn_loadbalancer:reference", "xcsh-docs:resources:cdn_loadbalancer:examples", "xcsh-docs:resources:cdn_loadbalancer:import", "xcsh-docs:resources:cdn_loadbalancer:timeouts"], "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:fundamentals", "parent_id": null, "path": "docs/resources/cdn_loadbalancer.md", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cdn_loadbalancer for xcsh_cdn_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cdn_loadbalancer landing."
 ---
+
+# xcsh_cdn_loadbalancer landing
+
+<a id="canonical-371adde2be63fed533ab2dce28fba2d800a088907dd21e5448db74ca97a1753b"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cdn_loadbalancer
+<a id="canonical-6bfe32952ba62d41ba8255ee34cf24df204a9dd5399b7cf82b80f86cc9eab1e9"></a>
+
+## xcsh_cdn_loadbalancer — xcsh_cdn_loadbalancer / fd165e066e20 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a CDN Load Balancer resource in F5 Distributed Cloud for content delivery and edge caching
 with load balancing.
 
-## Prerequisites
+<a id="canonical-3e9cb90bde82b444754188848a2c84563ed405b45e5d8df1cb8adfedb9d1ee72"></a>
+
+## Prerequisites — xcsh_cdn_loadbalancer / fd165e066e20 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `cdn_origin_pool`.
 
 - cdn_origin_pool: Origin servers for CDN content
 
-## Minimal configuration
+<a id="canonical-de6d723cd98b100b3b7defd7ca8adf4e9329978b6f8666ad48c5778ca6973430"></a>
+
+## Minimal configuration — xcsh_cdn_loadbalancer / fd165e066e20 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,13 +65,17 @@ resource "xcsh_cdn_loadbalancer" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-5a289f763423ad0643b08a59900b8fc57e2591f97a22f3e483b7899e218dfff5"></a>
+
+## Root configuration — xcsh_cdn_loadbalancer / fd165e066e20 / 5
 
 Required root properties: `domains`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-c1f50eadf2481dab5e7cd75443c66af76cb57ef53968e13640e59a5f1d66bae0"></a>
 
-- [Property reference](../guides/resources--cdn_loadbalancer--reference.md)
-- [Examples](../guides/resources--cdn_loadbalancer--examples.md)
-- [Import](../guides/resources--cdn_loadbalancer--import.md)
-- [Timeouts](../guides/resources--cdn_loadbalancer--timeouts.md)
+## Next pages — xcsh_cdn_loadbalancer / fd165e066e20 / 6
+
+- [Property reference](../guides/resources--cdn_loadbalancer--reference--group-001.md#canonical-467da3974497605aa4a2c22ffcea869e72329acd5aaa3f4197905ab521e9ebfc)
+- [Examples](../guides/resources--cdn_loadbalancer--examples--group-001.md#canonical-abfd3355bd1d9030ad4bf5366d5a54f3431a0ea24b3a1f50fa5f3c9767812356)
+- [Import](../guides/resources--cdn_loadbalancer--lifecycle--group-001.md#canonical-178f877581617c9362a2e90d6490255c6a0b53b5a0ad51f0566589ba25997b7d)
+- [Timeouts](../guides/resources--cdn_loadbalancer--lifecycle--group-001.md#canonical-1269b9cb0aeeacc69f35c45ea16292c267f394d5f1eaa8d4ebc1cf93f2cee792)

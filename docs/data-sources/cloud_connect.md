@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_connect"
+page_title: "xcsh_cloud_connect landing"
 subcategory: ""
-description: "xcsh_cloud_connect for xcsh_cloud_connect."
-xcsh_docs: {"aliases": [], "body_bytes": 1286, "body_sha256": "sha256:0e7c7638b62338a13dcb61455101ed3baf6f394d376052f18af86ab8e3f66d67", "canonical_id": "xcsh-docs:data-sources:cloud_connect:fundamentals", "child_ids": ["xcsh-docs:data-sources:cloud_connect:reference", "xcsh-docs:data-sources:cloud_connect:examples"], "collection_id": "xcsh-docs:data-sources:cloud_connect:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cloud_connect:fundamentals", "parent_id": null, "path": "docs/data-sources/cloud_connect.md", "provider_name": "cloud_connect", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_connect/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_connect for xcsh_cloud_connect.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cloud_connectCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_connect landing."
 ---
+
+# xcsh_cloud_connect landing
+
+<a id="canonical-853b4d0ff5eda08da7c860d5cfbd4187898ed900e988089501f5f43cf191ed80"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_connect
+<a id="canonical-6436ef88d3b4287b48a5279af233504354a44daf7ad3981bc8d18aeb9cc555d1"></a>
+
+## xcsh_cloud_connect — xcsh_cloud_connect / 7944851ba996 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connectivity to cloud
 provider networks.
 
-## Prerequisites
+<a id="canonical-561b8caea293392debde534bbb49b2e57640c4e0dd8e247db900777bb375fad7"></a>
+
+## Prerequisites — xcsh_cloud_connect / 7944851ba996 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-7849e14d1cbbd3488cd0ed1be6ee027097eefe96ab9a8c5b87b062da729dc577"></a>
+
+## Minimal configuration — xcsh_cloud_connect / 7944851ba996 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cloud_connect_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-7e30ea594741aef3a306b03811f0e6901f141a54b85b77a83a3fa1d2f98b5259"></a>
+
+## Root configuration — xcsh_cloud_connect / 7944851ba996 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-68d10b9c8e143ce6d1c1828b68f65d9d34da0eaa48ce9a2305a4ceb4b5dfe915"></a>
 
-- [Property reference](../guides/data-sources--cloud_connect--reference.md)
-- [Examples](../guides/data-sources--cloud_connect--examples.md)
+## Next pages — xcsh_cloud_connect / 7944851ba996 / 6
+
+- [Property reference](../guides/data-sources--cloud_connect--reference--group-001.md#canonical-2a3a55770310a476342fc6bf216a73b51a9d15218221552469e3779bf0dfeb60)
+- [Examples](../guides/data-sources--cloud_connect--examples--group-001.md#canonical-0e447ba11f2ec3291f89ffa097e0f893c0f5cb51189a0746945199aa4d3c314f)

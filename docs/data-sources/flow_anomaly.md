@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_flow_anomaly"
+page_title: "xcsh_flow_anomaly landing"
 subcategory: ""
-description: "xcsh_flow_anomaly for xcsh_flow_anomaly."
-xcsh_docs: {"aliases": [], "body_bytes": 1288, "body_sha256": "sha256:fe0285861db41c5150992d54c2b393589dde28e3e01cf6106a4593286776aaf6", "canonical_id": "xcsh-docs:data-sources:flow_anomaly:fundamentals", "child_ids": ["xcsh-docs:data-sources:flow_anomaly:reference", "xcsh-docs:data-sources:flow_anomaly:examples"], "collection_id": "xcsh-docs:data-sources:flow_anomaly:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:flow_anomaly:fundamentals", "parent_id": null, "path": "docs/data-sources/flow_anomaly.md", "provider_name": "flow_anomaly", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/flow_anomaly/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_flow_anomaly for xcsh_flow_anomaly.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_flow_anomaly landing."
 ---
+
+# xcsh_flow_anomaly landing
+
+<a id="canonical-36b34809215da1235dc2f83cf637368d9b15f5ad28182217e93d829fbb145231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_flow_anomaly
+<a id="canonical-f1017c32ab065da42487b2f9df6f34d70f1e02f7aea57f5726c90331344aed26"></a>
+
+## xcsh_flow_anomaly — xcsh_flow_anomaly / f372d3dac950 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Flow Anomaly resource in F5 Distributed Cloud for flow anomaly specification.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-f507bd84d58a16e5682823a881a96bfbc40e30abc5d04265ae711fefef9071e9"></a>
+
+## Prerequisites — xcsh_flow_anomaly / f372d3dac950 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-44122ad202ebca86398a6bf93ccd23a20e447b7e7f757346bd9a52643cb581d0"></a>
+
+## Minimal configuration — xcsh_flow_anomaly / f372d3dac950 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "flow_anomaly_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-aaf58112e1a5ca5912e2cd78bb8ca8afb229ac0a3e6ec8f8bd693b1fd491084e"></a>
+
+## Root configuration — xcsh_flow_anomaly / f372d3dac950 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-aaedfc414ec5dfa76870472e0a1300e3e01eb9edd306175992ee82ad94be4890"></a>
 
-- [Property reference](../guides/data-sources--flow_anomaly--reference.md)
-- [Examples](../guides/data-sources--flow_anomaly--examples.md)
+## Next pages — xcsh_flow_anomaly / f372d3dac950 / 6
+
+- [Property reference](../guides/data-sources--flow_anomaly--reference--group-001.md#canonical-4131f0195f2bd21747a181ef53d3d42d32812cb70f190c5ad1e8ec7cea878c48)
+- [Examples](../guides/data-sources--flow_anomaly--examples--group-001.md#canonical-0dcd935591bd3fbe55ba3d6048f4471096c0b1a5141006cd2d6134cd31c1b720)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_site_upgrade_sw"
+page_title: "xcsh_site_upgrade_sw landing"
 subcategory: ""
-description: "xcsh_site_upgrade_sw for xcsh_site_upgrade_sw."
-xcsh_docs: {"aliases": [], "body_bytes": 1344, "body_sha256": "sha256:dfa994291a2eb096148706e8d3f99a902a5edadaf002293547470361fcb9df9d", "canonical_id": "xcsh-docs:actions:site_upgrade_sw:fundamentals", "child_ids": ["xcsh-docs:actions:site_upgrade_sw:reference", "xcsh-docs:actions:site_upgrade_sw:examples", "xcsh-docs:actions:site_upgrade_sw:lifecycle"], "collection_id": "xcsh-docs:actions:site_upgrade_sw:collection", "completeness": "complete", "id": "xcsh-docs:actions:site_upgrade_sw:fundamentals", "parent_id": null, "path": "docs/actions/site_upgrade_sw.md", "provider_name": "site_upgrade_sw", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "actions", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_sw/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site_upgrade_sw for xcsh_site_upgrade_sw.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_site_upgrade_sw landing."
 ---
+
+# xcsh_site_upgrade_sw landing
+
+<a id="canonical-18736db82b100397af6d4421dc51a7a0bb99b97fd8de86af0b094a5638396565"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_site_upgrade_sw
+<a id="canonical-b983ee5b3fe394d7d1e33b68198fe76b14f4ec4a470eca9dd901a7e4896635f0"></a>
+
+## xcsh_site_upgrade_sw — xcsh_site_upgrade_sw / f5e6663c8f8f / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Request an in-place site software upgrade.
 
-## Prerequisites
+<a id="canonical-a43823969e9d7690158f934b0e7f780c15f24d60fd639506add52b1cae0897d0"></a>
+
+## Prerequisites — xcsh_site_upgrade_sw / f5e6663c8f8f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-8f24f6b5c6ea20a4ee20aac9d604e6cfabc571c787486e2119012878249a0607"></a>
+
+## Minimal configuration — xcsh_site_upgrade_sw / f5e6663c8f8f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,12 +58,16 @@ action "xcsh_site_upgrade_sw" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-bbddb4e1f9a367627adc2bfb0355ed0143ced9c4340ef99036aa09bb7013aa6e"></a>
+
+## Root configuration — xcsh_site_upgrade_sw / f5e6663c8f8f / 5
 
 Required root properties: `site`, `software_version`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-9bb397876254c61db76e13522b1b9f6c36d747defa4c1cd3ce680ccc6d460548"></a>
 
-- [Property reference](../guides/actions--site_upgrade_sw--reference.md)
-- [Examples](../guides/actions--site_upgrade_sw--examples.md)
-- [Lifecycle](../guides/actions--site_upgrade_sw--lifecycle.md)
+## Next pages — xcsh_site_upgrade_sw / f5e6663c8f8f / 6
+
+- [Property reference](../guides/actions--site_upgrade_sw--reference--group-001.md#canonical-0c382e518064cf3a2721e69913fd349c991e7047f5c7a6025d6c71eb8269340e)
+- [Examples](../guides/actions--site_upgrade_sw--examples--group-001.md#canonical-5f5bbc00fe0ddc9db04112bacf135860a397d4686eb33770fd9bb25aba8c9394)
+- [Lifecycle](../guides/actions--site_upgrade_sw--lifecycle--group-001.md#canonical-23a990217858f0772fd3794724ea67680f0ad99f8f1529d4d949476ca1a8332f)

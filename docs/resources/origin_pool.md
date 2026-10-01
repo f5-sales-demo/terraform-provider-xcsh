@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_origin_pool"
+page_title: "xcsh_origin_pool landing"
 subcategory: "Load Balancing"
-description: "xcsh_origin_pool for xcsh_origin_pool."
-xcsh_docs: {"aliases": [], "body_bytes": 1534, "body_sha256": "sha256:14e43e6261c4fd30373027f9090a2463048599dda659391e644b6a35a628f6a1", "canonical_id": "xcsh-docs:resources:origin_pool:fundamentals", "child_ids": ["xcsh-docs:resources:origin_pool:reference", "xcsh-docs:resources:origin_pool:examples", "xcsh-docs:resources:origin_pool:import", "xcsh-docs:resources:origin_pool:timeouts"], "collection_id": "xcsh-docs:resources:origin_pool:collection", "completeness": "complete", "id": "xcsh-docs:resources:origin_pool:fundamentals", "parent_id": null, "path": "docs/resources/origin_pool.md", "provider_name": "origin_pool", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/origin_pool/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_origin_pool for xcsh_origin_pool.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["origin_poolCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_origin_pool landing."
 ---
+
+# xcsh_origin_pool landing
+
+<a id="canonical-70a9b944294f63f3d3a21174368909ae9ef4e3a2d26f36edb2cb07599127f7aa"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_origin_pool
+<a id="canonical-6713b8e594dcce3f30e8e8356a23d584df5ef5fdd155c8db29e2b75641d83354"></a>
+
+## xcsh_origin_pool — xcsh_origin_pool / d3ee6f5fb0fd / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load
 balancer targets.
 
-## Prerequisites
+<a id="canonical-b5b84d8c2c31f3f8e48ac6a496ad23ca348a181cc313b0703dcd9e9d74b1c520"></a>
+
+## Prerequisites — xcsh_origin_pool / d3ee6f5fb0fd / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Optional integrations: `healthcheck`.
 
 - healthcheck: Monitor origin server health
 
-## Minimal configuration
+<a id="canonical-0af529ac10c27aaaeea524943adc5b88b18f221ef89f003305d64e636e79fd30"></a>
+
+## Minimal configuration — xcsh_origin_pool / d3ee6f5fb0fd / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,13 +63,17 @@ resource "xcsh_origin_pool" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-ca8720f7fd83465e69b7f0d9f52ac5eee3ebe8ce49b0d0b918a6653cefa79529"></a>
+
+## Root configuration — xcsh_origin_pool / d3ee6f5fb0fd / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-6947af9465ae343175915decfecf3efaf0c38d00277d94f4e3aac3e825ff5819"></a>
 
-- [Property reference](../guides/resources--origin_pool--reference.md)
-- [Examples](../guides/resources--origin_pool--examples.md)
-- [Import](../guides/resources--origin_pool--import.md)
-- [Timeouts](../guides/resources--origin_pool--timeouts.md)
+## Next pages — xcsh_origin_pool / d3ee6f5fb0fd / 6
+
+- [Property reference](../guides/resources--origin_pool--reference--group-001.md#canonical-e61b24df1f4941cd9da6a249809a952cbb3c21cf96e76da5273da1bfdf5a1c47)
+- [Examples](../guides/resources--origin_pool--examples--group-001.md#canonical-00d5a40bf23d1aee66cee08aa2ee9086b6a147ed26743f35e58aaf88fafd260c)
+- [Import](../guides/resources--origin_pool--lifecycle--group-001.md#canonical-1dbef138a46a53f27737d16a2eaecfed87ed7fb4677e2d9b12a53ab38972e0ef)
+- [Timeouts](../guides/resources--origin_pool--lifecycle--group-001.md#canonical-26dcc6b21288679d1f8d9ca7ea7abf0f366e33ad7e01a1af53ba0cf91763e463)

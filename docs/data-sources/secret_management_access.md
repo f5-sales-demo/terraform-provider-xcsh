@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_secret_management_access"
+page_title: "xcsh_secret_management_access landing"
 subcategory: ""
-description: "xcsh_secret_management_access for xcsh_secret_management_access."
-xcsh_docs: {"aliases": [], "body_bytes": 1402, "body_sha256": "sha256:40dd4a5d85033c7bdebbf1c4c5487ab2fcca9d4ca8fe37fef8e80505a90c7d7b", "canonical_id": "xcsh-docs:data-sources:secret_management_access:fundamentals", "child_ids": ["xcsh-docs:data-sources:secret_management_access:reference", "xcsh-docs:data-sources:secret_management_access:examples"], "collection_id": "xcsh-docs:data-sources:secret_management_access:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:secret_management_access:fundamentals", "parent_id": null, "path": "docs/data-sources/secret_management_access.md", "provider_name": "secret_management_access", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_secret_management_access for xcsh_secret_management_access.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["secret_management_accessCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_secret_management_access landing."
 ---
+
+# xcsh_secret_management_access landing
+
+<a id="canonical-18a3b230047a96b1b8af81502f9fd1e264249b4a2f0875d35905c837e772229b"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_secret_management_access
+<a id="canonical-c1e04e1de3364e3c88ff3578dcf2d7f366cb177618c1829dbdfe05592e339fa8"></a>
+
+## xcsh_secret_management_access — xcsh_secret_management_access / 4c558ef29998 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages secret\_management\_access creates a new object in storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-4c858084d4043625d8e7c6667761f0a49a5c70c61942e0442ba65012331eb2be"></a>
+
+## Prerequisites — xcsh_secret_management_access / 4c558ef29998 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-04840ce3923232a6b5974bc7087d8a8af8d7da7fbc2d9813b8a21977f9db3ba7"></a>
+
+## Minimal configuration — xcsh_secret_management_access / 4c558ef29998 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "secret_management_access_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-f67af0fab2e62d6dc217be03588037964a05d6b90b4cd962689ff2486d228fe7"></a>
+
+## Root configuration — xcsh_secret_management_access / 4c558ef29998 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-248e5705ccc1292e33a9669af1ea2d94444689ac721ea6c1c9efb2809ca5fa9e"></a>
 
-- [Property reference](../guides/data-sources--secret_management_access--reference.md)
-- [Examples](../guides/data-sources--secret_management_access--examples.md)
+## Next pages — xcsh_secret_management_access / 4c558ef29998 / 6
+
+- [Property reference](../guides/data-sources--secret_management_access--reference--group-001.md#canonical-b6b9bdd7091c2fb1c8ea6311c122dbad79167de8645dfc9ff9b477931c1a267e)
+- [Examples](../guides/data-sources--secret_management_access--examples--group-001.md#canonical-af95116420ee9e87d5fe5c3f46181f8ef7aa75cc239ecdbe6971e0be1537c201)

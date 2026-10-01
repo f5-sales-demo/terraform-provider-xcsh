@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_policy_view"
+page_title: "xcsh_network_policy_view landing"
 subcategory: ""
-description: "xcsh_network_policy_view for xcsh_network_policy_view."
-xcsh_docs: {"aliases": [], "body_bytes": 1467, "body_sha256": "sha256:05e0b3d9195b54cc30722a14e420eef41d40aae178a288a8afa9a113c6f45a09", "canonical_id": "xcsh-docs:resources:network_policy_view:fundamentals", "child_ids": ["xcsh-docs:resources:network_policy_view:reference", "xcsh-docs:resources:network_policy_view:examples", "xcsh-docs:resources:network_policy_view:import", "xcsh-docs:resources:network_policy_view:timeouts"], "collection_id": "xcsh-docs:resources:network_policy_view:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_policy_view:fundamentals", "parent_id": null, "path": "docs/resources/network_policy_view.md", "provider_name": "network_policy_view", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_policy_view/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_policy_view for xcsh_network_policy_view.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_policy_viewCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_policy_view landing."
 ---
+
+# xcsh_network_policy_view landing
+
+<a id="canonical-83b0c3b4c91e37648a731cb08b936fee9da871201453ba08d68bc65bd7e90d13"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_policy_view
+<a id="canonical-2067e9e951c436480f3e384a14b1ed8961a3f60b2171ef9816d2e820d50f8d5d"></a>
+
+## xcsh_network_policy_view — xcsh_network_policy_view / ce5b4c94299d / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Network Policy View resource in F5 Distributed Cloud for network policy view
 specification. configuration.
 
-## Prerequisites
+<a id="canonical-3d319acc29f8a2fccaf6c4e7c6f35f0d8dfc0e8c2a16e673577dcf8e322897d7"></a>
+
+## Prerequisites — xcsh_network_policy_view / ce5b4c94299d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-d95a521a9c5551874142f77f7714249892257111a1b65328be79b4d04fe6bcf0"></a>
+
+## Minimal configuration — xcsh_network_policy_view / ce5b4c94299d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_network_policy_view" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-518a7613089118e5c961ee2759c6441b402a3384e27ef8555f80e242012cf23d"></a>
+
+## Root configuration — xcsh_network_policy_view / ce5b4c94299d / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-6b7dad4e522a95811f1bf17fe3aad9ab8b54139f38eb46cadddd6b12fb464630"></a>
 
-- [Property reference](../guides/resources--network_policy_view--reference.md)
-- [Examples](../guides/resources--network_policy_view--examples.md)
-- [Import](../guides/resources--network_policy_view--import.md)
-- [Timeouts](../guides/resources--network_policy_view--timeouts.md)
+## Next pages — xcsh_network_policy_view / ce5b4c94299d / 6
+
+- [Property reference](../guides/resources--network_policy_view--reference--group-001.md#canonical-34f78dc44e87217dc96dab524ff95a89aa9ae54b480db3fdc19f7688a701f3d1)
+- [Examples](../guides/resources--network_policy_view--examples--group-001.md#canonical-15d10fdee37558d71631ffa0a9e48b246c466ebfd04d568290f1d59bec87a79f)
+- [Import](../guides/resources--network_policy_view--lifecycle--group-001.md#canonical-3f9ddcf404b2e6ab64ca1a996e42047688e42eee4229f3d3a769d1f67ae44e0b)
+- [Timeouts](../guides/resources--network_policy_view--lifecycle--group-001.md#canonical-547ea016533a54df735aad194220a1bfc6c65d4a302a8d6fb4360da1c482153c)

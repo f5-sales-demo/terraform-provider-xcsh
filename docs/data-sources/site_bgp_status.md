@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_site_bgp_status"
+page_title: "xcsh_site_bgp_status landing"
 subcategory: ""
-description: "xcsh_site_bgp_status for xcsh_site_bgp_status."
-xcsh_docs: {"aliases": [], "body_bytes": 2182, "body_sha256": "sha256:c264ba3f959fa73ca440806fe284645f3abfccde9eabd7779a1dca3a7d5fc62e", "canonical_id": "xcsh-docs:data-sources:site_bgp_status:fundamentals", "child_ids": ["xcsh-docs:data-sources:site_bgp_status:reference", "xcsh-docs:data-sources:site_bgp_status:examples"], "collection_id": "xcsh-docs:data-sources:site_bgp_status:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:site_bgp_status:fundamentals", "parent_id": null, "path": "docs/data-sources/site_bgp_status.md", "provider_name": "site_bgp_status", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_bgp_status/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site_bgp_status for xcsh_site_bgp_status.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_site_bgp_status landing."
 ---
+
+# xcsh_site_bgp_status landing
+
+<a id="canonical-e2748d411a0ce0890ae363c44505ececdca5700e631692a6a67cd6b16ab5132d"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_site_bgp_status
+<a id="canonical-5f065403f584840574ab569b8bc51b084f18ac84c8e7ddefb46677b634f6c0bb"></a>
+
+## xcsh_site_bgp_status — xcsh_site_bgp_status / 604ca8b5d5d8 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Polls authoritative F5 XC BGP and route observations until they agree with MAC-bound AWS
 expectations.
 
-## Prerequisites
+<a id="canonical-a4cacbe896318f25313b79c2a33a2c39ed3cd47cb605bad78a39b2709d5fc867"></a>
+
+## Prerequisites — xcsh_site_bgp_status / 604ca8b5d5d8 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0ed140d384a8cd8c6f7bcfdd5b5249d26f3e6f15a2bf62f7abaf566f59fdd0ec"></a>
+
+## Minimal configuration — xcsh_site_bgp_status / 604ca8b5d5d8 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -78,11 +87,15 @@ output "bgp_peers" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1f7c5d9cdf8e3bce195aad7be39f83b19583af752990d15e11238b7fd5087d01"></a>
+
+## Root configuration — xcsh_site_bgp_status / 604ca8b5d5d8 / 5
 
 Required root properties: `expected_exported_routes`, `expected_peers`, `namespace`, `site`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-7def36d6523bb2fec5af4e6b93e80cb7ab69d06bf12f5e0e05b267e199f977d5"></a>
 
-- [Property reference](../guides/data-sources--site_bgp_status--reference.md)
-- [Examples](../guides/data-sources--site_bgp_status--examples.md)
+## Next pages — xcsh_site_bgp_status / 604ca8b5d5d8 / 6
+
+- [Property reference](../guides/data-sources--site_bgp_status--reference--group-001.md#canonical-b3d7a08e010462cf8b9e36f2952a57bc79b1f43a2d6740a60d4ab1649bb5cb27)
+- [Examples](../guides/data-sources--site_bgp_status--examples--group-001.md#canonical-2285a7d280f3f9856f43ceebf42040f58085458e3c003570355cba1aa26f96d6)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_filter_set"
+page_title: "xcsh_filter_set landing"
 subcategory: ""
-description: "xcsh_filter_set for xcsh_filter_set."
-xcsh_docs: {"aliases": [], "body_bytes": 1316, "body_sha256": "sha256:3b37bdd236a2898794e1b208676e16ad6b3f0353f6600a9a45a9d0f1f7578f49", "canonical_id": "xcsh-docs:resources:filter_set:fundamentals", "child_ids": ["xcsh-docs:resources:filter_set:reference", "xcsh-docs:resources:filter_set:examples", "xcsh-docs:resources:filter_set:import", "xcsh-docs:resources:filter_set:timeouts"], "collection_id": "xcsh-docs:resources:filter_set:collection", "completeness": "complete", "id": "xcsh-docs:resources:filter_set:fundamentals", "parent_id": null, "path": "docs/resources/filter_set.md", "provider_name": "filter_set", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/filter_set/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_filter_set for xcsh_filter_set.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["filter_setCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_filter_set landing."
 ---
+
+# xcsh_filter_set landing
+
+<a id="canonical-cfea2dffc9695306cb9a6f1b3049551ef60d6c696a1c33096488292434537441"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_filter_set
+<a id="canonical-4bb6666c72e153d882f8293a5620500cbceee00441513089e78b31e79052a864"></a>
+
+## xcsh_filter_set — xcsh_filter_set / 642c6f50c63e / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages specification in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-6c043a08ce7df925a907a50346509defd4ac91eb112663e42ae72dc7980c9f8d"></a>
+
+## Prerequisites — xcsh_filter_set / 642c6f50c63e / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-ab431ccb3c9cb5337b35d8496ad14da51d4c22b5acab1d6e87fda2d42ea477ea"></a>
+
+## Minimal configuration — xcsh_filter_set / 642c6f50c63e / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,13 +58,17 @@ resource "xcsh_filter_set" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-db0b1ef230a3d3c82fae78f6d453b50ccea49871dd84e7114bc4790c218d1507"></a>
+
+## Root configuration — xcsh_filter_set / 642c6f50c63e / 5
 
 Required root properties: `context_key`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-6798ab120dac98892d0856125aaad9417004907d18863e8e1ed250bdf4300ae1"></a>
 
-- [Property reference](../guides/resources--filter_set--reference.md)
-- [Examples](../guides/resources--filter_set--examples.md)
-- [Import](../guides/resources--filter_set--import.md)
-- [Timeouts](../guides/resources--filter_set--timeouts.md)
+## Next pages — xcsh_filter_set / 642c6f50c63e / 6
+
+- [Property reference](../guides/resources--filter_set--reference--group-001.md#canonical-4b8193f66a3093ca8d9043cb60cc840d73ecc30ec51abc6a7ec8b5264dc822b5)
+- [Examples](../guides/resources--filter_set--examples--group-001.md#canonical-ea95c2ddcc082e916032a6c060bd5936a855ab6e5ac9587a6bc454afd9d21723)
+- [Import](../guides/resources--filter_set--lifecycle--group-001.md#canonical-c41648d28d83546d80aaaee6f2946680c25f2b8c6b916809afd29e8a710238b1)
+- [Timeouts](../guides/resources--filter_set--lifecycle--group-001.md#canonical-30b65814688cf4dbcecb8f534bd494f2c4994055f41667b310a1251fc3c3cf98)

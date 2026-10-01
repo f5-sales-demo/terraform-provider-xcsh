@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_interface"
+page_title: "xcsh_network_interface landing"
 subcategory: ""
-description: "xcsh_network_interface for xcsh_network_interface."
-xcsh_docs: {"aliases": [], "body_bytes": 1561, "body_sha256": "sha256:7f27ff8507445b60ae7faff624320ad796df6622f1abd50d5c910422fad04ed7", "canonical_id": "xcsh-docs:resources:network_interface:fundamentals", "child_ids": ["xcsh-docs:resources:network_interface:reference", "xcsh-docs:resources:network_interface:examples", "xcsh-docs:resources:network_interface:import", "xcsh-docs:resources:network_interface:timeouts"], "collection_id": "xcsh-docs:resources:network_interface:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_interface:fundamentals", "parent_id": null, "path": "docs/resources/network_interface.md", "provider_name": "network_interface", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_interface for xcsh_network_interface.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_interfaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_interface landing."
 ---
+
+# xcsh_network_interface landing
+
+<a id="canonical-f30a0bb8fdbdd02d9556b2c7b7d0a922bfacce9fb54c00286944679f8a83fef4"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_interface
+<a id="canonical-3baa3a3950571813011e0ef24c2fc8ca113815b27d90739b18afb28a2506b5ee"></a>
+
+## xcsh_network_interface — xcsh_network_interface / 74badff7b6e0 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Network Interface resource in F5 Distributed Cloud for network interface represents
 configuration of a network device. it is created by users in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-8b64da3651916f9472fcaa70c3bb37643283c6dbd8f2e57972b308227b463c15"></a>
+
+## Prerequisites — xcsh_network_interface / 74badff7b6e0 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-28f80eb5ef468f4cf26cc9aab5acde3cc615911af39697326ec01782f1eae832"></a>
+
+## Minimal configuration — xcsh_network_interface / 74badff7b6e0 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_network_interface" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-bcd50ffefc1543997eab8339c980f618ed3443ae332a1a8bb038bcf84c7bf7b8"></a>
+
+## Root configuration — xcsh_network_interface / 74badff7b6e0 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-f54f4ab54279af3147df2a029acf6530cb8d630500c04b41e74e83c853d4c4b5"></a>
 
-- [Property reference](../guides/resources--network_interface--reference.md)
-- [Examples](../guides/resources--network_interface--examples.md)
-- [Import](../guides/resources--network_interface--import.md)
-- [Timeouts](../guides/resources--network_interface--timeouts.md)
+## Next pages — xcsh_network_interface / 74badff7b6e0 / 6
+
+- [Property reference](../guides/resources--network_interface--reference--group-001.md#canonical-ba29b31fc0d930ff348a867c346cc9c8cafc4e5deace11f22012b29e80d5bc66)
+- [Examples](../guides/resources--network_interface--examples--group-001.md#canonical-deb23a5ecdf3dfc02a1fdea55794fc92d32fd586e58dcc71f144a1a5b39f9e4d)
+- [Import](../guides/resources--network_interface--lifecycle--group-001.md#canonical-e2eb5f8b10aed3dca706cfd1b2ab76093bbe301df458f74109d4ca5955ce5c56)
+- [Timeouts](../guides/resources--network_interface--lifecycle--group-001.md#canonical-8fc8628676ba55ab49d94c5e34584deccb7647b2f569c80027a924df38666369)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_defense_app_infrastructure"
+page_title: "xcsh_bot_defense_app_infrastructure landing"
 subcategory: ""
-description: "xcsh_bot_defense_app_infrastructure for xcsh_bot_defense_app_infrastructure."
-xcsh_docs: {"aliases": [], "body_bytes": 1422, "body_sha256": "sha256:db4638a78b12ee72796b0908b536a0511f7af48545986e05ae2cce9e633be68c", "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_defense_app_infrastructure:reference", "xcsh-docs:data-sources:bot_defense_app_infrastructure:examples"], "collection_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_defense_app_infrastructure.md", "provider_name": "bot_defense_app_infrastructure", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_defense_app_infrastructure for xcsh_bot_defense_app_infrastructure.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bot_defense_app_infrastructureCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_defense_app_infrastructure landing."
 ---
+
+# xcsh_bot_defense_app_infrastructure landing
+
+<a id="canonical-f36ab4b52244feda08ea56f1901fc5744d9285c8e182df39ed067d65a8637425"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_defense_app_infrastructure
+<a id="canonical-c15e3997c8cd6a3187fdb55ad53269a25ab337ecb7fe833fc6cdfb97f44772b7"></a>
+
+## xcsh_bot_defense_app_infrastructure — xcsh_bot_defense_app_infrastructure / 750608e3fc94 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Bot Defense App Infrastructure in a given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-76b2a2e34fc49c482f309a5fce156d380d8231100658b472ecd2d3bf58b18c3a"></a>
+
+## Prerequisites — xcsh_bot_defense_app_infrastructure / 750608e3fc94 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-31c4f94e169b25f06f6c6dfc0dce5ad6364c82cd24d77755008e2ee4c72733bd"></a>
+
+## Minimal configuration — xcsh_bot_defense_app_infrastructure / 750608e3fc94 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "bot_defense_app_infrastructure_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-9e4937f0e0a6b46e1082eeaf9e76037d532b9e1baf19231b08cbc594ecf94e9c"></a>
+
+## Root configuration — xcsh_bot_defense_app_infrastructure / 750608e3fc94 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3b8c6a34b502d0215cb6c94243936635e5e3bea9757c109c6bdb461bb528f7da"></a>
 
-- [Property reference](../guides/data-sources--bot_defense_app_infrastructure--reference.md)
-- [Examples](../guides/data-sources--bot_defense_app_infrastructure--examples.md)
+## Next pages — xcsh_bot_defense_app_infrastructure / 750608e3fc94 / 6
+
+- [Property reference](../guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md#canonical-9ed1ea7dcbecfc8b88df10bacaa7a6abc8c9e7cef807d0f3b9cbbe1690640bda)
+- [Examples](../guides/data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-a3e12eaacf713ac0a9bf6f28de4c2b9cf5ec26b752ac8b94c2708f8dd92817dc)

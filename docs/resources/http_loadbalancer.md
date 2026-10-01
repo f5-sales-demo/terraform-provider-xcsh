@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_http_loadbalancer"
+page_title: "xcsh_http_loadbalancer landing"
 subcategory: "Load Balancing"
-description: "xcsh_http_loadbalancer for xcsh_http_loadbalancer."
-xcsh_docs: {"aliases": [], "body_bytes": 2010, "body_sha256": "sha256:85e46dd8a18c27a4e88eb6b1c40976edbd0ed4c4077112d8e059b23f9b017dd7", "canonical_id": "xcsh-docs:resources:http_loadbalancer:fundamentals", "child_ids": ["xcsh-docs:resources:http_loadbalancer:reference", "xcsh-docs:resources:http_loadbalancer:examples", "xcsh-docs:resources:http_loadbalancer:import", "xcsh-docs:resources:http_loadbalancer:timeouts"], "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:fundamentals", "parent_id": null, "path": "docs/resources/http_loadbalancer.md", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_http_loadbalancer for xcsh_http_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_http_loadbalancer landing."
 ---
+
+# xcsh_http_loadbalancer landing
+
+<a id="canonical-7b45dee760877c1f305714c7dd9c6975c40a205aed3ea2fb9502895dc70ebd63"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_http_loadbalancer
+<a id="canonical-2bfb1b3ba464f0362add41bac67f0905d3f962a2948ff142bf3af2dfd4a97edd"></a>
+
+## xcsh_http_loadbalancer — xcsh_http_loadbalancer / c41a11eb2d60 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic
 with routing and security controls.
 
-## Prerequisites
+<a id="canonical-04ac39c72b5e71824e617dae9d7a7bc1772dba1bab01e2d074e909ec82c74e70"></a>
+
+## Prerequisites — xcsh_http_loadbalancer / c41a11eb2d60 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -38,7 +45,9 @@ Optional integrations: `healthcheck`, `app_firewall`, `certificate`, `rate_limit
 
 - rate_limiter: Protect against traffic spikes
 
-## Minimal configuration
+<a id="canonical-f81ed5e59e0777c9b2b9232f76cb8e89ddb55aa9854a64abec5c6e14fd898987"></a>
+
+## Minimal configuration — xcsh_http_loadbalancer / c41a11eb2d60 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -66,13 +75,17 @@ resource "xcsh_http_loadbalancer" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-c7c61aac6bdb233d718ecd25038db9b553087246f2d0429d5100e3c8f35e975b"></a>
+
+## Root configuration — xcsh_http_loadbalancer / c41a11eb2d60 / 5
 
 Required root properties: `domains`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-9c745e41d2320a56c73685605e2802da930aaf9db3bb5aafebeaf5d7d6a448d4"></a>
 
-- [Property reference](../guides/resources--http_loadbalancer--reference.md)
-- [Examples](../guides/resources--http_loadbalancer--examples.md)
-- [Import](../guides/resources--http_loadbalancer--import.md)
-- [Timeouts](../guides/resources--http_loadbalancer--timeouts.md)
+## Next pages — xcsh_http_loadbalancer / c41a11eb2d60 / 6
+
+- [Property reference](../guides/resources--http_loadbalancer--reference--group-001.md#canonical-94b4d5b45c140f447678a0a06e4e71718643f40b80e3f8675c3128b7dac4eb2f)
+- [Examples](../guides/resources--http_loadbalancer--examples--group-001.md#canonical-89302db2faa0fec01bb0e0bcfbe8dc56ed072f96ee33b11650c93e01dec7da23)
+- [Import](../guides/resources--http_loadbalancer--lifecycle--group-001.md#canonical-404662cb13153781f14bcb346c112626eb5892ffa0d5fc154d46443ea5f41135)
+- [Timeouts](../guides/resources--http_loadbalancer--lifecycle--group-001.md#canonical-ae66b6ed8a65cc19135c6b474b0500b1990f74cc503e089c95b147e4c8213b47)

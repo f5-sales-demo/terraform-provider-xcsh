@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_regional_edges"
+page_title: "xcsh_network_regional_edges landing"
 subcategory: ""
-description: "xcsh_network_regional_edges for xcsh_network_regional_edges."
-xcsh_docs: {"aliases": [], "body_bytes": 1589, "body_sha256": "sha256:2fef359e57b695af59e1a05b67c18e82cee98f40cc72dbbfad7da244818ba165", "canonical_id": "xcsh-docs:data-sources:network_regional_edges:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_regional_edges:reference", "xcsh-docs:data-sources:network_regional_edges:examples"], "collection_id": "xcsh-docs:data-sources:network_regional_edges:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_regional_edges:fundamentals", "parent_id": null, "path": "docs/data-sources/network_regional_edges.md", "provider_name": "network_regional_edges", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_regional_edges/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_regional_edges for xcsh_network_regional_edges.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_regional_edges landing."
 ---
+
+# xcsh_network_regional_edges landing
+
+<a id="canonical-4b07492253f8f10e61287f15adccadbfc866bfc8be3823bb27bb4e02b5d71089"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_regional_edges
+<a id="canonical-c1edf1ee0faebe63598a2a904bf75c94a4fe3770d3dd323548e571e1d2de1ae1"></a>
+
+## xcsh_network_regional_edges — xcsh_network_regional_edges / cb3f6efa55b0 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Regional Edge IPv4 networks for origin ingress allowlists. Values are bundled fr
 OpenAPI release; this data source performs no network request. Ports and traffic direction are not
 encoded in the manifest.
 
-## Prerequisites
+<a id="canonical-2470c00d83d24b1374ce8256fda2593b079cf1d6bb4235a87fda103109f0efa5"></a>
+
+## Prerequisites — xcsh_network_regional_edges / cb3f6efa55b0 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-e33a8f7968d3c58ca269d1f642aaecd85bb1f0654d8eb3167ccde063b0713f47"></a>
+
+## Minimal configuration — xcsh_network_regional_edges / cb3f6efa55b0 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -55,11 +64,15 @@ output "https_origin_ingress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a495768c1432d374005b527bb11e03b49d1d85b06af962d3e310054e8c0b1eb2"></a>
+
+## Root configuration — xcsh_network_regional_edges / cb3f6efa55b0 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-a0575e19c19107bde05fa6626bdc24b8ee2b6ca380be24b5168124b3155f6be2"></a>
 
-- [Property reference](../guides/data-sources--network_regional_edges--reference.md)
-- [Examples](../guides/data-sources--network_regional_edges--examples.md)
+## Next pages — xcsh_network_regional_edges / cb3f6efa55b0 / 6
+
+- [Property reference](../guides/data-sources--network_regional_edges--reference--group-001.md#canonical-e079a6e575809cb77caea1bfb1f018d98eced62e8e5590c688ca25690a4e079a)
+- [Examples](../guides/data-sources--network_regional_edges--examples--group-001.md#canonical-69cbc256fdb601aea7a5046bc5c1d7e5f6bd51f16032486f663d435c93baf01e)

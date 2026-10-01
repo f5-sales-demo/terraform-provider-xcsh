@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_k8s_cluster_role"
+page_title: "xcsh_k8s_cluster_role landing"
 subcategory: "Container"
-description: "xcsh_k8s_cluster_role for xcsh_k8s_cluster_role."
-xcsh_docs: {"aliases": [], "body_bytes": 1350, "body_sha256": "sha256:bd3d6546208cd8830c8a020c43855ea14716cc3239c65cbfb182d2f132901af3", "canonical_id": "xcsh-docs:data-sources:k8s_cluster_role:fundamentals", "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role:reference", "xcsh-docs:data-sources:k8s_cluster_role:examples"], "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:k8s_cluster_role:fundamentals", "parent_id": null, "path": "docs/data-sources/k8s_cluster_role.md", "provider_name": "k8s_cluster_role", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_k8s_cluster_role for xcsh_k8s_cluster_role.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["k8s_cluster_roleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_k8s_cluster_role landing."
 ---
+
+# xcsh_k8s_cluster_role landing
+
+<a id="canonical-ae676024de71b8439d6e1da589b80d914e1b787ad3c0876d229fcc1a32cbbeda"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_k8s_cluster_role
+<a id="canonical-fe31cd270a3a1efacb3a25ca49fe1c277a94d543eefe972c6a478f5e146fe38d"></a>
+
+## xcsh_k8s_cluster_role — xcsh_k8s_cluster_role / bec782ffc216 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages k8s\_cluster\_role will create the object in the storage backend for namespace
 metadata.namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-ec23eef6487ac4de9c53ce3fac793686d9680d5a8e16d1032dd89e35c90e94ef"></a>
+
+## Prerequisites — xcsh_k8s_cluster_role / bec782ffc216 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-## Minimal configuration
+<a id="canonical-bf14b927d3a6dc45c29c14cd0606b2d601a3947c2f09993165ea7dbdc8a2546c"></a>
+
+## Minimal configuration — xcsh_k8s_cluster_role / bec782ffc216 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "k8s_cluster_role_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-6764c27be5eec382072ad7cfe72643d1017275dac2b38cb551fc1e9a385eca4e"></a>
+
+## Root configuration — xcsh_k8s_cluster_role / bec782ffc216 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-9cdee0f42aea58e77c95cb43a686cd0fc7db0134962ab5a8e33943e80ec5f4ce"></a>
 
-- [Property reference](../guides/data-sources--k8s_cluster_role--reference.md)
-- [Examples](../guides/data-sources--k8s_cluster_role--examples.md)
+## Next pages — xcsh_k8s_cluster_role / bec782ffc216 / 6
+
+- [Property reference](../guides/data-sources--k8s_cluster_role--reference--group-001.md#canonical-81d3736ec3cd7378005627ab8c00194ddb3f8ab7f6499d71f90ba016ef6a2050)
+- [Examples](../guides/data-sources--k8s_cluster_role--examples--group-001.md#canonical-8882b7df6715e590e1c8e903bdfa86640fea7361d10c232053079c13b6107864)

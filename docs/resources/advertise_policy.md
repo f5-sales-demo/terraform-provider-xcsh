@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_advertise_policy"
+page_title: "xcsh_advertise_policy landing"
 subcategory: ""
-description: "xcsh_advertise_policy for xcsh_advertise_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1635, "body_sha256": "sha256:398f08ff412884d8eb19577af9ff2615ab18a3f7488d31068fc902df475f02b5", "canonical_id": "xcsh-docs:resources:advertise_policy:fundamentals", "child_ids": ["xcsh-docs:resources:advertise_policy:reference", "xcsh-docs:resources:advertise_policy:examples", "xcsh-docs:resources:advertise_policy:import", "xcsh-docs:resources:advertise_policy:timeouts"], "collection_id": "xcsh-docs:resources:advertise_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:advertise_policy:fundamentals", "parent_id": null, "path": "docs/resources/advertise_policy.md", "provider_name": "advertise_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_advertise_policy for xcsh_advertise_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["advertise_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_advertise_policy landing."
 ---
+
+# xcsh_advertise_policy landing
+
+<a id="canonical-0102af0bcc407b9bfc63412c9cb22411a5c4b8663a8d3c09ad4e18ded1fe9e00"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_advertise_policy
+<a id="canonical-cece5b434f95bfb64b6cf07e59af76375a6866793d02f9425abc26d261c9916f"></a>
+
+## xcsh_advertise_policy — xcsh_advertise_policy / 565db87b456f / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Manages a Advertise Policy resource in F5 Distributed Cloud for advertise\_polic
 how and where a service represented by a given virtual\_host object is advertised to consumers.
 configuration.
 
-## Prerequisites
+<a id="canonical-4cc3c23b9ea7ba706a592e201df78c80953e9dba98dfd2ca6dfc4a2e25ed3b9f"></a>
+
+## Prerequisites — xcsh_advertise_policy / 565db87b456f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-770973559abac46afef83e0f52ae1ea0380fdc33f4c1cdf1b399a947381ef4e0"></a>
+
+## Minimal configuration — xcsh_advertise_policy / 565db87b456f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,13 +58,17 @@ resource "xcsh_advertise_policy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-673f0876b4f9594da3c7adea3ab37e6e607a95040545d62e0c88bb3133879f3d"></a>
+
+## Root configuration — xcsh_advertise_policy / 565db87b456f / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-6f32fe7de92f7d79b28563dc290caab02489740b420065d9fff987a01eef6daf"></a>
 
-- [Property reference](../guides/resources--advertise_policy--reference.md)
-- [Examples](../guides/resources--advertise_policy--examples.md)
-- [Import](../guides/resources--advertise_policy--import.md)
-- [Timeouts](../guides/resources--advertise_policy--timeouts.md)
+## Next pages — xcsh_advertise_policy / 565db87b456f / 6
+
+- [Property reference](../guides/resources--advertise_policy--reference--group-001.md#canonical-b5cc12d2efbedb6a5c13e201fb876d994e92fd89722dbac50b1058709e65057d)
+- [Examples](../guides/resources--advertise_policy--examples--group-001.md#canonical-6a3b267374c676ae36bae3d8f4ad9b293170f2b9387c9e12c907fa0a47d6f5eb)
+- [Import](../guides/resources--advertise_policy--lifecycle--group-001.md#canonical-e8762eed9866c7d9b818c0b610031bc1cb3884723df97984e623ebd057ca215d)
+- [Timeouts](../guides/resources--advertise_policy--lifecycle--group-001.md#canonical-718e0bc0254f3269f39143ee0424f73f46eaa95940030d8cc8eeefc71002fe68)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_healthcheck"
+page_title: "xcsh_healthcheck landing"
 subcategory: "Monitoring"
-description: "xcsh_healthcheck for xcsh_healthcheck."
-xcsh_docs: {"aliases": [], "body_bytes": 1419, "body_sha256": "sha256:514a672098361f709c6988247902d3aa3e5b01aa1b49230ae5bde2cc4ad8df61", "canonical_id": "xcsh-docs:data-sources:healthcheck:fundamentals", "child_ids": ["xcsh-docs:data-sources:healthcheck:reference", "xcsh-docs:data-sources:healthcheck:examples"], "collection_id": "xcsh-docs:data-sources:healthcheck:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:healthcheck:fundamentals", "parent_id": null, "path": "docs/data-sources/healthcheck.md", "provider_name": "healthcheck", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_healthcheck for xcsh_healthcheck.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["healthcheckCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_healthcheck landing."
 ---
+
+# xcsh_healthcheck landing
+
+<a id="canonical-725ac46fa2736f6e2d5f694e53ef2171f3c08fc8b2d65790732141dbfc7b2da6"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_healthcheck
+<a id="canonical-e640219ee945ea094f7be738b46473ec7d03033ff6e0ffd67effcb2ead9c658e"></a>
+
+## xcsh_healthcheck — xcsh_healthcheck / 68c827d3f27d / 2
 
 Breadcrumbs:
 
@@ -19,13 +24,17 @@ Manages a Healthcheck resource in F5 Distributed Cloud for healthcheck object de
 determine if the given endpoint is healthy. single healthcheck object can be referred to by one or
 many cluster objects. configuration.
 
-## Prerequisites
+<a id="canonical-77d761f4f55daf090dce15e3909c4b374f47656c8879bd721a1af1ac1b1f2a5c"></a>
+
+## Prerequisites — xcsh_healthcheck / 68c827d3f27d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-406ba1f1a31891b33aed0848ca7fe4892f5c38fadb3479c644d0cc1844d8322c"></a>
+
+## Minimal configuration — xcsh_healthcheck / 68c827d3f27d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,11 +63,15 @@ output "healthcheck_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2dedae94a6457a5d63de83f24d80cd90eeefc2489574bd7ea9425d6a1fe353dc"></a>
+
+## Root configuration — xcsh_healthcheck / 68c827d3f27d / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3ccbcf96872e76d9d2f28ce725ab73e562c6fb4692ace4e6ef217d96d003bd0e"></a>
 
-- [Property reference](../guides/data-sources--healthcheck--reference.md)
-- [Examples](../guides/data-sources--healthcheck--examples.md)
+## Next pages — xcsh_healthcheck / 68c827d3f27d / 6
+
+- [Property reference](../guides/data-sources--healthcheck--reference--group-001.md#canonical-af83443e8f0c2ca01493595db5613ed42ea9fa1d54f93db769449e4758dd43b6)
+- [Examples](../guides/data-sources--healthcheck--examples--group-001.md#canonical-f0b76284dbc9978e50c137bedc62f4d54a39d90fbf353d0ae54dede3e1b39214)

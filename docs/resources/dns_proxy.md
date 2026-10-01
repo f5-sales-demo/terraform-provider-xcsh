@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_proxy"
+page_title: "xcsh_dns_proxy landing"
 subcategory: ""
-description: "xcsh_dns_proxy for xcsh_dns_proxy."
-xcsh_docs: {"aliases": [], "body_bytes": 1299, "body_sha256": "sha256:e017b230a4e6757e40683b4986cf01c401c4d4707bdfcc5e44ef43625e103726", "canonical_id": "xcsh-docs:resources:dns_proxy:fundamentals", "child_ids": ["xcsh-docs:resources:dns_proxy:reference", "xcsh-docs:resources:dns_proxy:examples", "xcsh-docs:resources:dns_proxy:import", "xcsh-docs:resources:dns_proxy:timeouts"], "collection_id": "xcsh-docs:resources:dns_proxy:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_proxy:fundamentals", "parent_id": null, "path": "docs/resources/dns_proxy.md", "provider_name": "dns_proxy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_proxy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_proxy for xcsh_dns_proxy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_proxyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_proxy landing."
 ---
+
+# xcsh_dns_proxy landing
+
+<a id="canonical-6f40f0710353e90bdbf38f43f5d0424c972f0377902408914de7f101e829d41a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_proxy
+<a id="canonical-247a321d150d3a979515cb730e595462537e0322e239ce7d7022774eb39ba0cb"></a>
+
+## xcsh_dns_proxy — xcsh_dns_proxy / e1ca4a125a1f / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages DNS Proxy in a given namespace. If one already exists it will give an error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-d652f05696f042990c9c1396c30fc12c9957eb9eb053e2dc7c3564ac29e4e0e2"></a>
+
+## Prerequisites — xcsh_dns_proxy / e1ca4a125a1f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-b950f8b3f1745465ee54109bb0a45483530a6c032f83361fa66db9524fd195f2"></a>
+
+## Minimal configuration — xcsh_dns_proxy / e1ca4a125a1f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_dns_proxy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-fd2fbce358591138ed00af8164b94861a42273801506abddcfa728bceaf805d3"></a>
+
+## Root configuration — xcsh_dns_proxy / e1ca4a125a1f / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-f2cd1b441d82b76b5e5bbaf407ca6fbe9af0ae4e53fe0d386b9723d82b613c94"></a>
 
-- [Property reference](../guides/resources--dns_proxy--reference.md)
-- [Examples](../guides/resources--dns_proxy--examples.md)
-- [Import](../guides/resources--dns_proxy--import.md)
-- [Timeouts](../guides/resources--dns_proxy--timeouts.md)
+## Next pages — xcsh_dns_proxy / e1ca4a125a1f / 6
+
+- [Property reference](../guides/resources--dns_proxy--reference--group-001.md#canonical-f39ea3767ecfecd09544d5c662c3766d1f5bdf0102a3f65e7d6021feefd85da4)
+- [Examples](../guides/resources--dns_proxy--examples--group-001.md#canonical-9fa90dae695ab8998220060b8a3ee60cd4dfcfd96133704fb891d295262d40e5)
+- [Import](../guides/resources--dns_proxy--lifecycle--group-001.md#canonical-f3bfd76d635a929d47f389f9c3f5813e9e54c2e1012f9cb23782add538ad5a9d)
+- [Timeouts](../guides/resources--dns_proxy--lifecycle--group-001.md#canonical-4706b3992f5d0f4ff8e2cf6d938d28bb6e371b0a0aa517f31c086296d6e5a520)

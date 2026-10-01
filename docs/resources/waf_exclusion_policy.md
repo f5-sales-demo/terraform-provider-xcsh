@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_waf_exclusion_policy"
+page_title: "xcsh_waf_exclusion_policy landing"
 subcategory: ""
-description: "xcsh_waf_exclusion_policy for xcsh_waf_exclusion_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1380, "body_sha256": "sha256:b9cee1291c85a4556fd530e3fedf67c203e194a5b6c150ce5d7d338f5ece981e", "canonical_id": "xcsh-docs:resources:waf_exclusion_policy:fundamentals", "child_ids": ["xcsh-docs:resources:waf_exclusion_policy:reference", "xcsh-docs:resources:waf_exclusion_policy:examples", "xcsh-docs:resources:waf_exclusion_policy:import", "xcsh-docs:resources:waf_exclusion_policy:timeouts"], "collection_id": "xcsh-docs:resources:waf_exclusion_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:waf_exclusion_policy:fundamentals", "parent_id": null, "path": "docs/resources/waf_exclusion_policy.md", "provider_name": "waf_exclusion_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/waf_exclusion_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_waf_exclusion_policy for xcsh_waf_exclusion_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["waf_exclusion_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_waf_exclusion_policy landing."
 ---
+
+# xcsh_waf_exclusion_policy landing
+
+<a id="canonical-fc317230bf1605ae9396126bfb46e87a3f2d201f0b9627104a70a3a0678f8f89"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_waf_exclusion_policy
+<a id="canonical-8e0cc09fb25e84e138ff1da37c385a8690bd1959dabf8bd72ecf6e1422ae827e"></a>
+
+## xcsh_waf_exclusion_policy — xcsh_waf_exclusion_policy / 793b3b6c05bc / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages WAF exclusion policy in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-fdc8d7051ad5e91fca6082ffae3450d85f06a42c2e2e62cb7d916c2a50c6831f"></a>
+
+## Prerequisites — xcsh_waf_exclusion_policy / 793b3b6c05bc / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-746ee5e7ffde9e1bcef2ed74a3e8369cba95aff2ec995eefc026dc7c91d256d5"></a>
+
+## Minimal configuration — xcsh_waf_exclusion_policy / 793b3b6c05bc / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_waf_exclusion_policy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-edc5f4013d7a25b88e3397f456d9775d817d5a3e7593f15f19d20477b1680dcd"></a>
+
+## Root configuration — xcsh_waf_exclusion_policy / 793b3b6c05bc / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-86ad8b5a0625494e07bf3d9149471ceafc4b1757fefc9fe18ee90dac6a0522ac"></a>
 
-- [Property reference](../guides/resources--waf_exclusion_policy--reference.md)
-- [Examples](../guides/resources--waf_exclusion_policy--examples.md)
-- [Import](../guides/resources--waf_exclusion_policy--import.md)
-- [Timeouts](../guides/resources--waf_exclusion_policy--timeouts.md)
+## Next pages — xcsh_waf_exclusion_policy / 793b3b6c05bc / 6
+
+- [Property reference](../guides/resources--waf_exclusion_policy--reference--group-001.md#canonical-e11a828832c3e7a264c0045f1ee095803322cdb88fc9c8ad72980de81b5370f5)
+- [Examples](../guides/resources--waf_exclusion_policy--examples--group-001.md#canonical-146b94aad58f86e5ea0e61f3bfb3ddcd8362cbd7dbb53ea2486b5251c5f1dec0)
+- [Import](../guides/resources--waf_exclusion_policy--lifecycle--group-001.md#canonical-c62af02aed4a213863d69863f3d3edbb995bf329358720ac0d007a5fdeca4bba)
+- [Timeouts](../guides/resources--waf_exclusion_policy--lifecycle--group-001.md#canonical-8879781bdcd401ae30f7dd317eb84188c7c3d62be47a334c59569da3844457d4)

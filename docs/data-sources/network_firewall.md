@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_firewall"
+page_title: "xcsh_network_firewall landing"
 subcategory: "Security"
-description: "xcsh_network_firewall for xcsh_network_firewall."
-xcsh_docs: {"aliases": [], "body_bytes": 1358, "body_sha256": "sha256:5dff177fa45517ce410f1ffd2b9e579b4af4800676d8e8875f3237644ff291f5", "canonical_id": "xcsh-docs:data-sources:network_firewall:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_firewall:reference", "xcsh-docs:data-sources:network_firewall:examples"], "collection_id": "xcsh-docs:data-sources:network_firewall:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_firewall:fundamentals", "parent_id": null, "path": "docs/data-sources/network_firewall.md", "provider_name": "network_firewall", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_firewall/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_firewall for xcsh_network_firewall.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_firewallCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_firewall landing."
 ---
+
+# xcsh_network_firewall landing
+
+<a id="canonical-9b62b76cf7e299087b5f4928cbe980ffbde2f654430a3985cbcf52e5b4f58a56"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_firewall
+<a id="canonical-b1448b139ff834b5b7f267ab6ac3821649bb474a8fe3f0e5774116f328e99a3f"></a>
+
+## xcsh_network_firewall — xcsh_network_firewall / 9238a8acb185 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages a Network Firewall resource in F5 Distributed Cloud for network firewall is created by users
 in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-02e43d91f675a3492e7f03f98cc87f675786c4e21fc65954e9be5ec088ea42f0"></a>
+
+## Prerequisites — xcsh_network_firewall / 9238a8acb185 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-57b6d24bd375e22524746b52a17bbe694e02f061c92d7f8982626dc7f764b6e1"></a>
+
+## Minimal configuration — xcsh_network_firewall / 9238a8acb185 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "network_firewall_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a578e5f1dadccbe7755130e8bdae62b980bb1db1d1703717873e44111b893483"></a>
+
+## Root configuration — xcsh_network_firewall / 9238a8acb185 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1ba21f9b254f3dde7038d491278f5da728496c7c9befd1d17e17b43c95a51437"></a>
 
-- [Property reference](../guides/data-sources--network_firewall--reference.md)
-- [Examples](../guides/data-sources--network_firewall--examples.md)
+## Next pages — xcsh_network_firewall / 9238a8acb185 / 6
+
+- [Property reference](../guides/data-sources--network_firewall--reference--group-001.md#canonical-3788cba45b5e266537cf6289bb39431b1592d6bdb952ff53cafe1b93ac1711d3)
+- [Examples](../guides/data-sources--network_firewall--examples--group-001.md#canonical-66ef622e203ba224649c17f5e45fd3d55d87a3a0afb4f33e4afc95a5d0d63fdd)

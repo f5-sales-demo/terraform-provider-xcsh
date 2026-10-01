@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_waf_bot_signatures"
+page_title: "xcsh_waf_bot_signatures landing"
 subcategory: ""
-description: "xcsh_waf_bot_signatures for xcsh_waf_bot_signatures."
-xcsh_docs: {"aliases": [], "body_bytes": 1132, "body_sha256": "sha256:79100802af21c9a688757ef4f79cdffe1b22e1e6da81000eaae5c6973e0a12cb", "canonical_id": "xcsh-docs:data-sources:waf_bot_signatures:fundamentals", "child_ids": ["xcsh-docs:data-sources:waf_bot_signatures:reference", "xcsh-docs:data-sources:waf_bot_signatures:examples"], "collection_id": "xcsh-docs:data-sources:waf_bot_signatures:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:waf_bot_signatures:fundamentals", "parent_id": null, "path": "docs/data-sources/waf_bot_signatures.md", "provider_name": "waf_bot_signatures", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_bot_signatures/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_waf_bot_signatures for xcsh_waf_bot_signatures.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_waf_bot_signatures landing."
 ---
+
+# xcsh_waf_bot_signatures landing
+
+<a id="canonical-6e1fb8fd8cfc0c30cdc9be34f2007f846063ac8689adc77b969c99d5d3cdb624"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_waf_bot_signatures
+<a id="canonical-2aa2bd65f97a11f441bcbf9dc5562ce72c13b745ce4ccb393ae42ba5c55cb757"></a>
+
+## xcsh_waf_bot_signatures — xcsh_waf_bot_signatures / ffeaa193b80a / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Bot detection and defense configuration.
 
-## Prerequisites
+<a id="canonical-604ec14226b451d312406968b15d9ec1c1e25f3fe00faefa1496b66b3effc0a9"></a>
+
+## Prerequisites — xcsh_waf_bot_signatures / ffeaa193b80a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-fd39878392ddc749346e958676ccdc4754c82c675c977b3267cbb0c101660bbb"></a>
+
+## Minimal configuration — xcsh_waf_bot_signatures / ffeaa193b80a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,11 +56,15 @@ output "waf_bot_signatures_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-d886fc961924754ea497ec3e8d5edeb1a9b5924d3e3f3b6fce1981da778573b2"></a>
+
+## Root configuration — xcsh_waf_bot_signatures / ffeaa193b80a / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-8be32c1b83824e61b1ce43d95758ab99649926c1a9d054624114e86c54327a88"></a>
 
-- [Property reference](../guides/data-sources--waf_bot_signatures--reference.md)
-- [Examples](../guides/data-sources--waf_bot_signatures--examples.md)
+## Next pages — xcsh_waf_bot_signatures / ffeaa193b80a / 6
+
+- [Property reference](../guides/data-sources--waf_bot_signatures--reference--group-001.md#canonical-22cb542c67b8286056ff79f058923875f4a5f2939ec4b6862cfc1f2817ad6a73)
+- [Examples](../guides/data-sources--waf_bot_signatures--examples--group-001.md#canonical-29e9a910b02b7e528f124d51a1a50b78c81a18346aab6821cf1c7a6ae53af637)

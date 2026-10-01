@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_gcp_vpc_site"
+page_title: "xcsh_gcp_vpc_site landing"
 subcategory: "Infrastructure"
-description: "xcsh_gcp_vpc_site for xcsh_gcp_vpc_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1706, "body_sha256": "sha256:e45602039f2668912dbd6a591efd894fad677dc2adfd8ee119db457ce5a03881", "canonical_id": "xcsh-docs:resources:gcp_vpc_site:fundamentals", "child_ids": ["xcsh-docs:resources:gcp_vpc_site:reference", "xcsh-docs:resources:gcp_vpc_site:examples", "xcsh-docs:resources:gcp_vpc_site:import", "xcsh-docs:resources:gcp_vpc_site:timeouts"], "collection_id": "xcsh-docs:resources:gcp_vpc_site:collection", "completeness": "complete", "id": "xcsh-docs:resources:gcp_vpc_site:fundamentals", "parent_id": null, "path": "docs/resources/gcp_vpc_site.md", "provider_name": "gcp_vpc_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/gcp_vpc_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_gcp_vpc_site for xcsh_gcp_vpc_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["gcp_vpc_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_gcp_vpc_site landing."
 ---
+
+# xcsh_gcp_vpc_site landing
+
+<a id="canonical-1d0101b699d1c052a2b3d4e3aca83ac1574445d59ddcc26b8c6bf8d1a705905a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_gcp_vpc_site
+<a id="canonical-03891e98ca0bd8763d92c3ac4973f2af014ff5557c1f300139333ce4f87c7c0f"></a>
+
+## xcsh_gcp_vpc_site — xcsh_gcp_vpc_site / 99ff11abf6b8 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a GCP VPC Site resource in F5 Distributed Cloud for deploying F5 sites within Google Cloud
 VPC environments.
 
-## Prerequisites
+<a id="canonical-2dceeb587d2b85ec3dcbeeb3e91b850bbfeb89781449f2aafe9f3c52d42bbd1c"></a>
+
+## Prerequisites — xcsh_gcp_vpc_site / 99ff11abf6b8 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `cloud_credentials`.
 
 - cloud_credentials: GCP authentication for deployment
 
-## Minimal configuration
+<a id="canonical-7643fe4eaf517c1ffd0a8a3560ca77ac205c5084e530c4142c4dcbdec19b5649"></a>
+
+## Minimal configuration — xcsh_gcp_vpc_site / 99ff11abf6b8 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,13 +67,17 @@ resource "xcsh_gcp_vpc_site" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-c9874df86c4a774e88d27e5838adf63cf421c7dbbcfb65d9d22ce53bd86ebcef"></a>
+
+## Root configuration — xcsh_gcp_vpc_site / 99ff11abf6b8 / 5
 
 Required root properties: `gcp_region`, `instance_type`, `name`, `namespace`, `ssh_key`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1513b45a638827737173e7014d781ae409823c82554bb4a33ced254553086dd4"></a>
 
-- [Property reference](../guides/resources--gcp_vpc_site--reference.md)
-- [Examples](../guides/resources--gcp_vpc_site--examples.md)
-- [Import](../guides/resources--gcp_vpc_site--import.md)
-- [Timeouts](../guides/resources--gcp_vpc_site--timeouts.md)
+## Next pages — xcsh_gcp_vpc_site / 99ff11abf6b8 / 6
+
+- [Property reference](../guides/resources--gcp_vpc_site--reference--group-001.md#canonical-915674fe4d0d219acffc2e702613b25031f70cf2f9a438ea6c7f28c7eeb7e6e6)
+- [Examples](../guides/resources--gcp_vpc_site--examples--group-001.md#canonical-9c3b5148b7bb2f407b76bff289c776f5e6ffb922e40edef4bd02be0a5ddabf62)
+- [Import](../guides/resources--gcp_vpc_site--lifecycle--group-001.md#canonical-4746106dcbc16a51f3678d4f5c5aab485c8a1e0a35a6baba5c187788d8a60fd6)
+- [Timeouts](../guides/resources--gcp_vpc_site--lifecycle--group-001.md#canonical-6c20293d826cf2d7e58bcf1ae0e1b45e6e06547f76ba125ddd63e4c9a4a2bbaa)

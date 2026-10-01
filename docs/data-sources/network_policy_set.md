@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_policy_set"
+page_title: "xcsh_network_policy_set landing"
 subcategory: ""
-description: "xcsh_network_policy_set for xcsh_network_policy_set."
-xcsh_docs: {"aliases": [], "body_bytes": 1369, "body_sha256": "sha256:7176d3edcd9248dcaef7310fdc1970ed4a5598e1c48fb31852b5c4cb338801d6", "canonical_id": "xcsh-docs:data-sources:network_policy_set:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_policy_set:reference", "xcsh-docs:data-sources:network_policy_set:examples"], "collection_id": "xcsh-docs:data-sources:network_policy_set:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_policy_set:fundamentals", "parent_id": null, "path": "docs/data-sources/network_policy_set.md", "provider_name": "network_policy_set", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_set/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_policy_set for xcsh_network_policy_set.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_policy_set landing."
 ---
+
+# xcsh_network_policy_set landing
+
+<a id="canonical-ca548052a89d7f647ebf8e8303af31a758be406e22a36f86b6a13ff023dd5e7d"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_policy_set
+<a id="canonical-455fb5e1d63b2f1ad9207c59a41dad8a7af9703fca19e643f923e9845d45ef1f"></a>
+
+## xcsh_network_policy_set — xcsh_network_policy_set / bd04e482b5d0 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Network Policy Set resource in F5 Distributed Cloud for get network policy set in a given
 namespace. configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-82321fdfa6f29e88cd3e6afd43443ba30805a8f9711d5185cc42a5774a0b3261"></a>
+
+## Prerequisites — xcsh_network_policy_set / bd04e482b5d0 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-17b0defec152c3fa9e8519cfedfc15c36b3878a58cab5d1510afe4f3efd46dc6"></a>
+
+## Minimal configuration — xcsh_network_policy_set / bd04e482b5d0 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "network_policy_set_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-13463d2180c4ebe426a1c4fade06659bc4d7de995d7eb28f324b1134af37c3dd"></a>
+
+## Root configuration — xcsh_network_policy_set / bd04e482b5d0 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-ce7641c1066ee0b987d6ae31c5ba30bd6f65280a2b16fe5c49bc7439ee77f9ae"></a>
 
-- [Property reference](../guides/data-sources--network_policy_set--reference.md)
-- [Examples](../guides/data-sources--network_policy_set--examples.md)
+## Next pages — xcsh_network_policy_set / bd04e482b5d0 / 6
+
+- [Property reference](../guides/data-sources--network_policy_set--reference--group-001.md#canonical-e2fecfde17f2b3ba8ddee21eece6bfcd1b43c5e09d0ec7715a8cabd0437a8cca)
+- [Examples](../guides/data-sources--network_policy_set--examples--group-001.md#canonical-6e5d96c0f0c95a4764658184ce943e95d603c429be3d17a52e3aa762848638d6)

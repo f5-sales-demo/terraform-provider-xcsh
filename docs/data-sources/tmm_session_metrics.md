@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_tmm_session_metrics"
+page_title: "xcsh_tmm_session_metrics landing"
 subcategory: ""
-description: "xcsh_tmm_session_metrics for xcsh_tmm_session_metrics."
-xcsh_docs: {"aliases": [], "body_bytes": 1165, "body_sha256": "sha256:51c1fe005131e8f82fa8f99969f5d5e359c10cbb4a05ed5715f9e21fe68d9259", "canonical_id": "xcsh-docs:data-sources:tmm_session_metrics:fundamentals", "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:reference", "xcsh-docs:data-sources:tmm_session_metrics:examples"], "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:tmm_session_metrics:fundamentals", "parent_id": null, "path": "docs/data-sources/tmm_session_metrics.md", "provider_name": "tmm_session_metrics", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_tmm_session_metrics for xcsh_tmm_session_metrics.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_tmm_session_metrics landing."
 ---
+
+# xcsh_tmm_session_metrics landing
+
+<a id="canonical-01b1407ad5dbf5565ef4e414bd5969c62fd5daad0530979b89d7a1917fc74573"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_tmm_session_metrics
+<a id="canonical-371816fb0dad6c580987b571a4a886f8fd45987ee158c66748fc4d1da92ae45e"></a>
+
+## xcsh_tmm_session_metrics — xcsh_tmm_session_metrics / e61e5a9fda8a / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-4b6829f6dcf015c826425e2e1d613e861d7c222d38ab0860492a814e6ec28829"></a>
+
+## Prerequisites — xcsh_tmm_session_metrics / e61e5a9fda8a / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-cd93d95708a087acf0db495ac1d5c6265611e2f95837a137d0a1463ff4c00847"></a>
+
+## Minimal configuration — xcsh_tmm_session_metrics / e61e5a9fda8a / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "tmm_session_metrics_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-7c7a93a410378b51f9999243faccb88e378ac0587389349b6316d137ccaaee6d"></a>
+
+## Root configuration — xcsh_tmm_session_metrics / e61e5a9fda8a / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-a84a044ce6849588e40ef5f607b821db0dd635a1ef8354866d8f1b8b2ae8d950"></a>
 
-- [Property reference](../guides/data-sources--tmm_session_metrics--reference.md)
-- [Examples](../guides/data-sources--tmm_session_metrics--examples.md)
+## Next pages — xcsh_tmm_session_metrics / e61e5a9fda8a / 6
+
+- [Property reference](../guides/data-sources--tmm_session_metrics--reference--group-001.md#canonical-527d0176eb1fcf0d1ab47bc9f224535c861a92810150e2e9a25333b1b6c3fe84)
+- [Examples](../guides/data-sources--tmm_session_metrics--examples--group-001.md#canonical-6f96b71270f7e9fc6cf197d842041cff18ad64580f208f0b4e07724b8ba98add)

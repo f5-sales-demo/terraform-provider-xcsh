@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_lb_pool"
+page_title: "xcsh_dns_lb_pool landing"
 subcategory: ""
-description: "xcsh_dns_lb_pool for xcsh_dns_lb_pool."
-xcsh_docs: {"aliases": [], "body_bytes": 1341, "body_sha256": "sha256:2fff8c304b8d1ffd88cabc1ecf82cc14e064464bb598f626a3827ebbf0ae9c12", "canonical_id": "xcsh-docs:resources:dns_lb_pool:fundamentals", "child_ids": ["xcsh-docs:resources:dns_lb_pool:reference", "xcsh-docs:resources:dns_lb_pool:examples", "xcsh-docs:resources:dns_lb_pool:import", "xcsh-docs:resources:dns_lb_pool:timeouts"], "collection_id": "xcsh-docs:resources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_lb_pool:fundamentals", "parent_id": null, "path": "docs/resources/dns_lb_pool.md", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_lb_pool/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_lb_pool for xcsh_dns_lb_pool.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_lb_pool landing."
 ---
+
+# xcsh_dns_lb_pool landing
+
+<a id="canonical-cbd8be9979f5969a414be1fc8eba160acc05faa80445e78a41e1ae2fed10b6be"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_lb_pool
+<a id="canonical-8440b6f529ed73a6297550d178f111dbe31456a1796f9ef3b72369127a5c3738"></a>
+
+## xcsh_dns_lb_pool — xcsh_dns_lb_pool / 1e975d067e95 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages DNS Load Balancer Pool in a given namespace. If one already exist it will give a error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-016df376c42d6cb2139672b1ad3272408b461b7ccc9a133894a11ba3cc918cd4"></a>
+
+## Prerequisites — xcsh_dns_lb_pool / 1e975d067e95 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-28f9b66fde69bcd3679369cbb63ef4cb425bf17d4c4c1126538d979158e796e7"></a>
+
+## Minimal configuration — xcsh_dns_lb_pool / 1e975d067e95 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_dns_lb_pool" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-e46bdbbf802b04f8038af228c86b358e7f32bbbcdcfd02369be42bf2a852c70a"></a>
+
+## Root configuration — xcsh_dns_lb_pool / 1e975d067e95 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-e04665f6fe9e6a0ce226d4221b4e05aa0e78cf611d5191c2054c4bd819ad17d9"></a>
 
-- [Property reference](../guides/resources--dns_lb_pool--reference.md)
-- [Examples](../guides/resources--dns_lb_pool--examples.md)
-- [Import](../guides/resources--dns_lb_pool--import.md)
-- [Timeouts](../guides/resources--dns_lb_pool--timeouts.md)
+## Next pages — xcsh_dns_lb_pool / 1e975d067e95 / 6
+
+- [Property reference](../guides/resources--dns_lb_pool--reference--group-001.md#canonical-e051d8e0ad04bf7bfa8ec8011b77167797a43be3ca460d8599a26eb6434b48cd)
+- [Examples](../guides/resources--dns_lb_pool--examples--group-001.md#canonical-c9d179e71810ad3d046c54203f75de777a65f82b4e362f3fcb56fc10b8a6fcc0)
+- [Import](../guides/resources--dns_lb_pool--lifecycle--group-001.md#canonical-422811f1450679f47c551f868d9fbc36708b742963fa95d6a12847e7432ac153)
+- [Timeouts](../guides/resources--dns_lb_pool--lifecycle--group-001.md#canonical-a6da6af97ce085b8e29bb920e35e05fd69771cc396acba71fb9a9290ae7648ea)

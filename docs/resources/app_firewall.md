@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_app_firewall"
+page_title: "xcsh_app_firewall landing"
 subcategory: "Security"
-description: "xcsh_app_firewall for xcsh_app_firewall."
-xcsh_docs: {"aliases": [], "body_bytes": 1431, "body_sha256": "sha256:6928f3833d01835ac04ef9f361dd3fb494eadf9d264eeaf86635a21b788c6103", "canonical_id": "xcsh-docs:resources:app_firewall:fundamentals", "child_ids": ["xcsh-docs:resources:app_firewall:reference", "xcsh-docs:resources:app_firewall:examples", "xcsh-docs:resources:app_firewall:import", "xcsh-docs:resources:app_firewall:timeouts"], "collection_id": "xcsh-docs:resources:app_firewall:collection", "completeness": "complete", "id": "xcsh-docs:resources:app_firewall:fundamentals", "parent_id": null, "path": "docs/resources/app_firewall.md", "provider_name": "app_firewall", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_app_firewall for xcsh_app_firewall.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["app_firewallCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_app_firewall landing."
 ---
+
+# xcsh_app_firewall landing
+
+<a id="canonical-7288942c4bc7dd68d1b199c1a6bbd0608786af8275ee244016370cf38b0812cf"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_app_firewall
+<a id="canonical-54d040f7f81dfed68ecf3c291fd6cab1e08ee47ab4a7b784d1ca3af2a1f0a7ab"></a>
+
+## xcsh_app_firewall — xcsh_app_firewall / 781bffeb746e / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages Application Firewall in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0d339c89f92b55f19b1a22711340efa8bee0210453f445753bc298feecd99693"></a>
+
+## Prerequisites — xcsh_app_firewall / 781bffeb746e / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Optional integrations: `service_policy`.
 
 - service_policy: Fine-grained access control rules
 
-## Minimal configuration
+<a id="canonical-ce1fc02c4e9f2bd366369b68630c9da86e97372648726ee8b50213abdbdf2f4b"></a>
+
+## Minimal configuration — xcsh_app_firewall / 781bffeb746e / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,13 +62,17 @@ resource "xcsh_app_firewall" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-17b5c22d5cfe1b88a0eba46ef3adb8cc6a512f2fdba61bea6707cc2a0c62c32f"></a>
+
+## Root configuration — xcsh_app_firewall / 781bffeb746e / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-ebda1f6739ae363d11181a47bbbf97dbdac276a0ef3e617050c575bd4f77328e"></a>
 
-- [Property reference](../guides/resources--app_firewall--reference.md)
-- [Examples](../guides/resources--app_firewall--examples.md)
-- [Import](../guides/resources--app_firewall--import.md)
-- [Timeouts](../guides/resources--app_firewall--timeouts.md)
+## Next pages — xcsh_app_firewall / 781bffeb746e / 6
+
+- [Property reference](../guides/resources--app_firewall--reference--group-001.md#canonical-2b331ce5e4e05438b56d5edc81a6e4ab7d8db8e595334c3f9d5f968a1367202f)
+- [Examples](../guides/resources--app_firewall--examples--group-001.md#canonical-ebf5a99de914d500da858d708980c50528e40c1e229ae5370715e64f911784cd)
+- [Import](../guides/resources--app_firewall--lifecycle--group-001.md#canonical-cf84a5d1e51737470e7986531a2f260d38e7cf945ab9327ca16c05c87b0e5aeb)
+- [Timeouts](../guides/resources--app_firewall--lifecycle--group-001.md#canonical-21eb372f25eb0e32d3e0872602771cd6f670cea80deb05e42753113e30578ee2)

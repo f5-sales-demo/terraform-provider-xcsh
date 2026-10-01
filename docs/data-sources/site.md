@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_site"
+page_title: "xcsh_site landing"
 subcategory: "Infrastructure"
-description: "xcsh_site for xcsh_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1313, "body_sha256": "sha256:793552ff701d21bb0b56f136d82af0f25302d1a9c6b84958ba99c1cb294b843e", "canonical_id": "xcsh-docs:data-sources:site:fundamentals", "child_ids": ["xcsh-docs:data-sources:site:reference", "xcsh-docs:data-sources:site:examples"], "collection_id": "xcsh-docs:data-sources:site:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:site:fundamentals", "parent_id": null, "path": "docs/data-sources/site.md", "provider_name": "site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site for xcsh_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_site landing."
 ---
+
+# xcsh_site landing
+
+<a id="canonical-d365b726b544f9ad32e25b248398f21a1481685e6b24ca8dd76dca1c8253f1d8"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_site
+<a id="canonical-1d96a51b99879e8b656ba87f4d6182243bb503488911696fc5f2d257d85980af"></a>
+
+## xcsh_site — xcsh_site / e3babb2bd3fc / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a Site resource in F5 Distributed Cloud for get of site. configuration. (read-only data
 source)
 
-## Prerequisites
+<a id="canonical-adc0c5ed77cc38fc2d0ca854e76a4fe5852005aba9ef4862d989061e89941668"></a>
+
+## Prerequisites — xcsh_site / e3babb2bd3fc / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Optional integrations: `virtual_site`.
 
 - virtual_site: Logical grouping of physical sites
 
-## Minimal configuration
+<a id="canonical-84e7e9c8b87a56bc6fc1c9669efb7d4fc13d3fc7a5718a0f37d92cbf419f56a8"></a>
+
+## Minimal configuration — xcsh_site / e3babb2bd3fc / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,11 +66,15 @@ output "site_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-75077b3e28272c881acb1012ad7d314a9c9efb0adfe78176edf9bd138a718b8a"></a>
+
+## Root configuration — xcsh_site / e3babb2bd3fc / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-66709d5f6a3d4084599ab9827630827f9a4892b47be226b98c179f1114b99db1"></a>
 
-- [Property reference](../guides/data-sources--site--reference.md)
-- [Examples](../guides/data-sources--site--examples.md)
+## Next pages — xcsh_site / e3babb2bd3fc / 6
+
+- [Property reference](../guides/data-sources--site--reference--group-001.md#canonical-f57c5c2c39acd811d35d80bc061dfe539cb37c8fb15385380fc3d10e36c434f7)
+- [Examples](../guides/data-sources--site--examples--group-001.md#canonical-5dcb0b1f7736d456c2ca9b82b4d4af76c43b08bfe5a9a9e4f3f086ed99c8371a)

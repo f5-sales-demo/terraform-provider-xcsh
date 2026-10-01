@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_forwarding_class"
+page_title: "xcsh_forwarding_class landing"
 subcategory: ""
-description: "xcsh_forwarding_class for xcsh_forwarding_class."
-xcsh_docs: {"aliases": [], "body_bytes": 1493, "body_sha256": "sha256:cccfa67a1d4c9ac6111db3ef76cec6067b4f8d4f0b1bccfa66e3377e655eda38", "canonical_id": "xcsh-docs:resources:forwarding_class:fundamentals", "child_ids": ["xcsh-docs:resources:forwarding_class:reference", "xcsh-docs:resources:forwarding_class:examples", "xcsh-docs:resources:forwarding_class:import", "xcsh-docs:resources:forwarding_class:timeouts"], "collection_id": "xcsh-docs:resources:forwarding_class:collection", "completeness": "complete", "id": "xcsh-docs:resources:forwarding_class:fundamentals", "parent_id": null, "path": "docs/resources/forwarding_class.md", "provider_name": "forwarding_class", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forwarding_class/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_forwarding_class for xcsh_forwarding_class.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["forwarding_classCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_forwarding_class landing."
 ---
+
+# xcsh_forwarding_class landing
+
+<a id="canonical-b532b65420c12831270a1c2064a45d87a3cc38ad0f9908b904eac37340a37726"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_forwarding_class
+<a id="canonical-c76fd4ff6d86cafc395ec7287bd491733395df38a59af0d0303512af82728692"></a>
+
+## xcsh_forwarding_class — xcsh_forwarding_class / 193e0abc93d8 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Forwarding Class resource in F5 Distributed Cloud for forwarding class is created by users
 in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-251a8928a191a8449bba46213face721c9a1bd814e91c3a19d2bac014b5cb631"></a>
+
+## Prerequisites — xcsh_forwarding_class / 193e0abc93d8 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-6822deb96949b2dcb0495406547cd3edbe5bb321739d2c98eb1f558fbf618e7b"></a>
+
+## Minimal configuration — xcsh_forwarding_class / 193e0abc93d8 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_forwarding_class" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-23cdb1859a0d8f127428b03282e94565888c49ac76be1401ee52013b44e3b5c3"></a>
+
+## Root configuration — xcsh_forwarding_class / 193e0abc93d8 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-4119b592a5774924db6937c97122675ef47c2fb96439f550c3f1d9f617783cc9"></a>
 
-- [Property reference](../guides/resources--forwarding_class--reference.md)
-- [Examples](../guides/resources--forwarding_class--examples.md)
-- [Import](../guides/resources--forwarding_class--import.md)
-- [Timeouts](../guides/resources--forwarding_class--timeouts.md)
+## Next pages — xcsh_forwarding_class / 193e0abc93d8 / 6
+
+- [Property reference](../guides/resources--forwarding_class--reference--group-001.md#canonical-1255622e5d747b356be1777947f299b3ca6f69fbfbdab173a2cc2b147d98a70c)
+- [Examples](../guides/resources--forwarding_class--examples--group-001.md#canonical-5955f4f6761160e682dae3b90ae4fc0c70c41e30a8dcd6aaaefdab6915e072ea)
+- [Import](../guides/resources--forwarding_class--lifecycle--group-001.md#canonical-6547cf28bafd92feb766ef14dac5e9fce04cf59db97ec6605fb2a23310534e1d)
+- [Timeouts](../guides/resources--forwarding_class--lifecycle--group-001.md#canonical-f50c8b329fb289cd6b5ee18052e078467715dfe30a13fc6fd67666440e16fabb)

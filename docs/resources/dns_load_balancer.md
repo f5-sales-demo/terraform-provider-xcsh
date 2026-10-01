@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_load_balancer"
+page_title: "xcsh_dns_load_balancer landing"
 subcategory: "DNS"
-description: "xcsh_dns_load_balancer for xcsh_dns_load_balancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1502, "body_sha256": "sha256:bdbe91d964b9c9a29770f2532890db445a871e5adfacd224589cf00652495c52", "canonical_id": "xcsh-docs:resources:dns_load_balancer:fundamentals", "child_ids": ["xcsh-docs:resources:dns_load_balancer:reference", "xcsh-docs:resources:dns_load_balancer:examples", "xcsh-docs:resources:dns_load_balancer:import", "xcsh-docs:resources:dns_load_balancer:timeouts"], "collection_id": "xcsh-docs:resources:dns_load_balancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_load_balancer:fundamentals", "parent_id": null, "path": "docs/resources/dns_load_balancer.md", "provider_name": "dns_load_balancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_load_balancer for xcsh_dns_load_balancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_load_balancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_load_balancer landing."
 ---
+
+# xcsh_dns_load_balancer landing
+
+<a id="canonical-0fcdaf880e64bfc375d92833e3901f826bf9b25df73e37402ea88ec899069baf"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_load_balancer
+<a id="canonical-2853be8249c89f7d71a36c2d9c01baca45ac3055f3bddf554e37e9dd00f9388f"></a>
+
+## xcsh_dns_load_balancer — xcsh_dns_load_balancer / 51f900ef6841 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-7025ddb915451b2d6d05e178cde191c0379681fe55abd0619c14b2e254f60642"></a>
+
+## Prerequisites — xcsh_dns_load_balancer / 51f900ef6841 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `dns_zone`.
 
 - dns_zone: Parent zone for DNS records
 
-## Minimal configuration
+<a id="canonical-16db2a78c88ca51a5d995d4835577898a4fa6ae7ab92ccb07449164217580b09"></a>
+
+## Minimal configuration — xcsh_dns_load_balancer / 51f900ef6841 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,13 +63,17 @@ resource "xcsh_dns_load_balancer" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1c1efa0f752afa359424011d081f080e60607619d4b6b1fa44defcdd98eb792b"></a>
+
+## Root configuration — xcsh_dns_load_balancer / 51f900ef6841 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-861a00a0cb79b10091ec97fda64c9d5c68bae1d2fa255dcf7fe7a08cf2bbf44e"></a>
 
-- [Property reference](../guides/resources--dns_load_balancer--reference.md)
-- [Examples](../guides/resources--dns_load_balancer--examples.md)
-- [Import](../guides/resources--dns_load_balancer--import.md)
-- [Timeouts](../guides/resources--dns_load_balancer--timeouts.md)
+## Next pages — xcsh_dns_load_balancer / 51f900ef6841 / 6
+
+- [Property reference](../guides/resources--dns_load_balancer--reference--group-001.md#canonical-f932e202054f58f09900a6d1e9d671ba4fcf260d4501fc9af69356d4abde8d0d)
+- [Examples](../guides/resources--dns_load_balancer--examples--group-001.md#canonical-83e1b17aff65a9e2ed9945ff957d160b0ea3e62f4fd6603efb706dea85eabc21)
+- [Import](../guides/resources--dns_load_balancer--lifecycle--group-001.md#canonical-1c9044ea645e38eddb76684426b45cc8354e794f52cb6e7d8dc67edb7b738314)
+- [Timeouts](../guides/resources--dns_load_balancer--lifecycle--group-001.md#canonical-8bfb142fed7a9c4bf590de06eeb9feacfe35c24b13ab118dcdc8f758cc06ae63)

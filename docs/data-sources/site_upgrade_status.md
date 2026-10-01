@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_site_upgrade_status"
+page_title: "xcsh_site_upgrade_status landing"
 subcategory: ""
-description: "xcsh_site_upgrade_status for xcsh_site_upgrade_status."
-xcsh_docs: {"aliases": [], "body_bytes": 1534, "body_sha256": "sha256:6046d4c2a400b39f8da2af54f3cd90a7eaba96b15e4987d64a04aab2798c4315", "canonical_id": "xcsh-docs:data-sources:site_upgrade_status:fundamentals", "child_ids": ["xcsh-docs:data-sources:site_upgrade_status:reference", "xcsh-docs:data-sources:site_upgrade_status:examples"], "collection_id": "xcsh-docs:data-sources:site_upgrade_status:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:site_upgrade_status:fundamentals", "parent_id": null, "path": "docs/data-sources/site_upgrade_status.md", "provider_name": "site_upgrade_status", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_upgrade_status/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site_upgrade_status for xcsh_site_upgrade_status.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_site_upgrade_status landing."
 ---
+
+# xcsh_site_upgrade_status landing
+
+<a id="canonical-354cc1e18b1eae705be66b9b6e4a44fd8152a2aa13c69db8d19d96b451ff6445"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_site_upgrade_status
+<a id="canonical-f19be87ef3e1738c5319c498cddfc89e09b5e3ac268138e2541eec00e71087df"></a>
+
+## xcsh_site_upgrade_status — xcsh_site_upgrade_status / 0ec5f9456efa / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Observes SMSv2 site upgrade eligibility and waits for explicitly supplied software and
 operating-system targets to converge.
 
-## Prerequisites
+<a id="canonical-61e59d3767970490baaaebb5284bd57af6faf5adf7143546d5491aeb6bb718ee"></a>
+
+## Prerequisites — xcsh_site_upgrade_status / 0ec5f9456efa / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-62ac7cd9f8b758496cc87f5fdd74f0fb136163e1d0a4f08a39c13f3bc3aa4fb9"></a>
+
+## Minimal configuration — xcsh_site_upgrade_status / 0ec5f9456efa / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,11 +65,15 @@ output "upgrade_converged" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1df8bc63f8456ddf2a1b4f4ddd75b9def7da5d156053703ea513f03c85e6a098"></a>
+
+## Root configuration — xcsh_site_upgrade_status / 0ec5f9456efa / 5
 
 Required root properties: `site`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-a9c8d277f4c6b8caeb9a5bc010651575a1f2332f0890c6d68a14879d4a8b523e"></a>
 
-- [Property reference](../guides/data-sources--site_upgrade_status--reference.md)
-- [Examples](../guides/data-sources--site_upgrade_status--examples.md)
+## Next pages — xcsh_site_upgrade_status / 0ec5f9456efa / 6
+
+- [Property reference](../guides/data-sources--site_upgrade_status--reference--group-001.md#canonical-026e1aecd2a970e096dc9476e95faa6d85dfc2ee51f7bdce20b6431348fda126)
+- [Examples](../guides/data-sources--site_upgrade_status--examples--group-001.md#canonical-eb57b52c1bb429fc2286edc14d3638f601a51538ea5c7af286ba952b82116410)

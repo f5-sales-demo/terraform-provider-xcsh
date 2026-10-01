@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_workload"
+page_title: "xcsh_workload landing"
 subcategory: "Container"
-description: "xcsh_workload for xcsh_workload."
-xcsh_docs: {"aliases": [], "body_bytes": 1327, "body_sha256": "sha256:54dee407b945a4696f51cf2ffec2072c75154bb0bce0cb5ccaa7903df86cfc1b", "canonical_id": "xcsh-docs:data-sources:workload:fundamentals", "child_ids": ["xcsh-docs:data-sources:workload:reference", "xcsh-docs:data-sources:workload:examples"], "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:fundamentals", "parent_id": null, "path": "docs/data-sources/workload.md", "provider_name": "workload", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_workload for xcsh_workload.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_workload landing."
 ---
+
+# xcsh_workload landing
+
+<a id="canonical-425fbc5b40b45aaa9c0e88777ee098683a4abf92d4cd7e8863d28742d41e1d50"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_workload
+<a id="canonical-78efd7b8d765195d54ada22dbeace47c72c40d00728c4572ea75b6bd204695bf"></a>
+
+## xcsh_workload — xcsh_workload / e13edaef8d35 / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages a Workload resource in F5 Distributed Cloud for workload. configuration.
 
-## Prerequisites
+<a id="canonical-8ba98ea690a7f5572068556ed49c3b8f9f8f17e19b3fb8477f45a630e3dab97d"></a>
+
+## Prerequisites — xcsh_workload / e13edaef8d35 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Required dependencies: `virtual_k8s`.
 
 - virtual_k8s: Namespace for workload deployment
 
-## Minimal configuration
+<a id="canonical-c597474ef94018211d0ad9394abd59ab6f4fd3febe3c2cc36061b2899f597233"></a>
+
+## Minimal configuration — xcsh_workload / e13edaef8d35 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,11 +65,15 @@ output "workload_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-69122af91978b3369949100ac4bd554fbcf40c514e5f53c2fdfc65e06f03fac7"></a>
+
+## Root configuration — xcsh_workload / e13edaef8d35 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-fd9f1d2cb095e736a58fb8fa57feac2a8f9af25ac4b26aaaae38f0bc2a885d26"></a>
 
-- [Property reference](../guides/data-sources--workload--reference.md)
-- [Examples](../guides/data-sources--workload--examples.md)
+## Next pages — xcsh_workload / e13edaef8d35 / 6
+
+- [Property reference](../guides/data-sources--workload--reference--group-001.md#canonical-3128aa1366d0810fef144b5c757c17c27d984a4a52c3ca575620ceeae5ab24cd)
+- [Examples](../guides/data-sources--workload--examples--group-001.md#canonical-d495c5379762ac477e71189db6d070866bf97284034ec2aa67a79b9d27182312)

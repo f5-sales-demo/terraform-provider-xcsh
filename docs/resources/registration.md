@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_registration"
+page_title: "xcsh_registration landing"
 subcategory: ""
-description: "xcsh_registration for xcsh_registration."
-xcsh_docs: {"aliases": [], "body_bytes": 1499, "body_sha256": "sha256:d3072f770ba7b7266cfe51b7ed7fb65124668ea175ee04e191ada73c6651707f", "canonical_id": "xcsh-docs:resources:registration:fundamentals", "child_ids": ["xcsh-docs:resources:registration:reference", "xcsh-docs:resources:registration:examples", "xcsh-docs:resources:registration:import", "xcsh-docs:resources:registration:timeouts"], "collection_id": "xcsh-docs:resources:registration:collection", "completeness": "complete", "id": "xcsh-docs:resources:registration:fundamentals", "parent_id": null, "path": "docs/resources/registration.md", "provider_name": "registration", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_registration for xcsh_registration.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["registrationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_registration landing."
 ---
+
+# xcsh_registration landing
+
+<a id="canonical-0de450498296e1bc9470fae21096c5b0f39fc922dddfd187ae719385f8bfe5bb"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_registration
+<a id="canonical-991b03911b429f8f8d3dec0970085ccf53d3e6298f8dfd26484bc5811cf6741a"></a>
+
+## xcsh_registration — xcsh_registration / 6d34c7d60af5 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Registration resource in F5 Distributed Cloud for vpm creates registration using this
 message, never used by users. configuration.
 
-## Prerequisites
+<a id="canonical-7f77860a6e7a820408af4138f3297bc12bdd29f9961562dbd30b28bfa64966e5"></a>
+
+## Prerequisites — xcsh_registration / 6d34c7d60af5 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1d57b31a76e4d1d75632571f5fa65a9311eb19c4d56c255c3d9c8c69522ecfa0"></a>
+
+## Minimal configuration — xcsh_registration / 6d34c7d60af5 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_registration" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-e173f76419040e33a08228a24721897bc9bcaf8bd7fc98047cfcb94c1aef8908"></a>
+
+## Root configuration — xcsh_registration / 6d34c7d60af5 / 5
 
 Required root properties: `name`, `namespace`, `token`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-c573f0b04b9fc520f766d6174559a039d31f15322e3dc81d3ff2b7b42e50106d"></a>
 
-- [Property reference](../guides/resources--registration--reference.md)
-- [Examples](../guides/resources--registration--examples.md)
-- [Import](../guides/resources--registration--import.md)
-- [Timeouts](../guides/resources--registration--timeouts.md)
+## Next pages — xcsh_registration / 6d34c7d60af5 / 6
+
+- [Property reference](../guides/resources--registration--reference--group-001.md#canonical-0b136b7db3ab5dafffeec47c165a5aa86d57e234b9a5411c9f9a732d5dfa37c3)
+- [Examples](../guides/resources--registration--examples--group-001.md#canonical-459f2348c9bd2f11d18baccc06df68996e9613672dd6ffd94092fc45ee78b9e3)
+- [Import](../guides/resources--registration--lifecycle--group-001.md#canonical-039ec89044403400e7321ea26a166c144c0265deae604680a40701d225dca629)
+- [Timeouts](../guides/resources--registration--lifecycle--group-001.md#canonical-cef96a04ebdfbf3bc60414c3c2c0b6895e9976289716696ce688560222a21e5f)

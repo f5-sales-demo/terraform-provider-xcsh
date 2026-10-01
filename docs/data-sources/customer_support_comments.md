@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_customer_support_comments"
+page_title: "xcsh_customer_support_comments landing"
 subcategory: ""
-description: "xcsh_customer_support_comments for xcsh_customer_support_comments."
-xcsh_docs: {"aliases": [], "body_bytes": 1204, "body_sha256": "sha256:f803e50bdad41cd3e9ec70597534b534ead14dad1d35f06a82299e0ec46df6d4", "canonical_id": "xcsh-docs:data-sources:customer_support_comments:fundamentals", "child_ids": ["xcsh-docs:data-sources:customer_support_comments:reference", "xcsh-docs:data-sources:customer_support_comments:examples"], "collection_id": "xcsh-docs:data-sources:customer_support_comments:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:customer_support_comments:fundamentals", "parent_id": null, "path": "docs/data-sources/customer_support_comments.md", "provider_name": "customer_support_comments", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/customer_support_comments/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_customer_support_comments for xcsh_customer_support_comments.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_customer_support_comments landing."
 ---
+
+# xcsh_customer_support_comments landing
+
+<a id="canonical-eff44c2302047abc21725ce2ae21bd0da5e0bf5c0fbcb6b76347af7cf962e3b5"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_customer_support_comments
+<a id="canonical-b9b4886599c21cb9f65348319d3508453cb4e80efff721f20e2b9b966614d9d2"></a>
+
+## xcsh_customer_support_comments — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-## Prerequisites
+<a id="canonical-a06a701c36bfe76d19c15d591f4abfb942a1a17e8da8c9beadf45b2b0be3107b"></a>
+
+## Prerequisites — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-73cf6594abcba08031688de8a3f55d281cb61137857803dfd489aa18838b68dd"></a>
+
+## Minimal configuration — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "customer_support_comments_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-f2db09583475c9ec3cce71f6e634d352b0f191ab9770aeb8b86819b94f7f9086"></a>
+
+## Root configuration — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-867b6ca781e8e301da004506d3c13f08834cb5d2d41523afd10aec859df2bca2"></a>
 
-- [Property reference](../guides/data-sources--customer_support_comments--reference.md)
-- [Examples](../guides/data-sources--customer_support_comments--examples.md)
+## Next pages — xcsh_customer_support_comments / 8a6e7f6dcfc5 / 6
+
+- [Property reference](../guides/data-sources--customer_support_comments--reference--group-001.md#canonical-12e9887903e3773a47890b40be28cd522622da1fd04215c1250c156eea0f4f47)
+- [Examples](../guides/data-sources--customer_support_comments--examples--group-001.md#canonical-1c092da3a2fc15c8a044fa74e96c07cccf0a472cacfd51c5a35a965d897c73bd)

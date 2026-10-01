@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_discovery"
+page_title: "xcsh_discovery landing"
 subcategory: ""
-description: "xcsh_discovery for xcsh_discovery."
-xcsh_docs: {"aliases": [], "body_bytes": 1453, "body_sha256": "sha256:59da7be21b7aaea7bc47d22711d1ff432e01173205affaffad7b33531cece543", "canonical_id": "xcsh-docs:resources:discovery:fundamentals", "child_ids": ["xcsh-docs:resources:discovery:reference", "xcsh-docs:resources:discovery:examples", "xcsh-docs:resources:discovery:import", "xcsh-docs:resources:discovery:timeouts"], "collection_id": "xcsh-docs:resources:discovery:collection", "completeness": "complete", "id": "xcsh-docs:resources:discovery:fundamentals", "parent_id": null, "path": "docs/resources/discovery.md", "provider_name": "discovery", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/discovery/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_discovery for xcsh_discovery.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["discoveryCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_discovery landing."
 ---
+
+# xcsh_discovery landing
+
+<a id="canonical-e1770e6e73850aecd566b504b1da3dd35f05c4301ee474c7da727b7cc3befce2"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_discovery
+<a id="canonical-ace907ce4e734d5fe2acb658f1a86b5295a89eeaf0c565525aa722074682bd9f"></a>
+
+## xcsh_discovery — xcsh_discovery / 9dbf63f5c787 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Discovery resource in F5 Distributed Cloud for api to create discovery object for a site
 or virtual site in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-6fcce0091cef158bb078bdda3105891a0b0a82c05be8af33e1faabf92ad6ad23"></a>
+
+## Prerequisites — xcsh_discovery / 9dbf63f5c787 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-e2080180eaae2b76e909148ea75fb755fb7e82aa900d04dd76888f980277b42c"></a>
+
+## Minimal configuration — xcsh_discovery / 9dbf63f5c787 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_discovery" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-6a21899dbc0835614f5df4a9d866fcee66ca27ebe0a8876e7935b71e3777ec99"></a>
+
+## Root configuration — xcsh_discovery / 9dbf63f5c787 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-f4294561101aa0ad480aa7c378af3b0ed5cbf85d2fd05161e5f7d0edd7044bbc"></a>
 
-- [Property reference](../guides/resources--discovery--reference.md)
-- [Examples](../guides/resources--discovery--examples.md)
-- [Import](../guides/resources--discovery--import.md)
-- [Timeouts](../guides/resources--discovery--timeouts.md)
+## Next pages — xcsh_discovery / 9dbf63f5c787 / 6
+
+- [Property reference](../guides/resources--discovery--reference--group-001.md#canonical-4068b7597520638cadfe1040de3f671edb52e79a1536c2d36dcdc95475940a6a)
+- [Examples](../guides/resources--discovery--examples--group-001.md#canonical-32c6db1798df2a0749a45f5581c13347d4a7697806d0a15a0d82c83f1477df2f)
+- [Import](../guides/resources--discovery--lifecycle--group-001.md#canonical-77d48909c83e8df07a072cbc9d4375a914b7ccc899642c9183fa9130cc40ffc5)
+- [Timeouts](../guides/resources--discovery--lifecycle--group-001.md#canonical-f89f7931bae011cf39ed92d6bc8d539f81cd3be3291d6f38cc64d0479a35c01c)

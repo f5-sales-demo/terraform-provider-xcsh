@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_origin_pool"
+page_title: "xcsh_origin_pool landing"
 subcategory: "Load Balancing"
-description: "xcsh_origin_pool for xcsh_origin_pool."
-xcsh_docs: {"aliases": [], "body_bytes": 1385, "body_sha256": "sha256:a76f650fde8abcfaecee9d426bb63fb22b16e1fb55ce50b2381b5a1b1aa4cc41", "canonical_id": "xcsh-docs:data-sources:origin_pool:fundamentals", "child_ids": ["xcsh-docs:data-sources:origin_pool:reference", "xcsh-docs:data-sources:origin_pool:examples"], "collection_id": "xcsh-docs:data-sources:origin_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:origin_pool:fundamentals", "parent_id": null, "path": "docs/data-sources/origin_pool.md", "provider_name": "origin_pool", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/origin_pool/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_origin_pool for xcsh_origin_pool.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["origin_poolCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_origin_pool landing."
 ---
+
+# xcsh_origin_pool landing
+
+<a id="canonical-d314ac39e03cc8cbfa1def4c1883fc9446d180ce6bff7b20bfe723be7524cfa3"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_origin_pool
+<a id="canonical-a7bc106ad6a04f86cf2bf646ff563b0a8aee9b9c08664af8047f3f8fa5d573b3"></a>
+
+## xcsh_origin_pool — xcsh_origin_pool / 726ce2e68a36 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load
 balancer targets.
 
-## Prerequisites
+<a id="canonical-37a222c40015e9329987a6f5562bd0d519798fa41af1cf10ff0d574512d22d58"></a>
+
+## Prerequisites — xcsh_origin_pool / 726ce2e68a36 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Optional integrations: `healthcheck`.
 
 - healthcheck: Monitor origin server health
 
-## Minimal configuration
+<a id="canonical-60d3cd70f52f6695aeb991c57831704d9a7a58def8e1e24761b9c0147b885601"></a>
+
+## Minimal configuration — xcsh_origin_pool / 726ce2e68a36 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,11 +66,15 @@ output "origin_pool_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-62e9a281c0603aaae665f79dd6ef7204928383b9291f662b7785ca4f0542628a"></a>
+
+## Root configuration — xcsh_origin_pool / 726ce2e68a36 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-c7de3d97e2a4201b18359fd1745dd05820ce9ccfbc26dca45c425bb07d5a8275"></a>
 
-- [Property reference](../guides/data-sources--origin_pool--reference.md)
-- [Examples](../guides/data-sources--origin_pool--examples.md)
+## Next pages — xcsh_origin_pool / 726ce2e68a36 / 6
+
+- [Property reference](../guides/data-sources--origin_pool--reference--group-001.md#canonical-13a175ac8642ead74ba9d47f3c000069c0c99a69541facda2dd9ba38ca310af3)
+- [Examples](../guides/data-sources--origin_pool--examples--group-001.md#canonical-26f5d1de6dbe2147a167989881c2a2c0a1193c72d01e2342c928c8e90c063e5e)

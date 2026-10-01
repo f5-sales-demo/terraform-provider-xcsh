@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_policy_rule"
+page_title: "xcsh_network_policy_rule landing"
 subcategory: ""
-description: "xcsh_network_policy_rule for xcsh_network_policy_rule."
-xcsh_docs: {"aliases": [], "body_bytes": 1332, "body_sha256": "sha256:93902848f29ea5baadd4ec110d7ccc11bf1d74dd1f39deaa582ebf7056234243", "canonical_id": "xcsh-docs:data-sources:network_policy_rule:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_policy_rule:reference", "xcsh-docs:data-sources:network_policy_rule:examples"], "collection_id": "xcsh-docs:data-sources:network_policy_rule:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_policy_rule:fundamentals", "parent_id": null, "path": "docs/data-sources/network_policy_rule.md", "provider_name": "network_policy_rule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_policy_rule for xcsh_network_policy_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_policy_ruleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_policy_rule landing."
 ---
+
+# xcsh_network_policy_rule landing
+
+<a id="canonical-c48860d115aa5e9dc508362656c70f97db93634d5a35505e876e4ea891881f53"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_policy_rule
+<a id="canonical-a4970bf0b2a52bd0b2780847f4cd2805e71afa93957128df0245e12011eb04a3"></a>
+
+## xcsh_network_policy_rule — xcsh_network_policy_rule / 137f9e82eedc / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages network policy rule with configured parameters in specified namespace in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-6c6baf1389cb3f0bf9c99481d344ba39045b384bf832f1928572766e98da3137"></a>
+
+## Prerequisites — xcsh_network_policy_rule / 137f9e82eedc / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-31ec54bc62f45707dbec5a6ec353ce06c984b22ff82f50cc782020503ce5a783"></a>
+
+## Minimal configuration — xcsh_network_policy_rule / 137f9e82eedc / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "network_policy_rule_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-7834dde0c37e3cded1cd2428dc9547b3a588252ac2f1319a50b0f296e1f12472"></a>
+
+## Root configuration — xcsh_network_policy_rule / 137f9e82eedc / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-dc91cbe2bc6bcfae10d54c0325503ed43bbd7a8fcdcd08dec7f53a35b5615a77"></a>
 
-- [Property reference](../guides/data-sources--network_policy_rule--reference.md)
-- [Examples](../guides/data-sources--network_policy_rule--examples.md)
+## Next pages — xcsh_network_policy_rule / 137f9e82eedc / 6
+
+- [Property reference](../guides/data-sources--network_policy_rule--reference--group-001.md#canonical-158a950e1cc26821bd58408cdc9d7925eeda2761080b3af43d991b7b58c75bf0)
+- [Examples](../guides/data-sources--network_policy_rule--examples--group-001.md#canonical-74efee1bd1fc68798568765407bea6a6fd732ef15f06ad742fa6395e0a09ffc0)

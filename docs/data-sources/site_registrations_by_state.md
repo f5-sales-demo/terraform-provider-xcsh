@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_site_registrations_by_state"
+page_title: "xcsh_site_registrations_by_state landing"
 subcategory: ""
-description: "xcsh_site_registrations_by_state for xcsh_site_registrations_by_state."
-xcsh_docs: {"aliases": [], "body_bytes": 1227, "body_sha256": "sha256:35602d22599417c170d1f5d87a458a1a84a0a027bfcce04d60ffbd268444344c", "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:fundamentals", "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:reference", "xcsh-docs:data-sources:site_registrations_by_state:examples"], "collection_id": "xcsh-docs:data-sources:site_registrations_by_state:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:site_registrations_by_state:fundamentals", "parent_id": null, "path": "docs/data-sources/site_registrations_by_state.md", "provider_name": "site_registrations_by_state", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_registrations_by_state/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site_registrations_by_state for xcsh_site_registrations_by_state.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_site_registrations_by_state landing."
 ---
+
+# xcsh_site_registrations_by_state landing
+
+<a id="canonical-45d2eb09f36f60d5d82eb56138e95138ce81ee60f4449a9d1839dc3d217ebdf3"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_site_registrations_by_state
+<a id="canonical-37671c9061087e4ccc244773df41c7cfb664a373126b16c8e1ac5ce161c703ac"></a>
+
+## xcsh_site_registrations_by_state — xcsh_site_registrations_by_state / 66a53c338971 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 List Customer Edge registrations by state.
 
-## Prerequisites
+<a id="canonical-3356251a0518421f0fd22228b7ed313658fd859ccf67f78a81b32454f34947b2"></a>
+
+## Prerequisites — xcsh_site_registrations_by_state / 66a53c338971 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-9d37c76a6c19ab0b019e0d2e38d9bbfa0696a710abc0555237834aa70843b341"></a>
+
+## Minimal configuration — xcsh_site_registrations_by_state / 66a53c338971 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "site_registrations_by_state_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2eb16714a43e2e8e7977dcbb9cde685feeb1d0397ce8d4333a232cfa89e050c2"></a>
+
+## Root configuration — xcsh_site_registrations_by_state / 66a53c338971 / 5
 
 Required root properties: `state`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-874c4150059f0287eb894a48ba5d417d9c9d92a85a0ff04d8fdcef1e289036b9"></a>
 
-- [Property reference](../guides/data-sources--site_registrations_by_state--reference.md)
-- [Examples](../guides/data-sources--site_registrations_by_state--examples.md)
+## Next pages — xcsh_site_registrations_by_state / 66a53c338971 / 6
+
+- [Property reference](../guides/data-sources--site_registrations_by_state--reference--group-001.md#canonical-38167b71523ef96832758bdc9a667a238f95e7a53fb77a57e4c1b2c9896a9b1c)
+- [Examples](../guides/data-sources--site_registrations_by_state--examples--group-001.md#canonical-f3844d2c83ae807351e728918ca3aadf7ff8666e92b43c036423d51b385ded73)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_device_intelligence_devices"
+page_title: "xcsh_device_intelligence_devices landing"
 subcategory: ""
-description: "xcsh_device_intelligence_devices for xcsh_device_intelligence_devices."
-xcsh_docs: {"aliases": [], "body_bytes": 1229, "body_sha256": "sha256:b75eda7725da1ae6f758175071f42f0dcd5ae53ad4f2cd8e23a939922a6d0855", "canonical_id": "xcsh-docs:data-sources:device_intelligence_devices:fundamentals", "child_ids": ["xcsh-docs:data-sources:device_intelligence_devices:reference", "xcsh-docs:data-sources:device_intelligence_devices:examples"], "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:device_intelligence_devices:fundamentals", "parent_id": null, "path": "docs/data-sources/device_intelligence_devices.md", "provider_name": "device_intelligence_devices", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_device_intelligence_devices for xcsh_device_intelligence_devices.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_device_intelligence_devices landing."
 ---
+
+# xcsh_device_intelligence_devices landing
+
+<a id="canonical-7911c305a3aa551402a0597c54c40adaa717422bb3cfe729a620174f3c16433f"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_device_intelligence_devices
+<a id="canonical-c6c4d946fac43b80207e80af9ef9bf47a758568c762ae16352a27cd2b60b3d61"></a>
+
+## xcsh_device_intelligence_devices — xcsh_device_intelligence_devices / d22e5138e991 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-c9cdca98965b72e695b1236ee387c0aed0d5dcb3f7d800c24fcca5a2841d2c34"></a>
+
+## Prerequisites — xcsh_device_intelligence_devices / d22e5138e991 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-660dce212786df4c00134ff0de33ae73d4230b0812f2767d3f2d708166ef92a1"></a>
+
+## Minimal configuration — xcsh_device_intelligence_devices / d22e5138e991 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "device_intelligence_devices_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-cce0a46f7ba4fe95421dbbf2282a064842aed4aaa5d1cc8ec9f4897308c13ef0"></a>
+
+## Root configuration — xcsh_device_intelligence_devices / d22e5138e991 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-686cb426dc3805aaa372abbd9b024bc4f51037a245b05b8e70b0f003fe904bc5"></a>
 
-- [Property reference](../guides/data-sources--device_intelligence_devices--reference.md)
-- [Examples](../guides/data-sources--device_intelligence_devices--examples.md)
+## Next pages — xcsh_device_intelligence_devices / d22e5138e991 / 6
+
+- [Property reference](../guides/data-sources--device_intelligence_devices--reference--group-001.md#canonical-44a62deff463fb871382d9c68671f83b580d2862aa9293e18cb445f06d1be873)
+- [Examples](../guides/data-sources--device_intelligence_devices--examples--group-001.md#canonical-e29fe453efdf882c0fe3e41b13b48c36e410f492a713d71dc15c59df971c1c92)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_mitigated_domain"
+page_title: "xcsh_mitigated_domain landing"
 subcategory: ""
-description: "xcsh_mitigated_domain for xcsh_mitigated_domain."
-xcsh_docs: {"aliases": [], "body_bytes": 1392, "body_sha256": "sha256:2d740ab8a01a98177096211e03627f141e51b97a8f319ec934b94dfc6309ffbc", "canonical_id": "xcsh-docs:resources:mitigated_domain:fundamentals", "child_ids": ["xcsh-docs:resources:mitigated_domain:reference", "xcsh-docs:resources:mitigated_domain:examples", "xcsh-docs:resources:mitigated_domain:import", "xcsh-docs:resources:mitigated_domain:timeouts"], "collection_id": "xcsh-docs:resources:mitigated_domain:collection", "completeness": "complete", "id": "xcsh-docs:resources:mitigated_domain:fundamentals", "parent_id": null, "path": "docs/resources/mitigated_domain.md", "provider_name": "mitigated_domain", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/mitigated_domain/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_mitigated_domain for xcsh_mitigated_domain.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["mitigated_domainCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_mitigated_domain landing."
 ---
+
+# xcsh_mitigated_domain landing
+
+<a id="canonical-8dbccf2375d1fbc444e0bd4617f6f345af352b51e200bf181ac86bffcdfce192"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_mitigated_domain
+<a id="canonical-e0dbf28903df0dbe5712ed8549ca78aec0439964d2416ca95ec8cbaceb11dc72"></a>
+
+## xcsh_mitigated_domain — xcsh_mitigated_domain / e681c16403da / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Mitigated Domain in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-bbc4ef5882e4188d67aaf368e5b090047f3828505bf1cae6fd52ca730fcfa2e4"></a>
+
+## Prerequisites — xcsh_mitigated_domain / e681c16403da / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-a1c528fb9ee17ac2078bfc190aa2c1d32c90a577f3fce80b158efea77dd822d2"></a>
+
+## Minimal configuration — xcsh_mitigated_domain / e681c16403da / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,13 +58,17 @@ resource "xcsh_mitigated_domain" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-da24b7c2d5e53f59f088d5d6a48ee9aef3ddb0fb489025a6d94e5feb4a568f5f"></a>
+
+## Root configuration — xcsh_mitigated_domain / e681c16403da / 5
 
 Required root properties: `mitigated_domain`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-d37074f1e4eb7b23936a74c0123d763938dc14cc81da6c8a48b34e8782b6371f"></a>
 
-- [Property reference](../guides/resources--mitigated_domain--reference.md)
-- [Examples](../guides/resources--mitigated_domain--examples.md)
-- [Import](../guides/resources--mitigated_domain--import.md)
-- [Timeouts](../guides/resources--mitigated_domain--timeouts.md)
+## Next pages — xcsh_mitigated_domain / e681c16403da / 6
+
+- [Property reference](../guides/resources--mitigated_domain--reference--group-001.md#canonical-d8a7d36f91ae444348c9b288663ecdfe54e263784cd66b472170a42f06e73224)
+- [Examples](../guides/resources--mitigated_domain--examples--group-001.md#canonical-f8cc4ca693157d4c768911d71d3f9378ab6faa7e3fb24d78c4c693a8ced45d35)
+- [Import](../guides/resources--mitigated_domain--lifecycle--group-001.md#canonical-699327b09fa7c3f4db717e6b5d5a97fb3259f26a7ff14a9552f6feaf36f4ebc2)
+- [Timeouts](../guides/resources--mitigated_domain--lifecycle--group-001.md#canonical-388bcb3e87fdea76fb69f6996f6852d7eab39d6a4bb3d66dc90560c76e1b26e8)

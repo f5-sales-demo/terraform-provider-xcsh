@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_geo_location_set"
+page_title: "xcsh_geo_location_set landing"
 subcategory: ""
-description: "xcsh_geo_location_set for xcsh_geo_location_set."
-xcsh_docs: {"aliases": [], "body_bytes": 1316, "body_sha256": "sha256:abf3957501aa75a52ace2c43ee51c7ed196a00b4195cb06ee99b4beb435170af", "canonical_id": "xcsh-docs:resources:geo_location_set:fundamentals", "child_ids": ["xcsh-docs:resources:geo_location_set:reference", "xcsh-docs:resources:geo_location_set:examples", "xcsh-docs:resources:geo_location_set:import", "xcsh-docs:resources:geo_location_set:timeouts"], "collection_id": "xcsh-docs:resources:geo_location_set:collection", "completeness": "complete", "id": "xcsh-docs:resources:geo_location_set:fundamentals", "parent_id": null, "path": "docs/resources/geo_location_set.md", "provider_name": "geo_location_set", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/geo_location_set/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_geo_location_set for xcsh_geo_location_set.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["geo_location_setCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_geo_location_set landing."
 ---
+
+# xcsh_geo_location_set landing
+
+<a id="canonical-d316af30af83a2e4202cd927edfa772e4725c3cf87f11306f130cc11f9ddcd50"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_geo_location_set
+<a id="canonical-e22c01d40f29e9956fbfa8f7a66e877f7f660487a4299a72bc2e889988acb371"></a>
+
+## xcsh_geo_location_set — xcsh_geo_location_set / 095021391dfc / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Geolocation Set in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-f9ce2b583515c20667e0402d15ca9b99a3ad82a364b20c255e65e7f6a50ca6f9"></a>
+
+## Prerequisites — xcsh_geo_location_set / 095021391dfc / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-aaa4b291b1694d445cd0456513fe36154c898510ed1be744c138d5d265e24087"></a>
+
+## Minimal configuration — xcsh_geo_location_set / 095021391dfc / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_geo_location_set" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0ab723bf302d20845f49af873e0c0d7e747b218d2f12f12917fdb347d9877951"></a>
+
+## Root configuration — xcsh_geo_location_set / 095021391dfc / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-a397cd7d6f89a701f9c14fb66c23408adb55a47580cdeea7c67762a92e800eb0"></a>
 
-- [Property reference](../guides/resources--geo_location_set--reference.md)
-- [Examples](../guides/resources--geo_location_set--examples.md)
-- [Import](../guides/resources--geo_location_set--import.md)
-- [Timeouts](../guides/resources--geo_location_set--timeouts.md)
+## Next pages — xcsh_geo_location_set / 095021391dfc / 6
+
+- [Property reference](../guides/resources--geo_location_set--reference--group-001.md#canonical-5b59e1bdb82766035879753e3dec625b78e3fc0781f7694c35dffba49ee9e586)
+- [Examples](../guides/resources--geo_location_set--examples--group-001.md#canonical-2bf875c901f9ce083510b2a48b22347952a1d45c6497a43a24374cffa0e1aec7)
+- [Import](../guides/resources--geo_location_set--lifecycle--group-001.md#canonical-f139e01c4e7e5a4b8d5196be04abebb21c25f334db4454b4e5690699f15eeb02)
+- [Timeouts](../guides/resources--geo_location_set--lifecycle--group-001.md#canonical-dbb2a2c4e1d0b862cda1cd04fe2157f06479a4f973bd37ba0d8892e2894af68e)

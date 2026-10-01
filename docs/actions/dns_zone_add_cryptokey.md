@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_zone_add_cryptokey"
+page_title: "xcsh_dns_zone_add_cryptokey landing"
 subcategory: ""
-description: "xcsh_dns_zone_add_cryptokey for xcsh_dns_zone_add_cryptokey."
-xcsh_docs: {"aliases": [], "body_bytes": 1130, "body_sha256": "sha256:663606641f2c96da2ad2795958cab4920ff0f9a6e3af3895b576a212c750ab0c", "canonical_id": "xcsh-docs:actions:dns_zone_add_cryptokey:fundamentals", "child_ids": ["xcsh-docs:actions:dns_zone_add_cryptokey:reference", "xcsh-docs:actions:dns_zone_add_cryptokey:examples", "xcsh-docs:actions:dns_zone_add_cryptokey:lifecycle"], "collection_id": "xcsh-docs:actions:dns_zone_add_cryptokey:collection", "completeness": "complete", "id": "xcsh-docs:actions:dns_zone_add_cryptokey:fundamentals", "parent_id": null, "path": "docs/actions/dns_zone_add_cryptokey.md", "provider_name": "dns_zone_add_cryptokey", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "actions", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_add_cryptokey/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_zone_add_cryptokey for xcsh_dns_zone_add_cryptokey.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_zone_add_cryptokey landing."
 ---
+
+# xcsh_dns_zone_add_cryptokey landing
+
+<a id="canonical-85ff7b5ce0689a3d0497afdd728eedfead55ce6ef5288db5ba75c83a0e169984"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_zone_add_cryptokey
+<a id="canonical-daa5d8727a3ef84ecccbbcd2923a3d6b0fe2141ea80e652ae885e800e7c13ce0"></a>
+
+## xcsh_dns_zone_add_cryptokey — xcsh_dns_zone_add_cryptokey / 48bf3bdbb5b6 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-26d26732f94a682830cfb3eb4a1166184f952771e2083c39d55d03f06d82958e"></a>
+
+## Prerequisites — xcsh_dns_zone_add_cryptokey / 48bf3bdbb5b6 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-4d6d873a751627f651cf1f8159183d8d1ecf8fbda870368eb0dae6912ca8a770"></a>
+
+## Minimal configuration — xcsh_dns_zone_add_cryptokey / 48bf3bdbb5b6 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -45,12 +54,16 @@ action "xcsh_dns_zone_add_cryptokey" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-c4a3c67f7e18a8a775009b41aff65a15a02da80eb2b496c73030e8a61f7f1c09"></a>
+
+## Root configuration — xcsh_dns_zone_add_cryptokey / 48bf3bdbb5b6 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-ce4d7f26fb5a383935ff61f1dabdfc7c2884644cce1125383c3fea8f31da05ef"></a>
 
-- [Property reference](../guides/actions--dns_zone_add_cryptokey--reference.md)
-- [Examples](../guides/actions--dns_zone_add_cryptokey--examples.md)
-- [Lifecycle](../guides/actions--dns_zone_add_cryptokey--lifecycle.md)
+## Next pages — xcsh_dns_zone_add_cryptokey / 48bf3bdbb5b6 / 6
+
+- [Property reference](../guides/actions--dns_zone_add_cryptokey--reference--group-001.md#canonical-a2054223eb59702f779639edabed8972fc3dc1170f0410220f43b85cfc6e4f06)
+- [Examples](../guides/actions--dns_zone_add_cryptokey--examples--group-001.md#canonical-ffb0ff51487ad67e75b86e76da97595e09cc5e24c235163372580e78b9891690)
+- [Lifecycle](../guides/actions--dns_zone_add_cryptokey--lifecycle--group-001.md#canonical-f5c8b9810b0f539d2e5ce59f6b29afae629e46b298c8be3ea29bf2b76ae3b2a3)

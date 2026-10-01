@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_device_intelligence_unsubscribe"
+page_title: "xcsh_device_intelligence_unsubscribe landing"
 subcategory: ""
-description: "xcsh_device_intelligence_unsubscribe for xcsh_device_intelligence_unsubscribe."
-xcsh_docs: {"aliases": [], "body_bytes": 1194, "body_sha256": "sha256:f14a02b877ab5e151bb4387db644400ed7dcb936a246ec306c60f60de73997d9", "canonical_id": "xcsh-docs:actions:device_intelligence_unsubscribe:fundamentals", "child_ids": ["xcsh-docs:actions:device_intelligence_unsubscribe:reference", "xcsh-docs:actions:device_intelligence_unsubscribe:examples", "xcsh-docs:actions:device_intelligence_unsubscribe:lifecycle"], "collection_id": "xcsh-docs:actions:device_intelligence_unsubscribe:collection", "completeness": "complete", "id": "xcsh-docs:actions:device_intelligence_unsubscribe:fundamentals", "parent_id": null, "path": "docs/actions/device_intelligence_unsubscribe.md", "provider_name": "device_intelligence_unsubscribe", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "actions", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/device_intelligence_unsubscribe/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_device_intelligence_unsubscribe for xcsh_device_intelligence_unsubscribe.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_device_intelligence_unsubscribe landing."
 ---
+
+# xcsh_device_intelligence_unsubscribe landing
+
+<a id="canonical-d41a0df818a60a762cff58803d2fbe3e5165e9e4cd5c305de18ea9d4a44b3236"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_device_intelligence_unsubscribe
+<a id="canonical-3d470f2d1a239346f2896491dc313cc43fae63589afc223e60ece207440f7771"></a>
+
+## xcsh_device_intelligence_unsubscribe — xcsh_device_intelligence_unsubscribe / 44b1dde18a42 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-cef3c21ed0f928c662e2fd7557f72d91e68eeb455afac0bd9ad127b784034a16"></a>
+
+## Prerequisites — xcsh_device_intelligence_unsubscribe / 44b1dde18a42 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-79ad82c7f23f660f79d198f11d6a5a413a46f4b284b82cc32df28705d5cc7041"></a>
+
+## Minimal configuration — xcsh_device_intelligence_unsubscribe / 44b1dde18a42 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -45,12 +54,16 @@ action "xcsh_device_intelligence_unsubscribe" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-6a4b70e9cc95135a4a3f17477819065e3dfc57e5f0ddbce81ec2ed6217fa963a"></a>
+
+## Root configuration — xcsh_device_intelligence_unsubscribe / 44b1dde18a42 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-ded4aef0e82dda79a7c92e5e436312bb42bdbb5ac91bea47efbb59cbe97262f5"></a>
 
-- [Property reference](../guides/actions--device_intelligence_unsubscribe--reference.md)
-- [Examples](../guides/actions--device_intelligence_unsubscribe--examples.md)
-- [Lifecycle](../guides/actions--device_intelligence_unsubscribe--lifecycle.md)
+## Next pages — xcsh_device_intelligence_unsubscribe / 44b1dde18a42 / 6
+
+- [Property reference](../guides/actions--device_intelligence_unsubscribe--reference--group-001.md#canonical-c4ace8df5e1a91481f8e94bff0231020c0fd855159b38aaacd07a0e7a05a9a59)
+- [Examples](../guides/actions--device_intelligence_unsubscribe--examples--group-001.md#canonical-fcb0a411e418156555786e6c3ecce2bd16e8fe899058e9881313dac3d2edf21e)
+- [Lifecycle](../guides/actions--device_intelligence_unsubscribe--lifecycle--group-001.md#canonical-cf9ef0a81f17b62f8d3803dd0600994d375ddb7a14e939e78b381957b7c926af)

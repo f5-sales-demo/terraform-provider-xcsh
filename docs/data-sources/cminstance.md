@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cminstance"
+page_title: "xcsh_cminstance landing"
 subcategory: ""
-description: "xcsh_cminstance for xcsh_cminstance."
-xcsh_docs: {"aliases": [], "body_bytes": 1247, "body_sha256": "sha256:b1cac04016ec2b87d56f1fb84c22e5d98dba09f7c61bed774083f4ba5a7a0e56", "canonical_id": "xcsh-docs:data-sources:cminstance:fundamentals", "child_ids": ["xcsh-docs:data-sources:cminstance:reference", "xcsh-docs:data-sources:cminstance:examples"], "collection_id": "xcsh-docs:data-sources:cminstance:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cminstance:fundamentals", "parent_id": null, "path": "docs/data-sources/cminstance.md", "provider_name": "cminstance", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cminstance/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cminstance for xcsh_cminstance.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cminstanceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cminstance landing."
 ---
+
+# xcsh_cminstance landing
+
+<a id="canonical-02f6c885e68f071b656c6449a3b1dc369f2cba0bd504b6ba060c2f66c5144248"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cminstance
+<a id="canonical-c9ba3a789bbc9682ad501337a2656c0140c1ae1c842f7826a5c4134b5c28bb11"></a>
+
+## xcsh_cminstance — xcsh_cminstance / 7762dc8c376b / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-aec393d1be545ed7744c908e4fce8652b7456dfa9074b5ea66616ae45e345279"></a>
+
+## Prerequisites — xcsh_cminstance / 7762dc8c376b / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-a5e49144a054ee4d3790ab7d20eb36db1649256ccb379c448c13dc08875bf47a"></a>
+
+## Minimal configuration — xcsh_cminstance / 7762dc8c376b / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cminstance_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3934195b0293bbb33e8c9ca2fd9d0589dd8cb4fcd8ee125e68a088e9cc7893f1"></a>
+
+## Root configuration — xcsh_cminstance / 7762dc8c376b / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-562fd4079e41bfb3277aa20c686bc512f1b31927c8ba4f757aa12d441c352a43"></a>
 
-- [Property reference](../guides/data-sources--cminstance--reference.md)
-- [Examples](../guides/data-sources--cminstance--examples.md)
+## Next pages — xcsh_cminstance / 7762dc8c376b / 6
+
+- [Property reference](../guides/data-sources--cminstance--reference--group-001.md#canonical-c9bd3a65c0f26cf5db15191faf5559d6a0edbe97fc6de3a100b3445bac8798e2)
+- [Examples](../guides/data-sources--cminstance--examples--group-001.md#canonical-a7fb1bdcf2f4a1339b3dacfc81a14bb5d9562839eee61c351ac173a8891f74e3)

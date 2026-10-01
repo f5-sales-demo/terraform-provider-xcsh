@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_rate_limiter"
+page_title: "xcsh_rate_limiter landing"
 subcategory: "Security"
-description: "xcsh_rate_limiter for xcsh_rate_limiter."
-xcsh_docs: {"aliases": [], "body_bytes": 1555, "body_sha256": "sha256:b97550d7b1f9903a0430937eb151a45c3f4fa1de6862f20c4f8ffa03316b2672", "canonical_id": "xcsh-docs:resources:rate_limiter:fundamentals", "child_ids": ["xcsh-docs:resources:rate_limiter:reference", "xcsh-docs:resources:rate_limiter:examples", "xcsh-docs:resources:rate_limiter:import", "xcsh-docs:resources:rate_limiter:timeouts"], "collection_id": "xcsh-docs:resources:rate_limiter:collection", "completeness": "complete", "id": "xcsh-docs:resources:rate_limiter:fundamentals", "parent_id": null, "path": "docs/resources/rate_limiter.md", "provider_name": "rate_limiter", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_rate_limiter for xcsh_rate_limiter.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["rate_limiterCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_rate_limiter landing."
 ---
+
+# xcsh_rate_limiter landing
+
+<a id="canonical-b2c6bc1b321c698ee5c9ba1c5a551db32a4d4f24b7a856632c892693b9535555"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_rate_limiter
+<a id="canonical-290615dd6fc0d301714d5d31b47298f871080361431dee52806c792ba602a672"></a>
+
+## xcsh_rate_limiter — xcsh_rate_limiter / b5133d7dc470 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages rate\_limiter creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-10e21dff70e48808f708ddb93a64a301c501dd17c6d1c098a6e3e0622c9994c7"></a>
+
+## Prerequisites — xcsh_rate_limiter / b5133d7dc470 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Optional integrations: `rate_limiter_policy`.
 
 - rate_limiter_policy: Detailed rate limiting rules
 
-## Minimal configuration
+<a id="canonical-e74eb62de793d2f3b2d43e32e900c92afabb5d5a30d538e6dca1f9d9f91b9358"></a>
+
+## Minimal configuration — xcsh_rate_limiter / b5133d7dc470 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,13 +63,17 @@ resource "xcsh_rate_limiter" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-11fd0f3d55e1152febd51448800b36184c01e03362faadd0cca07848ebd14fd5"></a>
+
+## Root configuration — xcsh_rate_limiter / b5133d7dc470 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-a4399abbf52d4b2db634abd05bcaa2cbfb73df1d3fb18e79b096f51fb4cc916a"></a>
 
-- [Property reference](../guides/resources--rate_limiter--reference.md)
-- [Examples](../guides/resources--rate_limiter--examples.md)
-- [Import](../guides/resources--rate_limiter--import.md)
-- [Timeouts](../guides/resources--rate_limiter--timeouts.md)
+## Next pages — xcsh_rate_limiter / b5133d7dc470 / 6
+
+- [Property reference](../guides/resources--rate_limiter--reference--group-001.md#canonical-9be48129c49b834e84b2c46957ecf1750c1fe42efcca8c4b1f1a0ed0929a4fca)
+- [Examples](../guides/resources--rate_limiter--examples--group-001.md#canonical-9ea7fc79d045c404a4ce2b5ecf5c8943c947fcdddc514443d6bd7a84f955b6a9)
+- [Import](../guides/resources--rate_limiter--lifecycle--group-001.md#canonical-e77234ecd8ddd847ab72ce71eafcfd54dcbf5ac812887a81785e1cd69190ba6b)
+- [Timeouts](../guides/resources--rate_limiter--lifecycle--group-001.md#canonical-f3e27b8aa13c22aceab5b617a27770da75cb39756beff21af40cf20aac001a8f)

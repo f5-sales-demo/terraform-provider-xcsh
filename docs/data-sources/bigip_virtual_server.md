@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bigip_virtual_server"
+page_title: "xcsh_bigip_virtual_server landing"
 subcategory: ""
-description: "xcsh_bigip_virtual_server for xcsh_bigip_virtual_server."
-xcsh_docs: {"aliases": [], "body_bytes": 1384, "body_sha256": "sha256:05c03fb9fc743f0f2a9f7d6cf5928a735deabb00af0456189d56e08bf396e4e6", "canonical_id": "xcsh-docs:data-sources:bigip_virtual_server:fundamentals", "child_ids": ["xcsh-docs:data-sources:bigip_virtual_server:reference", "xcsh-docs:data-sources:bigip_virtual_server:examples"], "collection_id": "xcsh-docs:data-sources:bigip_virtual_server:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bigip_virtual_server:fundamentals", "parent_id": null, "path": "docs/data-sources/bigip_virtual_server.md", "provider_name": "bigip_virtual_server", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bigip_virtual_server/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bigip_virtual_server for xcsh_bigip_virtual_server.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bigip_virtual_server landing."
 ---
+
+# xcsh_bigip_virtual_server landing
+
+<a id="canonical-5de83ca3dfb9cf73d57be7ed86f617e30ad06fc103f2f9653fda1240ecf86f88"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bigip_virtual_server
+<a id="canonical-24de24625eee055743109c5e39f3ceb57a92779c4ad2aa256c9a6fb04c0eca89"></a>
+
+## xcsh_bigip_virtual_server — xcsh_bigip_virtual_server / f63bc12fcef6 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a BIG-IP Virtual Server resource in F5 Distributed Cloud for big-ip virtual server
 specification. configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-28ea7014f5ec6621d982eb4188228c1f4b6579c3c7049f844bd2adbdd74f239a"></a>
+
+## Prerequisites — xcsh_bigip_virtual_server / f63bc12fcef6 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-82c5c4eb9eb35320530f3150e829304b20edada6eadbfc2a01b4a7be32187e50"></a>
+
+## Minimal configuration — xcsh_bigip_virtual_server / f63bc12fcef6 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "bigip_virtual_server_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-e343a6382cc7ba4fd36968b521a6bdca0fe3a4791eb0a76d785d8de8e68c7c19"></a>
+
+## Root configuration — xcsh_bigip_virtual_server / f63bc12fcef6 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-9ef672cc3a7b71af2d2adf0492eb81c92150e831429369513dec1ba29ac47557"></a>
 
-- [Property reference](../guides/data-sources--bigip_virtual_server--reference.md)
-- [Examples](../guides/data-sources--bigip_virtual_server--examples.md)
+## Next pages — xcsh_bigip_virtual_server / f63bc12fcef6 / 6
+
+- [Property reference](../guides/data-sources--bigip_virtual_server--reference--group-001.md#canonical-3c4f044f14de66769dee96461aaa25d45d7892c0fc761f5b76498185321c197f)
+- [Examples](../guides/data-sources--bigip_virtual_server--examples--group-001.md#canonical-803e305ddcc14d26305861439a5a6225a5a00bb0c19fe90bd14bec7fbdf53bd9)

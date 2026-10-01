@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_certificate"
+page_title: "xcsh_certificate landing"
 subcategory: "Security"
-description: "xcsh_certificate for xcsh_certificate."
-xcsh_docs: {"aliases": [], "body_bytes": 1435, "body_sha256": "sha256:8573a1f0122eae7bf822fa7a9c71f09daf29cad13f2d5cd0ee0b1b0133e1d18b", "canonical_id": "xcsh-docs:resources:certificate:fundamentals", "child_ids": ["xcsh-docs:resources:certificate:reference", "xcsh-docs:resources:certificate:examples", "xcsh-docs:resources:certificate:import", "xcsh-docs:resources:certificate:timeouts"], "collection_id": "xcsh-docs:resources:certificate:collection", "completeness": "complete", "id": "xcsh-docs:resources:certificate:fundamentals", "parent_id": null, "path": "docs/resources/certificate.md", "provider_name": "certificate", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_certificate for xcsh_certificate.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["certificateCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_certificate landing."
 ---
+
+# xcsh_certificate landing
+
+<a id="canonical-843c7ef2d56e85f1ba6b346483224fce2e27fa0dc0213cd0e259331947e5281c"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_certificate
+<a id="canonical-b0feb913bb4c34238e7d4480278ba2b62ccb1653f52b74897a0678fc36d8c540"></a>
+
+## xcsh_certificate — xcsh_certificate / 2055c7ec1dd2 / 2
 
 Breadcrumbs:
 
@@ -17,13 +22,17 @@ Breadcrumbs:
 
 Manages a Certificate resource in F5 Distributed Cloud for certificate. configuration.
 
-## Prerequisites
+<a id="canonical-9406614af30287ac737757d5fddfc3fd8f58ceb8ba60ed41687fa9ea8f899454"></a>
+
+## Prerequisites — xcsh_certificate / 2055c7ec1dd2 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-64019377b1059b3536e34a8697168237ed9987bda0e9e7b95d99101149f2465e"></a>
+
+## Minimal configuration — xcsh_certificate / 2055c7ec1dd2 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,13 +60,17 @@ resource "xcsh_certificate" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-6955c3664fbef5fc38e3bc5fa960facb4f1485af5196540843eaa9556cc0aa47"></a>
+
+## Root configuration — xcsh_certificate / 2055c7ec1dd2 / 5
 
 Required root properties: `certificate_url`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-e088d62478a9c7000a553076580d468c3ce5a0b9e76007c26c9fd86bde13764a"></a>
 
-- [Property reference](../guides/resources--certificate--reference.md)
-- [Examples](../guides/resources--certificate--examples.md)
-- [Import](../guides/resources--certificate--import.md)
-- [Timeouts](../guides/resources--certificate--timeouts.md)
+## Next pages — xcsh_certificate / 2055c7ec1dd2 / 6
+
+- [Property reference](../guides/resources--certificate--reference--group-001.md#canonical-6e191e632e125ee6cf3e18d3e730166767b3b520ab1f5c6d147e575ffbede87c)
+- [Examples](../guides/resources--certificate--examples--group-001.md#canonical-fadf3f9d1d214e0a699b1607ad361706f2c97596ce1ac016dffdb3f418d41ffe)
+- [Import](../guides/resources--certificate--lifecycle--group-001.md#canonical-51bcd7cddc02f66ed213b762d1cc278d0616a168948b32327351b508f94ab0a4)
+- [Timeouts](../guides/resources--certificate--lifecycle--group-001.md#canonical-090bdaa9a218102a1c0c4356f0385466b05f5294138c2b24943240fb8d709bb5)

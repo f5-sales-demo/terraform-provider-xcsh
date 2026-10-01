@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_ike_phase2_profile"
+page_title: "xcsh_ike_phase2_profile landing"
 subcategory: ""
-description: "xcsh_ike_phase2_profile for xcsh_ike_phase2_profile."
-xcsh_docs: {"aliases": [], "body_bytes": 1598, "body_sha256": "sha256:a2c7f6d324c58ed58f26b58ae26593c5897f30a7423d01eb3c27338909902868", "canonical_id": "xcsh-docs:resources:ike_phase2_profile:fundamentals", "child_ids": ["xcsh-docs:resources:ike_phase2_profile:reference", "xcsh-docs:resources:ike_phase2_profile:examples", "xcsh-docs:resources:ike_phase2_profile:import", "xcsh-docs:resources:ike_phase2_profile:timeouts"], "collection_id": "xcsh-docs:resources:ike_phase2_profile:collection", "completeness": "complete", "id": "xcsh-docs:resources:ike_phase2_profile:fundamentals", "parent_id": null, "path": "docs/resources/ike_phase2_profile.md", "provider_name": "ike_phase2_profile", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/ike_phase2_profile/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_ike_phase2_profile for xcsh_ike_phase2_profile.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["ike_phase2_profileCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_ike_phase2_profile landing."
 ---
+
+# xcsh_ike_phase2_profile landing
+
+<a id="canonical-61d2d3b324a5d2d7c402d1c590f903429b98898ccc9ec864fa8d0a29eca618ad"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_ike_phase2_profile
+<a id="canonical-1bd166b91b7df326e82b58462a2561f6a0e01ab7179c156c6d321c9777f24dd5"></a>
+
+## xcsh_ike_phase2_profile — xcsh_ike_phase2_profile / 56449a1b1b2f / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification.
 configuration.
 
-## Prerequisites
+<a id="canonical-adabf7cd1962e9d66ff997a9f15dd8c58f38703f5df3d8b933ce6bba63ce7837"></a>
+
+## Prerequisites — xcsh_ike_phase2_profile / 56449a1b1b2f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-68c52bbcd4080ddd2d4b05d918c4c65870499837b554f1ca9b9b79119a124d78"></a>
+
+## Minimal configuration — xcsh_ike_phase2_profile / 56449a1b1b2f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,13 +60,17 @@ resource "xcsh_ike_phase2_profile" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-f07d45318108caa297f723a37a3df7936ed5dea8b54027dc28b2c4702e518bda"></a>
+
+## Root configuration — xcsh_ike_phase2_profile / 56449a1b1b2f / 5
 
 Required root properties: `authentication_algos`, `encryption_algos`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-b0edb46f78ae81415d71f6ed3815a15a381fcc1b4ecc3f7b8f7b19bd0a212dbd"></a>
 
-- [Property reference](../guides/resources--ike_phase2_profile--reference.md)
-- [Examples](../guides/resources--ike_phase2_profile--examples.md)
-- [Import](../guides/resources--ike_phase2_profile--import.md)
-- [Timeouts](../guides/resources--ike_phase2_profile--timeouts.md)
+## Next pages — xcsh_ike_phase2_profile / 56449a1b1b2f / 6
+
+- [Property reference](../guides/resources--ike_phase2_profile--reference--group-001.md#canonical-880ac98477290434e8fa578e0ae87dda91ef4fd852b03e4243db262ef0076126)
+- [Examples](../guides/resources--ike_phase2_profile--examples--group-001.md#canonical-d3ab23a37ce3c18427daf6a8491990bcf34c0dec6fe624562c0766270cddc014)
+- [Import](../guides/resources--ike_phase2_profile--lifecycle--group-001.md#canonical-b051adbbedf0f476d9ea177b0cb00b02b8b0a1158cb131de12a88e9dcd7339fd)
+- [Timeouts](../guides/resources--ike_phase2_profile--lifecycle--group-001.md#canonical-f3163bfba0d5b46ceae75a36dc02051c313d95be0bbc89ec0e4a7ae472d62be4)

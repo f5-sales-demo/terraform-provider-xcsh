@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_api_definition"
+page_title: "xcsh_api_definition landing"
 subcategory: "API Management"
-description: "xcsh_api_definition for xcsh_api_definition."
-xcsh_docs: {"aliases": [], "body_bytes": 1350, "body_sha256": "sha256:9b0f7d9739b7e17c7f4254480819d0d19e8f5b65cea88df687ec106e77f69f83", "canonical_id": "xcsh-docs:data-sources:api_definition:fundamentals", "child_ids": ["xcsh-docs:data-sources:api_definition:reference", "xcsh-docs:data-sources:api_definition:examples"], "collection_id": "xcsh-docs:data-sources:api_definition:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_definition:fundamentals", "parent_id": null, "path": "docs/data-sources/api_definition.md", "provider_name": "api_definition", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_definition/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_api_definition for xcsh_api_definition.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["api_definitionCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_api_definition landing."
 ---
+
+# xcsh_api_definition landing
+
+<a id="canonical-1df393999e0c5facf84460c20dfc66c998ea2afc9c81bd04c6d3cf585cad53ab"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_api_definition
+<a id="canonical-6262f757d73a14162106f01ac2d9f1d1de3bd681f6d3455c11e588b2fbe3d6ff"></a>
+
+## xcsh_api_definition — xcsh_api_definition / 32599d6a2e47 / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages API Definition in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-fe0f80e5333ab2473c347f7a37f5721c46561e0b95ab2e13222bfb78036d57df"></a>
+
+## Prerequisites — xcsh_api_definition / 32599d6a2e47 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Optional integrations: `api_endpoint`.
 
 - api_endpoint: Endpoints defined by this API
 
-## Minimal configuration
+<a id="canonical-35968b4ad3ff9bb4325861046f436ce507c5877b143b137d71e0b44731bad2f0"></a>
+
+## Minimal configuration — xcsh_api_definition / 32599d6a2e47 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,11 +65,15 @@ output "api_definition_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-537a27f66c939547f7a39fabae80231f6984474f887e03b639ef67d876b29946"></a>
+
+## Root configuration — xcsh_api_definition / 32599d6a2e47 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2221ece52a46618f39480ca31034f901f9153e79a1ec387f70f01d9a22f2e8a4"></a>
 
-- [Property reference](../guides/data-sources--api_definition--reference.md)
-- [Examples](../guides/data-sources--api_definition--examples.md)
+## Next pages — xcsh_api_definition / 32599d6a2e47 / 6
+
+- [Property reference](../guides/data-sources--api_definition--reference--group-001.md#canonical-fad0050df3f4cd1ee16f15782b363b846ffd70034b8a18de354e7a072ec26d5b)
+- [Examples](../guides/data-sources--api_definition--examples--group-001.md#canonical-4f65221eb8214fce92c087c6dba0a758d6c4edc5500cdffac6f34a83f2e26a7d)

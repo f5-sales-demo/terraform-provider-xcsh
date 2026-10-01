@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_k8s_cluster"
+page_title: "xcsh_k8s_cluster landing"
 subcategory: ""
-description: "xcsh_k8s_cluster for xcsh_k8s_cluster."
-xcsh_docs: {"aliases": [], "body_bytes": 1262, "body_sha256": "sha256:c0d1fc3b1f9bb1fff85da6afb488c896d8049461481ed6f2029b2e369bcfc7e2", "canonical_id": "xcsh-docs:data-sources:k8s_cluster:fundamentals", "child_ids": ["xcsh-docs:data-sources:k8s_cluster:reference", "xcsh-docs:data-sources:k8s_cluster:examples"], "collection_id": "xcsh-docs:data-sources:k8s_cluster:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:k8s_cluster:fundamentals", "parent_id": null, "path": "docs/data-sources/k8s_cluster.md", "provider_name": "k8s_cluster", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_k8s_cluster for xcsh_k8s_cluster.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["k8s_clusterCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_k8s_cluster landing."
 ---
+
+# xcsh_k8s_cluster landing
+
+<a id="canonical-80d7cda51b5cbe0a9301672f8d5c626a79fc062e8e044ad4a6d04ad0a8e66989"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_k8s_cluster
+<a id="canonical-844cae08514a1bd6f19e3b65d794b3f899fb6a8fde4d20ec61902e70b3cd3986"></a>
+
+## xcsh_k8s_cluster — xcsh_k8s_cluster / 4764cd801e31 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages k8s\_cluster will create the object in the storage backend for namespace metadata.namespace
 in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-050482e5c081eef278c659f0bef41e9bf054d27a516209ee304b7e63a569d7d0"></a>
+
+## Prerequisites — xcsh_k8s_cluster / 4764cd801e31 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1a271dce85acc7a28af7e7a56fd01aa742c469a2a5c8d99c1ff63751c5d2040f"></a>
+
+## Minimal configuration — xcsh_k8s_cluster / 4764cd801e31 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "k8s_cluster_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-a6b86d450e9df44e4296a2a7a07c28faca4b6ca478927c3eb9051015747ff20b"></a>
+
+## Root configuration — xcsh_k8s_cluster / 4764cd801e31 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-e78123e1f2bd685d198a748426d6694c67f201015e74a679fd1ab8ed92bb5f62"></a>
 
-- [Property reference](../guides/data-sources--k8s_cluster--reference.md)
-- [Examples](../guides/data-sources--k8s_cluster--examples.md)
+## Next pages — xcsh_k8s_cluster / 4764cd801e31 / 6
+
+- [Property reference](../guides/data-sources--k8s_cluster--reference--group-001.md#canonical-cfb0210391a5f24aede2a50fa5e556e1d6ccaf8fcc953ef127edc76145098620)
+- [Examples](../guides/data-sources--k8s_cluster--examples--group-001.md#canonical-70d43c25095d127645acfd8acd8ab5cca96170f2dc83264bcc3ed7b0b4e0de2e)

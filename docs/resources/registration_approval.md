@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_registration_approval"
+page_title: "xcsh_registration_approval landing"
 subcategory: ""
-description: "xcsh_registration_approval for xcsh_registration_approval."
-xcsh_docs: {"aliases": [], "body_bytes": 1467, "body_sha256": "sha256:5cdf3e290896d25666fcd8e0533ebd0eec6310505bd930a85fe1929347d4cf63", "canonical_id": "xcsh-docs:resources:registration_approval:fundamentals", "child_ids": ["xcsh-docs:resources:registration_approval:reference", "xcsh-docs:resources:registration_approval:examples", "xcsh-docs:resources:registration_approval:import"], "collection_id": "xcsh-docs:resources:registration_approval:collection", "completeness": "complete", "id": "xcsh-docs:resources:registration_approval:fundamentals", "parent_id": null, "path": "docs/resources/registration_approval.md", "provider_name": "registration_approval", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/registration_approval/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_registration_approval for xcsh_registration_approval.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_registration_approval landing."
 ---
+
+# xcsh_registration_approval landing
+
+<a id="canonical-7d4fb674027240378875a2202f657eddfb167f6c0f01b29cddfd793bc70315ba"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_registration_approval
+<a id="canonical-0bc1ce806cefb89c40e4db7b414249887cde27bca09b724f485d45ac95b10c02"></a>
+
+## xcsh_registration_approval — xcsh_registration_approval / 19394161374d / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Registration Approval resource in F5 Distributed Cloud for request for admission approval.
 configuration.
 
-## Prerequisites
+<a id="canonical-769610cca4ce6f445cfa104c7d5d871862ccd88141156d21ace5ab5e0c57886c"></a>
+
+## Prerequisites — xcsh_registration_approval / 19394161374d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-cbf005311e5ba18223552343e23add9da370e7627d02256d3cff889a8b4b68b5"></a>
+
+## Minimal configuration — xcsh_registration_approval / 19394161374d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,12 +59,16 @@ resource "xcsh_registration_approval" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-fb8c065a3e1969a7e3233daebef36679008562e56ca096c4c516384ed8c04f86"></a>
+
+## Root configuration — xcsh_registration_approval / 19394161374d / 5
 
 Required root properties: `cluster_size`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-f945f204d11e70d1b1316b0c46eda7cba4604c89edc40cecb5e397f72555fb10"></a>
 
-- [Property reference](../guides/resources--registration_approval--reference.md)
-- [Examples](../guides/resources--registration_approval--examples.md)
-- [Import](../guides/resources--registration_approval--import.md)
+## Next pages — xcsh_registration_approval / 19394161374d / 6
+
+- [Property reference](../guides/resources--registration_approval--reference--group-001.md#canonical-2950841dcd2dad45aa090a989e2c5989663f4229329496cccde1786e7269c4b0)
+- [Examples](../guides/resources--registration_approval--examples--group-001.md#canonical-18983f6c2d60c35fbc6941ad7957980b8a60e933dc081010b07873198b27c179)
+- [Import](../guides/resources--registration_approval--lifecycle--group-001.md#canonical-b650ee81672cb726831c9981d7c0a90bd9a72f19657f487688db316d183e0a33)

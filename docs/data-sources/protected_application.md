@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_protected_application"
+page_title: "xcsh_protected_application landing"
 subcategory: ""
-description: "xcsh_protected_application for xcsh_protected_application."
-xcsh_docs: {"aliases": [], "body_bytes": 1322, "body_sha256": "sha256:d84e1a918629e3ce8a0194f450e5a372fb8947ec400af9e6198f46eff1f0d520", "canonical_id": "xcsh-docs:data-sources:protected_application:fundamentals", "child_ids": ["xcsh-docs:data-sources:protected_application:reference", "xcsh-docs:data-sources:protected_application:examples"], "collection_id": "xcsh-docs:data-sources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protected_application:fundamentals", "parent_id": null, "path": "docs/data-sources/protected_application.md", "provider_name": "protected_application", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_application/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_protected_application for xcsh_protected_application.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_protected_application landing."
 ---
+
+# xcsh_protected_application landing
+
+<a id="canonical-3945f996a7833227c6453f2920e3792db4dce69f7e356ae3b248dfefac25ae0a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_protected_application
+<a id="canonical-8ff8bed7989d496b6f2dcb9902f1a03079f99873af07cf24284158939f583c2c"></a>
+
+## xcsh_protected_application — xcsh_protected_application / ddfbc919938e / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages applications protected by Bot Defense in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1e4db40dc72a4d89d7dea23f56027a2b6da0046d3a19c30e11eea17179e041ee"></a>
+
+## Prerequisites — xcsh_protected_application / ddfbc919938e / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-a1ec774af219804547445c3f5e3cae26c3e501ee0ea991eb91e2060c13b39846"></a>
+
+## Minimal configuration — xcsh_protected_application / ddfbc919938e / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "protected_application_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2eeeb418b4edbf059668f309d6e839adbd28ed201131fcabf0fb454054e351b6"></a>
+
+## Root configuration — xcsh_protected_application / ddfbc919938e / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-f14beaf16fcd9e99f55bd5fbe78fec178ed42efeb3691015785a2879216d3700"></a>
 
-- [Property reference](../guides/data-sources--protected_application--reference.md)
-- [Examples](../guides/data-sources--protected_application--examples.md)
+## Next pages — xcsh_protected_application / ddfbc919938e / 6
+
+- [Property reference](../guides/data-sources--protected_application--reference--group-001.md#canonical-01fe0beb3a9a157152e3c31967c36fef103d6c17bd215e4c7ebc5bb5565d1d92)
+- [Examples](../guides/data-sources--protected_application--examples--group-001.md#canonical-a13d8b7dc315447b82100ed2c0d9253b9dd6100f89b018dc7c88b70babf866d2)

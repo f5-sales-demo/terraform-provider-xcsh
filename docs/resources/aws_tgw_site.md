@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_aws_tgw_site"
+page_title: "xcsh_aws_tgw_site landing"
 subcategory: ""
-description: "xcsh_aws_tgw_site for xcsh_aws_tgw_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1420, "body_sha256": "sha256:26398f63bf75a9acc4462da8d0a81b43faa1849594af68f5858130b977e22c91", "canonical_id": "xcsh-docs:resources:aws_tgw_site:fundamentals", "child_ids": ["xcsh-docs:resources:aws_tgw_site:reference", "xcsh-docs:resources:aws_tgw_site:examples", "xcsh-docs:resources:aws_tgw_site:import", "xcsh-docs:resources:aws_tgw_site:timeouts"], "collection_id": "xcsh-docs:resources:aws_tgw_site:collection", "completeness": "complete", "id": "xcsh-docs:resources:aws_tgw_site:fundamentals", "parent_id": null, "path": "docs/resources/aws_tgw_site.md", "provider_name": "aws_tgw_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/aws_tgw_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_aws_tgw_site for xcsh_aws_tgw_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["aws_tgw_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_aws_tgw_site landing."
 ---
+
+# xcsh_aws_tgw_site landing
+
+<a id="canonical-ac580ecb6e0dcd05701c325c2680eec16da28fd82385686735e5bd9759502116"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_aws_tgw_site
+<a id="canonical-1653dee1a8e793e930c7b70a8fdae5d08097b3254866bbb55aa4147842b2709a"></a>
+
+## xcsh_aws_tgw_site — xcsh_aws_tgw_site / f9cce303d3c3 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a AWS TGW Site resource in F5 Distributed Cloud for deploying F5 sites connected via AWS
 Transit Gateway.
 
-## Prerequisites
+<a id="canonical-33113d79e0291c271573dacd64c0e14022f6044c28ef95299ab2b926ca3bbfc1"></a>
+
+## Prerequisites — xcsh_aws_tgw_site / f9cce303d3c3 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-928c8e0a06e37eaee7da0380a0550717dab9361b53364953d23a46c4a3e1f232"></a>
+
+## Minimal configuration — xcsh_aws_tgw_site / f9cce303d3c3 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_aws_tgw_site" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2823d4776de37ce82ab1a974f59f5cab980e77cf5dd1c881561d6bd29fe2c8f3"></a>
+
+## Root configuration — xcsh_aws_tgw_site / f9cce303d3c3 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0319d613d013cff993dd2a919e28f1887c02c41a22d29b9f1237650751a38e66"></a>
 
-- [Property reference](../guides/resources--aws_tgw_site--reference.md)
-- [Examples](../guides/resources--aws_tgw_site--examples.md)
-- [Import](../guides/resources--aws_tgw_site--import.md)
-- [Timeouts](../guides/resources--aws_tgw_site--timeouts.md)
+## Next pages — xcsh_aws_tgw_site / f9cce303d3c3 / 6
+
+- [Property reference](../guides/resources--aws_tgw_site--reference--group-001.md#canonical-0430b1fa6acd6331f1ceff8713c35af0a2b119dd32e981384cafe9bed387a194)
+- [Examples](../guides/resources--aws_tgw_site--examples--group-001.md#canonical-42c06f13d48332ed5021e5a105e3d74e9187d47b541c18dbff2f2277fff7eadb)
+- [Import](../guides/resources--aws_tgw_site--lifecycle--group-001.md#canonical-076a116e8d168cba4a4cc59ed6f317f9fb7fb28e95b33ba227cb1d98a16cd004)
+- [Timeouts](../guides/resources--aws_tgw_site--lifecycle--group-001.md#canonical-3468a7efe44f9c635fa1b18471f8644156f31532d003999d1e3bb4f1b53ae64c)

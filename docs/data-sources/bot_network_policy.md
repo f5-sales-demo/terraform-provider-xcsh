@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_network_policy"
+page_title: "xcsh_bot_network_policy landing"
 subcategory: ""
-description: "xcsh_bot_network_policy for xcsh_bot_network_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1348, "body_sha256": "sha256:3c0b295516cdaacc43faf8071477d65dbcd5e13ecffd31f3dbb0b474b3c22cc7", "canonical_id": "xcsh-docs:data-sources:bot_network_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_network_policy:reference", "xcsh-docs:data-sources:bot_network_policy:examples"], "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_network_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_network_policy.md", "provider_name": "bot_network_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_network_policy for xcsh_bot_network_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_network_policy landing."
 ---
+
+# xcsh_bot_network_policy landing
+
+<a id="canonical-1db4aff0b95edbb987adc1f675e48bc99801201bf045f697bf744647c8e90762"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_network_policy
+<a id="canonical-b10aa8452d199962284840e7aa639891fc5f786dfb3b4abb20d823088bdbf387"></a>
+
+## xcsh_bot_network_policy — xcsh_bot_network_policy / 66105fac6288 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Bot Network Policy resource in F5 Distributed Cloud for get bot network policy.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-094a7c765fc9d618747429c3169494d76179029364938efc50ecbf6ff8699bb5"></a>
+
+## Prerequisites — xcsh_bot_network_policy / 66105fac6288 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-e8770ee286835d68b8f4e4f1db290f2be0e581f7ce2bdb056f1e435afda46418"></a>
+
+## Minimal configuration — xcsh_bot_network_policy / 66105fac6288 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "bot_network_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-b428ce77f118a1926acc4d27136819b76f971848965c46bb06b9d687b458a259"></a>
+
+## Root configuration — xcsh_bot_network_policy / 66105fac6288 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-5d0d00cca3de54e360935ec326a96c2cb45d3773168c87980b8f048e99ef843c"></a>
 
-- [Property reference](../guides/data-sources--bot_network_policy--reference.md)
-- [Examples](../guides/data-sources--bot_network_policy--examples.md)
+## Next pages — xcsh_bot_network_policy / 66105fac6288 / 6
+
+- [Property reference](../guides/data-sources--bot_network_policy--reference--group-001.md#canonical-40a1ba93758d581a74bd7ac4b3bf87ac8b1586a0088bdc96a1f1e0fa5b76916c)
+- [Examples](../guides/data-sources--bot_network_policy--examples--group-001.md#canonical-022ba32b36308c5407c9dc966cfe8e3dcde2eef6d9858ccd4c90ceb17cfa7059)

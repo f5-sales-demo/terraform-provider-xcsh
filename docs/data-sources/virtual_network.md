@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_virtual_network"
+page_title: "xcsh_virtual_network landing"
 subcategory: "Networking"
-description: "xcsh_virtual_network for xcsh_virtual_network."
-xcsh_docs: {"aliases": [], "body_bytes": 1375, "body_sha256": "sha256:1a4055194bdd7ccaebc9e158efcf2fb3ca93b2ec8958cb5717d1dbfc7a307467", "canonical_id": "xcsh-docs:data-sources:virtual_network:fundamentals", "child_ids": ["xcsh-docs:data-sources:virtual_network:reference", "xcsh-docs:data-sources:virtual_network:examples"], "collection_id": "xcsh-docs:data-sources:virtual_network:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:virtual_network:fundamentals", "parent_id": null, "path": "docs/data-sources/virtual_network.md", "provider_name": "virtual_network", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_network/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_virtual_network for xcsh_virtual_network.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["virtual_networkCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_virtual_network landing."
 ---
+
+# xcsh_virtual_network landing
+
+<a id="canonical-962f424f866ca39a0c5bda80d1dc95f430dbcfd7d44fc7a1bcd04ae7c7db361a"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_virtual_network
+<a id="canonical-7a1cbe4ffaf33181399f1a918b4aa64c3cfd8d3e2a2ed2014ce286f34d43be14"></a>
+
+## xcsh_virtual_network — xcsh_virtual_network / e753cd0e252d / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages virtual network in given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-a4483751c196ada9bfbf52c22516f5ac1df57dd03ac88a7fb617636bedb0f8c8"></a>
+
+## Prerequisites — xcsh_virtual_network / e753cd0e252d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Optional integrations: `network_connector`.
 
 - network_connector: Connect to external networks
 
-## Minimal configuration
+<a id="canonical-3275144567b94ec0c00e333172c4e86c78c56f83e560ec71963540c61c6e5ed6"></a>
+
+## Minimal configuration — xcsh_virtual_network / e753cd0e252d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,11 +65,15 @@ output "virtual_network_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-7db938fc4743c6f114e08a74a4292a721eebe43d93628a305be0eec22ecff589"></a>
+
+## Root configuration — xcsh_virtual_network / e753cd0e252d / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2060129f3714adfb8591db24962711acae76ba987b40d595bcde7fbae4715c5d"></a>
 
-- [Property reference](../guides/data-sources--virtual_network--reference.md)
-- [Examples](../guides/data-sources--virtual_network--examples.md)
+## Next pages — xcsh_virtual_network / e753cd0e252d / 6
+
+- [Property reference](../guides/data-sources--virtual_network--reference--group-001.md#canonical-9c449ec5c2f1fe76d44c1c939fe391b4c4e3c20e4e3572d7fc09ce3420ccce57)
+- [Examples](../guides/data-sources--virtual_network--examples--group-001.md#canonical-aa858708777a299dd1c665fa01fe06408adadb5fbc8ee42c3fe6ede1ba508ff7)

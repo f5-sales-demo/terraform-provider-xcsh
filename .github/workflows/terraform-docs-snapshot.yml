@@ -31,6 +31,7 @@ jobs:
       - name: Publish snapshot without rebuilding schemas
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_READ_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }} # administration permission for immutable-policy read only
           PROVIDER_TAG: ${{ inputs.provider_tag }}
         run: |
           set -euo pipefail

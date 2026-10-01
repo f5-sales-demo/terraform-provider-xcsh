@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_compliance_checks"
+page_title: "xcsh_dns_compliance_checks landing"
 subcategory: ""
-description: "xcsh_dns_compliance_checks for xcsh_dns_compliance_checks."
-xcsh_docs: {"aliases": [], "body_bytes": 1541, "body_sha256": "sha256:b2afec1d85cec9d9c52ebf358dcab397c66de3f5efd4dcb0fb346e2f9456329d", "canonical_id": "xcsh-docs:resources:dns_compliance_checks:fundamentals", "child_ids": ["xcsh-docs:resources:dns_compliance_checks:reference", "xcsh-docs:resources:dns_compliance_checks:examples", "xcsh-docs:resources:dns_compliance_checks:import", "xcsh-docs:resources:dns_compliance_checks:timeouts"], "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_compliance_checks:fundamentals", "parent_id": null, "path": "docs/resources/dns_compliance_checks.md", "provider_name": "dns_compliance_checks", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_compliance_checks for xcsh_dns_compliance_checks.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_compliance_checksCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_compliance_checks landing."
 ---
+
+# xcsh_dns_compliance_checks landing
+
+<a id="canonical-b8f0d3ec4e785ef6fabb81b92471aa91dd33fcda47717d8aa7b007104462e924"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_compliance_checks
+<a id="canonical-f8f9bb1c60d5b493400b522b2afa60491012627cc6c321706ca5c943df301fda"></a>
+
+## xcsh_dns_compliance_checks — xcsh_dns_compliance_checks / ec8e5e56b845 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages DNS Compliance Checks Specification in a given namespace. If one already exists it will give
 an error in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-371c9346578d419351e2a7e31b11020b6c75b5560c5d7e439c3a3f049431c500"></a>
+
+## Prerequisites — xcsh_dns_compliance_checks / ec8e5e56b845 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-a21ef4cab2c9aadf28ead3eabcedcb348ee06bf59d1cf75a1ec8250e67fe5a18"></a>
+
+## Minimal configuration — xcsh_dns_compliance_checks / ec8e5e56b845 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_dns_compliance_checks" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1ab5fa5bf768f6bd84ab05165bc4e2179398c861d954ae8e02e47cbe1421535a"></a>
+
+## Root configuration — xcsh_dns_compliance_checks / ec8e5e56b845 / 5
 
 Required root properties: `domain_denylist`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-7b3353f6ac1681d37efd819ecc77d58d71b3923cfc6066499f07e7576a9b7b88"></a>
 
-- [Property reference](../guides/resources--dns_compliance_checks--reference.md)
-- [Examples](../guides/resources--dns_compliance_checks--examples.md)
-- [Import](../guides/resources--dns_compliance_checks--import.md)
-- [Timeouts](../guides/resources--dns_compliance_checks--timeouts.md)
+## Next pages — xcsh_dns_compliance_checks / ec8e5e56b845 / 6
+
+- [Property reference](../guides/resources--dns_compliance_checks--reference--group-001.md#canonical-eee1b4d710d52db719c841deb6e007376a78ef3ab29c2e2a6fc1e96dd6936c22)
+- [Examples](../guides/resources--dns_compliance_checks--examples--group-001.md#canonical-eb430301335b9fce6c29bb4e206953f38e52742ac4f0703a58f37fdb51b3d161)
+- [Import](../guides/resources--dns_compliance_checks--lifecycle--group-001.md#canonical-3e8c45883cd1a3948b530d5d66eb509661ed3222c493c43b4a23e42b133d76b1)
+- [Timeouts](../guides/resources--dns_compliance_checks--lifecycle--group-001.md#canonical-b6648163dc46cf44b575809fa12f03e825820f2f5bcaf9ac5820452ffa5bfc13)

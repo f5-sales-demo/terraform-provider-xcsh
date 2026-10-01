@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_srv6_network_slice"
+page_title: "xcsh_srv6_network_slice landing"
 subcategory: ""
-description: "xcsh_srv6_network_slice for xcsh_srv6_network_slice."
-xcsh_docs: {"aliases": [], "body_bytes": 1326, "body_sha256": "sha256:9317a8212b885c3bebca139a4b1808b079fc0a19f8d8940b7f65bb30fbc3424d", "canonical_id": "xcsh-docs:data-sources:srv6_network_slice:fundamentals", "child_ids": ["xcsh-docs:data-sources:srv6_network_slice:reference", "xcsh-docs:data-sources:srv6_network_slice:examples"], "collection_id": "xcsh-docs:data-sources:srv6_network_slice:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:srv6_network_slice:fundamentals", "parent_id": null, "path": "docs/data-sources/srv6_network_slice.md", "provider_name": "srv6_network_slice", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/srv6_network_slice/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_srv6_network_slice for xcsh_srv6_network_slice.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["srv6_network_sliceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_srv6_network_slice landing."
 ---
+
+# xcsh_srv6_network_slice landing
+
+<a id="canonical-01eb91def3bc993a7ab14854fcd32915db33e69c6c189dc0599a4ae5db267c6b"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_srv6_network_slice
+<a id="canonical-782baef6572ae7e35811ae1c67168e31c7d2cc015b365659acdbcf6622838ee7"></a>
+
+## xcsh_srv6_network_slice — xcsh_srv6_network_slice / 7057f7b40947 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages srv6\_network\_slice creates a new object in the storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-b0836d7705045e7434ed76fbb9cc6517b3423081f0e2b73fc4bf9f127be8e080"></a>
+
+## Prerequisites — xcsh_srv6_network_slice / 7057f7b40947 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3c81f6e5004778850ba21a6b833a6ff11de6535288732305398732f0661f6862"></a>
+
+## Minimal configuration — xcsh_srv6_network_slice / 7057f7b40947 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "srv6_network_slice_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-d04fe8eedef32340506833ce5784294d2538c7d5d2bcda754f0652a6ffed879a"></a>
+
+## Root configuration — xcsh_srv6_network_slice / 7057f7b40947 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-5141db31c468f7013b2d9f56a8e420628bca4b6c5c4505463da1760ccd2fb51d"></a>
 
-- [Property reference](../guides/data-sources--srv6_network_slice--reference.md)
-- [Examples](../guides/data-sources--srv6_network_slice--examples.md)
+## Next pages — xcsh_srv6_network_slice / 7057f7b40947 / 6
+
+- [Property reference](../guides/data-sources--srv6_network_slice--reference--group-001.md#canonical-ceae08b891b45a658e6ab9b9d513560c18aeedd96150bf1affbd3770714da82d)
+- [Examples](../guides/data-sources--srv6_network_slice--examples--group-001.md#canonical-b2b705b70a59b78ad13e1fbdde0f0af4ac8ab79472c63dc8818b8fb18de8c11a)

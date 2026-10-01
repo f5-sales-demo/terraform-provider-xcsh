@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_authentication"
+page_title: "xcsh_authentication landing"
 subcategory: ""
-description: "xcsh_authentication for xcsh_authentication."
-xcsh_docs: {"aliases": [], "body_bytes": 1242, "body_sha256": "sha256:f584a4c31d81209440b88a7f427396fecb33d6b1362854dd3ed7925918a27e4e", "canonical_id": "xcsh-docs:data-sources:authentication:fundamentals", "child_ids": ["xcsh-docs:data-sources:authentication:reference", "xcsh-docs:data-sources:authentication:examples"], "collection_id": "xcsh-docs:data-sources:authentication:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:authentication:fundamentals", "parent_id": null, "path": "docs/data-sources/authentication.md", "provider_name": "authentication", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_authentication for xcsh_authentication.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["authenticationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_authentication landing."
 ---
+
+# xcsh_authentication landing
+
+<a id="canonical-fc74a07ec6743be123535a3b99a60acfe7e3d06088347cb014d5bfa9986a7413"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_authentication
+<a id="canonical-67010cfbede6faa4ee3638213ee538251843a5afc0d82075671fe5a2ec852d2b"></a>
+
+## xcsh_authentication — xcsh_authentication / 0ba4101b3b27 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a Authentication resource in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-69f404736033d75e1aa18dfaed9a9419307ce0dceff8a4026fc720b753c63c34"></a>
+
+## Prerequisites — xcsh_authentication / 0ba4101b3b27 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0b9ffcff70cbdcef545c21afd6d99a222d72668ff1b1cabc1062ebf42871a346"></a>
+
+## Minimal configuration — xcsh_authentication / 0ba4101b3b27 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "authentication_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-f4d04a982c756d8912d8befd2ae148aa1771c3f1d229712aef4841cac9b9da9f"></a>
+
+## Root configuration — xcsh_authentication / 0ba4101b3b27 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-79a1a6caf9768564a6145e7fcb54e80db85bd5923fd5e7248d21615460462376"></a>
 
-- [Property reference](../guides/data-sources--authentication--reference.md)
-- [Examples](../guides/data-sources--authentication--examples.md)
+## Next pages — xcsh_authentication / 0ba4101b3b27 / 6
+
+- [Property reference](../guides/data-sources--authentication--reference--group-001.md#canonical-82eea9682c2c11291a2ba818100f690ec2a8060ec997c2ac4e6950b355cc0d64)
+- [Examples](../guides/data-sources--authentication--examples--group-001.md#canonical-f543f75ce3357d8e276af5544257737200167f9301ffcd387f66063716548ac0)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_container_registry"
+page_title: "xcsh_container_registry landing"
 subcategory: "Container"
-description: "xcsh_container_registry for xcsh_container_registry."
-xcsh_docs: {"aliases": [], "body_bytes": 1586, "body_sha256": "sha256:9003234e195daae699ec4ce5ab63f4b26db30f190ebe2e1501fe4eda573c4c09", "canonical_id": "xcsh-docs:resources:container_registry:fundamentals", "child_ids": ["xcsh-docs:resources:container_registry:reference", "xcsh-docs:resources:container_registry:examples", "xcsh-docs:resources:container_registry:import", "xcsh-docs:resources:container_registry:timeouts"], "collection_id": "xcsh-docs:resources:container_registry:collection", "completeness": "complete", "id": "xcsh-docs:resources:container_registry:fundamentals", "parent_id": null, "path": "docs/resources/container_registry.md", "provider_name": "container_registry", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_container_registry for xcsh_container_registry.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["container_registryCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_container_registry landing."
 ---
+
+# xcsh_container_registry landing
+
+<a id="canonical-d9354f0149bcec7d60dd61bf8c2faf0289b61a944b3928d453a60e87522be1fe"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_container_registry
+<a id="canonical-9639f9e7f51de94f94f0ec0f66f70b25fceba00026c613a0c1e7ab9fe08469f0"></a>
+
+## xcsh_container_registry — xcsh_container_registry / d3f97d96b0f2 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages a Container Registry resource in F5 Distributed Cloud for container image registry
 configuration.
 
-## Prerequisites
+<a id="canonical-6fc0a0d8a103814bd240e66109438b4435a8bb66780d56df5bfff83af7238c73"></a>
+
+## Prerequisites — xcsh_container_registry / d3f97d96b0f2 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-## Minimal configuration
+<a id="canonical-e7c94816c408fc9dad469753f1c55d7dd900ad9425f9e4744791cd89095c47f5"></a>
+
+## Minimal configuration — xcsh_container_registry / d3f97d96b0f2 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,13 +62,17 @@ resource "xcsh_container_registry" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-49eb0f54b07df09a7b113de37bd08b3f86074c919f7fd4e3df49aa587029a7c5"></a>
+
+## Root configuration — xcsh_container_registry / d3f97d96b0f2 / 5
 
 Required root properties: `name`, `namespace`, `registry`, `user_name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-d5b8c00e34e22bacfa55202566000b5b23475075267d900f9f5a21932545e9eb"></a>
 
-- [Property reference](../guides/resources--container_registry--reference.md)
-- [Examples](../guides/resources--container_registry--examples.md)
-- [Import](../guides/resources--container_registry--import.md)
-- [Timeouts](../guides/resources--container_registry--timeouts.md)
+## Next pages — xcsh_container_registry / d3f97d96b0f2 / 6
+
+- [Property reference](../guides/resources--container_registry--reference--group-001.md#canonical-4e616e01aa1598e2fc141ba33f7c752da2e7a66e59191d4c102a8adb6557faa3)
+- [Examples](../guides/resources--container_registry--examples--group-001.md#canonical-1e63b61b2b9f3be1491b1d0413dd9d88c1be39585fc6f879c3342853a1ae68f4)
+- [Import](../guides/resources--container_registry--lifecycle--group-001.md#canonical-6edf4058074763fd900a5411e3721e51635c0bbc1e94e2a670af0074386a1d1a)
+- [Timeouts](../guides/resources--container_registry--lifecycle--group-001.md#canonical-b2934a713eac4941a9af207121dadad563b28673bbb4dffd3b32379eb25d1e2c)

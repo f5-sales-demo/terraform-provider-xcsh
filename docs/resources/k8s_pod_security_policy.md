@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_k8s_pod_security_policy"
+page_title: "xcsh_k8s_pod_security_policy landing"
 subcategory: ""
-description: "xcsh_k8s_pod_security_policy for xcsh_k8s_pod_security_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1575, "body_sha256": "sha256:9f2a278534f25c36550c252a6ac9b0caf203ebbfa6e31bdd7dbda403637d4ae6", "canonical_id": "xcsh-docs:resources:k8s_pod_security_policy:fundamentals", "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:reference", "xcsh-docs:resources:k8s_pod_security_policy:examples", "xcsh-docs:resources:k8s_pod_security_policy:import", "xcsh-docs:resources:k8s_pod_security_policy:timeouts"], "collection_id": "xcsh-docs:resources:k8s_pod_security_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_pod_security_policy:fundamentals", "parent_id": null, "path": "docs/resources/k8s_pod_security_policy.md", "provider_name": "k8s_pod_security_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_k8s_pod_security_policy for xcsh_k8s_pod_security_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["k8s_pod_security_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_k8s_pod_security_policy landing."
 ---
+
+# xcsh_k8s_pod_security_policy landing
+
+<a id="canonical-d1cf0037a1c7ad187d001a831cd0b85ab39532f9e1564acd0d0a64fb31870e96"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_k8s_pod_security_policy
+<a id="canonical-4046dc4c6d18458deada5d991762cd9b23a614ce2d72dea8ccc981745194631c"></a>
+
+## xcsh_k8s_pod_security_policy — xcsh_k8s_pod_security_policy / 3474840c213b / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages k8s\_pod\_security\_policy will create the object in the storage backend for namespace
 metadata.namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-5954035eb55f8b6228e5f28de5b9c0fd496a46bd5f604bc4d04d6ce84b4f765d"></a>
+
+## Prerequisites — xcsh_k8s_pod_security_policy / 3474840c213b / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-8d2daca0bec2319aaaaaf546e2319d07b16af950fc9124ab94f0458e9e1b25f8"></a>
+
+## Minimal configuration — xcsh_k8s_pod_security_policy / 3474840c213b / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_k8s_pod_security_policy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-e584d663f20e640599d0e26563c7ce6fb2a304d0e423841ad95fc33c87bcc492"></a>
+
+## Root configuration — xcsh_k8s_pod_security_policy / 3474840c213b / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-719d48c038ec6099120bf94cdca71c591a6e23867fc36343214518b42bf6db6b"></a>
 
-- [Property reference](../guides/resources--k8s_pod_security_policy--reference.md)
-- [Examples](../guides/resources--k8s_pod_security_policy--examples.md)
-- [Import](../guides/resources--k8s_pod_security_policy--import.md)
-- [Timeouts](../guides/resources--k8s_pod_security_policy--timeouts.md)
+## Next pages — xcsh_k8s_pod_security_policy / 3474840c213b / 6
+
+- [Property reference](../guides/resources--k8s_pod_security_policy--reference--group-001.md#canonical-3ca2e681586afce0edce8cbc8836a556f7345a01b126e0b7a741a4a76865647f)
+- [Examples](../guides/resources--k8s_pod_security_policy--examples--group-001.md#canonical-ffe90ec21ce5cd40a9ee9e2ea88847034ff59a568bd6d1da400ed3e4c87cde08)
+- [Import](../guides/resources--k8s_pod_security_policy--lifecycle--group-001.md#canonical-73770d1cf2d9ebfb256664f3d351accf0de191b389d3cd05b36d2b72cc9c7ec8)
+- [Timeouts](../guides/resources--k8s_pod_security_policy--lifecycle--group-001.md#canonical-bca9fcb9957fd2fd221b0100c0036fe5c4d3efe82e46b18ccfeeec0c2333daee)

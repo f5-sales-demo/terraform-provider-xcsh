@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_device_intelligence_risk_score_distribution"
+page_title: "xcsh_device_intelligence_risk_score_distribution landing"
 subcategory: ""
-description: "xcsh_device_intelligence_risk_score_distribution for xcsh_device_intelligence_risk_score_distribution."
-xcsh_docs: {"aliases": [], "body_bytes": 1355, "body_sha256": "sha256:6209a6ac4afe15b9dc1f147f93a7e2584e699f03d0d45955008832e863b9df75", "canonical_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:fundamentals", "child_ids": ["xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference", "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:examples"], "collection_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:fundamentals", "parent_id": null, "path": "docs/data-sources/device_intelligence_risk_score_distribution.md", "provider_name": "device_intelligence_risk_score_distribution", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_risk_score_distribution/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_device_intelligence_risk_score_distribution for xcsh_device_intelligence_risk_score_distribution.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_device_intelligence_risk_score_distribution landing."
 ---
+
+# xcsh_device_intelligence_risk_score_distribution landing
+
+<a id="canonical-28a66890f008fdac1b26cd785850ece6401f38637446a0123c4e80cf02ad050e"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_device_intelligence_risk_score_distribution
+<a id="canonical-d7cca77d59337cf0869ad7564b8192f31ebf20a452da22a51d4f0154927d7941"></a>
+
+## xcsh_device_intelligence_risk_score_distribution — xcsh_device_intelligence_risk_score_distribution / beaa791e8e4b / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-55bbb5e7bce0c01e2523b3236512ea67129d84318b5eb99152de547fa91e7fa3"></a>
+
+## Prerequisites — xcsh_device_intelligence_risk_score_distribution / beaa791e8e4b / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-e0ed4169bedabe4bb3885666df89e5d5a5f6451536f315b8ee09532cf8c93c58"></a>
+
+## Minimal configuration — xcsh_device_intelligence_risk_score_distribution / beaa791e8e4b / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "device_intelligence_risk_score_distribution_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-fac079cfc5e8e5daa58b55852a00c1ecc2124373641b58164a98fce434516439"></a>
+
+## Root configuration — xcsh_device_intelligence_risk_score_distribution / beaa791e8e4b / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-235bce365f94c14c0b7313a6cfdd5a22aee81a7a2e54cbc1e1352d68e5ad025d"></a>
 
-- [Property reference](../guides/data-sources--device_intelligence_risk_score_distribution--reference.md)
-- [Examples](../guides/data-sources--device_intelligence_risk_score_distribution--examples.md)
+## Next pages — xcsh_device_intelligence_risk_score_distribution / beaa791e8e4b / 6
+
+- [Property reference](../guides/data-sources--device_intelligence_risk_score_distribution--reference--group-001.md#canonical-1f6bece68929c1bc8f8d705b9a282c5d577a38a8bc7f44e3d818748cb10109ed)
+- [Examples](../guides/data-sources--device_intelligence_risk_score_distribution--examples--group-001.md#canonical-19b438ad97826262ff4db622135397459932ffb52a25c0ab1c3414697615a719)

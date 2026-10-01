@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_protocol_inspection"
+page_title: "xcsh_protocol_inspection landing"
 subcategory: ""
-description: "xcsh_protocol_inspection for xcsh_protocol_inspection."
-xcsh_docs: {"aliases": [], "body_bytes": 1461, "body_sha256": "sha256:97a5fcca6575bde89ab638d7dbfaaef0bb98828124833a54f176d42e6320da60", "canonical_id": "xcsh-docs:resources:protocol_inspection:fundamentals", "child_ids": ["xcsh-docs:resources:protocol_inspection:reference", "xcsh-docs:resources:protocol_inspection:examples", "xcsh-docs:resources:protocol_inspection:import", "xcsh-docs:resources:protocol_inspection:timeouts"], "collection_id": "xcsh-docs:resources:protocol_inspection:collection", "completeness": "complete", "id": "xcsh-docs:resources:protocol_inspection:fundamentals", "parent_id": null, "path": "docs/resources/protocol_inspection.md", "provider_name": "protocol_inspection", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_protocol_inspection for xcsh_protocol_inspection.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["protocol_inspectionCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_protocol_inspection landing."
 ---
+
+# xcsh_protocol_inspection landing
+
+<a id="canonical-cc98a9fefd84f27d9c16e221f4eabbdce6b90ff1e1bacd91433bb7d65f1ebb12"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_protocol_inspection
+<a id="canonical-aed4749ae4457329e17438cc00f6a30d774d6dd355e88dd305ed920205f37ddf"></a>
+
+## xcsh_protocol_inspection — xcsh_protocol_inspection / 44f022b8f9f6 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Protocol Inspection Specification in a given namespace. If one already exists it will give
 an error in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-4a36dc84a481f7f8e66acce548d7f37f1721c1c91d943fc01f5c2ba32bb99d97"></a>
+
+## Prerequisites — xcsh_protocol_inspection / 44f022b8f9f6 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-c52f2f1ed72a8813a8923ebbcf6d166887d819291c4078b2d5274d2ac2a11475"></a>
+
+## Minimal configuration — xcsh_protocol_inspection / 44f022b8f9f6 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_protocol_inspection" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-629c3ae00fe0454a4700a4f46a188c91767af2215a40e7ce7cdabd429f881270"></a>
+
+## Root configuration — xcsh_protocol_inspection / 44f022b8f9f6 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-e3feaf4fd874a207d3048b9a106097d408b0acf73ca952026bce4bb371bd0ec2"></a>
 
-- [Property reference](../guides/resources--protocol_inspection--reference.md)
-- [Examples](../guides/resources--protocol_inspection--examples.md)
-- [Import](../guides/resources--protocol_inspection--import.md)
-- [Timeouts](../guides/resources--protocol_inspection--timeouts.md)
+## Next pages — xcsh_protocol_inspection / 44f022b8f9f6 / 6
+
+- [Property reference](../guides/resources--protocol_inspection--reference--group-001.md#canonical-e4364e9cdf919f8070e0c9ff68ce35d1ccf1e8b653ca9312621219bdcca91de8)
+- [Examples](../guides/resources--protocol_inspection--examples--group-001.md#canonical-daa07a474b657dbd62339295ce1f9bb6e4e70833d976326d48460822d296ef4f)
+- [Import](../guides/resources--protocol_inspection--lifecycle--group-001.md#canonical-49e74acc2efc92347f83c9fbfaa202d79c981fe9f204a191bef4ac39c40e649b)
+- [Timeouts](../guides/resources--protocol_inspection--lifecycle--group-001.md#canonical-3cc7b5304d8da3de2835b6f2803fe8cd1d321bc60e7bd2279e7900fee659dd68)

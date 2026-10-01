@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_protocol_policer"
+page_title: "xcsh_protocol_policer landing"
 subcategory: ""
-description: "xcsh_protocol_policer for xcsh_protocol_policer."
-xcsh_docs: {"aliases": [], "body_bytes": 1552, "body_sha256": "sha256:a138e53423b51aeb425f29e90fd5a1946b185a1145373e23b3437cf44a12bd81", "canonical_id": "xcsh-docs:resources:protocol_policer:fundamentals", "child_ids": ["xcsh-docs:resources:protocol_policer:reference", "xcsh-docs:resources:protocol_policer:examples", "xcsh-docs:resources:protocol_policer:import", "xcsh-docs:resources:protocol_policer:timeouts"], "collection_id": "xcsh-docs:resources:protocol_policer:collection", "completeness": "complete", "id": "xcsh-docs:resources:protocol_policer:fundamentals", "parent_id": null, "path": "docs/resources/protocol_policer.md", "provider_name": "protocol_policer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_protocol_policer for xcsh_protocol_policer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["protocol_policerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_protocol_policer landing."
 ---
+
+# xcsh_protocol_policer landing
+
+<a id="canonical-fcfc69cbfd0b4f56641ab603a6ae4460d3f308502cba2e0f15ada8529fd6e6aa"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_protocol_policer
+<a id="canonical-c50b6badd594111220c27a615f8db1e526cb34badb8c8c478459b35e159c2814"></a>
+
+## xcsh_protocol_policer — xcsh_protocol_policer / ba7fa9b0c89f / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages protocol\_policer object, protocol\_policer object contains list of L4 protocol match
 condition and corresponding traffic rate limits in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-b14f26009c165ddf53eee83b62265dc88c12dae61f5d82268f0f5d0438a5e324"></a>
+
+## Prerequisites — xcsh_protocol_policer / ba7fa9b0c89f / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-eb3a3db84ece82898ff3e8674213bf120df9b650502ae54380c716a86af2ea5b"></a>
+
+## Minimal configuration — xcsh_protocol_policer / ba7fa9b0c89f / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_protocol_policer" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-15da196c69cdf9a71bb01875176ed5c82453f617e2f570b825e98787e75510b1"></a>
+
+## Root configuration — xcsh_protocol_policer / ba7fa9b0c89f / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-c1ca894e2e6c25907b83bbb32f7941036cff07b2e5303056eedfcaf674d1d0ec"></a>
 
-- [Property reference](../guides/resources--protocol_policer--reference.md)
-- [Examples](../guides/resources--protocol_policer--examples.md)
-- [Import](../guides/resources--protocol_policer--import.md)
-- [Timeouts](../guides/resources--protocol_policer--timeouts.md)
+## Next pages — xcsh_protocol_policer / ba7fa9b0c89f / 6
+
+- [Property reference](../guides/resources--protocol_policer--reference--group-001.md#canonical-9d82204400732627056272da5be92b804b9f4ef52ee632eb743a54b729452ea9)
+- [Examples](../guides/resources--protocol_policer--examples--group-001.md#canonical-d8eecb4e2fce187ac1c664867ddead2a9474a00809319f7a26614fa8502ffd78)
+- [Import](../guides/resources--protocol_policer--lifecycle--group-001.md#canonical-e96f6cd6f58c70630fe1d81be05a3b47c0a0a245b47314da42e1b729fd21fcdc)
+- [Timeouts](../guides/resources--protocol_policer--lifecycle--group-001.md#canonical-0dd40932e49981ca58f04ad535e2dd87d1527151aee29bbb904cf3a7ea3fa9a1)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_defense_app_infrastructure"
+page_title: "xcsh_bot_defense_app_infrastructure landing"
 subcategory: ""
-description: "xcsh_bot_defense_app_infrastructure for xcsh_bot_defense_app_infrastructure."
-xcsh_docs: {"aliases": [], "body_bytes": 1540, "body_sha256": "sha256:f36a02914763e4d44307b1ae4f4cd5bb6641c15c93f717956afc0276af8d93b0", "canonical_id": "xcsh-docs:resources:bot_defense_app_infrastructure:fundamentals", "child_ids": ["xcsh-docs:resources:bot_defense_app_infrastructure:reference", "xcsh-docs:resources:bot_defense_app_infrastructure:examples", "xcsh-docs:resources:bot_defense_app_infrastructure:import", "xcsh-docs:resources:bot_defense_app_infrastructure:timeouts"], "collection_id": "xcsh-docs:resources:bot_defense_app_infrastructure:collection", "completeness": "complete", "id": "xcsh-docs:resources:bot_defense_app_infrastructure:fundamentals", "parent_id": null, "path": "docs/resources/bot_defense_app_infrastructure.md", "provider_name": "bot_defense_app_infrastructure", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_defense_app_infrastructure/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_defense_app_infrastructure for xcsh_bot_defense_app_infrastructure.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bot_defense_app_infrastructureCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_defense_app_infrastructure landing."
 ---
+
+# xcsh_bot_defense_app_infrastructure landing
+
+<a id="canonical-630ddf7375046a55c019beba5ab35ecf1937656c254050d05d694d11d7ea1599"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_defense_app_infrastructure
+<a id="canonical-ecfc7a0c347ddc18516ea35039540f65e407df189081041384dc664da23a9536"></a>
+
+## xcsh_bot_defense_app_infrastructure — xcsh_bot_defense_app_infrastructure / 34908bd73bcb / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Bot Defense App Infrastructure in a given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-a6e1efd505c0be5758706a43af38284a1530eefe209b0cf9561efa59a5e73779"></a>
+
+## Prerequisites — xcsh_bot_defense_app_infrastructure / 34908bd73bcb / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-e3f7251b95501a5703c46da368fcd09743c675efd8bc137402a060a2f9f0a7a0"></a>
+
+## Minimal configuration — xcsh_bot_defense_app_infrastructure / 34908bd73bcb / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_bot_defense_app_infrastructure" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-af1534bd5af7c53b03ce7965c71e4e9e5561dfb3d2c560f65f26f06d83e64e34"></a>
+
+## Root configuration — xcsh_bot_defense_app_infrastructure / 34908bd73bcb / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1a36223b272ce17a592bf827336ce282201cee90e961fa5d66ed41d591179f71"></a>
 
-- [Property reference](../guides/resources--bot_defense_app_infrastructure--reference.md)
-- [Examples](../guides/resources--bot_defense_app_infrastructure--examples.md)
-- [Import](../guides/resources--bot_defense_app_infrastructure--import.md)
-- [Timeouts](../guides/resources--bot_defense_app_infrastructure--timeouts.md)
+## Next pages — xcsh_bot_defense_app_infrastructure / 34908bd73bcb / 6
+
+- [Property reference](../guides/resources--bot_defense_app_infrastructure--reference--group-001.md#canonical-ab45a834092534caee16f8d6620b6949464c5f1b4a9001ce716fc0b8c3b7aec4)
+- [Examples](../guides/resources--bot_defense_app_infrastructure--examples--group-001.md#canonical-9f069c3c61ed129432bbf3f92c7f65f9447467862f48adffb246e9dad7f21ef4)
+- [Import](../guides/resources--bot_defense_app_infrastructure--lifecycle--group-001.md#canonical-cdf3f61f578246a0ebe8cbeb466d80aa0ce1dc47ddcd239217a5c3dcc3989680)
+- [Timeouts](../guides/resources--bot_defense_app_infrastructure--lifecycle--group-001.md#canonical-ad627479e2ec2f13af7959e424facb55240235a4b16e9ef77d4547a1c93df710)

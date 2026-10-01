@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_site_mesh_group"
+page_title: "xcsh_site_mesh_group landing"
 subcategory: "Infrastructure"
-description: "xcsh_site_mesh_group for xcsh_site_mesh_group."
-xcsh_docs: {"aliases": [], "body_bytes": 1489, "body_sha256": "sha256:ac8252ad122fcdf99640a1162c6f72278c23dbc6089e5c9670cd54d50ffe5062", "canonical_id": "xcsh-docs:resources:site_mesh_group:fundamentals", "child_ids": ["xcsh-docs:resources:site_mesh_group:reference", "xcsh-docs:resources:site_mesh_group:examples", "xcsh-docs:resources:site_mesh_group:import", "xcsh-docs:resources:site_mesh_group:timeouts"], "collection_id": "xcsh-docs:resources:site_mesh_group:collection", "completeness": "complete", "id": "xcsh-docs:resources:site_mesh_group:fundamentals", "parent_id": null, "path": "docs/resources/site_mesh_group.md", "provider_name": "site_mesh_group", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/site_mesh_group/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site_mesh_group for xcsh_site_mesh_group.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["site_mesh_groupCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_site_mesh_group landing."
 ---
+
+# xcsh_site_mesh_group landing
+
+<a id="canonical-5445c68d577813aa505c1832591c89ba83436e7eb3c8c9b83203b87260e168b7"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_site_mesh_group
+<a id="canonical-21a6de1062e93aa31c86701055c2653f7eabde2ffeedc16c0c38886753422927"></a>
+
+## xcsh_site_mesh_group — xcsh_site_mesh_group / 2588dc27075d / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages Site Mesh Group in system namespace of user in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-fdf511a1e0c6f91791c84d75b01ad3377a67f7f1d590b0d2b156a17689b6f70d"></a>
+
+## Prerequisites — xcsh_site_mesh_group / 2588dc27075d / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Required dependencies: `site`.
 
 - site: Sites to include in mesh connectivity
 
-## Minimal configuration
+<a id="canonical-4bbc64fb73aa61bdc5cdbe92aa7b7a5c529f5a4786c49391646ad3a759056698"></a>
+
+## Minimal configuration — xcsh_site_mesh_group / 2588dc27075d / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,13 +62,17 @@ resource "xcsh_site_mesh_group" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-4dfdc38ffc5260181ae1aeb0b95d8fc9de4a2cf451d95d43a083f541c6a80631"></a>
+
+## Root configuration — xcsh_site_mesh_group / 2588dc27075d / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-8003176952c1221f0423521a4b077960479cea34018e6c572cc72a66be4c9665"></a>
 
-- [Property reference](../guides/resources--site_mesh_group--reference.md)
-- [Examples](../guides/resources--site_mesh_group--examples.md)
-- [Import](../guides/resources--site_mesh_group--import.md)
-- [Timeouts](../guides/resources--site_mesh_group--timeouts.md)
+## Next pages — xcsh_site_mesh_group / 2588dc27075d / 6
+
+- [Property reference](../guides/resources--site_mesh_group--reference--group-001.md#canonical-1669321b1fb130f863ad42d706ddb0457074e87b455cb3f938485fc05ca5a9d7)
+- [Examples](../guides/resources--site_mesh_group--examples--group-001.md#canonical-fb5094d4a1ce4aa8a764458ae4ce2b2b0349dc4af1649ffdfb59f055cb68b77a)
+- [Import](../guides/resources--site_mesh_group--lifecycle--group-001.md#canonical-7690561773a4054349b0e4d7e3705498650e27e358f3812098d58f52f36ebeb4)
+- [Timeouts](../guides/resources--site_mesh_group--lifecycle--group-001.md#canonical-dc9d5a96ab3367043d38d6ec35224a15bada443db5d769012b9cbb3775746f59)

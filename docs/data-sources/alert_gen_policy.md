@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_gen_policy"
+page_title: "xcsh_alert_gen_policy landing"
 subcategory: ""
-description: "xcsh_alert_gen_policy for xcsh_alert_gen_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1256, "body_sha256": "sha256:40345d7d9934fd00d2f42ba316e7dba79e960b12b49c47dfd34fcd5cee8edb47", "canonical_id": "xcsh-docs:data-sources:alert_gen_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:alert_gen_policy:reference", "xcsh-docs:data-sources:alert_gen_policy:examples"], "collection_id": "xcsh-docs:data-sources:alert_gen_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:alert_gen_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/alert_gen_policy.md", "provider_name": "alert_gen_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_gen_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_gen_policy for xcsh_alert_gen_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_gen_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_gen_policy landing."
 ---
+
+# xcsh_alert_gen_policy landing
+
+<a id="canonical-66af5b4db37114bd99ef2798c10e6b2faf4f99657029d35c516b10fefc2f1aa8"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_gen_policy
+<a id="canonical-33eee06cb2465b8a713a121e1e34d9538ba6972f45b25cca76699beeae4c0162"></a>
+
+## xcsh_alert_gen_policy — xcsh_alert_gen_policy / d391a589b44e / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Alert Generation Policy in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-88546ba7fa438eb82285efe50b4e397dbb61ca0f174d1de7810e6ea095d2b297"></a>
+
+## Prerequisites — xcsh_alert_gen_policy / d391a589b44e / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-79e267167c67bef59b30ebb7e5204d4205623c92ca7662517445ebaaf9122789"></a>
+
+## Minimal configuration — xcsh_alert_gen_policy / d391a589b44e / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "alert_gen_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-73593913add3d06454a62774fa0b9f25d5b53f4048bdaca1504162e85a2cf580"></a>
+
+## Root configuration — xcsh_alert_gen_policy / d391a589b44e / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-041fa9779e23edf89a4272d577effc022f49b4dfddb2d565817c7d3796008aba"></a>
 
-- [Property reference](../guides/data-sources--alert_gen_policy--reference.md)
-- [Examples](../guides/data-sources--alert_gen_policy--examples.md)
+## Next pages — xcsh_alert_gen_policy / d391a589b44e / 6
+
+- [Property reference](../guides/data-sources--alert_gen_policy--reference--group-001.md#canonical-2e8fb0c00c43506e5e88f5573a46c7fc3c5d2904f33ee950e03580f94f30d516)
+- [Examples](../guides/data-sources--alert_gen_policy--examples--group-001.md#canonical-d17d447e66dec82f267cc359c03ee17dc2e216a459c21d2dd2a3110f30fcc8e4)
