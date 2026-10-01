@@ -1,3 +1,4 @@
+# pylint: disable=invalid-name
 # ruff: noqa: INP001
 """Generate resource import scripts from the shared importer contract."""
 
@@ -21,7 +22,9 @@ def generate(root: Path) -> None:
             continue
         target.parent.mkdir(parents=True, exist_ok=True)
         guidance = contract["guidance"].replace("`", "")
-        target.write_text("#!/usr/bin/env bash\n# " + guidance + "\n" + contract["command"])
+        target.write_text(
+            "#!/usr/bin/env bash\n# " + guidance + "\n" + contract["command"]
+        )
 
 
 if __name__ == "__main__":

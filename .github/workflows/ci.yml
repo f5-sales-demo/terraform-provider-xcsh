@@ -98,8 +98,8 @@ jobs:
           BASE_REF: ${{ github.base_ref }}
         run: |
           echo "Checking PR for generated files..."
-          CHANGED_FILES=$(git diff --name-only --diff-filter=AM "origin/${BASE_REF}...HEAD")
-          CHANGED_FILES="$CHANGED_FILES" bash scripts/check-no-generated-files.sh
+          git diff --name-only --diff-filter=AM "origin/${BASE_REF}...HEAD" \
+            | bash scripts/check-no-generated-files.sh --stdin
 
   # ═══════════════════════════════════════════════════════════════════════════
   # Validate documentation will regenerate correctly (for PRs with tool changes)

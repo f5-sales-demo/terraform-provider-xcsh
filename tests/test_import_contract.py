@@ -14,6 +14,8 @@ from import_contract import resolve_import_contract  # noqa: E402
 SPEC = importlib.util.spec_from_file_location(
     "import_examples", ROOT / "tools/generate-import-examples.py"
 )
+assert SPEC is not None
+assert SPEC.loader is not None
 GENERATOR = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(GENERATOR)
 
@@ -33,6 +35,7 @@ class ImportContractTests(unittest.TestCase):
                     + "\nfunc (r *Fixture) ImportState() {}",
                     "fixture",
                 )
+                assert contract is not None
                 expected = "system/" + "/".join(
                     ["example"] * (len(syntax.split("/")) - 1)
                 )

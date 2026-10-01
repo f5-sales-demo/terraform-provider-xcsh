@@ -98,3 +98,21 @@ if [ "$FAIL" -ne 0 ]; then
   exit 1
 fi
 echo "generated-file check tests passed"
+
+# A documentation schema digest can change every page. The complete diff must
+# cross the process boundary through stdin rather than a Linux-limited env var.
+repo=$(new_repo stdin-generated)
+if (cd "$repo" && printf '%s\n' tools/generate-doc-collections.py docs/resources/example.md | bash "$SCRIPT" --stdin) >/dev/null 2>&1; then
+  echo "[OK] stdin paths retain generator/source policy"
+else
+  echo "[FAIL] stdin paths rejected"
+  FAIL=1
+fi
+repo=$(new_repo stdin-generated-only)
+if (cd "$repo" && printf '%s\n' docs/resources/example.md | bash "$SCRIPT" --stdin) >/dev/null 2>&1; then
+  echo "[FAIL] stdin generated-only output accepted"
+  FAIL=1
+else
+  echo "[OK] stdin generated-only output rejected"
+fi
+exit "$FAIL"
