@@ -131,7 +131,12 @@ def main() -> int:
     monitor = DiskMonitor(paths)
     started = time.monotonic()
     exit_code = run_profile(command, monitor)
+    allocation = []
+    for name in (environment["GOCACHE"], environment["GOMODCACHE"]):
+        files = [item for item in Path(name).rglob("*") if item.is_file() and not item.is_symlink()]
+        allocation.append({"path":name,"files":len(files),"logical_bytes":sum(item.stat().st_size for item in files),"allocated_bytes":sum(item.stat().st_blocks*512 for item in files)})
     runtime = {
+        "cache_allocation_diagnostic": allocation,
         "schema_version": 1,
         "source_sha": source,
         "observed_image_digest": image,
