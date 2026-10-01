@@ -295,7 +295,7 @@ class CollectionTests(unittest.TestCase):
             self.assertIn("[xcsh_fixture](fixture.md)", page)
             self.assertNotIn("functions", page)
         del outputs["docs/resources/fixture.md"]
-        with self.assertRaisesRegex(ValueError, "missing navigation target"):  # noqa: PT027 - standard-library CI runner
+        with self.assertRaisesRegex(ValueError, "missing navigation target"):
             DOCS.registry_navigation(surface, outputs)
 
     def test_generated_manifest_and_progressive_http_navigation(self):
