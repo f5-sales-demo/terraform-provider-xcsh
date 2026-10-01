@@ -130,7 +130,18 @@ def main() -> int:
     )
     monitor = DiskMonitor(paths)
     started = time.monotonic()
-    exit_code = run_profile(command, monitor)
+    writeback_stop = threading.Event()
+    def writeback() -> None:
+        while not writeback_stop.wait(0.2):
+            os.sync()
+    writeback_thread = threading.Thread(target=writeback, daemon=True)
+    writeback_thread.start()
+    try:
+        exit_code = run_profile(command, monitor)
+    finally:
+        writeback_stop.set()
+        writeback_thread.join()
+
     runtime = {
         "schema_version": 1,
         "source_sha": source,

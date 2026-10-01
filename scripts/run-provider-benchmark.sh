@@ -67,6 +67,8 @@ else
   go test -run '^$' -p "$concurrency" ./internal/... ./tools/... >/dev/null
 fi
 
+# Diagnostic: bound XFS speculative reservations during Go cache writes.
+export CACHE_WRITEBACK_DIAGNOSTIC=1
 set +e
 python3 "$script_dir/profile_provider_runtime.py" \
   "$evidence_dir" "$source_sha" "$observed_image" "$cache_state" "$concurrency" -- \
