@@ -7,8 +7,7 @@ SCRIPT="${REPO_ROOT}/scripts/check-no-generated-files.sh"
 
 FAIL=0
 WORK=$(mktemp -d)
-cleanup() { rm -rf "$WORK"; }
-trap cleanup EXIT
+trap 'rm -rf "$WORK"' EXIT
 
 new_repo() {
   local dir="${WORK}/$1"
